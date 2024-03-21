@@ -2,8 +2,8 @@
 create table member(
    email varchar(100) not null,
    pw varchar(100) not null,
-   tel varchar(100) not null,
-   address varchar(100) not null,
+   nick varchar(100) not null,
+   phone varchar(100) not null,
    primary key(email)
 );
 
@@ -53,7 +53,7 @@ create table board(
 -- 조회수 컬럼 추가 
 ALTER TABLE board ADD count INT DEFAULT 0;
 
-drop table board;
+drop table member;
 -- board 데이터
 insert into board(title,writer,filename, content) values('test1','test1','test1','test1');
 insert into board(title,writer,filename, content) values('test2','test2','test2','test2');
