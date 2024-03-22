@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div>
-		<form action="login.html" method="post">
+		<form action="Login_GHC.jsp" method="post">
 			<input type="submit" value="로그인">
 		</form>
 		<form action="Join_LMT.jsp" method="post">
