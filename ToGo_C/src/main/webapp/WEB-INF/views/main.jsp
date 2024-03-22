@@ -7,8 +7,12 @@
 </head>
 <body>
 	<div>
-		<button>로그인</button>
-		<button>회원가입</button>
+		<form action="login.html" method="post">
+			<input type="submit" value="로그인">
+		</form>
+		<form action="Join_LMT.jsp" method="post">
+			<input type="submit" value="회원가입">
+		</form>
 	</div>
 </body>
 </html>
