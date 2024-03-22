@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="membersSelect" method="post">
+		<form action="memberslogin" method="post">
 			
 			<p><input type="text" class="form-control" name="mb_id" placeholder="아이디를 입력하세요."></p>
 			<p><input type="password"  class="form-control" name="mb_pw" placeholder="비밀번호를 입력하세요."></p>
