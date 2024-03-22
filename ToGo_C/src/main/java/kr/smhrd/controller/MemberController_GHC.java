@@ -24,8 +24,8 @@ public class MemberController_GHC {
 	private MembersMapper_SHS memberMapper;
 	
 	// 로그인 화면으로 이동
-	@RequestMapping("/membersSelect")
-	public String membersSelect() {
+	@RequestMapping("/goLogin")
+	public String goLogin() {
 
 		return "Login_GHC";
 	}

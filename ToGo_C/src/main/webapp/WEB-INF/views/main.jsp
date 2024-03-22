@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div>
-		<form action="membersSelect" method="post">
+		<form action="goLogin" method="post">
 			<input type="submit" value="로그인">
 		</form>
 		<form action="membersInsert" method="post">
