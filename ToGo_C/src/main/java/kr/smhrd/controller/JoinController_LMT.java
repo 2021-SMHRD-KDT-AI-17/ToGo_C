@@ -7,22 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.smhrd.entity.Members;
-import kr.smhrd.mapper.MembersMapper_LMT;
 
 @Controller
 public class JoinController_LMT {
 
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	@Autowired
-	private MembersMapper_LMT membersMapper;
-	
 	@RequestMapping("/membersInsert")
 	public String membersInsert(Members members) {
-		membersMapper.membersInsert(members);
+//		membersMapper.membersInsert(members);
 		
-		return "main";
+		return "Join_LMT";
 	}
 	
 }

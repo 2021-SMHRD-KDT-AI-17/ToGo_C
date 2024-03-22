@@ -13,18 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.smhrd.entity.Members;
 
-import kr.smhrd.mapper.MemberMapper_GHC;
-
 
 
 
 
 @Controller
 public class MemberController_GHC {
-	private static final Logger logger = LoggerFactory.getLogger(MemberController_GHC.class);
-	
-	@Autowired
-	private  MemberMapper_GHC memberMapper;
 	
 	@RequestMapping("/membersSelect")
 	public String membersSelect(Members member, HttpSession session) {

@@ -10,7 +10,7 @@
 		<form action="membersSelect" method="post">
 			<input type="submit" value="로그인">
 		</form>
-		<form action="membersInser" method="post">
+		<form action="membersInsert" method="post">
 			<input type="submit" value="회원가입">
 		</form>
 	</div>
