@@ -11,7 +11,7 @@
 	<fieldset align="center" style="border: dashed blue;">
 		<legend text-align="center">회원가입</legend>
 		
-		<form action="JoinController_LMT" method="post">
+		<form action="membersInsert" method="post">
 			<table align="center">
 				<tr>
 					<td>ID</td>

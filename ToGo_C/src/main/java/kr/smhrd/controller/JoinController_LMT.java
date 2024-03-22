@@ -14,6 +14,7 @@ public class JoinController_LMT {
 
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	@Autowired
 	private MembersMapper_LMT membersMapper;
 	
