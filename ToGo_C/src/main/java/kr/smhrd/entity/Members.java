@@ -11,20 +11,18 @@ import lombok.ToString;
 
 // @Data - 만능
 
-@AllArgsConstructor
-@NoArgsConstructor // 기본생성자
-@RequiredArgsConstructor
+@Data
 @Getter
 @Setter
 @ToString
-public class Member {
+public class Members {
 
-	@NonNull
-	private String email;
-	@NonNull
-	private String pw;
-	private String tel;
-	private String address;
+	private String mb_id;
+	private String mb_pw;
+	private String mb_nick;
+	private String mb_phone;
+	private String joined_at;
+	private String mb_leave;
 	
 	
 	
