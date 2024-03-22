@@ -7,10 +7,10 @@
 </head>
 <body>
 	<div>
-		<form action="Login_GHC.jsp" method="post">
+		<form action="membersSelect" method="post">
 			<input type="submit" value="로그인">
 		</form>
-		<form action="Join_LMT.jsp" method="post">
+		<form action="membersInser" method="post">
 			<input type="submit" value="회원가입">
 		</form>
 	</div>
