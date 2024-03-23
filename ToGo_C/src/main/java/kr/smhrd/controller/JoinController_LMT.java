@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,14 @@ public class JoinController_LMT {
 		membersMapper.membersInsert(members);
 		System.out.println(members.toString());
 		return "JoinSuccess_LMT";
+	}
+	
+	
+	@RequestMapping("/membersLogout")
+	public String membersLogout(HttpSession session) {
+		session.removeAttribute("loginMember");
+		//session.invalidate();
+		return "main";
 	}
 	
 }
