@@ -8,37 +8,18 @@
 </head>
 <body>
 
-	<fieldset align="center" style="border: dashed blue;">
-		<legend text-align="center">회원가입</legend>
-		
+ <h1>회원가입</h1>
+ <div>
 		<form action="membersInsert" method="post">
-			<table align="center">
-				<tr>
-					<td>ID</td>
-					<td><input type="text" name="mb_id"></td>
-					<td rowspan="5">
-                    
-                 </td>
-				</tr>
-				<tr>
-					<td>PW</td>
-					<td><input type="passward" name="mb_pw"></td>
-				</tr>
-				<tr>
-					<td>NICKNAME</td>
-					<td><input type="text" name="mb_nick"></td>
-				</tr>
-				<tr>
-					<td>TEL</td>
-					<td><input type="text" name="mb_phone"></td>
-				</tr>
-				
-				<input type="submit">
-				
-				
-			</table>
+			<p><input type="text"  placeholder="id를 입력해주세요" name="mb_id"></p>
+			<p><input type="passward" placeholder="pw를 입력해주세요"	name="mb_pw"></p>
+			<p><input type="text" placeholder="닉네임을 입력해주세요" name="mb_nick"></p>
+			<p><input type="text" placeholder="핸드폰 번호를 입력해주세요" name="mb_phone"></p>
+			<p><input type="submit" value="회원가입"></p>
 		</form>
-	</fieldset>
+ 
+ </div>
+
 
 </body>
 </html>
