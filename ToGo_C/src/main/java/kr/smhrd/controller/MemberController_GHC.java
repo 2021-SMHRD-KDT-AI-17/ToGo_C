@@ -36,16 +36,33 @@ public class MemberController_GHC {
 		
 		//System.out.println(member.toString());
 //		Members loginMember = memberMapper.membersSelect(member); //로그인 성공했을때
-//		session.setAttribute("loginMember", loginMember);
+//		
 		// 로그인한 사람의 메세지 가져오기
 		
 		Members loginMember = memberMapper.memberslogin(member);
-		
+		session.setAttribute("loginMember", loginMember);
+		//System.out.println(loginMember);
 		if (loginMember != null) {
-			return "main";
+			return "loginSuccess";			//로그인 성공 -> main
 		}else {
-			return "Join_LMT";
+			return "Login_GHC";		//로그인 실패시 -> 다시 로그인(alert 다시로그인 해주세요 띄울 수 있으면 띄우기)
 			
 		}
 	}
+	
+	// 회원정보 수정하는 페이지로 이동 /showUpdate
+		@RequestMapping("/showUpdate")
+		public String showUpdate() {
+			return "updateMember_GHC";
+		}
+	
+		@RequestMapping("/memberUpdate")
+		public String memberUpdate(Members member, HttpSession session) {
+			memberMapper.memberUpdate(member);
+			session.setAttribute("loginMember",member);
+			return "main";
+		}
+	
+	
+	
 }
