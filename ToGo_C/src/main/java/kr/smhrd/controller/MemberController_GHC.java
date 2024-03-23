@@ -42,7 +42,7 @@ public class MemberController_GHC {
 		Members loginMember = memberMapper.memberslogin(member);
 		session.setAttribute("loginMember", loginMember);
 		//System.out.println(loginMember);
-		if (loginMember != null) {
+		if ((loginMember != null) && loginMember.getMb_leave().equals("0")) {
 			return "loginSuccess";			//로그인 성공 -> main
 		}else {
 			return "Login_GHC";		//로그인 실패시 -> 다시 로그인(alert 다시로그인 해주세요 띄울 수 있으면 띄우기)
@@ -55,7 +55,7 @@ public class MemberController_GHC {
 		public String showUpdate() {
 			return "updateMember_GHC";
 		}
-	
+	// 회원정보 수정
 		@RequestMapping("/memberUpdate")
 		public String memberUpdate(Members member, HttpSession session) {
 			memberMapper.memberUpdate(member);
@@ -63,6 +63,23 @@ public class MemberController_GHC {
 			return "main";
 		}
 	
+		// 메인 or 탈퇴 쪽 페이지로 가는 메서드
+		@RequestMapping("/deletePage")
+		public String deletePage(){
+			return "deleteMember_GHC";
+		}
 	
-	
+		@RequestMapping("/deleteMember")
+		public String deleteMember( HttpSession session) {
+			Members loginMember = (Members) session.getAttribute("loginMember");
+		//	System.out.println(loginMember.toString());
+			memberMapper.deleteMember(loginMember);
+			
+			session.invalidate();
+			
+			
+			return "main";
+			
+		}
+		
 }

@@ -10,4 +10,6 @@ public interface MembersMapper_SHS {
 
 	public void memberUpdate(Members member);
 
+	public void deleteMember(Members member);
+
 }

@@ -19,7 +19,7 @@
 	<%=loginMember.getMb_nick()%>님 환영합니다!<br> 
 	<a href="#"><button class="btn btn-secondary">주문내역</button></a>
 	<a href ="showUpdate"><button class="btn btn-secondary">개인정보수정</button></a>
-	<a href="#"><button class="btn btn-secondary">회원탈퇴</button></a>
+	<a href="deletePage"><button class="btn btn-secondary">회원탈퇴</button></a>
 	<a href="membersLogout"><button class="btn btn-secondary">로그아웃</button></a>
 	<!-- jsp 파일명은 파일명 써야하고, servlet안써도됨 -->
 	</div>
