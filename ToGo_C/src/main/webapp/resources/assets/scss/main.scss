@@ -1,0 +1,18 @@
+
+// including variables and mixins
+@import "resources/assets/scss/theme/_variables";
+@import "resources/assets/scss/theme/_mixins";
+@import "resources/assets/scss/theme/_predefine";
+@import "resources/assets/scss/theme/_reset";
+
+
+// Custom Scss 
+@import "resources/assets/scss/theme/_elements";
+@import "resources/assets/scss/theme/_header";
+@import "resources/assets/scss/theme/_banner";
+@import "resources/assets/scss/theme/_home";
+@import "resources/assets/scss/theme/_common";
+@import "resources/assets/scss/theme/_product";
+@import "resources/assets/scss/theme/_blog";
+@import "resources/assets/scss/theme/_contact";
+@import "resources/assets/scss/theme/_footer";
