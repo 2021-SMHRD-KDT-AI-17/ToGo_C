@@ -17,7 +17,7 @@
 <%-- 	<%=nick %>님 환영합니다!<br> --%>
 	<!--  여기있는 member는 session에 있는 member값임 근데 application을 가져오고싶으면 application을 치면됨! -->
 	<%=loginMember.getMb_nick()%>님 환영합니다!<br> 
-	<a href="#"><button class="btn btn-secondary">주문내역</button></a>
+	<a href="orderMap"><button class="btn btn-secondary">주문내역</button></a>
 	<a href ="showUpdate"><button class="btn btn-secondary">개인정보수정</button></a>
 	<a href="deletePage"><button class="btn btn-secondary">회원탈퇴</button></a>
 	<a href="membersLogout"><button class="btn btn-secondary">로그아웃</button></a>
