@@ -54,7 +54,7 @@
 											<li class="nav-item"><a class="nav-link" href="goLogin">로그인</a></li>
 											<li class="nav-item"><a class="nav-link" href="goJoin">회원가입</a></li>
 										<% } else { %>
-												<li class="nav-item"><a class="nav-link" href="orderMap">주문내역</a></li>
+												<li class="nav-item"><a class="nav-link" href="#">주문내역</a></li>
 												<li class="nav-item"><a class="nav-link" href="showUpdate">회원 정보 수정</a></li>
 												<li class="nav-item"><a class="nav-link" href="deletePage">회원탈퇴</a></li>
 												<li class="nav-item"><a class="nav-link" href="membersLogout">로그 아웃 </a></li>

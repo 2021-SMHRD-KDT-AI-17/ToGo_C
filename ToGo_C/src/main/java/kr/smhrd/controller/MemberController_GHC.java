@@ -98,6 +98,7 @@ public class MemberController_GHC {
 			return "SearchMap";
 		}
 		
+		//홈으로 가는 메서드
 		@RequestMapping("/goIndex")
 		public String goIndex() {
 			return "index";
