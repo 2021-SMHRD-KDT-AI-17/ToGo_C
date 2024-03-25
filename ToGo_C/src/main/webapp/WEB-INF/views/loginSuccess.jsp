@@ -11,7 +11,6 @@
 	<div class="container">
 	 <%
 	 Members loginMember =(Members)session.getAttribute("loginMember");
-	
 	%> 
 
 <%-- 	<%=nick %>님 환영합니다!<br> --%>

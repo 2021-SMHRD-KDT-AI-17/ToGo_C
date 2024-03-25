@@ -43,7 +43,7 @@ public class MemberController_GHC {
 		session.setAttribute("loginMember", loginMember);
 		//System.out.println(loginMember);
 		if ((loginMember != null) && loginMember.getMb_leave().equals("0")) {
-			return "loginSuccess";			//로그인 성공 -> main
+			return "index";			//로그인 성공 -> main
 		}else {
 			return "Login";		//로그인 실패시 -> 다시 로그인(alert 다시로그인 해주세요 띄울 수 있으면 띄우기)
 			
@@ -60,7 +60,7 @@ public class MemberController_GHC {
 		public String memberUpdate(Members member, HttpSession session) {
 			memberMapper.memberUpdate(member);
 			session.setAttribute("loginMember",member);
-			return "main";
+			return "index";
 		}
 	
 		// 메인 or 탈퇴 쪽 페이지로 가는 메서드
@@ -79,7 +79,7 @@ public class MemberController_GHC {
 			session.invalidate();
 			
 			
-			return "main";
+			return "index";
 			
 		}
 		
@@ -96,4 +96,12 @@ public class MemberController_GHC {
 			
 			return "SearchMap";
 		}
+		
+		@RequestMapping("/goIndex")
+		public String goIndex() {
+			return "index";
+		}
+		
+		
+		
 }

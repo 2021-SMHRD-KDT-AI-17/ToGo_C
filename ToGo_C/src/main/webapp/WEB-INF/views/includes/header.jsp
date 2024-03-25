@@ -1,3 +1,4 @@
+<%@page import="kr.smhrd.entity.Members"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,6 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<%
+	Members loginMember = (Members) session.getAttribute("loginMember");
+	%>
 
 		<header class="header_area sticky-header">
 		<div class="main_menu">
@@ -45,11 +50,15 @@
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">마이 페이지</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="goLogin">로그인</a></li>
-<!-- 회원가입 부분 추가 - 임명택 -->
-									<li class="nav-item"><a class="nav-link" href="goJoin">회원가입</a></li>
-									<li class="nav-item"><a class="nav-link" href="tracking.html">회원 정보 수정</a></li>
-									<li class="nav-item"><a class="nav-link" href="elements.html">로그 아웃 </a></li>
+										<%if (loginMember == null) {%>
+											<li class="nav-item"><a class="nav-link" href="goLogin">로그인</a></li>
+											<li class="nav-item"><a class="nav-link" href="goJoin">회원가입</a></li>
+										<% } else { %>
+												<li class="nav-item"><a class="nav-link" href="orderMap">주문내역</a></li>
+												<li class="nav-item"><a class="nav-link" href="showUpdate">회원 정보 수정</a></li>
+												<li class="nav-item"><a class="nav-link" href="deletePage">회원탈퇴</a></li>
+												<li class="nav-item"><a class="nav-link" href="membersLogout">로그 아웃 </a></li>
+										<% } %>
 								</ul>
 							</li>
 							
@@ -59,8 +68,16 @@
 							<li></li>
 							
 							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							
+									<%if (loginMember == null) {%>
+										<a href="goLogin" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">로그인 해주세요</a>	
+										<% } else { %>
+												
+												<li class="nav-item"><a class="nav-link" href="#">환영합니다 <strong><%=loginMember.getMb_nick()%></strong>고객님!</a></li>
+										<% } %>
+							
+						
 							</li>
 							
 						</ul>

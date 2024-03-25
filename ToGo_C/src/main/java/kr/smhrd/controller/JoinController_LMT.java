@@ -43,7 +43,7 @@ public class JoinController_LMT {
 	public String membersLogout(HttpSession session) {
 		session.removeAttribute("loginMember");
 		//session.invalidate();
-		return "main";
+		return "index";
 	}
 	
 }

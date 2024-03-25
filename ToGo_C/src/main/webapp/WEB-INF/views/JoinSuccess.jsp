@@ -46,9 +46,9 @@
 </style>
 <body>
 
-   <%-- <%
-   Members loginMember =(Members)session.getAttribute("loginMember");
-   %> --%>
+	 <%
+	 Members loginMember =(Members)session.getAttribute("loginMember");
+	%> 
 
    <!-- 헤더 영역 시작(includes 폴더) - 홍창민 -->
 
@@ -65,9 +65,9 @@
 
          <div>
             <ul class="list-group list-group-flush">
-               <li class="list-group-item"><h1>환영합니다 고객님!</h1></li>
+               <li class="list-group-item"><h1>환영합니다<%=loginMember.getMb_nick()%>고객님!</h1></li>
                <li class="list-group-item">회원가입을 축하합니다.</li>
-               <li class="list-group-item">가입 일자 : </li>
+               <li class="list-group-item">가입 일자 :<%=loginMember.getJoined_at()%> </li>
                <li><button onclick='location.href="goLogin"'>시작하기</button></li>
             </ul>
          </div>
