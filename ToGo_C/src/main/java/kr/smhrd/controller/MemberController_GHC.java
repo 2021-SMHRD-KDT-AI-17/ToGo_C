@@ -30,6 +30,8 @@ public class MemberController_GHC {
 		return "Login";
 	}
 	
+	
+	
 	// 아이디 비번 입력후 있는지 확인 
 	@RequestMapping("/memberslogin")
 	public String memberslogin(Members member, HttpSession session) {

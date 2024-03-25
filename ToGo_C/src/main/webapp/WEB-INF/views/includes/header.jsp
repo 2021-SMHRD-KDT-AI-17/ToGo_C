@@ -71,7 +71,7 @@
 							
 									<%if (loginMember == null) {%>
 										<a href="goLogin" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-											 aria-expanded="false">로그인 해주세요</a>	
+											 aria-expanded="false">로그인 해주세요</a>
 									<% } else { %>
 										<li class="nav-item"><a class="nav-link" href="#">환영합니다 <strong><%=loginMember.getMb_nick()%></strong>고객님!</a></li>
 									<% } %>
