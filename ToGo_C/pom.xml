@@ -205,6 +205,19 @@
 			<version>1.1.2</version>
 		</dependency>
 
+	<!-- cos -->
+<dependency>
+    <groupId>com.jfinal</groupId>
+    <artifactId>cos</artifactId>
+    <version>2020.4</version>
+</dependency>
+		
+		<!-- gson -->
+		<dependency>
+       <groupId>com.google.code.gson</groupId>
+         <artifactId>gson</artifactId>
+         <version>2.8.7</version>
+ 	</dependency>      
 
 	</dependencies>
 	<build>

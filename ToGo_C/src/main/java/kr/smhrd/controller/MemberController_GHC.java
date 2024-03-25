@@ -69,6 +69,7 @@ public class MemberController_GHC {
 			return "deleteMember_GHC";
 		}
 	
+		//회원탈퇴 -> update로 mb_leave=1 값 바꾸기!!(getAtttribute사용!)
 		@RequestMapping("/deleteMember")
 		public String deleteMember( HttpSession session) {
 			Members loginMember = (Members) session.getAttribute("loginMember");
@@ -82,4 +83,17 @@ public class MemberController_GHC {
 			
 		}
 		
+		//회원탈퇴 말고 원래 화면으로 돌아가기 //의문점 login으로 다시가면 로그인 회원가입이된다.?-> session값이 있으면 로그인이 되면 안되게 해야함!!!
+		@RequestMapping("/goMain")
+		public String goMain() {
+			
+			return "loginSuccess";
+		}
+		
+		//임시 **** 지도 맵 구현하기!!
+		@RequestMapping("/orderMap")
+		public String orderMap() {
+			
+			return "SearchMap";
+		}
 }
