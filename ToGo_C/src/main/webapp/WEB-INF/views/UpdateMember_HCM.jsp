@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,36 +41,37 @@
         }
     </style>
     <!--
-		CSS
-		============================================= -->
-	<link rel="stylesheet" href="resources/assets/css/linearicons.css">
-	<link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
-	<link rel="stylesheet" href="resources/assets/css/themify-icons.css">
+      CSS
+      ============================================= -->
+   <link rel="stylesheet" href="resources/assets/css/linearicons.css">
+   <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
+   <link rel="stylesheet" href="resources/assets/css/themify-icons.css">
 
-	<link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
-	<link rel="stylesheet" href="resources/assets/css/nice-select.css">
-	<link rel="stylesheet" href="resources/assets/css/nouislider.min.css">
-	<link rel="stylesheet" href="resources/assets/css/ion.rangeSlider.css" />
-	<link rel="stylesheet" href="resources/assets/css/ion.rangeSlider.skinFlat.css" />
-	<link rel="stylesheet" href="resources/assets/css/magnific-popup.css">
-	<link rel="stylesheet" href="resources/assets/css/main.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
+   <link rel="stylesheet" href="resources/assets/css/nice-select.css">
+   <link rel="stylesheet" href="resources/assets/css/nouislider.min.css">
+   <link rel="stylesheet" href="resources/assets/css/ion.rangeSlider.css" />
+   <link rel="stylesheet" href="resources/assets/css/ion.rangeSlider.skinFlat.css" />
+   <link rel="stylesheet" href="resources/assets/css/magnific-popup.css">
+   <link rel="stylesheet" href="resources/assets/css/main.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
 <body>
 
-	<!-- Start Header Area -->
+   <!-- Start Header Area -->
 
-	<%@include file="./includes/header.jsp"%>
+   <%@include file="./includes/header.jsp"%>
 
-	<!-- End Header Area -->
+   <!-- End Header Area -->
 
-	<div class="updateMember">
+   <div class="updateMember">
 
         <h1> 회원 정보 수정</h1>
         <p> 접속한 아이디 : ${loginMember.mb_id}</p>
         <p> 가입 일자 : ${loginMember.joined_at}</p>
         <form action="memberUpdate" method="post">
+       <input type="hidden" name="mb_id" value="${loginMember.mb_id}">
             <div class="accordion" id="">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -86,7 +87,7 @@
                                 <strong>비밀번호 입력 : </strong>
                             </div>
                             <div class="accordion-body-right">
-                                <input type="password" name="mb_pw" id="mb_pw" class="form-input" 
+                                <input type="password" name="mb_pw" id="mb_pw" class="form-input" placeholder="PW를 입력하세요"
                                     style="width: 200px; margin-left: 10px;">
                             </div>
                             <div class="eyes">
@@ -117,7 +118,7 @@
                                 <strong>닉네임 입력 : </strong>
                             </div>
                             <div class="accordion-body-right">
-                                <input type="text" name="mb_nick" id="mb_nick" class="form-input"
+                                <input type="text" name="mb_nick" id="mb_nick" class="form-input" value="${loginMember.mb_nick}" placeholder="변경할 닉네임을 입력하세요"
                                     style="width: 200px; margin-left: 10px;">
                             </div>
                             
@@ -139,7 +140,7 @@
                                 <strong>핸드폰 번호 입력 : </strong>
                             </div>
                             <div class="accordion-body-right">
-                                <input type="text" name="mb_phone" id="mb_phone" class="form-input"
+                                <input type="text" name="mb_phone" id="mb_phone" class="form-input" value="${loginMember.mb_phone}" placeholder="전화번호를 입력하세요"
                                     style="width: 200px; margin-left: 10px;">
                             </div>
 
@@ -154,7 +155,7 @@
                     <button type="button" class="btn btn-outline-secondary">홈 화면으로</button>
                 </div>
                 <div class="submit-button">
-                    <button type="button" class="btn btn-primary">변경 내용 저장</button>
+                    <input type="submit" value="변경내용저장" class="btn btn-primary"></input>
                 </div>
 
             </div>
@@ -186,30 +187,30 @@
 
 
     
-	
-	<!-- start footer Area -->
+   
+   <!-- start footer Area -->
 
-	<%@include file="./includes/footer.jsp"%>
+   <%@include file="./includes/footer.jsp"%>
 
-	<!-- End footer Area -->
+   <!-- End footer Area -->
 
-	
-	<script src="https://kit.fontawesome.com/d97bdf4abd.js" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-	 crossorigin="anonymous"></script>
-	<script src="resources/assets/js/vender/bootstrap.min.js"></script>
-	<script src="resources/assets/js/jquery.ajaxchimp.min.js"></script>
-	<script src="resources/assets/js/jquery.nice-select.min.js"></script>
-	<script src="resources/assets/js/jquery.sticky.js"></script>
-	<script src="resources/assets/js/nouislider.min.js"></script>
-	<script src="resources/assets/js/countdown.js"></script>
-	<script src="resources/assets/js/jquery.magnific-popup.min.js"></script>
-	<script src="resources/assets/js/owl.carousel.min.js"></script>
-	<script src="resources/assets/js/main.js"></script>
-	<script src="checkout.js"></script></body>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+   
+   <script src="https://kit.fontawesome.com/d97bdf4abd.js" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   <script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+   <script src="resources/assets/js/vender/bootstrap.min.js"></script>
+   <script src="resources/assets/js/jquery.ajaxchimp.min.js"></script>
+   <script src="resources/assets/js/jquery.nice-select.min.js"></script>
+   <script src="resources/assets/js/jquery.sticky.js"></script>
+   <script src="resources/assets/js/nouislider.min.js"></script>
+   <script src="resources/assets/js/countdown.js"></script>
+   <script src="resources/assets/js/jquery.magnific-popup.min.js"></script>
+   <script src="resources/assets/js/owl.carousel.min.js"></script>
+   <script src="resources/assets/js/main.js"></script>
+   <script src="checkout.js"></script></body>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>

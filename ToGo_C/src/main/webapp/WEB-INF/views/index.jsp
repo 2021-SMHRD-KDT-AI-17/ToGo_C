@@ -58,7 +58,14 @@
 						<div class="f-icon">
 							<img src="resources/images/features/f-icon1.png" alt="">
 						</div>
+						<!-- 휴게소 주문하기  로그인 시 접근 가능 로그인 안할시 로그인 페이지로 -->
+						<%if (loginMember == null) {%>
+						
+						<h6><a href="goLogin">휴게소 주문하기</a></h6>
+						<% } else { %>
 						<h6><a href="orderMap">휴게소 주문하기</a></h6>
+						<% } %>
+						
 						<p>"3.23 주문하기 간단한 설명 문구"</p>
 						<p>"적절한 이미지 넣기"</p>
 					</div>

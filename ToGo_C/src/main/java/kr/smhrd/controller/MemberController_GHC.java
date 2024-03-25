@@ -54,13 +54,15 @@ public class MemberController_GHC {
 	// 회원정보 수정하는 페이지로 이동 /showUpdate
 		@RequestMapping("/showUpdate")
 		public String showUpdate() {
-			return "updateMember_GHC";
+			return "UpdateMember_HCM";
 		}
+		
 	// 회원정보 수정
 		@RequestMapping("/memberUpdate")
 		public String memberUpdate(Members member, HttpSession session) {
 			memberMapper.memberUpdate(member);
-			session.setAttribute("loginMember",member);
+			Members loginMember = memberMapper.memberslogin(member);
+			session.setAttribute("loginMember",loginMember);
 			return "index";
 		}
 	
