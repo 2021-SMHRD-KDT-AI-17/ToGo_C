@@ -25,7 +25,10 @@ CREATE TABLE members
     `mb_id`      VARCHAR(30)        COMMENT '회원 아이디', 
     `mb_pw`      VARCHAR(32)        COMMENT '회원 비밀번호', 
     `mb_nick`    VARCHAR(50)        COMMENT '회원 닉네임', 
-    `mb_phone`   VARCHAR(20)        COMMENT '회원 폰번호'
+    `mb_phone`   VARCHAR(20)        COMMENT '회원 폰번호',
+    `joined_at`  DATETIME           DEFAULT now() COMMENT '회원 가입일자', 
+    `mb_leave`   CHAR(1)            DEFAULT '0' COMMENT '탈퇴 유무', 
+     PRIMARY KEY (mb_id)
     
 );
 

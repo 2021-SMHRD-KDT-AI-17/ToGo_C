@@ -46,6 +46,8 @@
 								 aria-expanded="false">마이 페이지</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="goLogin">로그인</a></li>
+<!-- 회원가입 부분 추가 - 임명택 -->
+									<li class="nav-item"><a class="nav-link" href="goJoin">회원가입</a></li>
 									<li class="nav-item"><a class="nav-link" href="tracking.html">회원 정보 수정</a></li>
 									<li class="nav-item"><a class="nav-link" href="elements.html">로그 아웃 </a></li>
 								</ul>

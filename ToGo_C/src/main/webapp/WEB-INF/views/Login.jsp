@@ -78,7 +78,8 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>로그인 <span style="font-size: 11px">Login</span></h3>
-						<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+						
+						<form class="row login_form" action="memberslogin" method="post" id="contactForm" novalidate="novalidate">
 							
 							<!-- 3.24 로그인 플로팅 버젼으로 변경 - 홍창민
 							
@@ -88,11 +89,11 @@
 							
 							 -->
 							<div class="form-floating mb-3">
- 								 <input type="text" class="form-control" id="floatingInput" placeholder="아이디 id">
+ 								 <input type="text" class="form-control" id="floatingInput" placeholder="아이디 id" name="mb_id">
   								 <label for="floatingInput">아이디</label>
   							</div>
 							<div class="form-floating">
- 								 <input type="password" class="form-control" id="floatingPassword" placeholder="패스워드 password">
+ 								 <input type="password" class="form-control" id="floatingPassword" placeholder="패스워드 password" name="mb_pw">
  								 <label for="floatingPassword">비밀번호</label>
 							</div>
 							<div class="col-md-12 form-group">

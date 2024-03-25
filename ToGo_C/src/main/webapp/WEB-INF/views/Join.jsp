@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="kr.smhrd.entity.Members"%>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
 <head>
 <script src="../assets/js/color-modes.js"></script>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 가입</title>
 
 <!--
@@ -224,16 +226,20 @@
 
 			<div class="col-md-7 col-lg-8">
 				<h4 class="mb-3">회원 가입 양식</h4>
-				<form class="needs-validation" novalidate>
+				
+				<form action="membersInsert" method="post" class="needs-validation" novalidate>
 					<div class="row g-3">
 
 						<div class="col-12">
-							<label for="mb_id" class="form-label">아이디</label>
+							<label for="inputId" class="form-label">아이디</label>
 							<div class="input-group has-validation">
-								<span class="input-group-text"><i class="fa-solid fa-fish"></i></span> <input
-									type="text" class="form-control" id="mb_id" placeholder=""
-									required>
+								<span class="input-group-text"><i class="fa-solid fa-fish"></i></span>
+								 <input	type="text" class="form-control" id="inputId" placeholder="id를 입력해주세요" required  name="mb_id">
 								<div class="invalid-feedback">*아이디 입력은 필수사항입니다.</div>
+								
+	<!-- ID중복확인 -->								
+								<p><input  type="button" value="ID 중복체크" onclick="checkId()"></p>
+								<p><span id="resultCheck"></span></p>
 							</div>
 						</div>
 
@@ -241,7 +247,7 @@
 							<label for="mb_pw" class="form-label">비밀번호</label>
 							<div class="input-group has-validation">
 								<span class="input-group-text"><i class="fa-solid fa-key"></i></i></span> <input
-									type="password" class="form-control" id="mb_pw" placeholder=""
+									type="password" class="form-control" id="mb_pw" placeholder="pw를 입력해주세요" name="mb_pw"
 									required>
 								<div class="invalid-feedback">*비밀번호 입력은 필수사항입니다.</div>
 							</div>
@@ -262,7 +268,7 @@
 							<label for="mb_nick" class="form-label">닉네임</label>
 							<div class="input-group has-validation">
 								<span class="input-group-text"><i class="fa-solid fa-user-astronaut"></i></span> <input
-									type="text" class="form-control" id="mb_nick" placeholder="나는투고"
+									type="text" class="form-control" id="mb_nick" placeholder="닉네임을 입력해주세요" name="mb_nick"
 									required>
 								<div class="invalid-feedback">*닉네임 입력은 필수사항입니다.</div>
 							</div>
@@ -272,7 +278,7 @@
 							<label for="mb_phone" class="form-label">휴대폰 번호</label>
 							<div class="input-group has-validation">
 								<span class="input-group-text"><i class="fa-solid fa-phone"></i></span> <input
-									type="text" class="form-control" id="mb_phone" placeholder="010-0000-0000"
+									type="text" class="form-control" id="mb_phone" placeholder="010-0000-0000" name="mb_phone"
 									required>
 								<div class="invalid-feedback">*휴대폰 번호 입력은 필수사항입니다.</div>
 							</div>
@@ -379,9 +385,13 @@
 					-->
 
 					<hr class="my-4">
-
-					<button class="w-100 btn btn-primary btn-lg" type="submit" onclick='location.href="JoinSuccess"'>회원가입 완료</button>
+								<p><input type="submit" value="회원가입"></p>
+					
+					<!-- 잠깐만!!
+					 <button class="w-100 btn btn-primary btn-lg" type="submit" onclick='location.href="JoinSuccess"'>회원가입 완료</button>
+					  -->
 				</form>
+				
 			</div>
 	</div>
 	</main>
@@ -394,8 +404,11 @@
 
 	<!-- End footer Area -->
 
-
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	
+	
+	
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
 		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
@@ -421,6 +434,34 @@
 	<script src="resources/assets/js/checkout.js"></script>
 	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://kit.fontawesome.com/d97bdf4abd.js" crossorigin="anonymous"></script>
+	
+	
+	<!-- 비동기식 id중복확인  -->
+	
+ 
+ 	<script type="text/javascript">
+		function checkId() {
+			var inputId = $('#inputId').val();
+			console.log(inputId);
+
+			$.ajax({
+				url : 'IdCheck',
+				data : {'inputId' : inputId},
+				type : 'get',
+				success : function(data) {
+					if (data == 1) {
+						$('#resultCheck').text('사용가능한 ID 입니다.')
+					} else {
+						$('#resultCheck').text('이미 사용중인 ID 입니다.')
+					}
+				},
+				error : function() {
+					alert("Erorr")
+				}
+			})
+
+		}
+	</script>
 
 </body>
 </html>

@@ -27,7 +27,7 @@ public class MemberController_GHC {
 	@RequestMapping("/goLogin")
 	public String goLogin() {
 
-		return "Login_GHC";
+		return "Login";
 	}
 	
 	// 아이디 비번 입력후 있는지 확인 
@@ -45,7 +45,7 @@ public class MemberController_GHC {
 		if ((loginMember != null) && loginMember.getMb_leave().equals("0")) {
 			return "loginSuccess";			//로그인 성공 -> main
 		}else {
-			return "Login_GHC";		//로그인 실패시 -> 다시 로그인(alert 다시로그인 해주세요 띄울 수 있으면 띄우기)
+			return "Login";		//로그인 실패시 -> 다시 로그인(alert 다시로그인 해주세요 띄울 수 있으면 띄우기)
 			
 		}
 	}

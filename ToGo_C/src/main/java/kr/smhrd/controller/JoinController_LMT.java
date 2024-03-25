@@ -1,18 +1,18 @@
 package kr.smhrd.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+//import java.text.DateFormat;
+//import java.util.Date;
+//import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.smhrd.entity.Members;
 import kr.smhrd.mapper.MembersMapper_LMT;
@@ -26,19 +26,19 @@ public class JoinController_LMT {
 	
 	@RequestMapping("/goJoin")
 	public String goJoin() {
-		return "Join_LMT";
+		return "Join";
 	}
 	
 	
-	
+	// 회원가입 + Id 중복확인
 	@RequestMapping("/membersInsert")
 	public String membersInsert(Members members, Model model) {
 		membersMapper.membersInsert(members);
 		model.addAttribute("mb_id", members.getMb_id());
-		return "JoinSuccess_LMT";
+		return "JoinSuccess";
 	}
 	
-	
+	// 로그아웃
 	@RequestMapping("/membersLogout")
 	public String membersLogout(HttpSession session) {
 		session.removeAttribute("loginMember");
