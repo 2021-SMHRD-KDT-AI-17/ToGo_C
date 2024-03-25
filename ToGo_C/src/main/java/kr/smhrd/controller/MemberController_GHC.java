@@ -40,9 +40,10 @@ public class MemberController_GHC {
 		// 로그인한 사람의 메세지 가져오기
 		
 		Members loginMember = memberMapper.memberslogin(member);
-		session.setAttribute("loginMember", loginMember);
+		
 		//System.out.println(loginMember);
-		if ((loginMember != null) && loginMember.getMb_leave().equals("0")) {
+		if ((loginMember != null) && loginMember.getMb_leave().equals("N")) {
+			session.setAttribute("loginMember", loginMember);
 			return "index";			//로그인 성공 -> main
 		}else {
 			return "Login";		//로그인 실패시 -> 다시 로그인(alert 다시로그인 해주세요 띄울 수 있으면 띄우기)

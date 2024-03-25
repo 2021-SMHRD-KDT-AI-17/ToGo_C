@@ -10,3 +10,6 @@ CREATE TABLE members
 );
 
 INSERT INTO members (mb_id, mb_pw, mb_nick, mb_phone, joined_at, mb_leave) VALUES ('admin', '123', 'admin', '010-0000-0000', NOW(), 'N');
+
+
+select * from members;

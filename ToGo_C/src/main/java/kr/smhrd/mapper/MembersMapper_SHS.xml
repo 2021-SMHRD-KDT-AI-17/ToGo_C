@@ -3,7 +3,7 @@
 <mapper namespace="kr.smhrd.mapper.MembersMapper_SHS">
 
 	<select id="memberslogin" parameterType="kr.smhrd.entity.Members" resultType="kr.smhrd.entity.Members">
-		select * from members where mb_id=#{mb_id} and mb_pw = #{mb_pw}
+		select * from members where mb_id=#{mb_id} and mb_pw = MD5(#{mb_pw})
 	</select>
 	
 	<update id="memberUpdate" parameterType="kr.smhrd.entity.Members">
