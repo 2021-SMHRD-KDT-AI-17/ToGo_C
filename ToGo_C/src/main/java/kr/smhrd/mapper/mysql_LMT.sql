@@ -39,5 +39,7 @@ insert into members (mb_id, mb_pw, mb_nick, mb_phone) values('test', '123', 'tes
 
 insert into members values('test1', '123', 'test1', '010');
 
+select * from members where mb_id = 'test';
+
 
 

@@ -7,7 +7,7 @@
 	</select>
 	
 	<update id="memberUpdate" parameterType="kr.smhrd.entity.Members">
-		UPDATE members SET mb_pw=#{mb_pw}, mb_nick=#{mb_nick}, mb_phone=#{mb_phone} where mb_id=#{mb_id}
+		UPDATE members SET mb_pw=MD5(#{mb_pw}), mb_nick=#{mb_nick}, mb_phone=#{mb_phone} where mb_id=#{mb_id}
 	</update>
 	
 	<update id="deleteMember" parameterType="kr.smhrd.entity.Members">

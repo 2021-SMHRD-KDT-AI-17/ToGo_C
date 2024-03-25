@@ -32,9 +32,9 @@ public class JoinController_LMT {
 	
 	
 	@RequestMapping("/membersInsert")
-	public String membersInsert(Members members) {
+	public String membersInsert(Members members, Model model) {
 		membersMapper.membersInsert(members);
-		System.out.println(members.toString());
+		model.addAttribute("mb_id", members.getMb_id());
 		return "JoinSuccess_LMT";
 	}
 	
