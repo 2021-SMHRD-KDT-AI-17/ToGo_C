@@ -12,6 +12,8 @@ public interface MembersMapper_LMT {
 
 	@Select("select * from members where mb_id = #{mb_id}")
 	public Members IdCheck(String inputId);
+
+	public Members membersSelect(Members members);
 	
 
 }

@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false"
    pageEncoding="UTF-8" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -46,13 +46,14 @@
 </style>
 <body>
 
-	 <%
-	 Members loginMember =(Members)session.getAttribute("loginMember");
-	%> 
+<%
+	Members join_member = (Members) session.getAttribute("join_member");
+	%>
 
    <!-- 헤더 영역 시작(includes 폴더) - 홍창민 -->
 
    <%@include file="./includes/header.jsp"%>
+   
 
    <!-- 헤더 영역 끝 -->
 
@@ -65,9 +66,9 @@
 
          <div>
             <ul class="list-group list-group-flush">
-               <li class="list-group-item"><h1>환영합니다<%=loginMember.getMb_nick()%>고객님!</h1></li>
+               <li class="list-group-item"><h1>환영합니다 <%= join_member.getMb_nick()%>고객님!</h1></li>
                <li class="list-group-item">회원가입을 축하합니다.</li>
-               <li class="list-group-item">가입 일자 :<%=loginMember.getJoined_at()%> </li>
+               <li class="list-group-item">가입 일자 :<%= join_member.getJoined_at()%> </li>
                <li><button onclick='location.href="goLogin"'>시작하기</button></li>
             </ul>
          </div>

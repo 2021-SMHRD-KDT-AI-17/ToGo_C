@@ -32,9 +32,12 @@ public class JoinController_LMT {
 	
 	// 회원가입 + Id 중복확인
 	@RequestMapping("/membersInsert")
-	public String membersInsert(Members members, Model model) {
+	public String membersInsert(Members members, HttpSession session) {
 		membersMapper.membersInsert(members);
-		model.addAttribute("mb_id", members.getMb_id());
+		Members joined_member = membersMapper.membersSelect(members);
+		session.setAttribute("join_member", joined_member);
+		
+		System.out.println(joined_member.toString());
 		return "JoinSuccess";
 	}
 	

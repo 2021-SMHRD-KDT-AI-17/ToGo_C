@@ -5,5 +5,9 @@
 	<insert id="membersInsert" parameterType="kr.smhrd.entity.Members">
 		insert into members (mb_id, mb_pw, mb_nick, mb_phone) values(#{mb_id}, #{mb_pw}, #{mb_nick}, #{mb_phone})
 	</insert>
+	
+	<select id="membersSelect" parameterType="kr.smhrd.entity.Members" resultType="kr.smhrd.entity.Members">
+		select * from members where mb_id = #{mb_id}		
+	</select>
 
 </mapper>

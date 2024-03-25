@@ -1,5 +1,5 @@
 <%@page import="kr.smhrd.entity.Members"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+ 
 	<%
 	Members loginMember = (Members) session.getAttribute("loginMember");
 	%>
@@ -71,11 +71,10 @@
 							
 									<%if (loginMember == null) {%>
 										<a href="goLogin" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">로그인 해주세요</a>	
-										<% } else { %>
-												
-												<li class="nav-item"><a class="nav-link" href="#">환영합니다 <strong><%=loginMember.getMb_nick()%></strong>고객님!</a></li>
-										<% } %>
+											 aria-expanded="false">로그인 해주세요</a>	
+									<% } else { %>
+										<li class="nav-item"><a class="nav-link" href="#">환영합니다 <strong><%=loginMember.getMb_nick()%></strong>고객님!</a></li>
+									<% } %>
 							
 						
 							</li>
