@@ -48,6 +48,8 @@ DELETE FROM members WHERE mb_id = 'admin';
 
 select * from stores;
 
+select * from menus;
+
 
 
 

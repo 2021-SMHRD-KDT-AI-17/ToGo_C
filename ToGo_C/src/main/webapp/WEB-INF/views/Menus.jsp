@@ -14,7 +14,7 @@
 
             <ul class="product_bakery">
    
-            <li class="menuDataSet" sold="N" onclick="wishlist()">
+            <li class="menuDataSet" sold="N">
                 <dl>
                     <dt>
                         <a href="javascript:void(0)" class="goFoodView" prod="9900000001520">
