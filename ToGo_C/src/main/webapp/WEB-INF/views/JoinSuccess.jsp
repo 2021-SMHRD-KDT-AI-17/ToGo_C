@@ -46,7 +46,7 @@
 </style>
 <body>
 
-<%
+	<%
 	Members join_member = (Members) session.getAttribute("join_member");
 	%>
 
