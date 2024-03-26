@@ -2,6 +2,8 @@ package kr.smhrd.controller;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 
@@ -10,8 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.smhrd.entity.Members;
-import kr.smhrd.mapper.MembersMapper_LMT;
+import kr.smhrd.entity.Stores;
 import kr.smhrd.mapper.StoresMapper_LMT;
 
 @Controller
@@ -22,7 +23,12 @@ public class StoresController_LMT {
 	
 	
 	@RequestMapping("/goStores")
-	public String goStores() {
+	public String goStores(HttpSession session) {
+		
+		List<Stores> stores_list = storesMapper.storesList();
+		System.out.println(stores_list);
+		session.setAttribute("stores_list", stores_list);
+		
 		return "Stores";
 	}
 	

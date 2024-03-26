@@ -385,12 +385,19 @@
 					-->
 
 					<hr class="my-4">
-								<p><input type="submit" value="회원가입"></p>
+								<p><input class="w-100 btn btn-primary btn-lg" type="submit" value="회원가입"></p>
 					
 					<!-- 잠깐만!!
 					 <button class="w-100 btn btn-primary btn-lg" type="submit" onclick='location.href="JoinSuccess"'>회원가입 완료</button>
 					  -->
 				</form>
+
+<!-- 스토어 테스트용 -->
+
+				<a href="goStores">스토어이동</a>
+				
+<!-- 스토어 테스트용 끝-->
+				
 				
 			</div>
 	</div>

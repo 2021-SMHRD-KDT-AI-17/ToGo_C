@@ -79,7 +79,7 @@
 					<div class="login_form_inner">
 						<h3>로그인 <span style="font-size: 11px">Login</span></h3>
 						
-						<form class="row login_form" action="memberslogin" method="post" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="membersLogin" method="post" id="contactForm" novalidate="novalidate">
 							
 							<!-- 3.24 로그인 플로팅 버젼으로 변경 - 홍창민
 							
