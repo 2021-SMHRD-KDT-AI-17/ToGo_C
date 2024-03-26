@@ -138,11 +138,10 @@ input {
 				<p>퀵 검색</p>
 			</div>
 			<div class="search-input">
-				<form onsubmit="">
+				<form submit="getSearchServiceArea" method = "post">
 
-					<input id="searchInput" type="text" placeholder="ex) oo휴게소 또는 지역">
-					<button type="button" class="btn btn-success"
-						onclick="getAddress()">주소 검색</button>
+					<input id="searchInput" type="text" placeholder="ex) oo휴게소 또는 지역" name="searchInput">
+					<input type="submit" class="btn btn-success" value = "주소검색">
 
 				</form>
 
@@ -195,45 +194,9 @@ input {
 	<!-- start footer Area -->
 
 	<%@include file="./includes/footer.jsp"%>
-	<%List<Service_areas> area_list =(List<Service_areas>)session.getAttribute("area_list"); %>
+	
 	<!-- End footer Area -->
 
-	<script type="text/javascript">
-		let lat = [];
-		let lng = [];
-
-		// 간단한 지도!! //zoom , width, height =>> 수정
-		var map = new naver.maps.Map('map', {
-			center : new naver.maps.LatLng(37.3595704, 127.105399), //지도의 초기 중심 좌표
-			zoom : 17, //지도의 초기 줌 레벨
-			minZoom : 8, //지도의 최소 줌 레벨
-			zoomControl : true, //줌 컨트롤의 표시 여부
-			zoomControlOptions : { //줌 컨트롤의 옵션
-				position : naver.maps.Position.TOP_RIGHT
-			}
-		}); //new naver.maps.Map(mapDiv, mapOptions)
-
-		/*  for (let i = 1; i < ${area_list}.length; i++){
-		 	var marker = new naver.maps.Marker({
-		         position: new naver.maps.LatLng(${area_list[i].getLat}, ${area_list[i].getLng}),
-		         map: map
-		 } */
-
-		// JSON 형식의 문자열을 JavaScript 객체로 파싱
-
-		// JavaScript 객체 확인
-		console.log(area_list);
-		{
-			area_list
-		};
-		console.log(area_list);
-		/*  var area_list = new Gson().toJson(area_list);
-		 console.log(area_list); */
-		var marker = new naver.maps.Marker({
-			position : new naver.maps.LatLng(37.3595704, 127.105399),
-			map : map
-		});
-	</script>
 
 
 

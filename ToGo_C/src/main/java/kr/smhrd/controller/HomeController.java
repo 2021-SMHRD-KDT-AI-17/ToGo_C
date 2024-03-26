@@ -45,14 +45,7 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		// home -> View name -> controller는 이동하야할 뷰의 경로가 아닌 View name만 돌려줌
 		// home.jsp 파일부터 실행해보기 -> WEB-INF : 보안폴더(다이렉트로 접근 불가), 스프링구조를 지켜주기 위함
-		//                                    : 무조건 디스패쳐 서블릿을 거쳐서 와야 함
-		
-		
-		List<Service_areas> area_list = areaMapper.areaList();
-		System.out.println(area_list);
-		session.setAttribute("area_list", area_list);
-		
-		
+		//                                    : 무조건 디스패쳐 서블릿을 거쳐서 와야 		
 		
 		// 3.24 이 부분 index.jsp 홈 화면으로 바꿨어요 - 홍창민
 		return "index"; // /WEB-INF/views/index.jsp

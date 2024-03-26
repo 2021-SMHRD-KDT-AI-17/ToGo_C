@@ -14,20 +14,22 @@ import kr.smhrd.mapper.AreaMapper;
 
 
 @Controller
-public class AreaController {
+public class Service_areaController {
 
 	@Autowired
 	private AreaMapper areamapper;
 	
 	@RequestMapping("/goSearchMap")
 	public String goSearchMap(Model model) {
-		
-		List<Service_areas> area_list = areamapper.areaList();
-		System.out.println(area_list);
-		model.addAttribute("area_list", area_list);
+
 		return "SearchMap";
 	}
 	
+	@RequestMapping("/getSearchServiceArea")
+	public String getSearchServiceArea() {
+		System.out.println("service");
+		return "index";
+	}
 	
 	
 	
