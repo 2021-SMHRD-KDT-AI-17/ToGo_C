@@ -46,5 +46,8 @@ select * from members where mb_id = 'test';
 
 DELETE FROM members WHERE mb_id = 'admin';
 
+select * from stores;
+
+
 
 
