@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import kr.smhrd.entity.Members;
-import kr.smhrd.entity.service_areas;
+import kr.smhrd.entity.Service_areas;
 import kr.smhrd.mapper.MembersMapper_SHS;
-import kr.smhrd.mapper.RestMapper_GHC;
 
 
 
@@ -24,9 +23,7 @@ public class MemberController_GHC {
 	
 	@Autowired
 	private MembersMapper_SHS memberMapper;
-	
-	@Autowired
-	private RestMapper_GHC restMapper;
+
 	
 	// 로그인 화면으로 이동
 	@RequestMapping("/goLogin")
@@ -102,8 +99,7 @@ public class MemberController_GHC {
 		
 		//임시 **** 지도 맵 구현하기!! + select 해서 휴게소 명,위도 ,경도 가져오기
 		@RequestMapping("/orderMap")
-		public String orderMap(service_areas rest) {
-			service_areas rest_info = restMapper.restSelect(rest);
+		public String orderMap(Service_areas rest) {
 			return "SearchMap";
 		}
 		
