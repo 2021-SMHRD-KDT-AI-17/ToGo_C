@@ -27,44 +27,53 @@
 			</ul>
 		</div>
 	</form>
-
+<button onclick="getLocation()">현재 주소 위치 가져오기</button>
 	<div id="map" style="width: 100%; height: 400px;"></div>
 
-	<button onclick="getLocation()">현재 주소 위치 가져오기</button>
+	
 	<p id="demo"></p>
+	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<script>
 
-var x = document.getElementById("demo");
-var lat;
-var lng;
 
-function getLocation() {  
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);    
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser."; 
-  }
-}
+		var x = document.getElementById("demo");
+		var lat_now;
+		var lng_now;
+		let total_rest = [];
+        let rest_list = [];
+		
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-  lat = position.coords.latitude;
-  lng = position.coords.longitude;
-  console.log("lat = " + lat);
-  console.log("lng = " + lng);
-}
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				x.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
 
+		function showPosition(position) {
+			x.innerHTML = "Latitude: " + position.coords.latitude
+					+ "<br>Longitude: " + position.coords.longitude;
+			lat_now = position.coords.latitude;
+			lng_now = position.coords.longitude;
+			console.log("lat = " + lat_now);
+			console.log("lng = " + lng_now);
+		}
 
+		  // 간단한 지도!! //zoom , width, height =>> 수정
+        var map = new naver.maps.Map('map', {
+            center: new naver.maps.LatLng(35.2779101, 128.71538), //지도의 초기 중심 좌표
+            zoom: 17, //지도의 초기 줌 레벨
+            minZoom: 8, //지도의 최소 줌 레벨
+            zoomControl: true, //줌 컨트롤의 표시 여부
+            zoomControlOptions: { //줌 컨트롤의 옵션
+                position: naver.maps.Position.TOP_RIGHT
+            }
+        });  //new naver.maps.Map(mapDiv, mapOptions)
 
-var mapOptions = {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 10
-};
-
-var map = new naver.maps.Map('map', mapOptions);
-</script>
+		var map = new naver.maps.Map('map', mapOptions);
+	</script>
 </body>
 </html>
