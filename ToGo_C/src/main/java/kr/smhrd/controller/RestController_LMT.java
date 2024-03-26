@@ -17,18 +17,18 @@ public class RestController_LMT {
 	@Autowired
 	private MembersMapper membersMapper;
 
-	// Id 중복체크
-//	@RequestMapping("/IdCheck")
-//	public int IdCheck(@RequestParam("inputId") String inputId) {
-//		Members members = membersMapper.IdCheck(inputId);
-//		//System.out.println(members.toString());
-//		if (members == null) {
-//			// 사용가능
-//			return 1;
-//		} else {
-//			// 사용불가능
-//			return 0;
-//		}
-//	}
+	 // Id 중복체크
+	@RequestMapping("/IdCheck")
+	public int IdCheck(@RequestParam("inputId") String inputId) {
+		Members members = membersMapper.IdCheck(inputId);
+		//System.out.println(members.toString());
+		if (members == null) {
+			// 사용가능
+			return 1;
+		} else {
+			// 사용불가능
+			return 0;
+		}
+	}
 	
 }

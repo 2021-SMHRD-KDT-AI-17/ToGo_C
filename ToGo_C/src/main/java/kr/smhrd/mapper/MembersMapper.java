@@ -22,4 +22,7 @@ public interface MembersMapper {
 
    void memberDelete(Members loginMember);
 
+
+   Members IdCheck(String inputId);
+
 }

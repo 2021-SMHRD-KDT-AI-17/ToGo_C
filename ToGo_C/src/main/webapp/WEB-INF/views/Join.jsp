@@ -449,7 +449,7 @@
  	<script type="text/javascript">
 		function checkId() {
 			var inputId = $('#inputId').val();
-			console.log(inputId);
+			//console.log(inputId);
 
 			$.ajax({
 				url : 'IdCheck',
