@@ -1,6 +1,7 @@
 package kr.smhrd.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import kr.smhrd.entity.Members;
 
@@ -22,7 +23,7 @@ public interface MembersMapper {
 
    void memberDelete(Members loginMember);
 
-
-   Members IdCheck(String inputId);
+	@Select("select * from members where mb_id = #{mb_id}")
+    Members IdCheck(String inputId);
 
 }
