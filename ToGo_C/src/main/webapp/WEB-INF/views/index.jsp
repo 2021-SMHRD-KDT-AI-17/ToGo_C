@@ -63,7 +63,7 @@
 						
 						<h6><a href="goLogin">휴게소 주문하기</a></h6>
 						<% } else { %>
-						<h6><a href="orderMap">휴게소 주문하기</a></h6>
+						<h6><a href="goSearchMap">휴게소 주문하기</a></h6>
 						<% } %>
 						
 						<p>"3.23 주문하기 간단한 설명 문구"</p>

@@ -13,3 +13,4 @@ INSERT INTO members (mb_id, mb_pw, mb_nick, mb_phone, joined_at, mb_leave) VALUE
 
 
 select * from members;
+select * from service_areas;

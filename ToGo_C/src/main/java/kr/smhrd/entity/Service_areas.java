@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class service_areas {
+public class Service_areas {
 
 	private String service_idx;
 	private String service_name;
