@@ -44,5 +44,7 @@ insert into members values('test1', '123', 'test1', '010');
 
 select * from members where mb_id = 'test';
 
+DELETE FROM members WHERE mb_id = 'admin';
+
 
 
