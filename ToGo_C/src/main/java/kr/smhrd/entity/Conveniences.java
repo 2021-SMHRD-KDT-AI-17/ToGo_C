@@ -9,21 +9,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-// @Data - 만능
-
 @Data
 @Getter
 @Setter
 @ToString
-public class Stores {
+public class Conveniences {
 
-	private String store_id;
-	private String store_pw;
-	private String store_name;
-	private String store_bno;
-	private String store_tel;
-	private String joined_at;
+
+	private int conv_idx;
 	private int service_idx;
-	private String store_leave;
-
+	private String conv_name;	
 }

@@ -11,9 +11,9 @@ import lombok.ToString;
 @ToString
 public class Service_areas {
 
-   private String service_idx;
+   private int service_idx;
    private String service_name;
    private String service_addr;
-   private String lat;
-   private String lng;
+   private int lat;
+   private int lng;
 }

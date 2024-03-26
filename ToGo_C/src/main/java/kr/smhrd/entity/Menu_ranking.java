@@ -9,14 +9,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Menus {
+public class Menu_ranking {
 
+	private int rnk_idx;
 	private int menu_idx;
-	private String store_id;
-	private String menu_name;
-	private int menu_price;
-	private String menu_desc;
-	private String menu_img;
-	private String menu_soldout;
+	private int rnk;
+	
 	
 }

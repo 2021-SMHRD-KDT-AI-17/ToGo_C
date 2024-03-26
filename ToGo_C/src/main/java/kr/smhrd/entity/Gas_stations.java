@@ -15,15 +15,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Stores {
+public class Gas_stations {
 
-	private String store_id;
-	private String store_pw;
-	private String store_name;
-	private String store_bno;
-	private String store_tel;
-	private String joined_at;
+
+	private int gas_idx;
 	private int service_idx;
-	private String store_leave;
-
+	private int gasoline_price;
+	private int diesel_price;
+	private int lpg_price;
+	private int ev_price;
+	
+	
+	
 }
