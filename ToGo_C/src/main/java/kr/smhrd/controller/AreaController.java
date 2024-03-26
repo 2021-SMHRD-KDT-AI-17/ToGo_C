@@ -25,7 +25,11 @@ public class AreaController {
 		List<Service_areas> area_list = areamapper.areaList();
 		System.out.println(area_list);
 		model.addAttribute("area_list", area_list);
-		return "SearchMap_HCM";
+		return "SearchMap";
 	}
+	
+	
+	
+	
 	
 }
