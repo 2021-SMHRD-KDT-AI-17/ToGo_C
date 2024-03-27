@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.mapper.MenusMapper">
+	<!-- id값은 interface의 메소드 이름이다!!!!!!!!!!!!!!!!!!!! -->
+	<!-- 식사list -->
+	<select id="foodMenusList" resultType="kr.smhrd.entity.Menus">
+		select * from menus where
+		store_id = (select store_id from stores where store_name ="식사")
+	</select>
 
-<!--  	<select id="menusList" resultType="kr.smhrd.entity.Menus">
-		select * from menus
-	</select> -->
-	
- 	
- 	<select id="foodMenusList" resultType="kr.smhrd.entity.Menus">
-		select * from menus where store_id = (select store_id from stores where store_name ="식사")
-	</select> 
+
+	<!-- 간식 list -->
+	<select id="snackMenusList" resultType="kr.smhrd.entity.Menus">
+		select * from menus where
+		store_id = (select store_id from stores where store_name ="간식")
+	</select>
+
+
+	<!-- 식사list -->
+	<select id="beverageMenusList"
+		resultType="kr.smhrd.entity.Menus">
+		select * from menus where
+		store_id = (select store_id from
+		stores where store_name ="음료")
+	</select>
+
+	<select id="foodMenus" parameterType="int"
+		resultType="kr.smhrd.entity.Menus">
+		select * from menus where menu_idx = #{count}
+	</select>
+
+	<select id="snackMenus" parameterType="int"
+		resultType="kr.smhrd.entity.Menus">
+		select * from menus where menu_idx = #{count}
+	</select>
+
+	<select id="beverageMenus" parameterType="int"
+		resultType="kr.smhrd.entity.Menus">
+		select * from menus where menu_idx = #{count}
+	</select>
+
 
 </mapper>
