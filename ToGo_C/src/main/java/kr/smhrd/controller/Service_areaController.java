@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.smhrd.entity.Service_areas;
 import kr.smhrd.mapper.AreaMapper;
@@ -37,6 +38,17 @@ public class Service_areaController {
 		return "SearchMap";
 	}
 	
+	@RequestMapping("service_Select")
+	@ResponseBody
+	public Service_areas service_Select(@RequestParam("service_idx") int service_idx, HttpSession session) {
+		Service_areas select_area = areaMapper.serviceSelect(service_idx);
+		session.setAttribute("select_area", select_area);
+//		System.out.println("select_area: ");
+//		System.out.println(select_area.toString());
+//		
+		return select_area;
+		
+	}
 	
 	
 	

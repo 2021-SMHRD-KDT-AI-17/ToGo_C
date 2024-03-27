@@ -40,11 +40,9 @@
 
 <style>
 .search-box {
-	height: 400px;
 	width: 100%;
 	margin-top: 150px;
 	top: 150px;
-	border: 1px solid black;
 }
 
 .search-result {
@@ -75,7 +73,6 @@ input {
 
 .search-result-list {
 	border-bottom: 1px solid #ddd;
-	height: 100px;
 	position: relative;
 }
 
@@ -98,7 +95,6 @@ input {
 
 .search-result-box {
 	overflow-y: scroll;
-	height: 400px;
 }
 
 .result-details {
@@ -160,12 +156,11 @@ input {
 					if (Search_service_area_list != null) {
 						int index = 0;
 						for (Service_areas s : Search_service_area_list) {
-					%><a href = "">
-					<li class="search-result-list" ><strong><%=s.getService_name() %></strong>
+					%>
+					<li class="search-result-list" onclick = "SelectS(<%=s.getService_idx() %>)"><strong><%=s.getService_name() %></strong>
 						<p class="result-details">
 							<%=s.getService_addr() %> <br> "062-673-7745"
 						</p></li>
-						</a>
 					<%
 					index++;
 					}
@@ -186,6 +181,8 @@ input {
 				<i class="fa-solid fa-street-view my-location"></i>
 			</div>
 		</section>
+		
+		<button onclick = "service_area_Select()">휴게소 선택</button>
 
 	</div>
 
@@ -197,7 +194,37 @@ input {
 	<%@include file="./includes/footer.jsp"%>
 
 	<!-- End footer Area -->
+	<script type="text/javascript">
 
+	function SelectS(s){
+		$.ajax({
+			url:'service_Select',
+			data : {'service_idx' : s},
+			success:function(res){
+				
+				
+				map = new naver.maps.Map('map', {
+			        center: new naver.maps.LatLng(res.lat, res.lng), //지도의 초기 중심 좌표
+			        zoom: 17, //지도의 초기 줌 레벨
+			        minZoom: 8, //지도의 최소 줌 레벨
+			        zoomControl: true, //줌 컨트롤의 표시 여부
+			        zoomControlOptions: { //줌 컨트롤의 옵션
+			            position: naver.maps.Position.TOP_RIGHT
+			        }
+			    });
+				
+				var marker = new naver.maps.Marker({    //마커
+			        position: new naver.maps.LatLng(res.lat, res.lng), //위도,경도
+			        map: map
+			    });
+				
+			},
+			error:function(){
+				alert("실패");
+			}
+		})
+	} 
+	</script>
 
 
 
