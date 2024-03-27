@@ -26,7 +26,10 @@
 
 <%-- 	<%
 		List<Menus> menus_list = (List<Menus>)request.getAttribute("menus_list");
+		
+				List<Menus> food_menus_list = (List<Menus>)request.getAttribute("food_menus_list");
 	%> --%>
+
 
 
  <h1>푸드코트</h1>
@@ -47,14 +50,14 @@
 	<a href="goMenus">메뉴보기</a>
       식사메뉴 입력
 
-		<c:forEach items="${menus_list}" var="m" varStatus="status">
+ 		<c:forEach items="${food_menus_list}" var="fm" varStatus="status">
 			<tr>
 				<td>번호 ${status.count }</td>
-				<td>사진 ${m.menu_img}</td>
-				<td>이름 ${m.menu_name}</td>
-				<td>가격 ${m.menu_price}</td>
+				<td>사진 ${fm.menu_img}</td>
+				<td>이름 ${fm.menu_name}</td>
+				<td>가격 ${fm.menu_price}</td>
 			</tr>
-		</c:forEach>
+		</c:forEach> 
 
       
       </div>
@@ -72,6 +75,15 @@
     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
       
+      	<c:forEach items="${menus_list}" var="m" varStatus="status">
+			<tr>
+				<td>번호 ${status.count }</td>
+				<td>사진 ${m.menu_img}</td>
+				<td>이름 ${m.menu_name}</td>
+				<td>가격 ${m.menu_price}</td>
+			</tr>
+		</c:forEach>
+      
       간식메뉴 입력
       
       </div>
@@ -87,6 +99,16 @@
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
+      
+      
+      	<c:forEach items="${menus_list}" var="m" varStatus="status">
+			<tr>
+				<td>번호 ${status.count }</td>
+				<td>사진 ${m.menu_img}</td>
+				<td>이름 ${m.menu_name}</td>
+				<td>가격 ${m.menu_price}</td>
+			</tr>
+		</c:forEach>
       
       	음료메뉴 입력
       	

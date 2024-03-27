@@ -10,6 +10,8 @@ import kr.smhrd.entity.Menus;
 public interface MenusMapper {
 
 	List<Menus> menusList();
+
+	List<Menus> foodMenusList();
 	
 	
 
