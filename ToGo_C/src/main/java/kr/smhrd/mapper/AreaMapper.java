@@ -15,6 +15,8 @@ public interface AreaMapper {
 
 	List<Service_areas> getSearchServiceArea(Service_areas area);
 
+	Service_areas serviceSelect(int service_idx);
+
 //	List<Service_areas> areaList();
 
 }

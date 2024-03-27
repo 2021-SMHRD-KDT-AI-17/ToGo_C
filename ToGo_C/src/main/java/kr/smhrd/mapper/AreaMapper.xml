@@ -14,4 +14,8 @@
 	<select id="getSearchServiceArea" parameterType="kr.smhrd.entity.Service_areas" resultType="kr.smhrd.entity.Service_areas">
 		select * from service_areas where service_name LIKE CONCAT('%',#{service_name},'%')
 	</select>
+	
+	<select id="serviceSelect" parameterType="int" resultType="kr.smhrd.entity.Service_areas">
+		select * from service_areas where service_idx = #{servicce_idx}
+	</select>
 </mapper>
