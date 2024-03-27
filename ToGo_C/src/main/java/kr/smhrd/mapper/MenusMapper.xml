@@ -7,7 +7,7 @@
 	</select> -->
 	
  	
- 	<select id="goStores" resultType="kr.smhrd.entity.Menus">
+ 	<select id="foodMenusList" resultType="kr.smhrd.entity.Menus">
 		select * from menus where store_id = (select store_id from stores where store_name ="식사")
 	</select> 
 
