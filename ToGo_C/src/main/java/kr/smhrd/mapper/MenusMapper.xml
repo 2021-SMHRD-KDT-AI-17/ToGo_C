@@ -17,9 +17,27 @@
 
 
 	<!-- 식사list -->
-	<select id="beverageMenusList" resultType="kr.smhrd.entity.Menus">
+	<select id="beverageMenusList"
+		resultType="kr.smhrd.entity.Menus">
 		select * from menus where
-		store_id = (select store_id from stores where store_name ="음료")
+		store_id = (select store_id from
+		stores where store_name ="음료")
 	</select>
+
+	<select id="foodMenus" parameterType="int"
+		resultType="kr.smhrd.entity.Menus">
+		select * from menus where menu_idx = #{count}
+	</select>
+
+	<select id="snackMenus" parameterType="int"
+		resultType="kr.smhrd.entity.Menus">
+		select * from menus where menu_idx = #{count}
+	</select>
+
+	<select id="beverageMenus" parameterType="int"
+		resultType="kr.smhrd.entity.Menus">
+		select * from menus where menu_idx = #{count}
+	</select>
+
 
 </mapper>

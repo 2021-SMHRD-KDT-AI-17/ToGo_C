@@ -16,6 +16,12 @@ public interface MenusMapper {
 	List<Menus> snackMenusList();
 
 	List<Menus> beverageMenusList();
+
+	Menus foodMenus(int count);
+
+	Menus snackMenus(int count);
+
+	Menus beverageMenus(int count);
 	
 	
 

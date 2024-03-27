@@ -7,33 +7,35 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.entity.Menus;
 import kr.smhrd.mapper.MenusMapper;
 
 @Controller
 public class MenusController {
-	
+
 	@Autowired
 	private MenusMapper menusMapper;
-	
+
 	@RequestMapping("/goMenus")
-	public String goMenus(HttpSession session) {
+	public String goMenus(@RequestParam("count") int count, HttpSession session) {
+
+		// 음식 list 가져오기
+		Menus food_menus = menusMapper.foodMenus(count);
+		System.out.println(food_menus.toString());
+		session.setAttribute("food_menus", food_menus);
+
+		// 간식 list 가져오기
+		Menus snack_menus = menusMapper.snackMenus(count);
+		session.setAttribute("snack_menus", snack_menus);
+
+		// 음료 list 가져오기
 		
-		List<Menus> menus_list = menusMapper.menusList();
-		//System.out.println(menus_list);
-		
+		Menus beverage_menus = menusMapper.beverageMenus(count);
+		session.setAttribute("beverage_menus", beverage_menus);
+
 		return "Menus";
-	}
-	
-	@RequestMapping("/menusList")
-	public String menusList(HttpSession session) {
-		
-		List<Menus> menus_list = menusMapper.menusList();
-		session.setAttribute("menus_list", menus_list);
-		//System.out.println(menus_list.toString());
-		
-		return "Stores";
 	}
 
 }

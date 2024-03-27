@@ -47,15 +47,14 @@
     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
 		
-	<a href="goMenus">메뉴보기</a>
       식사메뉴 입력
 
  		<c:forEach items="${food_menus_list}" var="fm" varStatus="status">
 			<tr>
-				<td>번호 ${status.count }</td>
+				<a href="goMenus?count=${fm.menu_idx}">번호 ${status.count }</a>
 				<td>사진 ${fm.menu_img}</td>
 				<td>이름 ${fm.menu_name}</td>
-				<td>가격 ${fm.menu_price}</td>
+				<td>가격 ${fm.menu_price}원</td>
 			</tr>
 		</c:forEach> 
 
@@ -77,10 +76,10 @@
       
       	<c:forEach items="${snack_menus_list}" var="sm" varStatus="status">
 			<tr>
-				<td>번호 ${status.count }</td>
+				<a href="#">번호 ${status.count }</a>
 				<td>사진 ${sm.menu_img}</td>
 				<td>이름 ${sm.menu_name}</td>
-				<td>가격 ${sm.menu_price}</td>
+				<td>가격 ${sm.menu_price}원</td>
 			</tr>
 		</c:forEach>
       
@@ -103,10 +102,10 @@
       
       	<c:forEach items="${beverage_menus_list}" var="bm" varStatus="status">
 			<tr>
-				<td>번호 ${status.count }</td>
+				<a href="#">번호 ${status.count }</a>
 				<td>사진 ${bm.menu_img}</td>
 				<td>이름 ${bm.menu_name}</td>
-				<td>가격 ${bm.menu_price}</td>
+				<td>가격 ${bm.menu_price}원</td>
 			</tr>
 		</c:forEach>
       
