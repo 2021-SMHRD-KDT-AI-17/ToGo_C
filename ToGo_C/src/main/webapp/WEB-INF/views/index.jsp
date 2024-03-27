@@ -44,8 +44,26 @@
 	
 	<!-- 헤더 영역 끝 -->
 	
+		<!-- 3.27 주유소 요금 정보 section 시작 -->
 	
-	<!-- 배너 영역 시작 (삭제했음) -->
+	<section class="gas-info-area" style="border: 1px solid gray; margin-top:150px;">
+		<div class="container" style="display: flex">
+			<div class="gas-icon">
+				<i class="fa-solid fa-gas-pump"></i>
+			</div>
+			<div class="gas-gasoline">
+				휘 <span class="gas-gasoline-price">1,490원</span>
+			</div>
+			<div class="gas-diesel">
+				경 <span class="gas-diesel-price">1,231원</span>
+			</div>
+			
+		</div>
+	</section>	
+	
+	<!-- 3.27 주유소 요금 정보 section 끝 -->	
+	
+
 	
 
 	<!-- start features Area -->
