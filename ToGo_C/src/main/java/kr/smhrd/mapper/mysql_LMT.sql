@@ -52,4 +52,8 @@ select * from menus;
 
 
 
+insert into stores values('test1', '123', '식사', '사업자 번호010');
+
+
+
 
