@@ -10,4 +10,8 @@
 	<select id="getArea" resultType="kr.smhrd.entity.Service_areas">
 		select * from service_areas limit 5
 	</select>
+	
+	<select id="getSearchServiceArea" parameterType="kr.smhrd.entity.Service_areas" resultType="kr.smhrd.entity.Service_areas">
+		select * from service_areas where service_name = #{service_name}
+	</select>
 </mapper>

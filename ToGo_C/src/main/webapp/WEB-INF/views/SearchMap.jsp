@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="kr.smhrd.entity.Service_areas"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,10 +141,11 @@ input {
 				<p>퀵 검색</p>
 			</div>
 			<div class="search-input">
-				<form submit="getSearchServiceArea" method = "post">
+				<form action="getSearchServiceArea" method="post">
 
-					<input id="searchInput" type="text" placeholder="ex) oo휴게소 또는 지역" name="searchInput">
-					<input type="submit" class="btn btn-success" value = "주소검색">
+					<input id="searchInput" type="text" placeholder="ex) oo휴게소 또는 지역"
+						name="service_name"> <input type="submit"
+						class="btn btn-success" value="주소검색">
 
 				</form>
 
@@ -151,28 +155,26 @@ input {
 
 			<div class="search-result-box">
 				<ul class="search-result-list" id="service_area_list">
-					<li class="search-result-list"><strong>송림 휴게소</strong>
+					<p>${Search_service_area_list[0].getService_name() }</p>
+					<%
+					List<Service_areas> Search_service_area_list = (List<Service_areas>) session.getAttribute("Search_service_area_list");
+					if (Search_service_area_list != null) {
+						int index = 0;
+						for (Service_areas s : Search_service_area_list) {
+					%><a href = "">
+					<li class="search-result-list" ><strong><%=s.getService_name() %></strong>
 						<p class="result-details">
-							"광주광역시 남구 진월동 499-68" <br> "062-673-7745"
+							<%=s.getService_addr() %> <br> "062-673-7745"
 						</p></li>
-					<li class="search-result-list"><strong>안디옥 휴게소</strong>
-						<p class="result-details">
-							"광주광역시 서구 쌍촌동 번지 1층 888-2" <br> "062-672-1231"
-						</p></li>
-					<li class="search-result-list"><strong>금곡 휴게소</strong>
-						<p class="result-details">
-							"금곡동 178-1번지 북구 광주광역시" <br> "062-266-3302"
-						</p></li>
-					<li class="search-result-list"><strong>서울 휴게소</strong>
-						<p class="result-details">
-							"서울시 강동구 명일동 롯데캐슬퍼스트" <br> "02-1111-2222"
-						</p></li>
-					<li class="search-result-list"><strong>서울 휴게소</strong>
-						<p class="result-details">
-							"서울시 강동구 명일동 롯데캐슬퍼스트" <br> "02-1111-2222"
-						</p></li>
-
-
+						</a>
+					<%
+					index++;
+					}
+					} else {
+					// Search_service_area_list가 세션에 존재하지 않는 경우에 대한 처리
+					out.println("값을 입력해주세요!");
+					}
+					%>
 				</ul>
 			</div>
 
@@ -194,7 +196,7 @@ input {
 	<!-- start footer Area -->
 
 	<%@include file="./includes/footer.jsp"%>
-	
+
 	<!-- End footer Area -->
 
 
