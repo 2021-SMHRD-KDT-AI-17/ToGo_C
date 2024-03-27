@@ -76,7 +76,7 @@
       
       	<c:forEach items="${snack_menus_list}" var="sm" varStatus="status">
 			<tr>
-				<a href="#">번호 ${status.count }</a>
+				<a href="goMenus?count=${sm.menu_idx}">번호 ${status.count }</a>
 				<td>사진 ${sm.menu_img}</td>
 				<td>이름 ${sm.menu_name}</td>
 				<td>가격 ${sm.menu_price}원</td>
@@ -102,7 +102,7 @@
       
       	<c:forEach items="${beverage_menus_list}" var="bm" varStatus="status">
 			<tr>
-				<a href="#">번호 ${status.count }</a>
+				<a href="goMenus?count=${bm.menu_idx}">번호 ${status.count }</a>
 				<td>사진 ${bm.menu_img}</td>
 				<td>이름 ${bm.menu_name}</td>
 				<td>가격 ${bm.menu_price}원</td>

@@ -24,8 +24,8 @@
 						
 <!-- 사진은 임의값 시작 -->
 							<p>${food_menus.getMenu_img()}</p>
-							<p>${food_menus.getMenu_img()}</p>
-							<p>${food_menus.getMenu_img()}</p>
+							<%-- <p>${snack_menus.getMenu_img()}</p>
+							<p>${beverage_menus.getMenu_img()}</p> --%>
 
 							<a href="javascript:void(0)" class="goFoodView"
 								prod="9900000001520">
@@ -34,6 +34,9 @@
 							</a>
 <!-- 사진 임의 값 끝 -->							
 							<dd>${food_menus.getMenu_name() }</dd>
+							<%-- <dd>${snack_menus.getMenu_name() }</dd>
+							<dd>${beverage_menus.getMenu_name() }</dd> --%>
+							
 							
 							<p>수량선택</p>
 							<p>
