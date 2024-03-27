@@ -21,7 +21,7 @@ public class MenusController {
 	public String goMenus(HttpSession session) {
 		
 		List<Menus> menus_list = menusMapper.menusList();
-		System.out.println(menus_list);
+		//System.out.println(menus_list);
 		
 		return "Menus";
 	}
@@ -31,7 +31,7 @@ public class MenusController {
 		
 		List<Menus> menus_list = menusMapper.menusList();
 		session.setAttribute("menus_list", menus_list);
-		System.out.println(menus_list.toString());
+		//System.out.println(menus_list.toString());
 		
 		return "Stores";
 	}

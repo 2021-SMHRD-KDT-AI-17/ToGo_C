@@ -4,6 +4,8 @@
     pageEncoding="UTF-8" %>
     <!-- jstl 라이브러리 사용법 -->
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +24,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <body>
 
-	<%
+<%-- 	<%
 		List<Menus> menus_list = (List<Menus>)request.getAttribute("menus_list");
-		//System.out.print(list.size());
-	%>
+	%> --%>
 
 
  <h1>푸드코트</h1>
@@ -44,41 +45,17 @@
       <div class="accordion-body">
 		
 	<a href="goMenus">메뉴보기</a>
-	${menus_list[0].getMenu_img()}
-	${menus_list[0].getMenu_name()}
-	${menus_list[0].getMenu_price()}
-
-	
-<%-- 		<c:forEach items="${menus_list}" var="m" varStatus="status">
-			<tr>
-				<td>${status.count }</td>
-				<td>${m.getMenu_img}</td>
-				<td>${m.getMenu_name}</td>
-				<td>${m.getMenu_price}</td>
-			</tr>
-		</c:forEach> --%>
-	
-<%-- 			<%for(Menus m :menus_list ){ %>
-								<tr>
-									<td><%=m.getMenu_img() %></td>
-									<td><%=m.getMenu_name() %> </td>
-									<td><%=m.getMenu_price() %> </td>							
-								</tr>
-							<%} %> --%>
-	
-	
-	
-
-	
-	
-							
-
-	 
-
-	 
-	 
-
       식사메뉴 입력
+
+		<c:forEach items="${menus_list}" var="m" varStatus="status">
+			<tr>
+				<td>번호 ${status.count }</td>
+				<td>사진 ${m.menu_img}</td>
+				<td>이름 ${m.menu_name}</td>
+				<td>가격 ${m.menu_price}</td>
+			</tr>
+		</c:forEach>
+
       
       </div>
     </div>
@@ -128,25 +105,7 @@
 
 
 
-<!--  <div>
-		<form>
-		
-			<a href="#">
-				<h2>00 휴게소</h2>
-			</a>
-			<div>
-			<span><div class="stores_Kategorie" id="fc1" onclick="#">식사</div></span>
-			<div class="stores_Kategorie" id="fc2">간식</div>
-			<div class="stores_Kategorie" id="fc3">음료</div>
-			</div>
-			
-			
-            <a href="index">홈으로 가기</a>
-            <a href="SearchMap">뒤로 가기</a>
-            
-		</form>
- 
- </div> -->
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

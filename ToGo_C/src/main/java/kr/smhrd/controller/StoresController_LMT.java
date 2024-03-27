@@ -29,12 +29,12 @@ public class StoresController_LMT {
 	public String goStores(HttpSession session) {
 		
 		List<Stores> stores_list = storesMapper.storesList();
-		System.out.println(stores_list);
+		//System.out.println(stores_list);
 		session.setAttribute("stores_list", stores_list);
 		
 		List<Menus> menus_list = menusMapper.menusList();
 		session.setAttribute("menus_list", menus_list);
-		System.out.println(menus_list.toString());
+		//System.out.println(menus_list.toString());
 		return "Stores";
 	}
 	
