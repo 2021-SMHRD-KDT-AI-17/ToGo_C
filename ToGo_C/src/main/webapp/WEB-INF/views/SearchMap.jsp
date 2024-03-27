@@ -155,7 +155,6 @@ input {
 
 			<div class="search-result-box">
 				<ul class="search-result-list" id="service_area_list">
-					<p>${Search_service_area_list[0].getService_name() }</p>
 					<%
 					List<Service_areas> Search_service_area_list = (List<Service_areas>) session.getAttribute("Search_service_area_list");
 					if (Search_service_area_list != null) {
