@@ -44,7 +44,7 @@
 	
 	<!-- 헤더 영역 끝 -->
 	
-		<!-- 3.27 주유소 요금 정보 section 시작 -->
+	<!-- 3.27 주유소 요금 정보 section 시작 -->
 	
 	<section class="gas-info-area" style="border: 1px solid gray; margin-top:150px;">
 		<div class="container" style="display: flex">
@@ -62,6 +62,48 @@
 	</section>	
 	
 	<!-- 3.27 주유소 요금 정보 section 끝 -->	
+	
+		<!-- 3.27 편의 시설 정보 section 시작 -->
+
+
+	<section class="conv-info-area">
+		<div class="container conv-info-list">
+			<div class="conv-info-item" style="display: flex; justify-content: space-around;">
+				<div class="conv-info-item-icon">
+					<img src="resources/images/conv-icon/shower-32px.png" alt="">
+					<p>샤워실</p>
+				</div>
+	
+				<div class="conv-info-item-icon">
+					<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
+					<p>수유실</p>
+				</div>
+				<div class="conv-info-item-icon">
+					<img src="resources/images/conv-icon/park-32px.png" alt="">
+					<p>쉼터</p>
+				</div>
+				<div class="conv-info-item-icon">
+					<img src="resources/images/conv-icon/maintenance-32px.png" alt="">
+					<p>경정비</p>
+				</div>
+				<div class="conv-info-item-icon">
+					<img src="resources/images/conv-icon/atm-32px.png" alt="">
+					<p>ATM</p>
+				</div>
+				<div class="conv-info-item-icon">
+					<img src="resources/images/conv-icon/souvenir-32px.png" alt="">
+					<p>특산물</p>
+				</div>
+				<div class="conv-info-item-icon">
+					<img src="resources/images/conv-icon/sleep-32px.png" alt="">
+					<p>수면실</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- 3.27 편의 시설 정보 section 끝 -->
 	
 
 	
