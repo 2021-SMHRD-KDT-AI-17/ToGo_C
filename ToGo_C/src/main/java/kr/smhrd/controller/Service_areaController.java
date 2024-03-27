@@ -57,9 +57,14 @@ public class Service_areaController {
 //		System.out.println("select_area: ");
 //		System.out.println(select_area.toString());
 		
-		Gas_stations select_gas = gasMapper.gasSelect(service_idx);
-		session.setAttribute("select_gas", select_gas);
-		System.out.println(select_gas.toString());
+//		Gas_stations select_gas = gasMapper.gasSelect(service_idx);
+//		
+//		if(select_gas ==null) {
+//			session.setAttribute("select_gas", null);
+//		}else {
+//			session.setAttribute("select_gas", select_gas);
+//		}
+//		System.out.println(select_gas.toString());
 		
 //		
 //		Conveniences select_conv = convMapper.convSelect(service_idx);
