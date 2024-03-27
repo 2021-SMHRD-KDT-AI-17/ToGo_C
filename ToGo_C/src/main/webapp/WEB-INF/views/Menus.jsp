@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
- <%
-	session.setAttribute("product", resultElement.innerText)
-%>
-<!DOCTYPE html>
+ 
+<%--  <%
+ 	session.setAttribute("product", <span id="total">${food_menus.getMenu_price()}</span>);
+ %> --%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -23,7 +23,7 @@
 						<dt>
 						
 <!-- 사진은 임의값 시작 -->
-							<p>${food_menus.getMenu_img()}</p>
+							<p id="menuImg">${food_menus.getMenu_img()}</p>
 							<%-- <p>${snack_menus.getMenu_img()}</p>
 							<p>${beverage_menus.getMenu_img()}</p> --%>
 
@@ -33,7 +33,7 @@
 								alt="블루밍 체리블라썸 세트">
 							</a>
 <!-- 사진 임의 값 끝 -->							
-							<dd>${food_menus.getMenu_name() }</dd>
+							<p id="menuName">${food_menus.getMenu_name() }</p>
 							<%-- <dd>${snack_menus.getMenu_name() }</dd>
 							<dd>${beverage_menus.getMenu_name() }</dd> --%>
 							
@@ -50,12 +50,6 @@
 							<p>총 가격: <span id="total">${food_menus.getMenu_price()}</span> 원</p>
 							
 							<a href="goBasket"><button>장바구니 담기</button></a>
-							
-							
-
-
-
-
 
 						</dt>
 						
@@ -68,7 +62,6 @@
 
 </body>
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 <script type="text/javascript">
 	function count(type) {
@@ -97,7 +90,6 @@
 		resultElement.innerText = number;
 		totalElement.innerText = total;
 		
-//        var cnt = $("#result").val();
 	}
 </script>
 
