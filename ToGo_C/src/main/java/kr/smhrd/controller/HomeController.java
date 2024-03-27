@@ -48,7 +48,7 @@ public class HomeController {
 		//                                    : 무조건 디스패쳐 서블릿을 거쳐서 와야 		
 		
 		// 3.24 이 부분 index.jsp 홈 화면으로 바꿨어요 - 홍창민
-		return "index"; // /WEB-INF/views/index.jsp
+		return "SearchMap"; // /WEB-INF/views/index.jsp
 	}
 	
 }

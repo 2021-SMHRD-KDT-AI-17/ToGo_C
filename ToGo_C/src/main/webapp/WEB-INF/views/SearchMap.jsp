@@ -121,12 +121,6 @@ input {
 <body>
 
 
-	<!-- Start Header Area -->
-
-	<%@include file="./includes/header.jsp"%>
-
-	<!-- End Header Area -->
-
 	<div class="container">
 		<div class="search-box">
 			<div class="search-box-title">
@@ -182,7 +176,9 @@ input {
 			</div>
 		</section>
 		
-		<button onclick = "service_area_Select()">휴게소 선택</button>
+		<form action="service_area_Select">
+			<input type="submit" value = "휴게소 선택하기">
+		</form>
 
 	</div>
 
@@ -191,17 +187,16 @@ input {
 
 	<!-- start footer Area -->
 
-	<%@include file="./includes/footer.jsp"%>
+
 
 	<!-- End footer Area -->
 	<script type="text/javascript">
-
+	/* 검색 선택시 지도 출력 */
 	function SelectS(s){
 		$.ajax({
 			url:'service_Select',
 			data : {'service_idx' : s},
 			success:function(res){
-				
 				
 				map = new naver.maps.Map('map', {
 			        center: new naver.maps.LatLng(res.lat, res.lng), //지도의 초기 중심 좌표
@@ -223,7 +218,9 @@ input {
 				alert("실패");
 			}
 		})
-	} 
+	}
+	
+	/* ---------------------------------------------------------------- */
 	</script>
 
 
