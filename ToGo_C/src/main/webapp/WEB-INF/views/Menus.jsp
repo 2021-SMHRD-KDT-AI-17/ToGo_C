@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<%-- <%
+ <%
 	session.setAttribute("product", resultElement.innerText)
-%> --%>
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +47,9 @@
 							
 							
 
-							<p>개당 가격: ${food_menus.getMenu_price()}원</p>
-							<!-- 선택한 수량이랑 가격이랑 곱을해서 보여주고싶은데..... -->
-							<a href=""><button>장바구니 담기</button></a>
+							<p>총 가격: <span id="total">${food_menus.getMenu_price()}</span> 원</p>
+							
+							<a href="goBasket"><button>장바구니 담기</button></a>
 							
 							
 
@@ -74,21 +74,28 @@
 	function count(type) {
 		// 결과를 표시할 element
 		const resultElement = document.getElementById('result');
+		const totalElement = document.getElementById('total');
 
 		// 현재 화면에 표시된 값
 		let number = resultElement.innerText;
+		let total = totalElement.innerText;
+		
 
 		// 더하기/빼기
 		if (type === 'plus') {
-			number = parseInt(number) + 1;
 			
+			number = parseInt(number) + 1;
+			total =  parseInt(total)+${food_menus.getMenu_price()}; 
+
 			
 		} else if (type === 'minus'&& number>1) {
 			number = parseInt(number) - 1;
+			total =  parseInt(total)-${food_menus.getMenu_price()};
 		}
 
 		// 결과 출력
 		resultElement.innerText = number;
+		totalElement.innerText = total;
 		
 //        var cnt = $("#result").val();
 	}
