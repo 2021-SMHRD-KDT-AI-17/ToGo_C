@@ -2,6 +2,8 @@ package kr.smhrd.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +19,7 @@ import kr.smhrd.mapper.AreaMapper;
 public class Service_areaController {
 
 	@Autowired
-	private AreaMapper areamapper;
+	private AreaMapper areaMapper;
 	
 	@RequestMapping("/goSearchMap")
 	public String goSearchMap(Model model) {
@@ -26,9 +28,13 @@ public class Service_areaController {
 	}
 	
 	@RequestMapping("/getSearchServiceArea")
-	public String getSearchServiceArea() {
-		System.out.println("service");
-		return "index";
+	public String getSearchServiceArea(Service_areas area, HttpSession session) {
+		
+		List<Service_areas> Search_service_area_list = areaMapper.getSearchServiceArea(area);
+		session.setAttribute("Search_service_area_list", Search_service_area_list);
+		System.out.println(Search_service_area_list.toString());
+		
+		return "SearchMap";
 	}
 	
 	

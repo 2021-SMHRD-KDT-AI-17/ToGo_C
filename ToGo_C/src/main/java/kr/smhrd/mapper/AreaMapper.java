@@ -13,6 +13,8 @@ public interface AreaMapper {
 
 	List<Service_areas> getArea();
 
+	List<Service_areas> getSearchServiceArea(Service_areas area);
+
 //	List<Service_areas> areaList();
 
 }

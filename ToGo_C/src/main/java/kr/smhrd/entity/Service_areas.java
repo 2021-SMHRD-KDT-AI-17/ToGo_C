@@ -14,6 +14,6 @@ public class Service_areas {
    private int service_idx;
    private String service_name;
    private String service_addr;
-   private int lat;
-   private int lng;
+   private float lat;
+   private float lng;
 }
