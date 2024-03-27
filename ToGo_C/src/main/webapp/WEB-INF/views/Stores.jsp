@@ -75,12 +75,12 @@
     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
       
-      	<c:forEach items="${menus_list}" var="m" varStatus="status">
+      	<c:forEach items="${snack_menus_list}" var="sm" varStatus="status">
 			<tr>
 				<td>번호 ${status.count }</td>
-				<td>사진 ${m.menu_img}</td>
-				<td>이름 ${m.menu_name}</td>
-				<td>가격 ${m.menu_price}</td>
+				<td>사진 ${sm.menu_img}</td>
+				<td>이름 ${sm.menu_name}</td>
+				<td>가격 ${sm.menu_price}</td>
 			</tr>
 		</c:forEach>
       
@@ -101,12 +101,12 @@
       <div class="accordion-body">
       
       
-      	<c:forEach items="${menus_list}" var="m" varStatus="status">
+      	<c:forEach items="${beverage_menus_list}" var="bm" varStatus="status">
 			<tr>
 				<td>번호 ${status.count }</td>
-				<td>사진 ${m.menu_img}</td>
-				<td>이름 ${m.menu_name}</td>
-				<td>가격 ${m.menu_price}</td>
+				<td>사진 ${bm.menu_img}</td>
+				<td>이름 ${bm.menu_name}</td>
+				<td>가격 ${bm.menu_price}</td>
 			</tr>
 		</c:forEach>
       
