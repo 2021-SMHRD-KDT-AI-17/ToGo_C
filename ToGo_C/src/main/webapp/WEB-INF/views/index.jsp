@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="kr.smhrd.entity.Service_areas"%>
+<%@ page import="java.util.List"%>
+<%@page import="kr.smhrd.entity.Conveniences"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -51,13 +55,34 @@
 			<div class="gas-icon">
 				<i class="fa-solid fa-gas-pump"></i>
 			</div>
+			<%
+			Conveniences sc = null;
+			Service_areas select_area = (Service_areas) session.getAttribute("select_area");
+			if (select_area.getGasoline_price() != 0) {
+			%>
+			
 			<div class="gas-gasoline">
-				휘 <span class="gas-gasoline-price" id="money">numberWithCommas(${select_area.getGasoline_price() })</span>
+			<img alt="" src="resources/images/conv-icon/gas.jpg" height="25px">
+				<img alt="" src="resources/images/conv-icon/Gasoline.png" height="25px"> 
+				<span class="gas-gasoline-price" id="money">${select_area.getGasoline_price() }
+				<span>원</span>
+				</span>
 			</div>
 			<div class="gas-diesel">
-				경 <span class="gas-diesel-price">1,231원</span>
+				<img alt="" src="resources/images/conv-icon/diesel.png" height="25px"> 
+				<span class="gas-diesel-price">${select_area.getDiesel_price() }
+				<span>원</span>
+				</span>
 			</div>
-			
+			<%
+			} else {
+			%>
+			<div>
+				<span>해당 휴게소는 주유소가 없습니다.</span>
+			</div>
+			<%} %>
+
+
 		</div>
 	</section>	
 	
@@ -69,12 +94,30 @@
 	<section class="conv-info-area">
 		<div class="container conv-info-list">
 			<div class="conv-info-item" style="display: flex; justify-content: space-around;">
-				<div class="conv-info-item-icon">
-					<img src="resources/images/conv-icon/shower-32px.png" alt="">
-					<p>샤워실</p>
-				</div>
-	
-				<div class="conv-info-item-icon">
+
+<%-- 				<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
+					<div class="conv-info-item-icon">
+						<img src="resources/images/conv-icon/shower-32px.png" alt="">
+						<p>${sc.conv_name }</p>
+					</div>
+				</c:forEach> --%>
+				<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
+					<span>123</span>
+					<%
+					if (sc.getConv_name().equals("수유실")) {
+					%>
+
+
+					<div class="conv-info-item-icon">
+						<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
+						<p>수유실</p>
+					</div>
+					<%
+					}
+					%>
+				</c:forEach>
+
+				<!-- 				<div class="conv-info-item-icon">
 					<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
 					<p>수유실</p>
 				</div>
@@ -97,7 +140,7 @@
 				<div class="conv-info-item-icon">
 					<img src="resources/images/conv-icon/sleep-32px.png" alt="">
 					<p>수면실</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
@@ -1083,8 +1126,11 @@
 	
 	<script type="text/javascript">
 
-		function numberWithCommas(n) {
-			return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	const formatPrice = (target) => {
+		  // 숫자만 남긴 후 포맷
+		 target.value = Number(target.value
+		   .replace(/[^0-9]/g, ''))
+		   .toLocaleString();
 		}
 	</script>
 

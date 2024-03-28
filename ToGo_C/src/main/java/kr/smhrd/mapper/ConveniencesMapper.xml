@@ -2,4 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.mapper.ConveniencesMapper">
 
+<select id="convSelect" parameterType="int" resultType="kr.smhrd.entity.Conveniences">
+		select * from conveniences where service_idx = #{service_idx}
+	</select>
 </mapper>

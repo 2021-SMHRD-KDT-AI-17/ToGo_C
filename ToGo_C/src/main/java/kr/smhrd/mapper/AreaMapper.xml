@@ -16,6 +16,6 @@
 	</select>
 	
 	<select id="serviceSelect" parameterType="int" resultType="kr.smhrd.entity.Service_areas">
-		select * from service_areas where service_idx = #{servicce_idx}
+		select * from service_areas where service_idx = #{service_idx}
 	</select>
 </mapper>

@@ -39,7 +39,6 @@ public class Service_areaController {
 		
 		List<Service_areas> Search_service_area_list = areaMapper.getSearchServiceArea(area);
 		session.setAttribute("Search_service_area_list", Search_service_area_list);
-		System.out.println(Search_service_area_list.toString());
 		
 		return "SearchMap";
 	}
@@ -50,20 +49,10 @@ public class Service_areaController {
 	public Service_areas service_Select(@RequestParam("service_idx") int service_idx, HttpSession session) {
 		Service_areas select_area = areaMapper.serviceSelect(service_idx);
 		session.setAttribute("select_area", select_area);
-//		System.out.println("select_area: ");
-//		System.out.println(select_area.toString());
-		
-//		
-//		if(select_gas ==null) {
-//			session.setAttribute("select_gas", null);
-//		}else {
-//			session.setAttribute("select_gas", select_gas);
-//		}
-//		System.out.println(select_gas.toString());
-		
-//		
-//		Conveniences select_conv = convMapper.convSelect(service_idx);
-//		System.out.println(select_conv.toString());
+
+			
+		List<Conveniences> select_conv_list = convMapper.convSelect(service_idx);
+		System.out.println(select_conv_list.toString());
 		
 		return select_area;
 		
