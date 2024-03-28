@@ -34,7 +34,7 @@ public class Service_areaController {
 	@RequestMapping("/goSearchMap")
 	public String goSearchMap(Model model) {
 
-		return "SearchMap";
+		return "Stores";
 	}
 	
 	// 검색 관련 내용 출력
@@ -57,7 +57,8 @@ public class Service_areaController {
 //		System.out.println("select_area: ");
 //		System.out.println(select_area.toString());
 		
-//		Gas_stations select_gas = gasMapper.gasSelect(service_idx);
+		Gas_stations select_gas = gasMapper.gasSelect(service_idx);
+		System.out.println(select_gas);
 //		
 //		if(select_gas ==null) {
 //			session.setAttribute("select_gas", null);
