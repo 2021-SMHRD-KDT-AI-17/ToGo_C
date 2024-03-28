@@ -3,7 +3,7 @@
 <%@ page import="kr.smhrd.entity.Service_areas"%>
 <%@ page import="java.util.List"%>
 <%@page import="kr.smhrd.entity.Conveniences"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -80,8 +80,6 @@
 				<span>해당 휴게소는 주유소가 없습니다.</span>
 			</div>
 			<%} %>
-
-
 		</div>
 	</section>	
 	
@@ -94,51 +92,31 @@
 		<div class="container conv-info-list">
 			<div class="conv-info-item" style="display: flex; justify-content: space-around;">
 
+			<div class="conv-info-item-icon">
+               <img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
+               <p>${select_conv_list[0].getConv_name() }</p>
+            </div>
 
-				
-		
-				
-				
+				<%
+				List<Conveniences> conveniencesList = (List<Conveniences>) request.getAttribute("conveniencesList");
+				%>
 
-					
-					<!--   편의시설 아직 안됨!!!!!!!!!!!  -->
-
-
+				<!-- 객체 목록을 반복해서 출력 -->
+				<c:forEach var="convenience" items="${conveniencesList}">
 					<div class="conv-info-item-icon">
-						<img src="resources/images/conv-icon/feeding-bottle-32px.png" >
-						<p>수유실</p>
+						<img src="resources/images/conv-icon/feeding-bottle-32px.png"
+							alt="">
+						<p>${convenience.conv_name}</p>
 					</div>
-					
-			
-					
+				</c:forEach>
 
 
 
 
-				<div class="conv-info-item-icon">
-					<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
-					<p>수유실</p>
-				</div>
-				<div class="conv-info-item-icon">
-					<img src="resources/images/conv-icon/park-32px.png" alt="">
-					<p>쉼터</p>
-				</div>
-				<div class="conv-info-item-icon">
-					<img src="resources/images/conv-icon/maintenance-32px.png" alt="">
-					<p>경정비</p>
-				</div>
-				<div class="conv-info-item-icon">
-					<img src="resources/images/conv-icon/atm-32px.png" alt="">
-					<p>ATM</p>
-				</div>
-				<div class="conv-info-item-icon">
-					<img src="resources/images/conv-icon/souvenir-32px.png" alt="">
-					<p>특산물</p>
-				</div>
-				<div class="conv-info-item-icon">
-					<img src="resources/images/conv-icon/sleep-32px.png" alt="">
-					<p>수면실</p>
-				</div>  
+
+
+
+				<!--   편의시설 아직 안됨!!!!!!!!!!!  -->
 			</div>
 		</div>
 	</section>
