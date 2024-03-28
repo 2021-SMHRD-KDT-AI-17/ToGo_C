@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.smhrd.entity.Conveniences;
-import kr.smhrd.entity.Gas_stations;
 import kr.smhrd.entity.Service_areas;
 import kr.smhrd.mapper.AreaMapper;
 import kr.smhrd.mapper.ConveniencesMapper;
-import kr.smhrd.mapper.GasMapper;
 
 
 
@@ -25,8 +23,6 @@ public class Service_areaController {
 
 	@Autowired
 	private AreaMapper areaMapper;
-	@Autowired
-	private GasMapper gasMapper;
 	@Autowired
 	private ConveniencesMapper convMapper;
 	
@@ -57,8 +53,6 @@ public class Service_areaController {
 //		System.out.println("select_area: ");
 //		System.out.println(select_area.toString());
 		
-		Gas_stations select_gas = gasMapper.gasSelect(service_idx);
-		System.out.println(select_gas);
 //		
 //		if(select_gas ==null) {
 //			session.setAttribute("select_gas", null);

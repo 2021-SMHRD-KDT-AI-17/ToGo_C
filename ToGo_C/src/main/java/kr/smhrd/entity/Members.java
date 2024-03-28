@@ -18,12 +18,13 @@ import lombok.ToString;
 public class Members {
 
 
-	private String mb_id;
-	private String mb_pw;
-	private String mb_nick;
-	private String mb_phone;
-	private String joined_at;
-	private String mb_leave;
+	private String mb_id;		// 회원아이디
+	private String mb_pw;		// 회원비밀번호
+	private String mb_nick;		// 회원 닉네임
+	private String mb_phone;	// 폰 번호
+	private String joined_at;	// 가입 날짜
+	private String mb_leave;	// 탈퇴 유무
+	private int mb_point;		// 포인트
 	
 	
 	
