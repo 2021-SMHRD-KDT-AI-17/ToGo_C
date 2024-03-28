@@ -56,7 +56,6 @@
 				<i class="fa-solid fa-gas-pump"></i>
 			</div>
 			<%
-			Conveniences sc = null;
 			Service_areas select_area = (Service_areas) session.getAttribute("select_area");
 			if (select_area.getGasoline_price() != 0) {
 			%>
@@ -101,7 +100,19 @@
 						<p>${sc.conv_name }</p>
 					</div>
 				</c:forEach> --%>
-				<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
+				
+		<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
+			<tr>
+				<td>번호 ${status.count }</td>
+				<td>사진 ${sc.conv_idx}</td>
+				<td>이름 ${sc.service_idx}</td>
+				<td>가격 ${sc.conv_name}</td>
+			</tr>
+		</c:forEach>
+				
+				
+				
+<%-- 혜선씨 작업 하던거 시작 3.28.14:00				<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
 					<span>123</span>
 					<%
 					if (sc.getConv_name().equals("수유실")) {
@@ -115,7 +126,9 @@
 					<%
 					}
 					%>
-				</c:forEach>
+혜선씨 작업 하던거 끝				</c:forEach> --%>
+
+
 
 				<!-- 				<div class="conv-info-item-icon">
 					<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
