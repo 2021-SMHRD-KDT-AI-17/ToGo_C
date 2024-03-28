@@ -15,9 +15,10 @@ import lombok.ToString;
 @ToString
 public class Order_details {
 
-	private int od_idx;
-	private int menu_idx;
-	private int order_cnt;
-	private int order_request;
-	private int order_idx;
+	private int od_idx;			//주문 상세 식별자
+	private int menu_idx;		// 메뉴식별자
+	private int order_cnt;		// 주무 수량
+	private int order_request;	// 요청사항
+	private int order_idx;		// 주문식별자
+	private String menu_good; 	// 메뉴추천
 }

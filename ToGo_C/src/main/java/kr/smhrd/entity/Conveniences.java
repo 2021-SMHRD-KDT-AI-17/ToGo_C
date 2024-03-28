@@ -16,7 +16,7 @@ import lombok.ToString;
 public class Conveniences {
 
 
-	private int conv_idx;
-	private int service_idx;
-	private String conv_name;	
+	private int conv_idx;		// 편의시설 식별자
+	private int service_idx;	// 휴게소 식별자
+	private String conv_name;	// 편의시설 명
 }

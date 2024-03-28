@@ -11,9 +11,9 @@ import lombok.ToString;
 @ToString
 public class Menu_ranking {
 
-	private int rnk_idx;
-	private int menu_idx;
-	private int rnk;
+	private int rnk_idx;	// 랭킹 식별자
+	private int menu_idx;	// 메뉴 식별자
+	private int rnk;		// 랭킹
 	
 	
 }
