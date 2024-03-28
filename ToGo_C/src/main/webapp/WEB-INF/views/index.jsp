@@ -101,12 +101,12 @@
 				
 
 					
-					
+					<!--   편의시설 아직 안됨!!!!!!!!!!!  -->
 
 
 					<div class="conv-info-item-icon">
 						<img src="resources/images/conv-icon/feeding-bottle-32px.png" >
-						<p>${select_conv_list.getConv_name()}</p>
+						<p>수유실</p>
 					</div>
 					
 			
@@ -114,7 +114,7 @@
 
 
 
-<!-- 
+
 				<div class="conv-info-item-icon">
 					<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
 					<p>수유실</p>
@@ -138,7 +138,7 @@
 				<div class="conv-info-item-icon">
 					<img src="resources/images/conv-icon/sleep-32px.png" alt="">
 					<p>수면실</p>
-				</div>  -->
+				</div>  
 			</div>
 		</div>
 	</section>
