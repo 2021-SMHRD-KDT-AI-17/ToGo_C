@@ -22,8 +22,10 @@
 					<dl>
 						<dt>
 						
+	<form action="goBasket">						
 <!-- 사진은 임의값 시작 -->
-							<p id="menuImg">${food_menus.getMenu_img()}</p>
+
+							<p id="menuImg" name="menuImg" ${food_menus.getMenu_img()}></p>
 							<%-- <p>${snack_menus.getMenu_img()}</p>
 							<p>${beverage_menus.getMenu_img()}</p> --%>
 
@@ -33,24 +35,28 @@
 								alt="블루밍 체리블라썸 세트">
 							</a>
 <!-- 사진 임의 값 끝 -->							
-							<p id="menuName">${food_menus.getMenu_name() }</p>
+							<p id="menuName" name="menuName" ${food_menus.getMenu_name() }></p>
 							<%-- <dd>${snack_menus.getMenu_name() }</dd>
 							<dd>${beverage_menus.getMenu_name() }</dd> --%>
 							
 							
 							<p>수량선택</p>
 							<p>
-							<span id='result'>1</span>
 							<input type='button' onclick='count("plus")' value='+' />
+							<span id='result'>1</span>
 							<input type='button' onclick='count("minus")' value='-' />
 							</p>
 							
-							
 
-							<p>총 가격: <span id="total">${food_menus.getMenu_price()}</span> 원</p>
+							<p>총 가격: <span id="total" name="total">${food_menus.getMenu_price()}</span> 원</p>
 							
-							<a href="goBasket"><button>장바구니 담기</button></a>
+							<p>주문 요구사항</p>
+							<p><input type="textarea" rows="10" cols="30" id="requirements" name="requirements"></p>
+							
+							
+							<p><input type="submit" value="장바구니 담기"></p>
 
+	</form>
 						</dt>
 						
 					</dl>
