@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="java.util.List" %>
+<%@ page import="kr.smhrd.entity.Menus" %>
+	
 	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	
@@ -249,7 +252,6 @@ span {
 				<ul class="list" style="padding-left: 0px;">
 					<li class="is_on"><a href="#tab1" class="btn">식사</a>
 						<div id="tab1" class="cont" style="overflow-y: scroll;">
-		
 							<c:forEach items="${food_menus_list}" var="fm" varStatus="status">
 								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal"  
 									style="display: flex; justify-content: space-around; cursor: pointer;">
@@ -261,7 +263,7 @@ span {
 											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
 											</div>
 											<a href="goMenus?count=${fm.menu_idx}">번호 ${status.count }</a>
-											<p onclick="menuOption?count=${fm.menu_idx}">menuOption</p>
+											<p onclick="menuOption(${status.count})">menuOption</p>
 									</div>											
 									<div class="menu-img-box">
 										<img src="pl1.jpg" 사진 ${fm.menu_img} alt="" style="width: 200px; height: 150px;">
@@ -271,7 +273,7 @@ span {
 						</div>
 					</li>
 					
-					
+					<!--  ---------------------------------------------------------------------------------------------------------------          ----->
 					<li class="is_on"><a href="#tab2" class="btn">간식</a>
 						<div id="tab1" class="cont" style="overflow-y: scroll;">
 		
@@ -286,7 +288,7 @@ span {
 											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
 											</div>
 											<a href="goMenus?count=${sm.menu_idx}">번호 ${status.count }</a>
-											<p onclick="menuOption?count=${sm.menu_idx}">menuOption</p>
+											<p onclick="menuOption(${status.count})">menuOption</p>
 									</div>											
 									<div class="menu-img-box">
 										<img src="pl1.jpg" 사진 ${sm.menu_img} alt="" style="width: 200px; height: 150px;">
@@ -311,7 +313,7 @@ span {
 											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
 											</div>
 											<a href="goMenus?count=${bm.menu_idx}">번호 ${status.count }</a>
-											<p onclick="menuOption?count=${bm.menu_idx}">menuOption</p>
+											<p onclick="menuOption(${status.count})">menuOption</p>
 											
 									</div>											
 									<div class="menu-img-box">
@@ -378,7 +380,7 @@ span {
 							style="height: 200px; width: 300px; background: #777;">
 							<article>
 							<p id="menuName" name="product"> ${food_menus.getMenu_name() }</p>
-							<p>개당 가격:${food_menus.getMenu_price()}</span> 원</p>
+							<p>개당 가격:<span id = "menu_price">${food_menus.getMenu_price()}</span> 원</p>
 								<p></p>
 							</article>
 
@@ -429,6 +431,11 @@ span {
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"></script>
+			
+			<%
+    // 섹션에서 객체 리스트 가져오기
+    List<Menus> food_menus_list = (List<Menus>) session.getAttribute("food_menus_list");
+%>
 </body>
 
 </html>
@@ -484,24 +491,17 @@ span {
 		}, 300);
 	}
 	
- 	function menu_option(){
+
+	function menuOption(num){
 		
-		var flexx = $('.flexx').val();
-		//console.log(inputId);
-
-		$.ajax({
-			url : 'menuOption',
-			data : {'flexx' : flexx},
-			type : 'get',
-			success : function() {
-				
-			},
-			error : function() {
-				alert("Erorr")
-			}
-		})
-
-	} 
+		var food_menus_list = <%= new com.google.gson.Gson().toJson(food_menus_list) %>;
+	    console.log(num);
+	    num  = parseInt(num);
+	    console.log(food_menus_list[num-1].menu_name);
+	    let menuName = document.getElementById("menuName");
+	    console.log(menuName);
+	    menuName.innerText = food_menus_list[num-1].menu_name;
+	}
 		
 		
 	
