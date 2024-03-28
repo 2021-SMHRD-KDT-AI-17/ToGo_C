@@ -12,7 +12,7 @@
 
 <h1>장바구니에 담겼습니다.</h1>
 
-      	<c:forEach items="${basket_list}" var="b" varStatus="status">
+      	<c:forEach items="${b_list}" var="b" varStatus="status">
 			<tr>
 				<td>번호 ${status.count }</td>
 				<td>사진 ${b.menu_img}</td>
