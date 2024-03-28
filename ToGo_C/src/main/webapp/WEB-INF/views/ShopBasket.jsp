@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	String menuImg = request.getParameter("menuImg");
+	String menuName = request.getParameter("menuName");
+	String total = request.getParameter("total");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +20,10 @@
 				<th>등록된 상품명</th>
 			</tr>
 		
-			
 		</table>
+
+		<%= request.getParameter("requirements") %>
+		
 			<p>
 				<a href="#">장바구니 모두 비우기</a>
 			</p>
@@ -39,6 +47,6 @@
 			 <br>
 			<br>
 			
-			<button> 총 10,000원 결제하기</button>
+			<button> 총 원 결제하기</button>
 </body>
 </html>

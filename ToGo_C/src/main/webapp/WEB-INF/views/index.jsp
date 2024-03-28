@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="kr.smhrd.entity.Service_areas"%>
+<%@ page import="java.util.List"%>
+<%@page import="kr.smhrd.entity.Conveniences"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -51,13 +55,33 @@
 			<div class="gas-icon">
 				<i class="fa-solid fa-gas-pump"></i>
 			</div>
+			<%
+			Service_areas select_area = (Service_areas) session.getAttribute("select_area");
+			if (select_area.getGasoline_price() != 0) {
+			%>
+			
 			<div class="gas-gasoline">
-				휘 <span class="gas-gasoline-price">1,490원</span>
+			<img alt="" src="resources/images/conv-icon/gas.jpg" height="25px">
+				<img alt="" src="resources/images/conv-icon/Gasoline.png" height="25px"> 
+				<span class="gas-gasoline-price" id="money">${select_area.getGasoline_price() }
+				<span>원</span>
+				</span>
 			</div>
 			<div class="gas-diesel">
-				경 <span class="gas-diesel-price">1,231원</span>
+				<img alt="" src="resources/images/conv-icon/diesel.png" height="25px"> 
+				<span class="gas-diesel-price">${select_area.getDiesel_price() }
+				<span>원</span>
+				</span>
 			</div>
-			
+			<%
+			} else {
+			%>
+			<div>
+				<span>해당 휴게소는 주유소가 없습니다.</span>
+			</div>
+			<%} %>
+
+
 		</div>
 	</section>	
 	
@@ -69,12 +93,46 @@
 	<section class="conv-info-area">
 		<div class="container conv-info-list">
 			<div class="conv-info-item" style="display: flex; justify-content: space-around;">
-				<div class="conv-info-item-icon">
-					<img src="resources/images/conv-icon/shower-32px.png" alt="">
-					<p>샤워실</p>
-				</div>
-	
-				<div class="conv-info-item-icon">
+
+<%-- 				<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
+					<div class="conv-info-item-icon">
+						<img src="resources/images/conv-icon/shower-32px.png" alt="">
+						<p>${sc.conv_name }</p>
+					</div>
+				</c:forEach> --%>
+				
+				
+<!-- 명택 작업중 시작 -->		
+		<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
+			<tr>
+				<td>번호 ${status.count }</td>
+				<td>사진 ${sc.conv_idx}</td>
+				<td>이름 ${sc.service_idx}</td>
+				<td>가격 ${sc.conv_name}</td>
+			</tr>
+		</c:forEach>
+<!-- 명택 작업중 끝 -->				
+				
+				
+<%-- 혜선씨 작업 하던거 시작 3.28.14:00				<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
+					<span>123</span>
+					<%
+					if (sc.getConv_name().equals("수유실")) {
+					%>
+
+
+					<div class="conv-info-item-icon">
+						<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
+						<p>수유실</p>
+					</div>
+					<%
+					}
+					%>
+혜선씨 작업 하던거 끝				</c:forEach> --%>
+
+
+
+				<!-- 				<div class="conv-info-item-icon">
 					<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
 					<p>수유실</p>
 				</div>
@@ -97,7 +155,7 @@
 				<div class="conv-info-item-icon">
 					<img src="resources/images/conv-icon/sleep-32px.png" alt="">
 					<p>수면실</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
@@ -120,7 +178,7 @@
 						</div>
 						<!-- 휴게소 주문하기  로그인 시 접근 가능 로그인 안할시 로그인 페이지로 -->
 						
-						<h6><a href="goSearchMap">휴게소 주문하기</a></h6>
+						<h6><a href="goStores">휴게소 주문하기</a></h6>
 						
 						
 						<p>"3.23 주문하기 간단한 설명 문구"</p>
@@ -1080,6 +1138,16 @@
 	<%@include file = "./includes/footer.jsp" %>
 	
 	<!-- footer 영역 끝 -->
+	
+	<script type="text/javascript">
+
+	const formatPrice = (target) => {
+		  // 숫자만 남긴 후 포맷
+		 target.value = Number(target.value
+		   .replace(/[^0-9]/g, ''))
+		   .toLocaleString();
+		}
+	</script>
 
 
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
