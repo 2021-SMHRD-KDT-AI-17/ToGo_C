@@ -40,7 +40,7 @@ public class StoresController_LMT {
 		List<Menus> beverage_menus_list = menusMapper.beverageMenusList();
 		session.setAttribute("beverage_menus_list", beverage_menus_list);
 		
-		return "Stores";
+		return "Stores_HCM";
 	}
 	
 

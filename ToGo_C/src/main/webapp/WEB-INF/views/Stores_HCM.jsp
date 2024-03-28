@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -246,126 +249,113 @@ span {
 				<ul class="list" style="padding-left: 0px;">
 					<li class="is_on"><a href="#tab1" class="btn">식사</a>
 						<div id="tab1" class="cont" style="overflow-y: scroll;">
-							<div class="flexx"
-								style="display: flex; justify-content: space-around;">
-								<div class="menu-info-box">
+		
+							<c:forEach items="${food_menus_list}" var="fm" varStatus="status">
+								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal"  
+									style="display: flex; justify-content: space-around; cursor: pointer;">
+									<div class="menu-info-box">
+											<h3>이름 ${fm.menu_name}</h3>
+											<p>가격 ${fm.menu_price}원</p>
+<!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
+											<div class="good-bad">
+											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
+											</div>
+											<a href="goMenus?count=${fm.menu_idx}">번호 ${status.count }</a>
+											<p onclick="menuOption?count=${fm.menu_idx}">menuOption</p>
+									</div>											
+									<div class="menu-img-box">
+										<img src="pl1.jpg" 사진 ${fm.menu_img} alt="" style="width: 200px; height: 150px;">
+									</div>										
+								</div>			
+							</c:forEach>
+						</div>
+					</li>
+					
+					
+					<li class="is_on"><a href="#tab2" class="btn">간식</a>
+						<div id="tab1" class="cont" style="overflow-y: scroll;">
+		
+							<c:forEach items="${snack_menus_list}" var="sm" varStatus="status">
+								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+									style="display: flex; justify-content: space-around; cursor: pointer;">
+									<div class="menu-info-box">
+											<h3>이름 ${sm.menu_name}</h3>
+											<p>가격 ${sm.menu_price}원</p>
+<!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
+											<div class="good-bad">
+											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
+											</div>
+											<a href="goMenus?count=${sm.menu_idx}">번호 ${status.count }</a>
+											<p onclick="menuOption?count=${sm.menu_idx}">menuOption</p>
+									</div>											
+									<div class="menu-img-box">
+										<img src="pl1.jpg" 사진 ${sm.menu_img} alt="" style="width: 200px; height: 150px;">
+									</div>										
+								</div>			
+							</c:forEach>
+						</div>
+					</li>
+					
+					
+					<li class="is_on"><a href="#tab3" class="btn">음료</a>
+						<div id="tab1" class="cont" style="overflow-y: scroll;">
+		
+							<c:forEach items="${beverage_menus_list}" var="bm" varStatus="status">
+								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+									style="display: flex; justify-content: space-around; cursor: pointer;">
+									<div class="menu-info-box">
+											<h3>이름 ${bm.menu_name}</h3>
+											<p>가격 ${bm.menu_price}원</p>
+<!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
+											<div class="good-bad">
+											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
+											</div>
+											<a href="goMenus?count=${bm.menu_idx}">번호 ${status.count }</a>
+											<p onclick="menuOption?count=${bm.menu_idx}">menuOption</p>
+											
+									</div>											
+									<div class="menu-img-box">
+										<img src="pl1.jpg" 사진 ${bm.menu_img} alt="" style="width: 200px; height: 150px;">
+									</div>										
+								</div>			
+							</c:forEach>
+						</div>
+					</li>
+			
 
-									<h3>떡볶이</h3>
-									<p>3,500원</p>
-									<div class="good-bad">
-										<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
-									</div>
-
-								</div>
-								<div class="menu-img-box">
-									<img src="pl1.jpg" alt="" style="width: 200px; height: 150px;">
-								</div>
-							</div>
-
-							<div class="flexx"
-								style="display: flex; justify-content: space-around;">
-								<div class="menu-info-box">
-
-									<h3>소떡소떡</h3>
-									<p>2,000원</p>
-									<div class="good-bad">
-										<span><i class="fa-regular fa-thumbs-up"></i></span><span>18개</span>
-									</div>
-
-								</div>
-								<div class="menu-img-box">
-									<img src="pl1.jpg" alt="" style="width: 200px; height: 150px;">
-								</div>
-							</div>
-							<div class="flexx"
-								style="display: flex; justify-content: space-around;">
-								<div class="menu-info-box">
-									<h3>라면</h3>
-									<p>4,000원</p>
-									<div class="good-bad">
-										<span><i class="fa-regular fa-thumbs-up"></i></span><span>11개</span>
-									</div>
-
-								</div>
-								<div class="menu-img-box">
-									<img src="pl1.jpg" alt="" style="width: 200px; height: 150px;">
-								</div>
-							</div>
-							<div class="flexx"
-								style="display: flex; justify-content: space-around;">
-								<div class="menu-info-box">
-									<h3>떡라면</h3>
-									<p>4,500원</p>
-									<div class="good-bad">
-										<span><i class="fa-regular fa-thumbs-up"></i></span><span>5개</span>
-									</div>
-
-								</div>
-								<div class="menu-img-box">
-									<img src="pl1.jpg" alt="" style="width: 200px; height: 150px;">
-								</div>
-							</div>
-							<div class="flexx"
-								style="display: flex; justify-content: space-around;">
-								<div class="menu-info-box">
-									<h3>순대볶음</h3>
-									<p>2,000원</p>
-									<div class="good-bad">
-										<span><i class="fa-regular fa-thumbs-up"></i></span><span>23개</span>
-									</div>
-
-								</div>
-								<div class="menu-img-box">
-									<img src="pl1.jpg" alt="" style="width: 200px; height: 150px;">
-								</div>
-							</div>
-							<div class="flexx"
-								style="display: flex; justify-content: space-around;">
-								<div class="menu-info-box">
-									<h3>통감자</h3>
-									<p>3,500원</p>
-									<div class="good-bad">
-										<span><i class="fa-regular fa-thumbs-up"></i></span><span>12개</span>
-									</div>
-
-								</div>
-								<div class="menu-img-box">
-									<img src="pl1.jpg" alt="" style="width: 200px; height: 150px;">
-								</div>
-							</div>
-						</div></li>
-					<li><a href="#tab2" class="btn">간식 탭</a>
-						<div id="tab2" class="cont">탭 2 간식 부분 출력</div></li>
-					<li><a href="#tab3" class="btn">음료 탭</a>
-						<div id="tab3" class="cont">탭 3 음료 부분 출력</div></li>
-				</ul>
-			</div>
+		</ul>
+		</div>
 		</div>
 	</section>
 
 
 	<!-- 띄울 메뉴창 -->
 
-	<div class="container">
+	<!-- <div class="container">
 		<div id="popup" class="popup">
 			<div class="popup-content">
 				<span class="close" onclick="closePopup()">&times;</span>
 				<p>어 형이야</p>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
-	<div id="trigger" class="popup-click"></div>
+	<!-- <div id="trigger" class="popup-click"></div> -->
 
 	<!-- 팝업창을 제외한 나머지 body 영역 어두어지는 효과 -->
 	<div class="overlay"></div>
 
+
+
+
+
 	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-		data-bs-target="#exampleModal">Launch demo modal</button>
+<!-- 	<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+		data-bs-target="#exampleModal">Launch demo modal</button> -->
 
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1"
+	
+	 	<div class="modal fade" id="exampleModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div
 			class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -378,14 +368,17 @@ span {
 				<div class="menu-modal-box modal-body">
 					<div class="menu-modal-box-wrap"
 						style="display: flex; justify-content: space-between; padding: 10px; box-sizing: border-box;">
+
 						<div class="menu-img"
-							style="height: 200px; width: 150px; background: #999;">이미지
+							style="height: 200px; width: 150px; background: #999;">
+						<p id="menuImg" name="product">${food_menus.getMenu_img()}</p>
+						
 						</div>
 						<div class="menu-detail"
 							style="height: 200px; width: 300px; background: #777;">
 							<article>
-								<h4>떡볶이</h4>
-								<p>가격 : 0,000원</p>
+							<p id="menuName" name="product"> ${food_menus.getMenu_name() }</p>
+							<p>개당 가격:${food_menus.getMenu_price()}</span> 원</p>
 								<p></p>
 							</article>
 
@@ -396,15 +389,14 @@ span {
 									<span> 수량 </span>
 								</div>
 								<div class="menu-count-right">
-									<input type='button' onclick='count("plus")' value='+' /> <span
-										id='result'>1</span> <input type='button'
-										onclick='count("minus")' value='-' />
+									<input type='button' onclick='count("plus")' value='+' />
+									<span id='result'>1</span>
+									<input type='button' onclick='count("minus")' value='-' />
 								</div>
 							</section>
 
 							<section>
-								<p>> 총합</p>
-								<span><strong> > 20,000</strong></span><span>원</span>
+								<p>총 가격:<span id="total" name="total">${food_menus.getMenu_price()}</span> 원</p>
 							</section>
 						</div>
 
@@ -425,10 +417,13 @@ span {
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">닫기</button>
-					<button type="button" class="btn btn-primary">장바구니 담기</button>
+					<button type="" class="btn btn-primary">장바구니 담기</button>
 				</div>
 			</div>
 		</div>
+
+
+
 
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -455,11 +450,11 @@ span {
 			this.parentNode.classList.add('is_on');
 		});
 	}
-
-	document.getElementById("trigger").addEventListener("click", function() {
+ 
+ 	document.getElementById("trigger").addEventListener("click", function() {
 		var popup = document.getElementById("popup");
 		var overlay = document.querySelector(".overlay");
-		var body = document.body;
+		var body = document.body; 
 
 		popup.style.display = "block";
 		overlay.style.display = "block";
@@ -488,7 +483,64 @@ span {
 			body.style.overflow = "";
 		}, 300);
 	}
+	
+ 	function menu_option(){
+		
+		var flexx = $('.flexx').val();
+		//console.log(inputId);
+
+		$.ajax({
+			url : 'menuOption',
+			data : {'flexx' : flexx},
+			type : 'get',
+			success : function() {
+				
+			},
+			error : function() {
+				alert("Erorr")
+			}
+		})
+
+	} 
+		
+		
+	
+	
+	
+
 </script>
+
+
+<script type="text/javascript">
+	function count(type) {
+		// 결과를 표시할 element
+		const resultElement = document.getElementById('result');
+		const totalElement = document.getElementById('total');
+
+		// 현재 화면에 표시된 값
+		let number = resultElement.innerText;
+		let total = totalElement.innerText;
+		
+
+		// 더하기/빼기
+		if (type === 'plus') {
+			
+			number = parseInt(number) + 1;
+			total =  parseInt(total)+${food_menus.getMenu_price()}; 
+
+			
+		} else if (type === 'minus'&& number>1) {
+			number = parseInt(number) - 1;
+			total =  parseInt(total)-${food_menus.getMenu_price()};
+		}
+
+		// 결과 출력
+		resultElement.innerText = number;
+		totalElement.innerText = total;
+		
+	}
+</script>
+
 </script>
 
 <script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
