@@ -41,6 +41,8 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
 
+
+
 <style type="text/css">
 * {
 	margin: 0;
@@ -170,6 +172,39 @@ span {
 	z-index: 999;
 	display: none;
 }
+
+.request-text-box {
+	resize: none;
+}
+
+.request {
+	height: 100px;
+	background: #999;
+	margin-bottom: 25px;
+	margin-left: 25px;
+	margin-right: 25px;
+	align-items: center;
+	border-radius: 2%;
+}
+
+.menu-modal-box-wrap {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.menu-img {
+	height: 200px;
+	width: 150px;
+	background: #999;
+}
+
+.menu-detail {
+	height: 200px;
+	width: 300px;
+	background: #777;
+}
 </style>
 
 
@@ -178,7 +213,6 @@ span {
 </head>
 
 <body>
-
 
 
 	<!-- Start Header Area -->
@@ -193,10 +227,10 @@ span {
 			<div
 				class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
-					<h1>Login/Register</h1>
+					<h1>주문하기</h1>
 					<nav class="d-flex align-items-center">
-						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-						<a href="category.html">Login/Register</a>
+						<a href="index.html">홈<span class="lnr lnr-arrow-right"></span></a>
+						<a href="category.html">주문하기</a>
 					</nav>
 				</div>
 			</div>
@@ -206,7 +240,6 @@ span {
 
 	<section class="menu-select-area container"
 		style="width: 90%; background: wheat; height: 800px; border-radius: 2%;">
-
 
 		<div class="wrap">
 			<div class="tab_menu">
@@ -327,56 +360,6 @@ span {
 	<!-- 팝업창을 제외한 나머지 body 영역 어두어지는 효과 -->
 	<div class="overlay"></div>
 
-	<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
-</head>
-
-<style>
-.request-text-box {
-	resize: none;
-}
-
-.request {
-	height: 100px;
-	background: #999;
-	margin-bottom: 25px;
-	margin-left: 25px;
-	margin-right: 25px;
-	align-items: center;
-	border-radius: 2%;
-}
-
-.menu-modal-box-wrap {
-	display: flex;
-	justify-content: space-between;
-	padding: 10px;
-	box-sizing: border-box;
-}
-
-.menu-img {
-	height: 200px;
-	width: 150px;
-	background: #999;
-}
-
-.menu-detail {
-	height: 200px;
-	width: 300px;
-	background: #777;
-}
-</style>
-
-<body>
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary" data-bs-toggle="modal"
 		data-bs-target="#exampleModal">Launch demo modal</button>
@@ -384,7 +367,8 @@ span {
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div
+			class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h1 class="modal-title fs-5" id="exampleModalLabel">주문 상세</h1>
@@ -392,12 +376,16 @@ span {
 						aria-label="Close"></button>
 				</div>
 				<div class="menu-modal-box modal-body">
-					<div class="menu-modal-box-wrap">
-						<div class="menu-img">이미지</div>
-						<div class="menu-detail">
+					<div class="menu-modal-box-wrap"
+						style="display: flex; justify-content: space-between; padding: 10px; box-sizing: border-box;">
+						<div class="menu-img"
+							style="height: 200px; width: 150px; background: #999;">이미지
+						</div>
+						<div class="menu-detail"
+							style="height: 200px; width: 300px; background: #777;">
 							<article>
 								<h4>떡볶이</h4>
-								<p>가격 : 3,500원</p>
+								<p>가격 : 0,000원</p>
 								<p></p>
 							</article>
 
@@ -409,20 +397,23 @@ span {
 								</div>
 								<div class="menu-count-right">
 									<input type='button' onclick='count("plus")' value='+' /> <span
-										id='result'>3</span> <input type='button'
+										id='result'>1</span> <input type='button'
 										onclick='count("minus")' value='-' />
 								</div>
 							</section>
 
-							<section class="menu-total"
-								style="display: flex; justify-content: space-around; align-items: center;">
-								<div>총합</div>
-								<div>10,500원</div>
+							<section>
+								<p>> 총합</p>
+								<span><strong> > 20,000</strong></span><span>원</span>
 							</section>
 						</div>
+
+
+
 					</div>
+
+
 				</div>
-				
 				<div class="request">
 					<div>요청사항</div>
 					<div style="height: 80px; width: 100%;">
