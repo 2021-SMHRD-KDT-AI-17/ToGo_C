@@ -94,45 +94,28 @@
 		<div class="container conv-info-list">
 			<div class="conv-info-item" style="display: flex; justify-content: space-around;">
 
-<%-- 				<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
-					<div class="conv-info-item-icon">
-						<img src="resources/images/conv-icon/shower-32px.png" alt="">
-						<p>${sc.conv_name }</p>
-					</div>
-				</c:forEach> --%>
+
+				
+		
 				
 				
-<!-- 명택 작업중 시작 -->		
-		<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
-			<tr>
-				<td>번호 ${status.count }</td>
-				<td>사진 ${sc.conv_idx}</td>
-				<td>이름 ${sc.service_idx}</td>
-				<td>가격 ${sc.conv_name}</td>
-			</tr>
-		</c:forEach>
-<!-- 명택 작업중 끝 -->				
-				
-				
-<%-- 혜선씨 작업 하던거 시작 3.28.14:00				<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
-					<span>123</span>
-					<%
-					if (sc.getConv_name().equals("수유실")) {
-					%>
+
+					
+					
 
 
 					<div class="conv-info-item-icon">
-						<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
-						<p>수유실</p>
+						<img src="resources/images/conv-icon/feeding-bottle-32px.png" >
+						<p>${select_conv_list.getConv_name()}</p>
 					</div>
-					<%
-					}
-					%>
-혜선씨 작업 하던거 끝				</c:forEach> --%>
+					
+			
+					
 
 
 
-				<!-- 				<div class="conv-info-item-icon">
+<!-- 
+				<div class="conv-info-item-icon">
 					<img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
 					<p>수유실</p>
 				</div>
@@ -155,7 +138,7 @@
 				<div class="conv-info-item-icon">
 					<img src="resources/images/conv-icon/sleep-32px.png" alt="">
 					<p>수면실</p>
-				</div> -->
+				</div>  -->
 			</div>
 		</div>
 	</section>
