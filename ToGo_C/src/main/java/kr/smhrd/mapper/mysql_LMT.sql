@@ -49,30 +49,32 @@ DELETE FROM members WHERE mb_id = 'admin';
 select * from stores;
 
 select * from menus;
+select * from menus;
 
 delete from menus where menu_name = '음료1';
 
-
-
-insert into stores (store_id, store_pw, store_cate, store_bno, service_idx)values('test1', '123', '식사', '사업자 번호010', '업체 핸드폰번호', 2);
 insert into stores (store_id, store_pw, store_cate, store_bno, service_idx)values('test2', '123', '간식', '사업자 번호010', '업체 핸드폰번호', 2);
-insert into stores (store_id, store_pw, store_cate, store_bno, service_idx)values('test3', '123', '음료', '사업자 번호010', '업체 핸드폰번호', 2);
+
+
+
+insert into stores (store_id, store_pw, store_cate, store_bno, service_idx)values('test1', '123', '식사', '사업자 번호010', 1);
+insert into stores (store_id, store_pw, store_cate, store_bno, service_idx)values('test3', '123', '음료', '사업자 번호010', 1);
 
 
 
 insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test1', '식사1', 1000, '맛이좋다', '음식사진1');
-insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test1', '식사2', 1000, '맛이좋다', '음식사진2');
-insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test1', '식사3', 1000, '맛이좋다', '음식사진3');
+insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test1', '식사2', 2000, '맛이좋다', '음식사진2');
+insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test1', '식사3', 3000, '맛이좋다', '음식사진3');
 
-insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test2', '간식1', 1000, '맛이좋다', '간식사진1');
-insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test2', '간식2', 1000, '맛이좋다', '간식사진2');
-insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test2', '간식3', 1000, '맛이좋다', '간식사진3');
+insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('admin', '간식1', 1000, '맛이좋다', '간식사진1');
+insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('admin', '간식2', 2000, '맛이좋다', '간식사진2');
+insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('admin', '간식3', 3000, '맛이좋다', '간식사진3');
 
 insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test3', '음료1', 1000, '맛이좋다', '음료사진1');
-insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test3', '음료2', 1000, '맛이좋다', '음료사진2');
-insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test3', '음료3', 1000, '맛이좋다', '음료사진3');
+insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test3', '음료2', 2000, '맛이좋다', '음료사진2');
+insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test3', '음료3', 3000, '맛이좋다', '음료사진3');
 
-		select * from menus where store_id = (select store_id from stores where store_name = "식사" );
+		select * from menus where store_id = (select store_id from stores where store_cate = "식사" );
 
 
 

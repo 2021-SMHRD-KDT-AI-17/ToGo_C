@@ -5,14 +5,14 @@
 	<!-- 식사list -->
 	<select id="foodMenusList" resultType="kr.smhrd.entity.Menus">
 		select * from menus where
-		store_id = (select store_id from stores where store_name ="식사")
+		store_id = (select store_id from stores where store_cate ="식사")
 	</select>
 
 
 	<!-- 간식 list -->
 	<select id="snackMenusList" resultType="kr.smhrd.entity.Menus">
 		select * from menus where
-		store_id = (select store_id from stores where store_name ="간식")
+		store_id = (select store_id from stores where store_cate ="간식")
 	</select>
 
 
@@ -21,7 +21,7 @@
 		resultType="kr.smhrd.entity.Menus">
 		select * from menus where
 		store_id = (select store_id from
-		stores where store_name ="음료")
+		stores where store_cate ="음료")
 	</select>
 
 	<select id="foodMenus" parameterType="int"
