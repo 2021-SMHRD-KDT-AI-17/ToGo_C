@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.entity.BasketList;
+import kr.smhrd.entity.Conveniences;
 import kr.smhrd.entity.Menus;
+import kr.smhrd.entity.Service_areas;
 import kr.smhrd.mapper.MenusMapper;
 
 @Controller
@@ -40,14 +42,30 @@ public class MenusController {
 		return "Menus";
 	}
 	
-	@RequestMapping("/goShopBasketAdd")
-	public String goShopBasketAdd(HttpSession session) {
-		
-		List<BasketList> basket_list = new ArrayList<BasketList>(); 
-		session.setAttribute("basket_list", basket_list);
-		
-		return "ShopBasketAdd";
-	}
+//	@RequestMapping("/goShopBasketAdd")
+//	public String goShopBasketAdd(HttpSession session) {
+//		
+//		List<BasketList> basket_list = new ArrayList<BasketList>(); 
+//		session.setAttribute("basket_list", basket_list);
+//		
+//		return "ShopBasketAdd";
+//	}
+	
+	
+	/*
+	 * public Service_areas service_Select(@RequestParam("service_idx") int
+	 * service_idx, HttpSession session) { Service_areas select_area =
+	 * areaMapper.serviceSelect(service_idx); session.setAttribute("select_area",
+	 * select_area);
+	 * 
+	 * 
+	 * List<Conveniences> select_conv_list = convMapper.convSelect(service_idx);
+	 * System.out.println(select_conv_list.toString());
+	 * 
+	 * return select_area;
+	 * 
+	 * }
+	 */
 	
 
 }
