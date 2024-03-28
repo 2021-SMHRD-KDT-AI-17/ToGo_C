@@ -13,10 +13,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	
-
-
 		<h1>장바구니에 담은 상품</h1>
 	
 		<table id="basketProduct" border="1" width="400">
@@ -25,8 +21,7 @@
 			</tr>
 		
 		</table>
-		<%= menuImg %>
-		<%= menuName %>
+
 		<%= request.getParameter("requirements") %>
 		
 			<p>
@@ -52,6 +47,6 @@
 			 <br>
 			<br>
 			
-			<button> 총 <%= total %>원 결제하기</button>
+			<button> 총 원 결제하기</button>
 </body>
 </html>
