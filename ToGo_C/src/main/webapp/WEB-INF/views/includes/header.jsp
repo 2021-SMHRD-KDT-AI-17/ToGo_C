@@ -25,8 +25,9 @@
 					</a>
 
 					<div class="service-name">
+					<a href = "goMap">
 						<button type="button" class="btn btn-outline-secondary" disabled> ${select_area.getService_name() } 
-						</button>
+						</button></a>
 					</div>
 
 

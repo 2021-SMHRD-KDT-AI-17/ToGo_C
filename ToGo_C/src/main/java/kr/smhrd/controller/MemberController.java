@@ -98,12 +98,12 @@ public class MemberController {
 
    }
 
-   // 회원탈퇴 -> 아니요 클릭시
-//   @RequestMapping("/goIndex")
-//   public String goMain() {
-//      
-//      return "index";
-//   }
+   // 메인으로 이동
+   @RequestMapping("/goIndex")
+   public String goMain() {
+      
+      return "index";
+   }
 
    // ------------------------------------------ 로그아웃
    // 로그아웃
