@@ -52,7 +52,7 @@
 				<i class="fa-solid fa-gas-pump"></i>
 			</div>
 			<div class="gas-gasoline">
-				휘 <span class="gas-gasoline-price">1,490원</span>
+				휘 <span class="gas-gasoline-price" id="money">numberWithCommas(${select_area.getGasoline_price() })</span>
 			</div>
 			<div class="gas-diesel">
 				경 <span class="gas-diesel-price">1,231원</span>
@@ -1080,6 +1080,13 @@
 	<%@include file = "./includes/footer.jsp" %>
 	
 	<!-- footer 영역 끝 -->
+	
+	<script type="text/javascript">
+
+		function numberWithCommas(n) {
+			return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+	</script>
 
 
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
