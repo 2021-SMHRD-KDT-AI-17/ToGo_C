@@ -49,10 +49,11 @@ public class Service_areaController {
 	public Service_areas service_Select(@RequestParam("service_idx") int service_idx, HttpSession session) {
 		Service_areas select_area = areaMapper.serviceSelect(service_idx);
 		session.setAttribute("select_area", select_area);
-		System.out.println(select_area.toString());
+//		System.out.println(select_area.toString());
 			
 		List<Conveniences> select_conv_list = convMapper.convSelect(service_idx);
-		System.out.println(select_conv_list.toString());
+		session.setAttribute("select_conv_list", select_conv_list);
+//		System.out.println(select_conv_list.toString());
 		
 		return select_area;
 		
@@ -68,6 +69,12 @@ public class Service_areaController {
 	@RequestMapping("/service_area_Select")
 	public String service_area_Select() {
 		return "index";
+	}
+	
+	@RequestMapping("/goMap")
+	public String goMap() {
+		
+		return "SearchMap";
 	}
 	
 	

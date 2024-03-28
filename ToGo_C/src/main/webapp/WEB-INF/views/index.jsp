@@ -92,28 +92,52 @@
 		<div class="container conv-info-list">
 			<div class="conv-info-item" style="display: flex; justify-content: space-around;">
 
-			<div class="conv-info-item-icon">
-               <img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
-               <p>${select_conv_list[0].getConv_name() }</p>
-            </div>
-
-				<%
-				List<Conveniences> conveniencesList = (List<Conveniences>) request.getAttribute("conveniencesList");
-				%>
-
 				<!-- 객체 목록을 반복해서 출력 -->
-				<c:forEach var="convenience" items="${conveniencesList}">
-					<div class="conv-info-item-icon">
-						<img src="resources/images/conv-icon/feeding-bottle-32px.png"
-							alt="">
-						<p>${convenience.conv_name}</p>
-					</div>
+				<c:forEach var="c" items="${select_conv_list}">
+				    <c:if test="${c.conv_name eq '수유실'}">
+				        <div class="conv-info-item-icon">
+				            <img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
+				            <p>${c.conv_name}</p>
+				        </div>
+				    </c:if>
+				    <c:if test="${c.conv_name eq '샤워실'}">
+				        <div class="conv-info-item-icon">
+				            <img src="resources/images/conv-icon/shower-32px.png" alt="">
+				            <p>${c.conv_name}</p>
+				        </div>
+				    </c:if>
+				    <c:if test="${c.conv_name eq '쉼터'}">
+				        <div class="conv-info-item-icon">
+				            <img src="resources/images/conv-icon/park-32px.png" alt="">
+				            <p>${c.conv_name}</p>
+				        </div>
+				    </c:if>
+				    <c:if test="${c.conv_name eq '경정비'}">
+				        <div class="conv-info-item-icon">
+				            <img src="resources/images/conv-icon/maintenance-32px.png" alt="">
+				            <p>${c.conv_name}</p>
+				        </div>
+				    </c:if>
+				    <c:if test="${c.conv_name eq 'ATM'}">
+				        <div class="conv-info-item-icon">
+				            <img src="resources/images/conv-icon/atm-32px.png" alt="">
+				            <p>${c.conv_name}</p>
+				        </div>
+				    </c:if>
+				    <c:if test="${c.conv_name eq '특산물'}">
+				        <div class="conv-info-item-icon">
+				            <img src="resources/images/conv-icon/souvenir-32px.png" alt="">
+				            <p>${c.conv_name}</p>
+				        </div>
+				    </c:if>
+				    <c:if test="${c.conv_name eq '수면실'}">
+				        <div class="conv-info-item-icon">
+				            <img src="resources/images/conv-icon/sleep-32px.png" alt="">
+				            <p>${c.conv_name}</p>
+				        </div>
+				    </c:if>
+				    
 				</c:forEach>
-
-
-
-
-
 
 
 				<!--   편의시설 아직 안됨!!!!!!!!!!!  -->
