@@ -45,13 +45,13 @@
 		
 			
 		</table> 
-			<button name="pick_up_time"  >5분 후</button>
-			<button name="pick_up_time"  >10분 후</button>
-			<button name="pick_up_time" >15분 후</button>
+			<input type="button" value="5분 후" name="pick-time">
+			<input type="button" value="10분 후" name="pick-time">
+			<input type="button" value="15분 후" name="pick-time">
 			<br>
-			<button name="pick_up_time" >20분 후</button>
-			<button name="pick_up_time" >25분 후</button>
-			<button name="pick_up_time">30분 후</button>
+			<input type="button" value="20분 후" name="pick-time">
+			<input type="button" value="25분 후" name="pick-time">
+			<input type="button" value="30분 후" name="pick-time">
 			 <br>
 			<br>
 			
