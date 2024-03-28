@@ -101,6 +101,8 @@
 					</div>
 				</c:forEach> --%>
 				
+				
+<!-- 명택 작업중 시작 -->		
 		<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
 			<tr>
 				<td>번호 ${status.count }</td>
@@ -109,7 +111,7 @@
 				<td>가격 ${sc.conv_name}</td>
 			</tr>
 		</c:forEach>
-				
+<!-- 명택 작업중 끝 -->				
 				
 				
 <%-- 혜선씨 작업 하던거 시작 3.28.14:00				<c:forEach items="${select_conv_list}" var="sc" varStatus="status">
