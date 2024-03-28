@@ -2,9 +2,7 @@
 	pageEncoding="UTF-8"%>
 	
  
-<%--  <%
- 	session.setAttribute("product", <span id="total">${food_menus.getMenu_price()}</span>);
- %> --%>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -21,13 +19,14 @@
 				<li class="menuDataSet" sold="N">
 					<dl>
 						<dt>
+	
+
 						
-	<form action="goBasket">						
+	<!-- <form action="goShopBasketAdd"> -->						
 <!-- 사진은 임의값 시작 -->
 
-							<p id="menuImg" name="menuImg" ${food_menus.getMenu_img()}></p>
-							<%-- <p>${snack_menus.getMenu_img()}</p>
-							<p>${beverage_menus.getMenu_img()}</p> --%>
+							<p id="menuImg" name="product">${food_menus.getMenu_img()}</p>
+
 
 							<a href="javascript:void(0)" class="goFoodView"
 								prod="9900000001520">
@@ -35,7 +34,7 @@
 								alt="블루밍 체리블라썸 세트">
 							</a>
 <!-- 사진 임의 값 끝 -->							
-							<p id="menuName" name="menuName" ${food_menus.getMenu_name() }></p>
+							<p id="menuName" name="product"> ${food_menus.getMenu_name() }</p>
 							<%-- <dd>${snack_menus.getMenu_name() }</dd>
 							<dd>${beverage_menus.getMenu_name() }</dd> --%>
 							
@@ -48,15 +47,17 @@
 							</p>
 							
 
-							<p>총 가격: <span id="total" name="total">${food_menus.getMenu_price()}</span> 원</p>
+							<p>총 가격:<span id="total" name="total">${food_menus.getMenu_price()}</span> 원</p>
 							
 							<p>주문 요구사항</p>
-							<p><input type="textarea" rows="10" cols="30" id="requirements" name="requirements"></p>
+							<input type="textarea" rows="10" cols="30" id="requirements" name="product">
 							
 							
-							<p><input type="submit" value="장바구니 담기"></p>
+							<p><input type="submit" value="장바구니 담기" onclick = "ShopBasketAdd()"></p>
+							<p><a href="goBasket">장바구니 페이지 이동</a></p>
+							
 
-	</form>
+	<!-- </form> -->
 						</dt>
 						
 					</dl>
@@ -96,6 +97,19 @@
 		resultElement.innerText = number;
 		totalElement.innerText = total;
 		
+	}
+	
+	function ShopBasketAdd(){
+		
+		let menu_name = document.getElementById("menuName")
+		
+		
+		$.ajax({
+			url:"goShopBasketAdd",
+			data:{"menu_name" :  ${food_menus.getMenu_name(), "":${},}
+			succcess: function(){},
+			error: function(){}
+		})
 	}
 </script>
 
