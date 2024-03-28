@@ -54,9 +54,9 @@ delete from menus where menu_name = '음료1';
 
 
 
-insert into stores (store_id, store_pw, store_name, store_bno, store_tel, service_idx)values('test1', '123', '식사', '사업자 번호010', '업체 핸드폰번호', 1);
-insert into stores (store_id, store_pw, store_name, store_bno, store_tel, service_idx)values('test2', '123', '간식', '사업자 번호010', '업체 핸드폰번호', 1);
-insert into stores (store_id, store_pw, store_name, store_bno, store_tel, service_idx)values('test3', '123', '음료', '사업자 번호010', '업체 핸드폰번호', 1);
+insert into stores (store_id, store_pw, store_cate, store_bno, service_idx)values('test1', '123', '식사', '사업자 번호010', '업체 핸드폰번호', 2);
+insert into stores (store_id, store_pw, store_cate, store_bno, service_idx)values('test2', '123', '간식', '사업자 번호010', '업체 핸드폰번호', 2);
+insert into stores (store_id, store_pw, store_cate, store_bno, service_idx)values('test3', '123', '음료', '사업자 번호010', '업체 핸드폰번호', 2);
 
 
 
