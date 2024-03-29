@@ -46,14 +46,14 @@ public class RestController_LMT {
 		System.out.println(food_menus.toString());
 		session.setAttribute("food_menus", food_menus);
 
-//		// 간식 list 가져오기
-//		Menus snack_menus = menusMapper.snackMenus(count);
-//		session.setAttribute("snack_menus", snack_menus);
-//
-//		// 음료 list 가져오기
-//		
-//		Menus beverage_menus = menusMapper.beverageMenus(count);
-//		session.setAttribute("beverage_menus", beverage_menus);
+		// 간식 list 가져오기
+		Menus snack_menus = menusMapper.snackMenus(num);
+		session.setAttribute("snack_menus", snack_menus);
+
+		// 음료 list 가져오기
+		
+		Menus beverage_menus = menusMapper.beverageMenus(num);
+		session.setAttribute("beverage_menus", beverage_menus);
 
 		return "Stores_HCM";
 	}
