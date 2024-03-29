@@ -17,5 +17,6 @@ public class BasketList {
 	private String menu_img;	// 메뉴 이미지
 	private String mb_id;
 	private int order_cnt;
-	private int order_request;	// 요청사항
+	private String order_request;	// 요청사항
+	private int total;	// 요청사항
 }

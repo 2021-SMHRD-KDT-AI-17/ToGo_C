@@ -19,7 +19,7 @@ public class BasketController {
 	
 	@RequestMapping("/goBasket")
 	public String goSearchMap() {				
-		return "ShopBasket";
+		return "ShopBasket_HCM";
 	}
 	
 	// 장바구니 전체 비우기
@@ -31,6 +31,6 @@ public class BasketController {
 		session.invalidate();
 		
 		
-		return "ShopBasket";
+		return "ShopBasket_HCM";
 	}
 }

@@ -300,7 +300,8 @@ span {
 		
 							<c:forEach items="${beverage_menus_list}" var="bm" varStatus="status">
 								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-									style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_beverage(${status.count})">
+									style="display: flex; justify-content: space-around; cursor: pointer;" 
+									onclick="select_beverage(${status.count})">
 									<div class="menu-info-box" >
 											<h3>이름 ${bm.menu_name}</h3>
 											<p>가격 ${bm.menu_price}원</p>
@@ -361,14 +362,14 @@ span {
 
 						<div class="menu-img"
 							style="height: 200px; width: 150px; background: #999;">
-						<p id="menuImg" name="product"></p>
+						<p id="menuImg" name="menuImg_option"></p>
 						
 						</div>
 						<div class="menu-detail"
 							style="height: 200px; width: 300px; background: #777;">
 							<article>
-							<p id="menuName" name="product"> </p>
-							<p>개당 가격:<span id = "menuPrice"></span> 원</p>
+							<p id="menuName" name="menuId_option"> </p>
+							<p>개당 가격:<span id = "menuPrice" name="menuPrice_option"></span> 원</p>
 								<p></p>
 							</article>
 
@@ -380,13 +381,13 @@ span {
 								</div>
 								<div class="menu-count-right">
 									<input type='button' onclick='count("plus")' value='+' />
-									<span id='result'>1</span>
+									<span id='result' name="result_option">1</span>
 									<input type='button' onclick='count("minus")' value='-' />
 								</div>
 							</section>
-
+S
 							<section>
-								<p>총 가격:<span id="total" name="total"></span> 원</p>
+								<p>총 가격:<span id="total" name="total_option"></span> 원</p>
 							</section>
 						</div>
 
@@ -400,7 +401,7 @@ span {
 					<div>요청사항</div>
 					<div style="height: 80px; width: 100%;">
 						<textarea style="width: 100%; height: 100%;"
-							class="request-text-box" id="requirements"></textarea>
+							class="request-text-box" id="requirements" name="requirements_option"></textarea>
 					</div>
 				</div>
 
@@ -555,13 +556,16 @@ span {
 
  	   const store_id = '${select_area.getService_name()}';
  	   const menu_name = document.getElementById('menuName').innerText;
- 	   const menu_price = ${food_menus.getMenu_price()};
- 	   const menu_Img = '${food_menus.getMenu_img()}';
- 	   const mb_id = '${loginMember.getMb_name()}';
+ 	   const menu_price = document.getElementById('menuPrice').innerText;
+ 	   const menu_Img = document.getElementById("menuImg");
+ 	   const mb_id = '${loginMember.getMb_name()}'; 
+ 	   const total = document.getElementById('total').innerText;
 
+
+ 	  
  	   const order_cnt = document.getElementById('result').innerText;
  	   const order_request = document.getElementById('requirements').innerText;   
-
+ 	  
  	   let list ={
  	        "store_id": store_id,
  	        "menu_name" :menu_name,
@@ -569,10 +573,11 @@ span {
  	        "menu_Img":menu_Img,
  	        "mb_id":mb_id,
  	        "order_cnt":order_cnt,
- 	        "order_request":order_request
+ 	        "order_request":order_request,
+ 	        "total":total
  	   }
  	   console.log(list);
-
+ 	  
  	   $.ajax({
  	       url:"goShopBasketAdd",
  	       method: "POST", // 데이터를 서버로 보낼 때는 POST 방식을 사용합니다.
@@ -584,7 +589,7 @@ span {
  	       error:function(){
  	           console.log("실패")
  	       }
- 	   })
+ 	   })  
  	} 
 
 	

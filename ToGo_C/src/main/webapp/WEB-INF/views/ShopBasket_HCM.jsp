@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -120,6 +122,9 @@ a {
 
 </head>
 
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+
+
 <body>
 
 	<!-- 헤더 영역 시작(includes 폴더) -->
@@ -152,19 +157,36 @@ a {
 						<thead>
 							<tr>
 								<th scope="col">상품명</th>
-								<th scope="col">가격</th>
+								<th scope="col">개당가격</th>
 								<th scope="col">수량</th>
 								<th scope="col">합계</th>
+								<th scope="col">요구사항</th>
 							</tr>
 						</thead>
 						<tbody>
+
+	
+							<c:forEach items="${b_list}" var="b" varStatus="status">
+								<tr>
+									<%-- <td>이름 ${status.count}</td> --%>
+									<td>이름 ${b.menu_name}</td>
+									<td>가격 ${b.menu_price}원</td>
+									<td>수량 ${b.order_cnt}개</td>
+<									<td>합계 ${b.total}원</td>
+<									<td>${b.order_request}</td>
+ 								</tr>
+							</c:forEach>
+
+
+
 							<tr>
 								<td>
 									<div class="media">
 										<div class="d-flex" style="display: flex; flex-direction: column;">
 											<div>
 												<img src="resources/images/MainOrder.png" alt=""
-												style="width: 80px; height: 60px">
+												style="width: 80px; height: 60px">사진 ${b.menu_Img}
+												
 											</div>
 											<div>
 												<span>떡볶이</span>
@@ -177,7 +199,7 @@ a {
 									<h5>3,500원</h5>
 								</td>
 								<td>
-									<div class="product_count">
+									<!-- <div class="product_count">
 										<input type="text" name="qty" id="sst" maxlength="99"
 											value="3" title="Quantity:" class="input-text qty" 
 											style="width: 60px; padding-left:10px;">
@@ -191,13 +213,14 @@ a {
 											class="reduced items-count" type="button">
 											<i class="lnr lnr-chevron-down"></i>
 										</button>
-									</div>
+									</div> -->
 								</td>
 								<td>
 									<h5>10,500원</h5>
 								</td>
 								<td><span>X</span></td>
 							</tr>
+						<!-- 	
 							<tr>
 								<td>
 									<div class="media">
@@ -277,9 +300,10 @@ a {
 									<h5>4,000원</h5>
 								</td>
 								<td><span>X</span></td>
-							</tr>
+							</tr> -->
+							
 							<tr class="bottom_button">
-								<td colspan="2"><a class="gray_btn" href="#"
+								<td colspan="2"><a class="gray_btn" href="basketAllDelete"
 									style="padding: 10px;">상품 비우기</a></td>
 								<td colspan="4">
 									<div>
@@ -346,10 +370,10 @@ a {
 								</td>
 							
 							<tr class="out_button_area" style="border-top: none;">
-								<td colspan="2"><a class="gray_btn" href="#">쇼핑 계속하기</a> </td>
+								<td colspan="2"><a class="gray_btn" href="goStores">쇼핑 계속하기</a> </td>
 								<td colspan="5">
 									<div>
-										<a class="primary-btn" href="#">결제하기</a>
+										<a class="primary-btn" onclick="requestPay()">결제하기</a>
 									</div>
 								</td>
 								<td></td>
@@ -379,6 +403,22 @@ a {
 	}
 		
 	</script>
+	
+	 <script>
+IMP.init("imp14397622");
+
+function requestPay() {
+  IMP.request_pay({
+    pg: "html5_inicis",
+    pay_method: "card",
+    merchant_uid: "test_ltsj8zlm",
+    name: "테스트 결제",
+    amount: 100,
+    buyer_tel: "010-0000-0000",
+  });
+}
+</script>
+	
 
 
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
