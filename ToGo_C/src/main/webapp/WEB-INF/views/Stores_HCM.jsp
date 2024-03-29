@@ -325,22 +325,11 @@ span {
 	</section>
 	
 	<section class="container go-cart">
-		<p><button>장바구니로 가기</button></p><span>카트 아이콘</span>
+		 <p><a href="goBasket">장바구니 페이지 이동</a></p><span>카트 아이콘</span>
 	</section>
 
 
-	<!-- 띄울 메뉴창 -->
 
-	<!-- <div class="container">
-		<div id="popup" class="popup">
-			<div class="popup-content">
-				<span class="close" onclick="closePopup()">&times;</span>
-				<p>어 형이야</p>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- <div id="trigger" class="popup-click"></div> -->
 
 	<!-- 팝업창을 제외한 나머지 body 영역 어두어지는 효과 -->
 	<div class="overlay"></div>
@@ -411,14 +400,14 @@ span {
 					<div>요청사항</div>
 					<div style="height: 80px; width: 100%;">
 						<textarea style="width: 100%; height: 100%;"
-							class="request-text-box"></textarea>
+							class="request-text-box" id="requirements"></textarea>
 					</div>
 				</div>
 
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">닫기</button>
-					<a href="#"><button class="btn btn-primary">장바구니 담기</button></a>
+					<button type="submit" class="btn btn-primary" onclick = "Add()">장바구니 담기</button>
 				</div>
 			</div>
 		</div>
@@ -560,7 +549,43 @@ span {
 
     }
 	
-	
+    
+    function Add(){
+ 	   console.log("123")
+
+ 	   const store_id = '${select_area.getService_name()}';
+ 	   const menu_name = document.getElementById('menuName').innerText;
+ 	   const menu_price = ${food_menus.getMenu_price()};
+ 	   const menu_Img = '${food_menus.getMenu_img()}';
+ 	   const mb_id = '${loginMember.getMb_name()}';
+
+ 	   const order_cnt = document.getElementById('result').innerText;
+ 	   const order_request = document.getElementById('requirements').innerText;   
+
+ 	   let list ={
+ 	        "store_id": store_id,
+ 	        "menu_name" :menu_name,
+ 	        "menu_price":menu_price,
+ 	        "menu_Img":menu_Img,
+ 	        "mb_id":mb_id,
+ 	        "order_cnt":order_cnt,
+ 	        "order_request":order_request
+ 	   }
+ 	   console.log(list);
+
+ 	   $.ajax({
+ 	       url:"goShopBasketAdd",
+ 	       method: "POST", // 데이터를 서버로 보낼 때는 POST 방식을 사용합니다.
+ 	       data: JSON.stringify(list), // 객체를 JSON 문자열로 변환하여 전송합니다.
+ 	       contentType: "application/json", // 전송하는 데이터의 타입을 명시합니다.
+ 	       success: function(r){
+ 	           console.log(r)
+ 	       },
+ 	       error:function(){
+ 	           console.log("실패")
+ 	       }
+ 	   })
+ 	} 
 
 	
 	    
