@@ -13,7 +13,9 @@ CREATE TABLE members
 );
 
 
+select * from menus where store_id = (select store_id from stores where store_cate ="식사" and service_idx = 1);
 
+select *  from stores ;
 
 INSERT INTO members (mb_id, mb_pw, mb_nick, mb_phone, joined_at, mb_leave) VALUES ('admin', '123', 'admin', '010-0000-0000', NOW(), 'N');
 

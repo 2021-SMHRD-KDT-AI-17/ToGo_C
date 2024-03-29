@@ -167,59 +167,40 @@ a {
 
 	
 							<c:forEach items="${b_list}" var="b" varStatus="status">
-								<tr>
-									<%-- <td>이름 ${status.count}</td> --%>
-									<td>이름 ${b.menu_name}</td>
-									<td>가격 ${b.menu_price}원</td>
-									<td>수량 ${b.order_cnt}개</td>
-<									<td>합계 ${b.total}원</td>
-<									<td>${b.order_request}</td>
- 								</tr>
-							</c:forEach>
-
-
-
+							
+							
 							<tr>
 								<td>
-									<div class="media">
+								
+<%-- 									<div class="media">
 										<div class="d-flex" style="display: flex; flex-direction: column;">
 											<div>
-												<img src="resources/images/MainOrder.png" alt=""
-												style="width: 80px; height: 60px">사진 ${b.menu_Img}
+												<img src="" alt=""
+												style="width: 80px; height: 60px"><span>사진 ${b.menu_Img}</span>
 												
-											</div>
+											</div> --%>
 											<div>
-												<span>떡볶이</span>
+												<span>${b.menu_name}</span>
 											</div>
 								
 										</div>
 									</div>
 								</td>
 								<td>
-									<h5>3,500원</h5>
+									<h5>${b.menu_price}원</h5>
 								</td>
 								<td>
-									<!-- <div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="99"
-											value="3" title="Quantity:" class="input-text qty" 
-											style="width: 60px; padding-left:10px;">
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-											class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-											class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div> -->
+									<h5>${b.order_cnt}개</h5>
+		
 								</td>
 								<td>
-									<h5>10,500원</h5>
+									<h5>${b.total}원</h5>
 								</td>
-								<td><span>X</span></td>
-							</tr>
+<
+<									<td>${b.order_request}</td>
+						</tr>
+							</c:forEach>
+						
 						<!-- 	
 							<tr>
 								<td>
