@@ -127,8 +127,8 @@
 	       method: "POST", // 데이터를 서버로 보낼 때는 POST 방식을 사용합니다.
 	       data: JSON.stringify(list), // 객체를 JSON 문자열로 변환하여 전송합니다.
 	       contentType: "application/json", // 전송하는 데이터의 타입을 명시합니다.
-	       success: function(){
-	           console.log("성공")
+	       success: function(r){
+	           console.log(r)
 	       },
 	       error:function(){
 	           console.log("실패")

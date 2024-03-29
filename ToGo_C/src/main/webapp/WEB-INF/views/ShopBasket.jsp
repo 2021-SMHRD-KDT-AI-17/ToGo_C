@@ -11,8 +11,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 </head>
+	<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <body>
 		<h1>장바구니에 담은 상품</h1>
 	
@@ -29,11 +31,9 @@
 			</tr>
 		</c:forEach>
 		</table>
-
-		<%= request.getParameter("requirements") %>
 		
 			<p>
-				<a href="#">장바구니 모두 비우기</a>
+				<a href="basketAllDelete">장바구니 모두 비우기</a>
 			</p>
 			
 			
@@ -55,6 +55,26 @@
 			 <br>
 			<br>
 			
-			<button> 총 원 결제하기</button>
+			
+			<button ><a href="exGoStores">쇼핑 계속하기</a></button>
+			<button onclick="requestPay()">총 25000원 결제하기</button>
+
+ <script>
+IMP.init("imp14397622");
+
+function requestPay() {
+  IMP.request_pay({
+    pg: "html5_inicis",
+    pay_method: "card",
+    merchant_uid: "test_ltsj8zlm",
+    name: "테스트 결제",
+    amount: 100,
+    buyer_tel: "010-0000-0000",
+  });
+}
+</script>
+
 </body>
+
+
 </html>

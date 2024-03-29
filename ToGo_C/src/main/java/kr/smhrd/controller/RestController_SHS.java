@@ -22,7 +22,7 @@ public class RestController_SHS {
 
 	@Autowired
 	private AreaMapper areaMapper;
-	List<BasketList> b_list = new ArrayList<>();
+	List<BasketList> bs_list;
 	
 	@RequestMapping("/getArea")
 	public String getArea() {
@@ -36,15 +36,20 @@ public class RestController_SHS {
 
 	}
 	
+	// 장바구니 담기
 	@RequestMapping("/goShopBasketAdd")
     public String handleBasketAddRequest(@RequestBody BasketList b ,HttpSession session) {
         // data 객체를 사용하여 로직 수행
-    	b_list.add(b);
-    	session.setAttribute("b_list", b_list);
-    	
-        return "success";
+		
+		List<BasketList> bs_list = (List<BasketList>) session.getAttribute("b_list");
+	    if (bs_list == null) {
+	        bs_list = new ArrayList<>();
+	    }
+	    bs_list.add(b);
+	    session.setAttribute("b_list", bs_list);
+
+	    return "success";
     }
-	
 	
 	
 	
