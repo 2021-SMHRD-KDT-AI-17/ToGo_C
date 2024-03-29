@@ -96,7 +96,7 @@
 				<c:forEach var="c" items="${select_conv_list}">
 				    <c:if test="${c.conv_name eq '수유실'}">
 				        <div class="conv-info-item-icon">
-				            <img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
+				            <img src="resources/images/conv-icon/수유실.png" alt="">
 				            <p>${c.conv_name}</p>
 				        </div>
 				    </c:if>
