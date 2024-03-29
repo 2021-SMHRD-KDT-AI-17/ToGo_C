@@ -96,7 +96,7 @@
 				<c:forEach var="c" items="${select_conv_list}">
 				    <c:if test="${c.conv_name eq '수유실'}">
 				        <div class="conv-info-item-icon">
-				            <img src="resources/images/conv-icon/feeding-bottle-32px.png" alt="">
+				            <img src="resources/images/conv-icon/수유실.png" alt="">
 				            <p>${c.conv_name}</p>
 				        </div>
 				    </c:if>
@@ -176,7 +176,7 @@
 						<div class="f-icon">
 							<img src="resources/images/features/f-icon2.png" alt="">
 						</div>
-						<h6><a href="goBasket">주유소 검색</a></h6>
+						<h6><a href="exGoStores">주유소 검색</a></h6>
 						<p>"3.23 주유소 검색 간단한 설명 문구"</p>
 						<p>"적절한 이미지 넣기"</p>
 					</div>

@@ -254,7 +254,7 @@ span {
 						<div id="tab1" class="cont" style="overflow-y: scroll;">
 							<c:forEach items="${food_menus_list}" var="fm" varStatus="status">
 								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal"  
-									style="display: flex; justify-content: space-around; cursor: pointer;">
+									style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_food(${status.count})">
 									<div class="menu-info-box">
 											<h3>이름 ${fm.menu_name}</h3>
 											<p>가격 ${fm.menu_price}원</p>
@@ -262,8 +262,6 @@ span {
 											<div class="good-bad">
 											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
 											</div>
-											<a href="goMenus?count=${fm.menu_idx}">번호 ${status.count }</a>
-											<p onclick="menuOption(${status.count})">menuOption</p>
 									</div>											
 									<div class="menu-img-box">
 										<img src="pl1.jpg" 사진 ${fm.menu_img} alt="" style="width: 200px; height: 150px;">
@@ -274,12 +272,12 @@ span {
 					</li>
 					
 					<!--  ---------------------------------------------------------------------------------------------------------------          ----->
-					<li class="is_on"><a href="#tab2" class="btn">간식</a>
-						<div id="tab1" class="cont" style="overflow-y: scroll;">
+					<li class="is_on"><a href="#tab2" class="btn" id="snack_select">간식</a>
+						<div id="tab2" class="cont" style="overflow-y: scroll;">
 		
 							<c:forEach items="${snack_menus_list}" var="sm" varStatus="status">
 								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-									style="display: flex; justify-content: space-around; cursor: pointer;">
+									style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_snack(${status.count})">
 									<div class="menu-info-box">
 											<h3>이름 ${sm.menu_name}</h3>
 											<p>가격 ${sm.menu_price}원</p>
@@ -287,8 +285,6 @@ span {
 											<div class="good-bad">
 											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
 											</div>
-											<a href="goMenus?count=${sm.menu_idx}">번호 ${status.count }</a>
-											<p onclick="menuOption(${status.count})">menuOption</p>
 									</div>											
 									<div class="menu-img-box">
 										<img src="pl1.jpg" 사진 ${sm.menu_img} alt="" style="width: 200px; height: 150px;">
@@ -299,21 +295,19 @@ span {
 					</li>
 					
 					
-					<li class="is_on"><a href="#tab3" class="btn">음료</a>
-						<div id="tab1" class="cont" style="overflow-y: scroll;">
+					<li class="is_on"><a href="#tab3" class="btn" id="beverage_select">음료</a>
+						<div id="tab3" class="cont" style="overflow-y: scroll;">
 		
 							<c:forEach items="${beverage_menus_list}" var="bm" varStatus="status">
 								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal" 
-									style="display: flex; justify-content: space-around; cursor: pointer;">
-									<div class="menu-info-box">
+									style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_beverage(${status.count})">
+									<div class="menu-info-box" >
 											<h3>이름 ${bm.menu_name}</h3>
 											<p>가격 ${bm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
 											<div class="good-bad">
 											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
 											</div>
-											<a href="goMenus?count=${bm.menu_idx}">번호 ${status.count }</a>
-											<p onclick="menuOption(${status.count})">menuOption</p>
 											
 									</div>											
 									<div class="menu-img-box">
@@ -328,6 +322,10 @@ span {
 		</ul>
 		</div>
 		</div>
+	</section>
+	
+	<section class="container go-cart">
+		<p><button>장바구니로 가기</button></p><span>카트 아이콘</span>
 	</section>
 
 
@@ -357,6 +355,7 @@ span {
 
 	<!-- Modal -->
 	
+	
 	 	<div class="modal fade" id="exampleModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div
@@ -373,14 +372,14 @@ span {
 
 						<div class="menu-img"
 							style="height: 200px; width: 150px; background: #999;">
-						<p id="menuImg" name="product">${food_menus.getMenu_img()}</p>
+						<p id="menuImg" name="product"></p>
 						
 						</div>
 						<div class="menu-detail"
 							style="height: 200px; width: 300px; background: #777;">
 							<article>
-							<p id="menuName" name="product"> ${food_menus.getMenu_name() }</p>
-							<p>개당 가격:<span id = "menuPrice">${food_menus.getMenu_price()}</span> 원</p>
+							<p id="menuName" name="product"> </p>
+							<p>개당 가격:<span id = "menuPrice"></span> 원</p>
 								<p></p>
 							</article>
 
@@ -398,7 +397,7 @@ span {
 							</section>
 
 							<section>
-								<p>총 가격:<span id="total" name="total">${food_menus.getMenu_price()}</span> 원</p>
+								<p>총 가격:<span id="total" name="total"></span> 원</p>
 							</section>
 						</div>
 
@@ -419,7 +418,7 @@ span {
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">닫기</button>
-					<button type="" class="btn btn-primary">장바구니 담기</button>
+					<a href="#"><button class="btn btn-primary">장바구니 담기</button></a>
 				</div>
 			</div>
 		</div>
@@ -435,6 +434,9 @@ span {
 			<%
     // 섹션에서 객체 리스트 가져오기
     List<Menus> food_menus_list = (List<Menus>) session.getAttribute("food_menus_list");
+ 	List<Menus> snack_menus_list = (List<Menus>) session.getAttribute("snack_menus_list");
+	List<Menus> beverage_menus_list = (List<Menus>) session.getAttribute("beverage_menus_list"); 
+
 %>
 </body>
 
@@ -489,38 +491,89 @@ span {
 			body.classList.remove("blur");
 			body.style.overflow = "";
 		}, 300);
+		
+		
 	}
+	//------------------------ 오늘 구현
 	
-
-	function menuOption(num){
+    function select_food(num){
+		const resultElement = document.getElementById('result');
+		resultElement.innerText = 1;
+	    num  = parseInt(num);
 		
 		var food_menus_list = <%= new com.google.gson.Gson().toJson(food_menus_list) %>;
-		
-//	    console.log(num);
-	    num  = parseInt(num);
 	    
-	    //console.log(food_menus_list[num-1].menu_name);
 	    let menuName = document.getElementById("menuName");
 	    let menuImg = document.getElementById("menuImg");
 	    let menuPrice = document.getElementById("menuPrice");
-	    
-	    
-	    /* let total = document.getElementById("total"); */
-	    //console.log(menuName);
-	    
-	    
+	    let total = document.getElementById("total");
+
 	    menuName.innerText = food_menus_list[num-1].menu_name;
 	    menuImg.innerText = food_menus_list[num-1].menu_img;
 	    menuPrice.innerText = food_menus_list[num-1].menu_price;
-	    	    
-	}
-		
-		
+	    total.innerText = food_menus_list[num-1].menu_price;
+	    
+	    
+    	
+    }
 	
+    
+    
+    function select_snack(num){
+		const resultElement = document.getElementById('result');
+		resultElement.innerText = 1;
+	    num  = parseInt(num);
+    	
+	    var snack_menus_list = <%= new com.google.gson.Gson().toJson(snack_menus_list) %>;
+	    
+	    let menuName = document.getElementById("menuName");
+	    let menuImg = document.getElementById("menuImg");
+	    let menuPrice = document.getElementById("menuPrice");
+	    let total = document.getElementById("total");
+
+	    menuName.innerText = snack_menus_list[num-1].menu_name;
+	    menuImg.innerText = snack_menus_list[num-1].menu_img;
+	    menuPrice.innerText = snack_menus_list[num-1].menu_price;
+	    total.innerText = snack_menus_list[num-1].menu_price;
+	    
+
+    }
+    
+    
+    function select_beverage(num){
+    	
+		const resultElement = document.getElementById('result');
+		resultElement.innerText = 1;
+	    num  = parseInt(num);
+	    var beverage_menus_list = <%= new com.google.gson.Gson().toJson(beverage_menus_list) %>;
+	    
+	    let menuName = document.getElementById("menuName");
+	    let menuImg = document.getElementById("menuImg");
+	    let menuPrice = document.getElementById("menuPrice");
+	    let total = document.getElementById("total");
+
+	    menuName.innerText = beverage_menus_list[num-1].menu_name;
+	    menuImg.innerText = beverage_menus_list[num-1].menu_img;
+	    menuPrice.innerText = beverage_menus_list[num-1].menu_price;
+	    total.innerText = beverage_menus_list[num-1].menu_price;
+	    
+
+    }
 	
 	
 
+	
+	    
+	    
+
+
+	    	    
+	
+		
+	
+
 </script>
+
 
 
 <script type="text/javascript">
@@ -528,22 +581,27 @@ span {
 		// 결과를 표시할 element
 		const resultElement = document.getElementById('result');
 		const totalElement = document.getElementById('total');
+	    let menuPriceElement = document.getElementById("menuPrice");
+
 
 		// 현재 화면에 표시된 값
 		let number = resultElement.innerText;
 		let total = totalElement.innerText;
-		
+	    let menuPrice = menuPriceElement.innerText; 
+
+		//total = parseInt(menuPrice.innerText);
 
 		// 더하기/빼기
 		if (type === 'plus') {
 			
 			number = parseInt(number) + 1;
-			total =  parseInt(total)+${food_menus.getMenu_price()}; 
-
+			total = parseInt(total)+parseInt(menuPrice);
+			//total =  parseInt(total)+${food_menus.getMenu_price()}; 
+			
 			
 		} else if (type === 'minus'&& number>1) {
 			number = parseInt(number) - 1;
-			total =  parseInt(total)-${food_menus.getMenu_price()};
+			total =  parseInt(total)-parseInt(menuPrice);
 		}
 
 		// 결과 출력
@@ -553,7 +611,7 @@ span {
 	}
 </script>
 
-</script>
+
 
 <script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
 <script
