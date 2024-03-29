@@ -380,7 +380,7 @@ span {
 							style="height: 200px; width: 300px; background: #777;">
 							<article>
 							<p id="menuName" name="product"> ${food_menus.getMenu_name() }</p>
-							<p>개당 가격:<span id = "menu_price">${food_menus.getMenu_price()}</span> 원</p>
+							<p>개당 가격:<span id = "menuPrice">${food_menus.getMenu_price()}</span> 원</p>
 								<p></p>
 							</article>
 
@@ -495,12 +495,24 @@ span {
 	function menuOption(num){
 		
 		var food_menus_list = <%= new com.google.gson.Gson().toJson(food_menus_list) %>;
-	    console.log(num);
+		
+//	    console.log(num);
 	    num  = parseInt(num);
-	    console.log(food_menus_list[num-1].menu_name);
+	    
+	    //console.log(food_menus_list[num-1].menu_name);
 	    let menuName = document.getElementById("menuName");
-	    console.log(menuName);
+	    let menuImg = document.getElementById("menuImg");
+	    let menuPrice = document.getElementById("menuPrice");
+	    
+	    
+	    /* let total = document.getElementById("total"); */
+	    //console.log(menuName);
+	    
+	    
 	    menuName.innerText = food_menus_list[num-1].menu_name;
+	    menuImg.innerText = food_menus_list[num-1].menu_img;
+	    menuPrice.innerText = food_menus_list[num-1].menu_price;
+	    	    
 	}
 		
 		
