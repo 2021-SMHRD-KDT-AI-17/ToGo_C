@@ -12,7 +12,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Favicon-->
-<link rel="shortcut icon" href="resources/images/fav.png">
+<link rel="shortcut icon" href="resources/images/favicon-logo.png">
 <!-- Author Meta -->
 <meta name="author" content="CodePixar">
 <!-- Meta Description -->
@@ -22,7 +22,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>To Go</title>
+<title>To Go</title>s
 <!--
 		CSS
 		============================================= -->
@@ -397,6 +397,23 @@
 		</div>
 	</section>
 	<!-- End category Area -->
+	
+	<section class="festival-area">
+		<div>
+			<div>
+				<p>축제 / 관광 정보</p>
+			</div>
+			<div>
+				<span>> 전체 보기</span>
+			</div>
+			
+		</div>
+			
+		<div>
+			
+		</div>
+	
+	</section>
 
 	<!-- Start exclusive deal Area -->
 	<section class="exclusive-deal-area">
