@@ -160,25 +160,22 @@ a {
 								<th scope="col">개당가격</th>
 								<th scope="col">수량</th>
 								<th scope="col">합계</th>
-								<th scope="col">요구사항</th>
+<!-- 								<th scope="col">요구사항</th> -->							
 							</tr>
 						</thead>
 						<tbody>
-
-	
+							<% int index=0; %>
 							<c:forEach items="${b_list}" var="b" varStatus="status">
-							
 							
 							<tr>
 								<td>
-								
-<%-- 									<div class="media">
+									<div class="media">
 										<div class="d-flex" style="display: flex; flex-direction: column;">
 											<div>
-												<img src="" alt=""
-												style="width: 80px; height: 60px"><span>사진 ${b.menu_Img}</span>
+												<img src="<%-- 사진여기에 넣으면됨 ${b.menu_Img} --%>" alt=""
+												style="width: 80px; height: 60px">
 												
-											</div> --%>
+											</div> 
 											<div>
 												<span>${b.menu_name}</span>
 											</div>
@@ -187,101 +184,18 @@ a {
 									</div>
 								</td>
 								<td>
-									<h5>${b.menu_price}원</h5>
+									<h5 >${b.menu_price}원</h5>
 								</td>
 								<td>
 									<h5>${b.order_cnt}개</h5>
 		
 								</td>
 								<td>
-									<h5>${b.total}원</h5>
+									<h5 ><span class="price">${b.total}</span>원</h5>
 								</td>
-<
-<									<td>${b.order_request}</td>
+									<%-- <td>${b.order_request}</td> --%>
 						</tr>
 							</c:forEach>
-						
-						<!-- 	
-							<tr>
-								<td>
-									<div class="media">
-										<div class="d-flex" style="display: flex; flex-direction: column;">
-											<div>
-												<img src="resources/images/MainOrder.png" alt=""
-												style="width: 80px; height: 60px">
-											</div>
-											<div>
-												<span>호두과자</span>
-											</div>
-								
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>4,000원</h5>
-								</td>
-								<td>
-									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="99"
-											value="3" title="Quantity:" class="input-text qty"
-											style="width: 60px; padding-left:10px;">
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-											class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-											class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div>
-								</td>
-								<td>
-									<h5>12,000원</h5>
-								</td>
-								<td><span>X</span></td>
-							</tr>
-							<tr>
-								<td>
-									<div class="media">
-										<div class="d-flex" style="display: flex; flex-direction: column;">
-											<div>
-												<img src="resources/images/MainOrder.png" alt=""
-												style="width: 80px; height: 60px">
-											</div>
-											<div>
-												<span>알감자</span>
-											</div>
-								
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>2,000원</h5>
-								</td>
-								<td>
-									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="99"
-											value="2" title="Quantity:" class="input-text qty"
-											style="width: 60px; padding-left:10px;">
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-											class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-											class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div>
-								</td>
-								<td>
-									<h5>4,000원</h5>
-								</td>
-								<td><span>X</span></td>
-							</tr> -->
 							
 							<tr class="bottom_button">
 								<td colspan="2"><a class="gray_btn" href="basketAllDelete"
@@ -302,7 +216,7 @@ a {
 								<td>
 									<h5>총 가격</h5>
 								</td>
-								<td colspan="2"><h5>26,500원</h5></td>
+								<td colspan="2"><h5 id="total_price"><%=index %></h5></td>
 								<td></td>
 							</tr>
 							<tr>
@@ -377,6 +291,20 @@ a {
 	<!-- footer 영역 끝 -->
 
 	<script type="text/javascript">
+	
+	let price = document.getElementsByClassName("price");
+	let t = 0;
+	
+	for(let i = 0;i<price.length;i++){
+		let priceText = price[i].innerText;
+	    let priceValue = parseInt(priceText);
+	    if (!isNaN(priceValue)) { // 숫자가 아닌 경우에는 무시
+	        t += priceValue;
+	    }
+	}
+	
+	document.getElementById("total_price").innerText = t;
+	
 	function oninputPhone(target) {
 	    target.value = target.value
 	        .replace(/[^0-9]/g, '')
@@ -399,6 +327,7 @@ function requestPay() {
   });
 }
 </script>
+
 	
 
 
