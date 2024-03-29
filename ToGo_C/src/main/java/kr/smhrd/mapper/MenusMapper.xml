@@ -3,41 +3,44 @@
 <mapper namespace="kr.smhrd.mapper.MenusMapper">
 	<!-- id값은 interface의 메소드 이름이다!!!!!!!!!!!!!!!!!!!! -->
 	<!-- 식사list -->
-	<select id="foodMenusList" resultType="kr.smhrd.entity.Menus">
+	<select id="foodMenusList"   parameterType="int" resultType="kr.smhrd.entity.Menus">
 		select * from menus where
-		store_id = (select store_id from stores where store_cate ="식사")
+		store_id = (select store_id from stores where store_cate ="식사" and service_idx = #{i})
 	</select>
 
 
 	<!-- 간식 list -->
-	<select id="snackMenusList" resultType="kr.smhrd.entity.Menus">
+	<select id="snackMenusList" parameterType="int" resultType="kr.smhrd.entity.Menus">
 		select * from menus where
-		store_id = (select store_id from stores where store_cate ="간식")
+		store_id = (select store_id from stores where store_cate ="간식" and service_idx = #{i})
 	</select>
 
 
 	<!-- 식사list -->
-	<select id="beverageMenusList"
+	<select id="beverageMenusList"  parameterType="int" 
 		resultType="kr.smhrd.entity.Menus">
 		select * from menus where
 		store_id = (select store_id from
-		stores where store_cate ="음료")
+		stores where store_cate ="음료" and service_idx = #{i})
 	</select>
+	
+<!-- 	
+	
 
-	<select id="foodMenus" parameterType="int"
+	<select id="foodMenus" 
 		resultType="kr.smhrd.entity.Menus">
 		select * from menus where menu_idx = #{count}
 	</select>
 
-	<select id="snackMenus" parameterType="int"
+	<select id="snackMenus"
 		resultType="kr.smhrd.entity.Menus">
 		select * from menus where menu_idx = #{count}
 	</select>
 
-	<select id="beverageMenus" parameterType="int"
+	<select id="beverageMenus"
 		resultType="kr.smhrd.entity.Menus">
 		select * from menus where menu_idx = #{count}
-	</select>
+	</select> -->
 
 
 </mapper>

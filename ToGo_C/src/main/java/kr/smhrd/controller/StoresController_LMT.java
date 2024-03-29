@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.smhrd.entity.Menus;
+import kr.smhrd.entity.Service_areas;
 //import kr.smhrd.entity.Stores;
 import kr.smhrd.mapper.MenusMapper;
 //import kr.smhrd.mapper.StoresMapper_LMT;
@@ -28,16 +29,20 @@ public class StoresController_LMT {
 	@RequestMapping("/goStores")
 	public String goStores(HttpSession session) {
 		
+		
+		Service_areas store_idx = (Service_areas) session.getAttribute("select_area");
+		
+		
 		// 음식 list 가져오기
-		List<Menus> food_menus_list = menusMapper.foodMenusList();
+		List<Menus> food_menus_list = menusMapper.foodMenusList(store_idx.getService_idx());
 		session.setAttribute("food_menus_list", food_menus_list);
 		
 		// 간식 list 가져오기
-		List<Menus> snack_menus_list = menusMapper.snackMenusList();
+		List<Menus> snack_menus_list = menusMapper.snackMenusList(store_idx.getService_idx());
 		session.setAttribute("snack_menus_list", snack_menus_list);
 		
 		// 음료 list 가져오기
-		List<Menus> beverage_menus_list = menusMapper.beverageMenusList();
+		List<Menus> beverage_menus_list = menusMapper.beverageMenusList(store_idx.getService_idx());
 		session.setAttribute("beverage_menus_list", beverage_menus_list);
 		
 		return "Stores_HCM";
@@ -47,16 +52,17 @@ public class StoresController_LMT {
 	public String exGoStores(HttpSession session) {
 		
 		// 음식 list 가져오기
-				List<Menus> food_menus_list = menusMapper.foodMenusList();
-				session.setAttribute("food_menus_list", food_menus_list);
-				
-				// 간식 list 가져오기
-				List<Menus> snack_menus_list = menusMapper.snackMenusList();
-				session.setAttribute("snack_menus_list", snack_menus_list);
-				
-				// 음료 list 가져오기
-				List<Menus> beverage_menus_list = menusMapper.beverageMenusList();
-				session.setAttribute("beverage_menus_list", beverage_menus_list);
+		/*
+		 * List<Menus> food_menus_list = menusMapper.foodMenusList();
+		 * session.setAttribute("food_menus_list", food_menus_list);
+		 * 
+		 * // 간식 list 가져오기 List<Menus> snack_menus_list = menusMapper.snackMenusList();
+		 * session.setAttribute("snack_menus_list", snack_menus_list);
+		 * 
+		 * // 음료 list 가져오기 List<Menus> beverage_menus_list =
+		 * menusMapper.beverageMenusList(); session.setAttribute("beverage_menus_list",
+		 * beverage_menus_list);
+		 */
 		
 		
 		return "Stores";
