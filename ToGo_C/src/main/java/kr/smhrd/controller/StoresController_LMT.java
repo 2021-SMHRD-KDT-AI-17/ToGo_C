@@ -16,13 +16,12 @@ import kr.smhrd.entity.Menus;
 import kr.smhrd.entity.Service_areas;
 //import kr.smhrd.entity.Stores;
 import kr.smhrd.mapper.MenusMapper;
-//import kr.smhrd.mapper.StoresMapper_LMT;
+
 
 @Controller
 public class StoresController_LMT {
 
-//	@Autowired
-//	private StoresMapper_LMT storesMapper;
+
 	@Autowired
 	private MenusMapper menusMapper;
 	
