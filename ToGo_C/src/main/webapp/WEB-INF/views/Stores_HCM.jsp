@@ -380,12 +380,12 @@ span {
 									<span> 수량 </span>
 								</div>
 								<div class="menu-count-right">
-									<input type='button' onclick='count("plus")' value='+' />
-									<span id='result' name="result_option">1</span>
 									<input type='button' onclick='count("minus")' value='-' />
+									<span id='result' name="result_option">1</span>
+									<input type='button' onclick='count("plus")' value='+' />
 								</div>
 							</section>
-S
+
 							<section>
 								<p>총 가격:<span id="total" name="total_option"></span> 원</p>
 							</section>

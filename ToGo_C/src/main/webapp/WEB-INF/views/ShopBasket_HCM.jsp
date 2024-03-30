@@ -216,7 +216,7 @@ a {
 								<td>
 									<h5>총 가격</h5>
 								</td>
-								<td colspan="2"><h5 id="total_price"><%=index %></h5></td>
+								<td colspan="2"><h5 id="total_price"></h5>원</td>
 								<td></td>
 							</tr>
 							<tr>
