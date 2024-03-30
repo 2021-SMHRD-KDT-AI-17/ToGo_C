@@ -77,6 +77,10 @@ insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('
 insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('test3', '음료3', 3000, '맛이좋다', '음료사진3');
 
 		select * from menus where store_id = (select store_id from stores where store_cate = "식사" );
+		
+		
+		
+		select *  from orders ;
 
 
 

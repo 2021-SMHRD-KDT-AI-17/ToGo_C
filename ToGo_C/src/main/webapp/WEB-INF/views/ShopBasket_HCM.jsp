@@ -191,9 +191,8 @@ a {
 		
 								</td>
 								<td>
-									<h5 ><span class="price">${b.total}</span>원</h5>
+									<h5><span class="price">${b.total}</span>원</h5>
 								</td>
-									<%-- <td>${b.order_request}</td> --%>
 						</tr>
 							</c:forEach>
 							
@@ -229,17 +228,18 @@ a {
 								<td colspan="6" style="border-bottom: none;">
 									<div class="container"
 										style="display: flex; justify-content: space-around;">
+
 										<div>
-											<button class="btn btn-light" style="font-size: 15px;">5분
-												후</button>
+											<button  class="btn btn-light" style="font-size: 15px;">5분 후
+												</button>
 										</div>
 										<div>
-											<button class="btn btn-light" style="font-size: 15px;">10분
-												후</button>
+											<button   class="btn btn-light" style="font-size: 15px;">10분 후
+												</button>
 										</div>
 										<div>
-											<button class="btn btn-light" style="font-size: 15px;">15분
-												후</button>
+											<button  class="btn btn-light" style="font-size: 15px;">15분 후
+												</button>
 										</div>
 
 									</div>
@@ -250,16 +250,16 @@ a {
 									<div class="container"
 										style="display: flex; justify-content: space-around;">
 										<div>
-											<button class="btn btn-light" style="font-size: 15px;">20분
-												후</button>
+											<button  class="btn btn-light" style="font-size: 15px;">20분 후
+												</button>
 										</div>
 										<div>
-											<button class="btn btn-light" style="font-size: 15px;">25분
-												후</button>
+											<button  class="btn btn-light" style="font-size: 15px;">25분 후
+												</button>
 										</div>
 										<div>
-											<button class="btn btn-light" style="font-size: 15px;">30분
-												후</button>
+											<button  class="btn btn-light" style="font-size: 15px;">30분 후
+												</button>
 										</div>
 									</div>
 								</td>
@@ -330,13 +330,29 @@ function requestPay() {
             // 결제 성공시
             alert("결제 성공");
             // 결제 성공 후 페이지 이동
-            window.location.href = "goStores";
+            window.location.href = "goOrderList";
         } else {
             // 결제 실패시
             alert("결제 실패");
         }
     });
 }
+
+</script>
+
+
+<!-- 픽업시간 선택 스크립트 -->
+<script>
+document.querySelectorAll('.btn.btn-light').forEach(button => {
+	button.addEventListener('click', function() {
+        
+        // 클릭된 버튼의 내용(텍스트) 값을 가져와서 출력
+        console.log("Clicked button value:", this.textContent);
+    });
+});
+
+
+
 
 </script>
 

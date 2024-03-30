@@ -21,7 +21,6 @@ public class MemberController {
    public String goJoin() {
       return "Join";
    }
-
    // 회원가입 + Id 중복확인
    @RequestMapping("/membersInsert")
    public String membersInsert(Members members, HttpSession session) {

@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>주문완료</h1>
+<!-- 
+	주문번호
+	메뉴이름
+	메뉴별 수량
+	총액
+	찾아갈 시간
+	요청사항
+	비회원 핸드폰번호
+ -->
 
 </body>
 </html>
