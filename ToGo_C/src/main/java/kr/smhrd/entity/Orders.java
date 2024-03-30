@@ -17,7 +17,6 @@ public class Orders {
 
 	private int order_idx;			// 주문식별자
 	private String mb_id;			// 회원아이디
-	private String non_mb_phone; // 비회원 핸드폰번호
 	private String ordered_at;		// 주문일자
 	private int order_total_amount;	// 주문 총 가격
 	private String order_status;	// 주무 상태

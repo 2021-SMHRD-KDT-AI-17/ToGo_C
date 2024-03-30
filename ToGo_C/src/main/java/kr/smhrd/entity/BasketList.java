@@ -18,5 +18,5 @@ public class BasketList {
 	private String mb_id;
 	private int order_cnt;
 	private String order_request;	// 요청사항
-	private int total;	// 요청사항
+	private int total;	// 총액
 }

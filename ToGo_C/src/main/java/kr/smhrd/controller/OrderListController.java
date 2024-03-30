@@ -8,6 +8,8 @@ public class OrderListController {
 
 	@RequestMapping("/goOrderList")
 	public String goOrderList() {
+		
+		
 		return "OrderList";
 	}
 }
