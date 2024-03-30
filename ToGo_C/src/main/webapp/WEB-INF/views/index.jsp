@@ -375,8 +375,8 @@ color: white;
 						</div>
 					</div>
 					<div class="goStores">
-						<input type="button" class="goStoresButton" 
-							value="주문하러 가기!" onclick="Stores_HCM">
+						<a href="goStores"><input type="button" class="goStoresButton" 
+							value="주문하러 가기!" ></a>
 					</div>
 				</tr>
 				<tr>
@@ -536,7 +536,7 @@ color: white;
 
 			<div class="good-message-box">
 				<p class="good-message">축제 / 관광 정보</p>
-				<span><a href="" #>전체 보기</a> </span>
+				<span><a href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do" target="_blank">전체 보기</a> </span>
 			</div>
 			<div>
 				

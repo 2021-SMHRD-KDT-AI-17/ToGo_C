@@ -164,7 +164,7 @@ a {
 							</tr>
 						</thead>
 						<tbody>
-							<% int index=0; %>
+							<%-- <% int index=0; %> --%>
 							<c:forEach items="${b_list}" var="b" varStatus="status">
 							
 							<tr>
@@ -324,7 +324,21 @@ function requestPay() {
     name: "테스트 결제",
     amount: 100,
     buyer_tel: "010-0000-0000",
-  });
+  },
+  	async (rsp) => {
+
+      if (rsp.success) {
+        // 결제 성공시
+        alert("성공")
+        i++;
+      } else {
+        // 결제 실패시
+        alter("실패")
+      }
+    }
+  
+  
+  );
 }
 </script>
 
