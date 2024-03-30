@@ -318,32 +318,26 @@ a {
 IMP.init("imp14397622");
 
 function requestPay() {
-
-	/* let store_id = ${select_area.service_name};
-	console.log(store_id); */
-	IMP.request_pay({
-    pg: "html5_inicis",
-    pay_method: "card",
-    merchant_uid: "test_ltsj8zlm",
-    name: "t",
-    amount: 100,
-    buyer_tel: "010-0000-0000",
-  },
-  	async (rsp) => {
-
-      if (rsp.success) {
-        // 결제 성공시
-        alert("결제 성공")
-        i++;
-      } else {
-        // 결제 실패시
-        alert("실패")
-      }
-    }
-  
-  
-  );
+    IMP.request_pay({
+        pg: "html5_inicis",
+        pay_method: "card",
+        merchant_uid: "",
+        name: "t",
+        amount: 100,
+        buyer_tel: "010-0000-0000",
+    }, async (rsp) => {
+        if (rsp.success) {
+            // 결제 성공시
+            alert("결제 성공");
+            // 결제 성공 후 페이지 이동
+            window.location.href = "goStores";
+        } else {
+            // 결제 실패시
+            alert("결제 실패");
+        }
+    });
 }
+
 </script>
 
 	
