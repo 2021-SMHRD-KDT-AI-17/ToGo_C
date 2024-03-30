@@ -28,7 +28,7 @@ public class BasketController {
 //		session.removeAttribute("food_menus_list");
 //		session.removeAttribute("snack_menus_list");
 //		session.removeAttribute("beverage_menus_list");
-		session.invalidate();
+		session.removeAttribute("b_list");
 		
 		
 		return "ShopBasket_HCM";
