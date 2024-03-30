@@ -45,10 +45,188 @@
 	crossorigin="anonymous">
 
 <style type="text/css">
+.best-food-area {
+	margin-bottom: 20px;
+}
 
-	.best-food-area{
-		margin-bottom: 80px;
-	}
+/* 기본 스타일링 */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+	height: 100vh;
+}
+
+p {
+	margin-bottom: 0px;
+}
+
+.container {
+	max-width: 800px;
+	margin: 30px auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+	justify-content: center;
+}
+
+.wantGoHome {
+	width: 20px;
+}
+
+.image-box {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+
+.image {
+	border-radius: 10px; /* 둥근 테두리 */
+	overflow: hidden; /* 테두리를 넘어가는 부분 잘라내기 */
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 더 강한 쉐도우 효과 */
+	background-color: #fff; /* 배경색을 흰색으로 지정 */
+}
+
+.image img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 10px; /* 이미지에도 둥근 테두리 적용 */
+}
+
+.image .image-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3); /* 투명한 검은색 배경 */
+	opacity: 0;
+	transition: opacity 0.3s ease; /* 페이드 효과 추가 */
+	border-radius: 10px; /* 둥근 테두리 적용 */
+}
+
+.image:hover .image-overlay {
+	opacity: 1; /* 호버 시 오버레이가 나타나도록 설정 */
+}
+
+.image .image-overlay i {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff; /* 아이콘 색상을 흰색으로 지정 */
+	font-size: 48px; /* 아이콘 크기 조정 */
+}
+
+.festival-area-nav {
+	display: flex;
+	justify-content: space-around;
+}
+
+.conv-info-area {
+	display : flex;
+	align-items:center;
+}
+
+.conv-info-list{
+	height: 50px;
+	align-items:center;
+	
+}
+
+.conv-info-item-icon {
+	width: 48px;
+	text-align: center;
+}
+
+.conv-info-item-icon p {
+	margin-bottom: 0px;
+}
+
+.food-recommand {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.best-food-item {
+	width: 200px;
+	height: 200px;
+}
+
+.food-recommand-tag {
+
+	display: flex;
+	position : relative;
+	right: 80px;
+	
+}
+
+.food-recommand-tag1, .food-recommand-tag2 {
+
+	height: 30px;
+	width: 100%;
+	text-align: center;
+	align-content:center;
+	display: flex;
+}
+
+.food-recommand-tag1{
+	color: white;
+	background: #333;
+}
+
+.food-recommand-tag2{
+	color: black;
+	background: #999;
+}
+
+color: white;
+	background-color: #222;
+
+.tag-inner-text{
+	text-align: center;
+	align-items: center;
+	width: 100%;
+	font-size:18px;
+	height: 28px;
+}
+
+.card-body {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#carouselExampleCaptions {
+	width: 100%;
+	padding: 10px;
+	display: inline-block;
+}
+
+.carousel-item img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.good-message-box {
+	margin: 20px 30px 20px 30px;
+	width: 100%
+}
+
+.good-message {
+	margin-bottom: 0px;
+	font-size: 18px;
+	font-weight: 800;
+}
+
+.order-menu-page {
+	
+}
 </style>
 </head>
 
@@ -64,47 +242,55 @@
 
 	<!-- 3.27 주유소 요금 정보 section 시작 -->
 
-	<section class="gas-info-area"
-		style="border: 1px solid gray; margin-top: 150px;">
-		<div class="container" style="display: flex">
-			<div class="gas-icon">
-				<i class="fa-solid fa-gas-pump"></i>
-			</div>
-			<%
-			Service_areas select_area = (Service_areas) session.getAttribute("select_area");
-			if (select_area.getGasoline_price() != 0) {
-			%>
+	<section class="gas-info-area">
+		<div class="gas-info-area" style="margin-top: 130px;">
+			<div class="" style="display: flex; justify-content: center;">
 
-			<div class="gas-gasoline">
-				<img alt="" src="resources/images/conv-icon/gas.jpg" height="25px">
-				<img alt="" src="resources/images/conv-icon/Gasoline.png"
-					height="25px"> <span class="gas-gasoline-price" id="money">${select_area.getGasoline_price() }
-					<span>원</span>
-				</span>
+				<div class="gas-icon">
+					<i class="fa-solid fa-gas-pump"></i> <img alt=""
+						src="resources/images/conv-icon/gas_03_29.png" height="25px">
+				</div>
+				<%
+				Service_areas select_area = (Service_areas) session.getAttribute("select_area");
+				if (select_area.getGasoline_price() != 0) {
+				%>
+
+				<div class="gas-gasoline">
+					<img alt="" src="resources/images/conv-icon/Gasoline.png"
+						height="25px"> <span class="gas-gasoline-price" id="money">${select_area.getGasoline_price() }
+						<span>원</span>
+					</span>
+				</div>
+				<div class="wantGoHome"></div>
+				<div class="gas-diesel">
+					<img alt="" src="resources/images/conv-icon/diesel.png"
+						height="25px"> <span class="gas-diesel-price">${select_area.getDiesel_price() }
+						<span>원</span>
+					</span>
+				</div>
+				<%
+				} else {
+				%>
+				<div>
+					<span>해당 휴게소는 주유소가 없습니다.</span>
+				</div>
+				<%
+				}
+				%>
 			</div>
-			<div class="gas-diesel">
-				<img alt="" src="resources/images/conv-icon/diesel.png"
-					height="25px"> <span class="gas-diesel-price">${select_area.getDiesel_price() }
-					<span>원</span>
-				</span>
-			</div>
-			<%
-			} else {
-			%>
-			<div>
-				<span>해당 휴게소는 주유소가 없습니다.</span>
-			</div>
-			<%
-			}
-			%>
 		</div>
+
 	</section>
+
+
+
+
 
 	<!-- 3.27 주유소 요금 정보 section 끝 -->
 
 	<!-- 3.27 편의 시설 정보 section 시작 -->
-	
-	<!-- 3.29 Best 맛집 정보 section 시작 -->
+
+
 	<section class="conv-info-area">
 		<div class="container conv-info-list">
 			<div class="conv-info-item"
@@ -166,77 +352,96 @@
 
 	<!-- 3.27 편의 시설 정보 section 끝 -->
 
+	<!-- 웹 페이지 간단한? 소개 문구 및  -->
 
+	<section class="order-menu-page">
 
-
-	<!-- start features Area -->
-	<section class="features-area section_gap" style="margin-top: 100px">
-		<div class="container">
-			<div class="row features-inner">
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="resources/images/features/f-icon1.png" alt="">
-						</div>
-						<!-- 휴게소 주문하기  로그인 시 접근 가능 로그인 안할시 로그인 페이지로 -->
-
-						<h6>
-							<a href="goStores">휴게소 주문하기</a>
-						</h6>
-
-
-						<p>"3.23 주문하기 간단한 설명 문구"</p>
-						<p>"적절한 이미지 넣기"</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="resources/images/features/f-icon2.png" alt="">
-						</div>
-						<h6>
-							<a href="exGoStores">주유소 검색</a>
-						</h6>
-						<p>"3.23 주유소 검색 간단한 설명 문구"</p>
-						<p>"적절한 이미지 넣기"</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="resources/images/features/f-icon3.png" alt="">
-						</div>
-						<h6>
-							<a href="#">편의 시설 보기</a>
-						</h6>
-						<p>"3.23 편의 시설 보기 간단한 설명 문구"</p>
-						<p>"적절한 이미지 넣기"</p>
-					</div>
-				</div>
-				<!-- single features -->
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-features">
-						<div class="f-icon">
-							<img src="resources/images/features/f-icon4.png" alt="">
-						</div>
-						<h6>
-							<a href="#">축제/행사 </a>
-						</h6>
-						<p>"3.23 축제/행사 간단한 설명 문구"</p>
-						<p>"적절한 이미지 넣기"</p>
-					</div>
-				</div>
-			</div>
+		<div class="good-message-box">
+			<p class="good-message">오늘도</p>
+			<p class="good-message">맛있는 여행 되세요!</p>
 		</div>
+
+		<div class="food-recommand">
+			<table class="food-recommand">
+				<tr>
+					<div class="food-recommand-tag">
+						<div>
+							<div class="food-recommand-tag1" style="align-items: flex-start;">
+								<span class="tag-inner-text">#눈으로 먹고</span></div>
+						</div>
+
+						<div>
+							<div class="food-recommand-tag2"><span class="tag-inner-text">#여행에 딱인</span></div>
+						</div>
+					</div>
+					<div class="goStores">
+						<input type="button" class="goStoresButton" 
+							value="주문하러 가기!" onclick="Stores_HCM">
+					</div>
+				</tr>
+				<tr>
+					<td class="best-food-item">
+						<div>
+							<div class="card">
+								<img src="resources/images/MainOrder.png" class="card-img-top"
+									alt="...">
+								<div class="card-body">
+									<p class="card-text">떡볶이</p>
+									<div>3,500원</div>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td class="best-food-item">
+						<div>
+							<div class="card">
+								<img src="resources/images/MainOrder.png" class="card-img-top"
+									alt="...">
+								<div class="card-body">
+									<p class="card-text">떡볶이</p>
+									<div>3,500원</div>
+
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="best-food-item">
+						<div>
+							<div class="card">
+								<img src="resources/images/MainOrder.png" class="card-img-top"
+									alt="...">
+								<div class="card-body">
+									<p class="card-text">떡볶이</p>
+									<div>3,500원</div>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td class="best-food-item">
+						<div>
+							<div class="card">
+								<img src="resources/images/MainOrder.png" class="card-img-top"
+									alt="...">
+								<div class="card-body">
+									<p class="card-text">떡볶이</p>
+									<div>3,500원</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+
+
 	</section>
-	<!-- end features Area -->
 
 	<section class="best-food-area">
-		<div class="best-food-title">
-			<h3>Best 맛집 정보</h3>
+		<div class="good-message-box best-food-title">
+			<p class="good-message">맛집러 꿀팁</p>
 		</div>
 		<div id="carouselExampleCaptions" class="carousel slide"
 			data-bs-ride="carousel">
@@ -253,11 +458,12 @@
 				<button type="button" data-bs-target="#carouselExampleCaptions"
 					data-bs-slide-to="4" aria-label="Slide 5"></button>
 				<button type="button" data-bs-target="#carouselExampleCaptions"
-					data-bs-slide-to="5" aria-label="Slide 6"></button>	
+					data-bs-slide-to="5" aria-label="Slide 6"></button>
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="resources/images/best-food/best-food1.jpg" class="d-block w-100" alt="...">
+					<img src="resources/images/best-food/best-food1.jpg"
+						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>
 						<p>Some representative placeholder content for the first
@@ -265,7 +471,8 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="resources/images/best-food/best-food2.jpg" class="d-block w-100" alt="...">
+					<img src="resources/images/best-food/best-food2.jpg"
+						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second slide label</h5>
 						<p>Some representative placeholder content for the second
@@ -273,7 +480,8 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="resources/images/best-food/best-food3.jpg" class="d-block w-100" alt="...">
+					<img src="resources/images/best-food/best-food3.jpg"
+						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Third slide label</h5>
 						<p>Some representative placeholder content for the third
@@ -281,7 +489,8 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="resources/images/best-food/best-food4.jpg" class="d-block w-100" alt="...">
+					<img src="resources/images/best-food/best-food4.jpg"
+						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second slide label</h5>
 						<p>Some representative placeholder content for the second
@@ -289,7 +498,8 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="resources/images/best-food/best-food5.jpg" class="d-block w-100" alt="...">
+					<img src="resources/images/best-food/best-food5.jpg"
+						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second slide label</h5>
 						<p>Some representative placeholder content for the second
@@ -297,7 +507,8 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="resources/images/best-food/best-food6.jpg" class="d-block w-100" alt="...">
+					<img src="resources/images/best-food/best-food6.jpg"
+						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second slide label</h5>
 						<p>Some representative placeholder content for the second
@@ -319,177 +530,44 @@
 	</section>
 
 
-
-	<!-- Start category Area -->
-	<section class="category-area">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 col-md-12">
-					<div class="row">
-						<div class="col-lg-8 col-md-8">
-							<div class="single-deal">
-								<div class="overlay"></div>
-								<img class="img-fluid w-100"
-									src="resources/images/category/c1.jpg" alt=""> <a
-									href="resources/images/category/c1.jpg" class="img-pop-up"
-									target="_blank">
-									<div class="deal-details">
-										<h6 class="deal-title">Sneaker for Sports</h6>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4">
-							<div class="single-deal">
-								<div class="overlay"></div>
-								<img class="img-fluid w-100"
-									src="resources/images/category/c2.jpg" alt=""> <a
-									href="resources/images/category/c2.jpg" class="img-pop-up"
-									target="_blank">
-									<div class="deal-details">
-										<h6 class="deal-title">Sneaker for Sports</h6>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4">
-							<div class="single-deal">
-								<div class="overlay"></div>
-								<img class="img-fluid w-100"
-									src="resources/images/category/c3.jpg" alt=""> <a
-									href="resources/images/category/c3.jpg" class="img-pop-up"
-									target="_blank">
-									<div class="deal-details">
-										<h6 class="deal-title">Product for Couple</h6>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="col-lg-8 col-md-8">
-							<div class="single-deal">
-								<div class="overlay"></div>
-								<img class="img-fluid w-100"
-									src="resources/images/category/c4.jpg" alt=""> <a
-									href="resources/images/category/c4.jpg" class="img-pop-up"
-									target="_blank">
-									<div class="deal-details">
-										<h6 class="deal-title">Sneaker for Sports</h6>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-deal">
-						<div class="overlay"></div>
-						<img class="img-fluid w-100"
-							src="resources/images/category/c5.jpg" alt=""> <a
-							href="resources/images/category/c5.jpg" class="img-pop-up"
-							target="_blank">
-							<div class="deal-details">
-								<h6 class="deal-title">Sneaker for Sports</h6>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End category Area -->
-	
 	<section class="festival-area">
-		<div>
-			<div>
-				<p>축제 / 관광 정보</p>
+		<div class="festival-area-nav"
+			style="display: flex; flex-direction: column;">
+
+			<div class="good-message-box">
+				<p class="good-message">축제 / 관광 정보</p>
+				<span><a href="" #>전체 보기</a> </span>
 			</div>
 			<div>
-				<span>> 전체 보기</span>
+				
 			</div>
-			
+			<figure>
+				<div class="container">
+					<div class="image-box">
+						<div class="image">
+							<img src="resources/images/festival-pic/축제1.jpg" alt="Image 1">
+						</div>
+						<div class="image">
+							<img src="resources/images/festival-pic/축제2.jpeg" alt="Image 2">
+						</div>
+						<div class="image">
+							<img src="resources/images/festival-pic/축제3.png" alt="Image 3">
+						</div>
+						<div class="image">
+							<img src="resources/images/festival-pic/축제4.jpg" alt="Image 4">
+						</div>
+					</div>
+				</div>
+
+			</figure>
+
 		</div>
-			
-		<div>
-			
-		</div>
-	
+
+		<div></div>
+
 	</section>
 
 	<!-- Start exclusive deal Area -->
-	<section class="exclusive-deal-area">
-		<div class="container-fluid">
-			<div class="row justify-content-center align-items-center">
-				<div class="col-lg-6 no-padding exclusive-left">
-					<div class="row clock_sec clockdiv" id="clockdiv">
-						<div class="col-lg-12">
-							<h1>Exclusive Hot Deal Ends Soon!</h1>
-							<p>Who are in extremely love with eco friendly system.</p>
-						</div>
-						<div class="col-lg-12">
-							<div class="row clock-wrap">
-								<div class="col clockinner1 clockinner">
-									<h1 class="days">150</h1>
-									<span class="smalltext">Days</span>
-								</div>
-								<div class="col clockinner clockinner1">
-									<h1 class="hours">23</h1>
-									<span class="smalltext">Hours</span>
-								</div>
-								<div class="col clockinner clockinner1">
-									<h1 class="minutes">47</h1>
-									<span class="smalltext">Mins</span>
-								</div>
-								<div class="col clockinner clockinner1">
-									<h1 class="seconds">59</h1>
-									<span class="smalltext">Secs</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<a href="" class="primary-btn">Shop Now</a>
-				</div>
-				<div class="col-lg-6 no-padding exclusive-right">
-					<div class="active-exclusive-product-slider">
-						<!-- single exclusive carousel -->
-						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="resources/images/product/e-p1.png"
-								alt="">
-							<div class="product-details">
-								<div class="price">
-									<h6>$150.00</h6>
-									<h6 class="l-through">$210.00</h6>
-								</div>
-								<h4>addidas New Hammer sole for Sports person</h4>
-								<div
-									class="add-bag d-flex align-items-center justify-content-center">
-									<a class="add-btn" href=""><span class="ti-bag"></span></a> <span
-										class="add-text text-uppercase">Add to Bag</span>
-								</div>
-							</div>
-						</div>
-						<!-- single exclusive carousel -->
-						<div class="single-exclusive-slider">
-							<img class="img-fluid" src="resources/images/product/e-p1.png"
-								alt="">
-							<div class="product-details">
-								<div class="price">
-									<h6>$150.00</h6>
-									<h6 class="l-through">$210.00</h6>
-								</div>
-								<h4>addidas New Hammer sole for Sports person</h4>
-								<div
-									class="add-bag d-flex align-items-center justify-content-center">
-									<a class="add-btn" href=""><span class="ti-bag"></span></a> <span
-										class="add-text text-uppercase">Add to Bag</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End exclusive deal Area -->
 
 	<!-- Start brand Area -->
 	<section class="brand-area section_gap">
