@@ -27,7 +27,7 @@
 
           if (rsp.success) {
             // 결제 성공시
-            alert("성공")
+            alert("결제 성공")
             i++;
           } else {
             // 결제 실패시

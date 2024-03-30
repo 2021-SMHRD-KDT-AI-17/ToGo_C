@@ -314,14 +314,18 @@ a {
 	</script>
 	
 	 <script>
+
 IMP.init("imp14397622");
 
 function requestPay() {
-  IMP.request_pay({
+
+	/* let store_id = ${select_area.service_name};
+	console.log(store_id); */
+	IMP.request_pay({
     pg: "html5_inicis",
     pay_method: "card",
     merchant_uid: "test_ltsj8zlm",
-    name: "테스트 결제",
+    name: "t",
     amount: 100,
     buyer_tel: "010-0000-0000",
   },
@@ -329,11 +333,11 @@ function requestPay() {
 
       if (rsp.success) {
         // 결제 성공시
-        alert("성공")
+        alert("결제 성공")
         i++;
       } else {
         // 결제 실패시
-        alter("실패")
+        alert("실패")
       }
     }
   

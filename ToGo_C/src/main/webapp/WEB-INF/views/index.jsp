@@ -374,7 +374,7 @@ color: white;
 							<div class="food-recommand-tag2"><span class="tag-inner-text">#여행에 딱인</span></div>
 						</div>
 					</div>
-					<div class="goStores">
+					<div>
 						<a href="goStores"><input type="button" class="goStoresButton" 
 							value="주문하러 가기!" ></a>
 					</div>
