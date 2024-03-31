@@ -43,10 +43,19 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100..900&display=swap"
+	rel="stylesheet">
 
 <style type="text/css">
 .best-food-area {
-	margin-bottom: 20px;
+	margin: 10px 10px 10px 10px;
+	background: white;
+	position: relative;
+	border-radius: 15px;
+	height: 440px;
 }
 
 /* 기본 스타일링 */
@@ -56,10 +65,19 @@ body {
 	padding: 0;
 	background-color: #f4f4f4;
 	height: 100vh;
+	
 }
 
 p {
 	margin-bottom: 0px;
+}
+
+.welcome-message-box {
+	/*  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal; */
+	
 }
 
 .container {
@@ -119,20 +137,50 @@ p {
 	font-size: 48px; /* 아이콘 크기 조정 */
 }
 
+.welcome-message-box {
+	background: linear-gradient(to right, rgba(255, 255, 255, 1) 40%,
+		rgba(255, 255, 255, 0) 60%),
+		url('resources/images/cars-5970663_1280.png');
+	background-size: 100%;
+	height: 200px;
+	width: 100%;
+	border-radius: 10px;
+	font-family: "Black Han Sans", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+	font-family: "Black Han Sans", sans-serif;
+}
+
+.welcome-message1 {
+	font-size: 24px;
+	padding: 40px 20px 20px 20px;
+}
+
+.welcome-message2 {
+	font-size: 18px;
+	margin-left: 20px;
+}
+
 .festival-area-nav {
 	display: flex;
 	justify-content: space-around;
 }
 
 .conv-info-area {
-	display : flex;
-	align-items:center;
+	display: flex;
+	align-items: center;
 }
 
-.conv-info-list{
-	height: 50px;
-	align-items:center;
-	
+.conv-info-list {
+	height: 90px;
+	width: 97%;
+	align-items: center;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: #FCFF94;
 }
 
 .conv-info-item-icon {
@@ -157,48 +205,70 @@ p {
 	height: 200px;
 }
 
-.food-recommand-tag {
-
+.go-store-title {
 	display: flex;
-	position : relative;
-	right: 80px;
-	
+	justify-content: left;
+	align-items: center;
+	margin-right: 100px;
+}
+
+.go-store-button {
+	text-align: right;
+	display: flex;
+	justify-content: right;
+	width: 100%;
+}
+
+.goStoresButton {
+	border-radius: 10px;
+	box-shadow: 2px 3px 1px 0px black;
+	margin: 15px;
+	height: 40px;
+	background: #FCFF94;
+}
+
+.food-recommand-tag {
+	display: flex;
+	width: 100%;
+	position: relative;
+	left: 10px;
 }
 
 .food-recommand-tag1, .food-recommand-tag2 {
-
-	height: 30px;
+	height: 40px;
 	width: 100%;
-	text-align: center;
-	align-content:center;
 	display: flex;
+	text-align: center; align-items : center;
+	border-radius: 10px;
+	align-items: center;
 }
 
-.food-recommand-tag1{
+.food-recommand-tag1 {
 	color: white;
 	background: #333;
 }
 
-.food-recommand-tag2{
+.food-recommand-tag2 {
 	color: black;
 	background: #999;
 }
 
-color: white;
-	background-color: #222;
-
-.tag-inner-text{
+.tag-inner-text {
 	text-align: center;
-	align-items: center;
-	width: 100%;
-	font-size:18px;
-	height: 28px;
+	width: 90px;
+	font-size: 13px;
+	height: 20px;
+}
+
+.tag-inner-text-space {
+	width: 10px;
 }
 
 .card-body {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	bor
 }
 
 #carouselExampleCaptions {
@@ -214,18 +284,45 @@ color: white;
 }
 
 .good-message-box {
-	margin: 20px 30px 20px 30px;
-	width: 100%
+	margin: 70px 30px 10px 10px;
+	width: 100%;
+	position: relative;
 }
 
 .good-message {
 	margin-bottom: 0px;
 	font-size: 18px;
 	font-weight: 800;
+	position: relative;
+	top: 10px;
 }
 
-.order-menu-page {
-	
+.festival-area-title {
+	font-size: 18px;
+	font-weight: 800;
+	position: relative;
+	margin-top: 30px;
+	padding-bottom: 10px;
+	left: 20px;
+	width: 90%;
+	border-bottom: 1px solid #999;
+}
+
+.festival-area-title span {
+	text-align: right;
+}
+
+.festival-area-link, .road-view-gallery-slide {
+	position: relative;
+	left: 270px;
+	text-align: right;
+}
+
+
+.festival-area-link a, .road-view-gallery-slide a {
+	list-style: none;
+	text-decoration: none;
+	color: #999;
 }
 </style>
 </head>
@@ -242,8 +339,14 @@ color: white;
 
 	<!-- 3.27 주유소 요금 정보 section 시작 -->
 
+	<div class="welcome-message-box" style="margin-top: 100px">
+		<p class="welcome-message1 black-han sans-regular">고객님,</p>
+		<p class="welcome-message2 black-han sans-regular">오늘도</p>
+		<p class="welcome-message2 black-han sans-regular">맛있는 여행 되세요!</p>
+	</div>
+
 	<section class="gas-info-area">
-		<div class="gas-info-area" style="margin-top: 130px;">
+		<div class="gas-info-area" style="margin-top: 30px;">
 			<div class="" style="display: flex; justify-content: center;">
 
 				<div class="gas-icon">
@@ -356,33 +459,37 @@ color: white;
 
 	<section class="order-menu-page">
 
-		<div class="good-message-box">
+		<!-- <div class="good-message-box">
 			<p class="good-message">오늘도</p>
 			<p class="good-message">맛있는 여행 되세요!</p>
-		</div>
+		</div> -->
 
 		<div class="food-recommand">
 			<table class="food-recommand">
 				<tr>
 					<div class="food-recommand-tag">
 						<div>
-							<div class="food-recommand-tag1" style="align-items: flex-start;">
-								<span class="tag-inner-text">#눈으로 먹고</span></div>
+							<div class="food-recommand-tag1">
+								<span class="tag-inner-text">#눈으로 먹고</span>
+							</div>
 						</div>
-
+						<div class="tag-inner-text-space"></div>
 						<div>
-							<div class="food-recommand-tag2"><span class="tag-inner-text">#여행에 딱인</span></div>
+							<div class="food-recommand-tag2">
+								<span class="tag-inner-text">#여행에 딱인</span>
+							</div>
 						</div>
 					</div>
-					<div>
-						<a href="goStores"><input type="button" class="goStoresButton" 
-							value="주문하러 가기!" ></a>
+					<div class="go-store-button">
+						<div class="go-store-title">BEST 추천 메뉴</div>
+						<a href="goStores"><input type="button" class="goStoresButton"
+							value="주문하러 가기!"></a>
 					</div>
 				</tr>
 				<tr>
 					<td class="best-food-item">
 						<div>
-							<div class="card">
+							<div class="card" style="margin: 5px;">
 								<img src="resources/images/MainOrder.png" class="card-img-top"
 									alt="...">
 								<div class="card-body">
@@ -394,7 +501,7 @@ color: white;
 					</td>
 					<td class="best-food-item">
 						<div>
-							<div class="card">
+							<div class="card" style="margin: 5px;">
 								<img src="resources/images/MainOrder.png" class="card-img-top"
 									alt="...">
 								<div class="card-body">
@@ -409,7 +516,7 @@ color: white;
 				<tr>
 					<td class="best-food-item">
 						<div>
-							<div class="card">
+							<div class="card" style="margin: 5px;">
 								<img src="resources/images/MainOrder.png" class="card-img-top"
 									alt="...">
 								<div class="card-body">
@@ -421,7 +528,7 @@ color: white;
 					</td>
 					<td class="best-food-item">
 						<div>
-							<div class="card">
+							<div class="card" style="margin: 5px;">
 								<img src="resources/images/MainOrder.png" class="card-img-top"
 									alt="...">
 								<div class="card-body">
@@ -441,7 +548,7 @@ color: white;
 
 	<section class="best-food-area">
 		<div class="good-message-box best-food-title">
-			<p class="good-message">맛집러 꿀팁</p>
+			<p class="good-message" style="margin-top: 30px;">맛집러 꿀팁</p>
 		</div>
 		<div id="carouselExampleCaptions" class="carousel slide"
 			data-bs-ride="carousel">
@@ -534,13 +641,13 @@ color: white;
 		<div class="festival-area-nav"
 			style="display: flex; flex-direction: column;">
 
-			<div class="good-message-box">
-				<p class="good-message">축제 / 관광 정보</p>
-				<span><a href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do" target="_blank">전체 보기</a> </span>
+			<div class="festival-area-title">
+				<p class="">축제 / 관광 정보</p>
+				<span class="festival-area-link"><a
+					href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do"
+					target="_blank">전체 보기</a> </span>
 			</div>
-			<div>
-				
-			</div>
+			<div></div>
 			<figure>
 				<div class="container">
 					<div class="image-box">
@@ -567,171 +674,28 @@ color: white;
 
 	</section>
 
-	<!-- Start exclusive deal Area -->
+	<!-- 도로 사진 갤러리 -->
 
-	<!-- Start brand Area -->
-	<section class="brand-area section_gap">
-		<div class="container">
-			<div class="row">
-				<a class="col single-img" href="#"> <img
-					class="img-fluid d-block mx-auto"
-					src="resources/images/brand/1.png" alt="">
-				</a> <a class="col single-img" href="#"> <img
-					class="img-fluid d-block mx-auto"
-					src="resources/images/brand/2.png" alt="">
-				</a> <a class="col single-img" href="#"> <img
-					class="img-fluid d-block mx-auto"
-					src="resources/images/brand/3.png" alt="">
-				</a> <a class="col single-img" href="#"> <img
-					class="img-fluid d-block mx-auto"
-					src="resources/images/brand/4.png" alt="">
-				</a> <a class="col single-img" href="#"> <img
-					class="img-fluid d-block mx-auto"
-					src="resources/images/brand/5.png" alt="">
-				</a>
+	<section class="road-view-gallery">
+
+		<div class="road-view-gallery-box"
+			style="display: flex; flex-direction: column;">
+
+			<div class="road-view-gallery-title">
+				<p class="">이모저모 사진전</p>
+				<span class="road-view-gallery-slide"><a
+					href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do"
+					target="_blank">> 슬라이드 감상</a> </span>
 			</div>
 		</div>
-	</section>
-	<!-- End brand Area -->
+		<article>
+			<img src="resources/images/road-view-gallary/road-view (8).jpg"
+				alt="">
+		</article>
 
-	<!-- Start related-product Area -->
-	<section class="related-product-area section_gap_bottom">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6 text-center">
-					<div class="section-title">
-						<h1>Deals of the Week</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-9">
-					<div class="row">
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="resources/images/r1.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="resources/images/r2.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="resources/images/r3.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="resources/images/r5.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="resources/images/r6.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="resources/images/r7.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="resources/images/r9.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="resources/images/r10.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-6">
-							<div class="single-related-product d-flex">
-								<a href="#"><img src="resources/images/r11.jpg" alt=""></a>
-								<div class="desc">
-									<a href="#" class="title">Black lace Heels</a>
-									<div class="price">
-										<h6>$189.00</h6>
-										<h6 class="l-through">$210.00</h6>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3">
-					<div class="ctg-right">
-						<a href="#" target="_blank"> <img
-							class="img-fluid d-block mx-auto"
-							src="resources/images/category/c5.jpg" alt="">
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
 	</section>
-	<!-- End related-product Area -->
+
+
 
 	<!-- footer 영역 시작(includes 폴더) -->
 
