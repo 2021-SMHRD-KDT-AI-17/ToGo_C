@@ -39,10 +39,46 @@
 	crossorigin="anonymous">
 
 <style>
+/* body {
+	background-image: url('resources/images/sheets-5329790_1280.jpg');
+	width: 100%;
+	
+} */
+
+.container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.container::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: url("resources/images/sheets-5329790_1280.jpg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.logo-intro-area img{
+	height:200px;
+	position: relative;
+}
+
+.bg-image{
+	display: flex;
+	justify-content: center;
+	padding: 50px;
+}
+
 .search-box {
 	width: 100%;
-	margin-top: 150px;
-	top: 150px;
+	position: relative;
+	
 }
 
 .search-result {
@@ -58,8 +94,9 @@ h3, p {
 	margin-bottom: 0px;
 }
 
-li {
+ul, li {
 	display: list-item;
+	background: white;
 }
 
 input {
@@ -68,33 +105,56 @@ input {
 }
 
 .search-box {
-	height: 600px;
+	height: 400px;
 }
 
 .search-result-list {
 	border-bottom: 1px solid #ddd;
 	position: relative;
+	margin-top: 5px;
 }
 
 .search-box-title {
 	background: #333300;
 	color: white;
 	font-weight: 800px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
 .search-input {
 	display: flex;
 	justify-content: space-around;
+	flex-direction: column;
 	padding: 10px;
 	background: #E9E7E8;
+	padding: 10px;
 }
 
 #searchInput {
-	width: 250px;
+	width: 350px;
+	text-align: center;
+	position: relative;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.search-input-box, .btn-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn-success {
+	width: 200px;
+	height: 50px;
+	margin-top: 20px;
 }
 
 .search-result-box {
-	overflow-y: scroll;
+	overflow-y: auto;
+	position: relative;
+	height: 300px;
 }
 
 .result-details {
@@ -105,43 +165,71 @@ input {
 	height: 30px;
 	background: #F5F0C5;
 	font-size: 14px;
+	padding-left: 15px;
+	padding-top: 3px;
 }
 
 .map-box {
-	margin-top: 10px;
+	
 }
 
 .my-location {
 	width: 50px;
 	height: 50px;
 }
+
+.service-area-bottom {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.submit-button{
+	border-radius: 20px;
+	background: #198754;
+	height: 60px;
+	font-size: 24px;
+	font-weight: 800;
+	color: white;
+	
+}
 </style>
 
 </head>
 <body>
+	<div class="logo-intro-area">
+		<article class="bg-image">
+			<img src="resources/images/intro-image.png">
+		</article>
+
+		<div class="brand-logo"></div>
+
+	</div>
+
 
 
 	<div class="container">
 		<div class="search-box">
 			<div class="search-box-title">
-				<h3>매장 찾기</h3>
+				<h3 style="font-weight: 800px;">휴게소 찾기</h3>
 			</div>
 
-			<div class="search-box-subtitle">
-				<p>퀵 검색</p>
-			</div>
+			<div class="search-box-subtitle"></div>
 			<div class="search-input">
 				<form action="getSearchServiceArea" method="post">
+					<div class="search-input-box">
+						<input id="searchInput" type="text"
+							placeholder="휴게소명 혹은 지역을 입력해주세요." name="service_name">
+					</div>
 
-					<input id="searchInput" type="text" placeholder="ex) oo휴게소 또는 지역"
-						name="service_name"> <input type="submit"
-						class="btn btn-success" value="주소검색">
-
+					<div class="btn-box">
+						<input type="submit" class="btn btn-success" value="주소검색">
+					</div>
 				</form>
 
 			</div>
 
-			<div class="search-count">(검색 결과 "00"개)</div>
+			<div class="search-count">검색 결과 3개</div>
 
 			<div class="search-result-box">
 				<ul class="search-result-list" id="service_area_list">
@@ -151,9 +239,11 @@ input {
 						int index = 0;
 						for (Service_areas s : Search_service_area_list) {
 					%>
-					<li class="search-result-list" onclick = "SelectS(<%=s.getService_idx() %>)"><strong><%=s.getService_name() %></strong>
+					<li class="search-result-list"
+						onclick="SelectS(<%=s.getService_idx()%>)"><strong><%=s.getService_name()%></strong>
 						<p class="result-details">
-							<%=s.getService_addr() %> <br> "062-673-7745"
+							<%=s.getService_addr()%>
+							<br> "062-673-7745"
 						</p></li>
 					<%
 					index++;
@@ -168,17 +258,29 @@ input {
 
 		</div>
 
+		<!-- <section class="map-box">
+			<div id="map"
+				style="width: 100%; height: 400px; bottom: 89px; border-radius: 10px;"></div>
+			<div class="service-area-bottom">
+				<form action="service_area_Select">
+					<input type="submit" value="휴게소 선택하기">
+				</form>
+			</div>
+
+
+			
+		</section> -->
 		<section class="map-box">
 			<div id="map"
-				style="width: 100%; height: 500px; margin-bottom: 100px"></div>
-			<div>
-				<i class="fa-solid fa-street-view my-location"></i>
+				style="width: 100%; height: 400px; bottom: 190px; border-radius: 10px;"></div>
+			<div class="service-area-bottom">
+				<form action="service_area_Select">
+					<input type="submit" value="휴게소 선택하기" class="submit-button">
+				</form>
 			</div>
 		</section>
-		
-		<form action="service_area_Select">
-			<input type="submit" value = "휴게소 선택하기">
-		</form>
+
+
 
 	</div>
 
