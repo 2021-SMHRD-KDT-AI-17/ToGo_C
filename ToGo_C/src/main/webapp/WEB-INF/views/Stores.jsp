@@ -565,7 +565,7 @@ span {
                <button type="button" class="close-basket"
                   data-bs-dismiss="modal">닫기</button>
 
-               <button type="submit" class="add-basket" onclick = "Add()">
+               <button type="submit" class="add-basket" onclick = "Add()" data-bs-dismiss="modal">
                <i class="fa-solid fa-plus"></i>상품 담기</button>
             </div>
          </div>
@@ -608,7 +608,7 @@ span {
       });
    }
  
-    document.getElementById("trigger").addEventListener("click", function() {
+    /* document.getElementById("trigger").addEventListener("click", function() {
       var popup = document.getElementById("popup");
       var overlay = document.querySelector(".overlay");
       var body = document.body; 
@@ -622,7 +622,7 @@ span {
       setTimeout(function() {
          popup.style.opacity = "1";
       }, 50); // 약간의 지연 추가
-   });
+   }); */
 
    function closePopup() {
       var popup = document.getElementById("popup");
@@ -725,50 +725,55 @@ span {
     }
    
     
-    function Add(){
-       console.log("123")
+    function Add() {
+        
 
-       const store_id = '${select_area.getService_name()}';
-       const menu_name = document.getElementById('menuName').innerText;
-       const menu_price = document.getElementById('menuPrice').innerText;
-       const menu_Img = document.getElementById("menuImg");
-       const total = document.getElementById('total').innerText;
-       const menu_idx = document.getElementById("idx").innerText;
+        const store_id = '${select_area.getService_name()}';
+        const menu_name = document.getElementById('menuName').innerText;
+        const menu_price = document.getElementById('menuPrice').innerText;
+        const menu_Img = document.getElementById("menuImg");
+        const total = document.getElementById('total').innerText;
 
+        const order_cnt = document.getElementById('result').innerText;
+        const order_request = document.getElementById('requirements').innerText;
 
-      
-       const order_cnt = document.getElementById('result').innerText;
-       const order_request = document.getElementById('requirements').innerText;   
-      
-       let list ={
+        let list = {
             "store_id": store_id,
-            "menu_idx" : menu_idx,
-            "menu_name" :menu_name,
-            "menu_price":menu_price,
-            "menu_Img":menu_Img,
-            "order_cnt":order_cnt,
-            "order_request":order_request,
-            "total":total
-       }
-       console.log(list);
-      
-       $.ajax({
-           url:"goShopBasketAdd",
-           method: "POST", // 데이터를 서버로 보낼 때는 POST 방식을 사용합니다.
-           data: JSON.stringify(list), // 객체를 JSON 문자열로 변환하여 전송합니다.
-           contentType: "application/json", // 전송하는 데이터의 타입을 명시합니다.
-           success: function(r){
-               console.log(r)
-           },
-           error:function(){
-               console.log("실패")
-           }
-       })  
-    } 
+            "menu_name": menu_name,
+            "menu_price": menu_price,
+            "menu_Img": menu_Img,
+            "order_cnt": order_cnt,
+            "order_request": order_request,
+            "total": total
+        };
+        
 
-   
+        $.ajax({
+            url: "goShopBasketAdd",
+            method: "POST", // 데이터를 서버로 보낼 때는 POST 방식을 사용합니다.
+            data: JSON.stringify(list), // 객체를 JSON 문자열로 변환하여 전송합니다.
+            contentType: "application/json", // 전송하는 데이터의 타입을 명시합니다.
+            success: function (r) {
+                console.log(r);
+                // 성공적으로 장바구니에 담기면 팝업을 닫습니다.
+                closePopup();
+                
+            },
+            error: function () {
+                console.log("실패");
+            }
+        });
+        
+        // 팝업이 바로 닫히도록 처리합니다.
+        closePopup();
+    }
+
        
-       
+
+    
+    
+ 
+    
 
 
               

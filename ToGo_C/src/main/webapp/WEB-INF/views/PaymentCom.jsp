@@ -182,10 +182,10 @@ img{
 				</tr>
 				
 				<tr>
-					<td >떡볶이</td>
+ 					<td >떡볶이</td>
 					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
+					 <td>개</td>
+					 <td>원</td>
 					
 				</tr>	
 			</table>

@@ -22,7 +22,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>To Go</title>s
+<title>To Go</title>
 <!--
 		CSS
 		============================================= -->

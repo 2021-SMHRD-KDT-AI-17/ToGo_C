@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import kr.smhrd.entity.Orders;
+import kr.smhrd.entity.OrderHistory;
 
 
 @Mapper
 public interface OrderHistoryMapper {
 
 
-	List<Orders> orderhistory();
+	List<OrderHistory> orderhistory();
 
 
 }
