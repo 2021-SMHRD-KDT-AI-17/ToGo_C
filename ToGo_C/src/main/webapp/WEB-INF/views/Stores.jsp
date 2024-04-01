@@ -489,6 +489,11 @@ span {
     function select_food(num){
 		const resultElement = document.getElementById('result');
 		resultElement.innerText = 1;
+		
+		const requirementsElement = document.getElementById('requirements');
+		 requirementsElement.value = "";
+		
+		
 	    num  = parseInt(num);
 		
 		var food_menus_list = <%= new com.google.gson.Gson().toJson(food_menus_list) %>;
@@ -506,12 +511,17 @@ span {
 	    
     	
     }
+ 
+
 	
     
     
     function select_snack(num){
 		const resultElement = document.getElementById('result');
 		resultElement.innerText = 1;
+		
+		const requirementsElement = document.getElementById('requirements');
+		 requirementsElement.value = "";
 	    num  = parseInt(num);
     	
 	    var snack_menus_list = <%= new com.google.gson.Gson().toJson(snack_menus_list) %>;
@@ -534,6 +544,10 @@ span {
     	
 		const resultElement = document.getElementById('result');
 		resultElement.innerText = 1;
+		
+		const requirementsElement = document.getElementById('requirements');
+		 requirementsElement.value = "";
+		
 	    num  = parseInt(num);
 	    var beverage_menus_list = <%= new com.google.gson.Gson().toJson(beverage_menus_list) %>;
 	    
