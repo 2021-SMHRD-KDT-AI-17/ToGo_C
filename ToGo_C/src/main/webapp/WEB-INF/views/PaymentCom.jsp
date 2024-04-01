@@ -181,114 +181,8 @@ img{
 					<th class="col4">금액</td>
 				</tr>
 				
-				
 				<tr>
 					<td >떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
-					<td>2,000원</td>
-					<td>2개</td>
-					<td>4,000원</td>
-					
-				</tr>
-				<tr>
-					<td>떡볶이</td>
 					<td>2,000원</td>
 					<td>2개</td>
 					<td>4,000원</td>
@@ -300,7 +194,7 @@ img{
 		</div>
 		
 		<div class="result-total">
-			<p style="margin: 10px 0px 5px 0px;">총 결제 금액 </p><span class="">00000원</span>
+			<p style="margin: 10px 0px 5px 0px;">총 결제 금액 <span class="">00000</span>원</p>
 		</div>
 		
 		<div class="result-time-message">
