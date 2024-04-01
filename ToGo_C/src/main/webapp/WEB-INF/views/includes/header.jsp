@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	body{
+		background:white;
+	}
+</style>
 </head>
 <body>
 
@@ -24,7 +29,7 @@
 						style="width: 80px; height: 50px;" >
 					</a>
 
-					<div class="service-name" style="margin-right: 30px">
+					<div class="service-name" style="margin-right: 20px">
 						<a href="goMap">
 							<button type="button" class="btn btn-outline-secondary" disabled>
 								${select_area.getService_name() }</button>

@@ -55,14 +55,6 @@
 					<div class="single-footer-widget mail-chimp">
 						<h6 class="mb-20">Instragram Feed</h6>
 						<ul class="instafeed d-flex flex-wrap">
-							<li><img src="resources/images/i1.jpg" alt=""></li>
-							<li><img src="resources/images/i2.jpg" alt=""></li>
-							<li><img src="resources/images/i3.jpg" alt=""></li>
-							<li><img src="resources/images/i4.jpg" alt=""></li>
-							<li><img src="resources/images/i5.jpg" alt=""></li>
-							<li><img src="resources/images/i6.jpg" alt=""></li>
-							<li><img src="resources/images/i7.jpg" alt=""></li>
-							<li><img src="resources/images/i8.jpg" alt=""></li>
 						</ul>
 					</div>
 				</div>
