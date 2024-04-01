@@ -10,12 +10,7 @@ import kr.smhrd.entity.Orders;
 @Mapper
 public interface OrderListMapper {
 
-	/*
-	 * List<Orders> orderList();
-	 * 
-	 * void orderInsert(Orders order);
-	 */
-
+	 void orderInsert(Orders order); 
 	
 	
 }

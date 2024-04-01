@@ -553,6 +553,7 @@ span {
             </div>
             <div class="request">
                <div class="request-text-box" style="height: 30px;">
+               	<input type="text" id = "idx" style="display: none;">
                   <span class="request-text">요청사항</span></div>
                <div style="height: 80px; width: 100%;">
                   <textarea style="width: 100%; height: 100%;"
@@ -654,11 +655,13 @@ span {
       
       var food_menus_list = <%= new com.google.gson.Gson().toJson(food_menus_list) %>;
        
+       let idx = document.getElementById("idx");
        let menuName = document.getElementById("menuName");
        let menuImg = document.getElementById("menuImg");
        let menuPrice = document.getElementById("menuPrice");
        let total = document.getElementById("total");
 
+       idx.innerText = food_menus_list[num-1].menu_idx;
        menuName.innerText = food_menus_list[num-1].menu_name;
        menuImg.innerText = food_menus_list[num-1].menu_img;
        menuPrice.innerText = food_menus_list[num-1].menu_price;
@@ -680,11 +683,13 @@ span {
        
        var snack_menus_list = <%= new com.google.gson.Gson().toJson(snack_menus_list) %>;
        
+       let idx = document.getElementById("idx");
        let menuName = document.getElementById("menuName");
        let menuImg = document.getElementById("menuImg");
        let menuPrice = document.getElementById("menuPrice");
        let total = document.getElementById("total");
 
+       idx.innerText = snack_menus_list[num-1].menu_idx;
        menuName.innerText = snack_menus_list[num-1].menu_name;
        menuImg.innerText = snack_menus_list[num-1].menu_img;
        menuPrice.innerText = snack_menus_list[num-1].menu_price;
@@ -704,11 +709,13 @@ span {
        num  = parseInt(num);
        var beverage_menus_list = <%= new com.google.gson.Gson().toJson(beverage_menus_list) %>;
        
+       let idx = document.getElementById("idx");
        let menuName = document.getElementById("menuName");
        let menuImg = document.getElementById("menuImg");
        let menuPrice = document.getElementById("menuPrice");
        let total = document.getElementById("total");
 
+       idx.innerText = beverage_menus_list[num-1].menu_idx;
        menuName.innerText = beverage_menus_list[num-1].menu_name;
        menuImg.innerText = beverage_menus_list[num-1].menu_img;
        menuPrice.innerText = beverage_menus_list[num-1].menu_price;
@@ -726,6 +733,7 @@ span {
        const menu_price = document.getElementById('menuPrice').innerText;
        const menu_Img = document.getElementById("menuImg");
        const total = document.getElementById('total').innerText;
+       const menu_idx = document.getElementById("idx").innerText;
 
 
       
@@ -734,6 +742,7 @@ span {
       
        let list ={
             "store_id": store_id,
+            "menu_idx" : menu_idx,
             "menu_name" :menu_name,
             "menu_price":menu_price,
             "menu_Img":menu_Img,

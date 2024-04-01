@@ -3,8 +3,8 @@
 <mapper namespace="kr.smhrd.mapper.OrderListMapper">
 
 	
-<!-- 	<insert id="orderInsert" parameterType="kr.smhrd.entity.Orders">
-      INSERT INTO orders (mb_id, ordered_at, order_total_amount, order_status, store_id, pick_up_time) VALUES (#{mb_id}, NOW(), #{order_total_amount, #{order_status}, #{store_id), #{pick_up_time});
-	</insert> -->
+   	<insert id="orderInsert" parameterType="kr.smhrd.entity.Orders">
+      INSERT INTO orders (mb_id, ordered_at, order_total_amount, order_status, store_id, pick_up_time) VALUES (#{mb_id}, NOW(), #{order_total_amount},#{order_status}, #{store_id}, #{pick_up_time})
+	</insert>   
 
 </mapper>

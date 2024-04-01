@@ -12,6 +12,7 @@ import lombok.ToString;
 public class BasketList {
 
 	private String store_id;	// 업체 아이디
+	private int menu_idx;
 	private String menu_name;	// 메뉴명
 	private int menu_price;		// 메뉴 가격
 	private String menu_img;	// 메뉴 이미지

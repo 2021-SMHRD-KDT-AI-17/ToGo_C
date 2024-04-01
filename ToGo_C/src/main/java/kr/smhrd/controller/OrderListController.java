@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.entity.BasketList;
 import kr.smhrd.entity.Members;
+import kr.smhrd.entity.Order_details;
 import kr.smhrd.entity.Orders;
 import kr.smhrd.mapper.MembersMapper;
 import kr.smhrd.mapper.OrderListMapper;
@@ -25,46 +26,46 @@ public class OrderListController {
 	
 	@RequestMapping("/goOrderList")
 	public String goOrderList(@RequestParam("phone_noValue") String phone_noValue, @RequestParam("t") int t,HttpSession session) {
-		//@RequestParam("phone_noValue") String phone_noValue, @RequestParam("total_price") int total_price, 
-//		Members loginMember = (Members) session.getAttribute("loginMember");
-//		System.out.println(phone_noValue);
-//		System.out.println(total_price);
-		System.out.println("넘어오기"  + phone_noValue);
-		System.out.println(t);
-//		if(loginMember != null) {
+
+		Members loginMember = (Members) session.getAttribute("loginMember");
+		Orders order = new Orders();
+
+		if(loginMember != null) {
 //			// 로그인이 되어 있음
-//			
-//		}else{
-//			// 로그인이 안되어 있음	
-//			loginMember.setMb_id("no"+phone_noValue);
-//			loginMember.setMb_nick("no"+phone_noValue);
-//			loginMember.setMb_phone(phone_noValue);
-//			loginMember.setMb_pw("123");
-//			
-//			// 회원 만들기 
-//			membersMapper.membersInsert(loginMember);
-//			
-//			// order 넣기 
-//			
-//			// 장바구니 내용
-//			List<BasketList> b_list = (List<BasketList>) session.getAttribute("b_list");
-//			
-//			Orders order = new Orders();
-//			
-//			System.out.println(order.toString());
-//			
-//			order.setMb_id("no" + phone_noValue);
-//			order.setOrder_total_amount(total_price); // 주문 총 가격
-//			order.setOrder_status("준비중"); // 주문 상태
-//			order.setStore_id("admin"); // 업체 아이디
-//			order.setPick_up_time(5); // 픽업 시간
-//
-//			
-//			// 총액S
-//			orderListMapper.orderInsert(order);
-//			
-//			
-//		}
+			order.setMb_id(loginMember.getMb_id());
+		}else{
+			loginMember = new Members();
+			// 로그인이 안되어 있음	
+			loginMember.setMb_id(phone_noValue);
+			loginMember.setMb_nick("no"+phone_noValue);
+			loginMember.setMb_phone(phone_noValue);
+			loginMember.setMb_pw("123");
+			System.out.println(loginMember.toString());
+			
+			// 회원 만들기 
+			membersMapper.membersInsert(loginMember);
+			
+			// order 넣기 	
+			order.setMb_id(phone_noValue);
+		}
+		
+		order.setOrder_total_amount(t); // 주문 총 가격
+		order.setOrder_status("준비중"); // 주문 상태
+		order.setStore_id("admin"); // 업체 아이디
+		order.setPick_up_time(5); // 픽업 시간
+
+		System.out.println(order.toString());
+		
+		//order 만들기
+		orderListMapper.orderInsert(order);
+		
+		List<BasketList> b_list = (List<BasketList>) session.getAttribute("b_list");
+		
+		for(int i = 0; i<b_list.size();i++) {
+			Order_details od = new Order_details();
+			//INSERT INTO order_details (menu_idx, order_cnt, order_request, order_idx, menu_good) VALUES (1, 1, 'order_request 1', 1, 'N');
+			
+		}
 
 		
 //		List<Orders> order_list = orderListMapper.orderList();

@@ -47,6 +47,7 @@ public class RestController_SHS {
 	    }
 	    bs_list.add(b);
 	    session.setAttribute("b_list", bs_list);
+	    System.out.println(bs_list.toString());
 
 	    return "success";
     }
