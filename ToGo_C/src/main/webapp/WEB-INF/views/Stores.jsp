@@ -725,7 +725,6 @@ span {
        const menu_name = document.getElementById('menuName').innerText;
        const menu_price = document.getElementById('menuPrice').innerText;
        const menu_Img = document.getElementById("menuImg");
-       const mb_id = '${loginMember.getMb_name()}'; 
        const total = document.getElementById('total').innerText;
 
 
@@ -738,7 +737,6 @@ span {
             "menu_name" :menu_name,
             "menu_price":menu_price,
             "menu_Img":menu_Img,
-            "mb_id":mb_id,
             "order_cnt":order_cnt,
             "order_request":order_request,
             "total":total

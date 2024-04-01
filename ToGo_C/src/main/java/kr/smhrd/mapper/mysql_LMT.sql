@@ -83,7 +83,16 @@ insert into menus (store_id, menu_name, menu_price, menu_desc, menu_img)values('
 		
 		
 		select *  from orders ;
+		
+		
 
+
+ SELECT m.menu_name, od.order_cnt, o.order_total_amount
+ FROM menus m JOIN order_details od
+ ON m.menu_idx = od.menu_idx
+ JOIN orders o
+ ON (od.order_idx = o.order_idx)
+ where mb_id = 'admin';
 
 
 
