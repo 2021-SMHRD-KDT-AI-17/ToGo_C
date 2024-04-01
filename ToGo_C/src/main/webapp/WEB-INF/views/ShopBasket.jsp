@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -40,9 +40,27 @@
 	background-image: url("resources/images/MainFestival.jpg")
 }
 
+.strong {
+	font-weight: 800px;
+}
+
+.go-credit {
+	width: 200px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 18px;
+	font-weight: 900;
+	border-radius: 10px;
+	box-shadow: 2px 3px 1px 0px black;
+	margin: 15px;
+	background: #FCFF94;
+}
+
 .d-block {
 	height: 300px;
 	width: 400px;
+	display: flex;
+	flex-direction: column;
 }
 
 a {
@@ -84,16 +102,19 @@ a {
 	transition: all 0.3s ease 0s;
 }
 
-.cart-area-nav{
+.cart-area-nav {
 	background: rgb(182, 198, 159);
-	width: 100%; 
+	width: 100%;
 	height: 200px;
-	margin-top:0px;
-	position:relative;
-	 
+	margin-top: 0px;
+	position: relative;
 }
 
-.cart-area-nav-title{
+#total_price {
+	
+}
+
+.cart-area-nav-title {
 	position: absolute;
 	top: 70px;
 }
@@ -122,6 +143,8 @@ a {
 
 </head>
 
+
+
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
 
@@ -142,13 +165,13 @@ a {
     2. 
     
      =================-->
-    <section class="cart-area-nav">
-    	<div class="container cart-area-nav-title">
-    		<h2 class="cart-area-nav-title">장바구니 목록</h2>
-    	</div>
-    </section> 
-     
-     
+	<section class="cart-area-nav">
+		<div class="container cart-area-nav-title">
+			<h2 class="cart-area-nav-title">장바구니 목록</h2>
+		</div>
+	</section>
+
+
 	<section class="cart_area" style="padding-top: 10px">
 		<div class="container">
 			<div class="cart_inner">
@@ -157,123 +180,144 @@ a {
 						<thead>
 							<tr>
 								<th scope="col">상품명</th>
-								<th scope="col">개당가격</th>
+								<th scope="col">단가</th>
 								<th scope="col">수량</th>
 								<th scope="col">합계</th>
-<!-- 								<th scope="col">요구사항</th> -->							
+								<th scope="col"></th>
+								<th></th>
+								<!-- 								<th scope="col">요구사항</th> -->
 							</tr>
 						</thead>
 						<tbody>
 							<%-- <% int index=0; %> --%>
 							<c:forEach items="${b_list}" var="b" varStatus="status">
-							
-							<tr>
-								<td>
-									<div class="media">
-										<div class="d-flex" style="display: flex; flex-direction: column;">
-											<div>
-												<img src="<%-- 사진여기에 넣으면됨 ${b.menu_Img} --%>" alt=""
-												style="width: 80px; height: 60px">
-												
-											</div> 
-											<div>
-												<span>${b.menu_name}</span>
+
+								<tr>
+									<td>
+										<div class="media">
+											<div class="d-flex"
+												style="display: flex; flex-direction: column; padding: 0px;">
+												<div>
+													<img src="<%-- 사진여기에 넣으면됨 ${b.menu_Img} --%>" alt=""
+														style="width: 90px; height: 70px">
+
+												</div>
+												<div>
+													<span>${b.menu_name}</span>
+												</div>
+
 											</div>
-								
 										</div>
-									</div>
-								</td>
-								<td>
-									<h5 >${b.menu_price}원</h5>
-								</td>
-								<td>
-									<h5>${b.order_cnt}개</h5>
-		
-								</td>
-								<td>
-									<h5><span class="price">${b.total}</span>원</h5>
-								</td>
-						</tr>
+									</td>
+									<td>
+										<h5>${b.menu_price}원</h5>
+									</td>
+									<td>
+										<h5>${b.order_cnt}개</h5>
+
+									</td>
+									<td>
+										<h5>
+											<span class="price">${b.total}</span>원
+										</h5>
+									</td>
+									<td>X</td>
+								</tr>
 							</c:forEach>
-							
+
 							<tr class="bottom_button">
-								<td colspan="2"><a class="gray_btn" href="basketAllDelete"
-									style="padding: 10px;">상품 비우기</a></td>
+								<td colspan="1"><a class="gray_btn strong"
+									href="basketAllDelete"
+									style="padding: 5px; text-decoration: none; border-radius: 10px;">
+										전체 삭제</a></td>
 								<td colspan="4">
 									<div>
-										<p>휴대폰 번호</p>
-										<input type="text" id="phone_no" class="form-control" oninput="oninputPhone(this)" maxlength="13">
+										<p class="strong">휴대폰 번호</p>
+										<input type="text" id="phone_no" class="form-control"
+											oninput="oninputPhone(this)" maxlength="13">
 									</div>
 								</td>
+
+							</tr>
+							<tr>
+
+
+								<td style="background: #ffdfdf; text-align:center; font-size: 25px"><h5>
+										<strong>총 가격</strong>
+									</h5></td>
 								<td></td>
-								<td></td>
+
+								<td colspan="2"><span id="total_price"></span>원</td>
 								<td></td>
 							</tr>
 							<tr>
-								<td></td>
-								<td></td>
-								<td>
-									<h5>총 가격</h5>
-								</td>
-								<td colspan="2"><h5 id="total_price"></h5>원</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td colspan="6" class="pickup-title"
+								<td colspan="3" class="pickup-title"
 									style="border-bottom: none; padding-top: 10px; padding-bottom: 10px">
-									<p>픽업 예정 시간</p>
+									<p class="strong">픽업 예정 시간</p>
 								</td>
+
 							</tr>
-							<tr style="border-bottom: none;" >
-								<td colspan="6" style="border-bottom: none;">
+							<tr style="border-bottom: none;">
+								<td colspan="5" style="border-bottom: none;">
 									<div class="container"
 										style="display: flex; justify-content: space-around;">
 
 										<div>
-											<button  class="btn btn-light" style="font-size: 15px;">5분 후
-												</button>
+											<button class="btn btn-light strong"
+												style="font-size: 18px; background: #ffdfdf;">&nbsp;5분
+												후</button>
 										</div>
 										<div>
-											<button   class="btn btn-light" style="font-size: 15px;">10분 후
-												</button>
+											<button class="btn btn-light strong"
+												style="font-size: 18px; background: #ffdfdf;">10분 후
+											</button>
 										</div>
 										<div>
-											<button  class="btn btn-light" style="font-size: 15px;">15분 후
-												</button>
+											<button class="btn btn-light strong"
+												style="font-size: 18px; background: #ffdfdf;">15분 후
+											</button>
 										</div>
 
 									</div>
 								</td>
 							</tr>
-							<tr style="border-top: none;" >
-								<td colspan="6" style="border-top: none;">
+							<tr style="border-top: none;">
+								<td colspan="5" style="border-top: none;">
 									<div class="container"
 										style="display: flex; justify-content: space-around;">
 										<div>
-											<button  class="btn btn-light" style="font-size: 15px;">20분 후
-												</button>
+											<button class="btn btn-light strong"
+												style="font-size: 18px; background: #ffdfdf;">20분 후
+											</button>
 										</div>
 										<div>
-											<button  class="btn btn-light" style="font-size: 15px;">25분 후
-												</button>
+											<button class="btn btn-light strong"
+												style="font-size: 18px; background: #ffdfdf;">25분 후
+											</button>
 										</div>
 										<div>
-											<button  class="btn btn-light" style="font-size: 15px;">30분 후
-												</button>
+											<button class="btn btn-light strong"
+												style="font-size: 18px; background: #ffdfdf;">30분 후
+											</button>
 										</div>
 									</div>
 								</td>
+
 							</tr>
 							<tr class="out_button_area" style="border-top: none;">
-								<td colspan="2"><a class="gray_btn" href="goStores">쇼핑 계속하기</a> </td>
-								<td colspan="5">
+								<td colspan="1"><a class="gray_btn strong" href="goStores"
+									style="text-align:center; padding: 5px; text-decoration: none; border-radius: 10px;">쇼핑<br>
+										계속하기</a></td>
+								<td colspan="4">
 									<div>
-										<a class="primary-btn" onclick="checkPhone()">결제하기</a>
+										<a class="primary-btn strong go-credit"
+											style="width: 170px; height: 60px; border: 1px solid black; font-size: 18px; font-weight: 900; border-radius: 10px; box-shadow: 2px 3px 1px 0px black; margin: 15px; background: #FCFF94;"
+											onclick="checkPhone()"><i class="fa-regular fa-credit-card"></i>&nbsp;결제하기</a>
 									</div>
 								</td>
 								<td></td>
-								<td></td>
-								<td></td>
+
+
 							</tr>
 						</tbody>
 					</table>
@@ -364,8 +408,8 @@ a {
 </script>
 
 
-<!-- 픽업시간 선택 스크립트 -->
-<script>
+	<!-- 픽업시간 선택 스크립트 -->
+	<script>
 document.querySelectorAll('.btn.btn-light').forEach(button => {
 	button.addEventListener('click', function() {
         
@@ -379,7 +423,7 @@ document.querySelectorAll('.btn.btn-light').forEach(button => {
 
 </script>
 
-	
+
 
 
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
