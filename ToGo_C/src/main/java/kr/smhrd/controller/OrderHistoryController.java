@@ -8,9 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.smhrd.entity.Orders;
+import kr.smhrd.entity.OrderHistory;
 import kr.smhrd.mapper.OrderHistoryMapper;
-import kr.smhrd.mapper.OrderListMapper;
 
 @Controller
 public class OrderHistoryController {
@@ -22,7 +21,7 @@ public class OrderHistoryController {
 	public String goOrderHistory(HttpSession session) {
 		
 		
-		List<Orders> orderhistory_list = orderHistoryMapper.orderhistory();
+		List<OrderHistory> orderhistory_list = orderHistoryMapper.orderhistory();
 		session.setAttribute("orderhistory_list", orderhistory_list);
 
 		return "OrderHistory";

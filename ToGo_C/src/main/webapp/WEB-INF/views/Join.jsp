@@ -1,13 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="kr.smhrd.entity.Members"%>
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="auto">
+<html lang="zxx" class="no-js">
+
 <head>
-<script src="../assets/js/color-modes.js"></script>
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Favicon-->
+<link rel="shortcut icon" href="resources/images/fav.png">
+<!-- Author Meta -->
+<meta name="author" content="CodePixar">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<!-- meta character set -->
 <meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원 가입</title>
+<!-- Site Title -->
+<title>회원가입</title>
 
 <!--
 		CSS
@@ -45,6 +56,40 @@
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
+}
+
+.id-check-button {
+	margin-top: 5px;
+	width: 90px;
+	height: 25px;
+	border: 1px solid black;
+	font-size: 13px;
+	font-weight: 900;
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px 0px black;
+	margin-top: 5px;
+	background: white;
+}
+
+.join-submit-button{
+	width:250px;
+	height: 50px;
+	border: 1px solid black;
+	font-size: 16px;
+	font-weight: 900;
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px 0px black;
+	background: rgb(182, 198, 159);
+}
+
+#resultCheck{
+	color: blue;
+}
+
+
+
+.input-group-text {
+	background: rgb(182, 198, 159);
 }
 
 @media ( min-width : 768px) {
@@ -116,7 +161,7 @@
 	display: block !important;
 }
 
-.main-container{
+.main-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -215,40 +260,51 @@
 
 	<div class="container">
 		<main class="main-container">
-			<div class="py-5 text-center">
-				<img class="d-block mx-auto mb-4" src="resources/images/sd/c4.jpg"
-					alt="" width="300" height="200" style="margin-top: 100px">
+			<div class="py-5 text-center"
+				style="background: rgb(182, 198, 159); height: 460px;">
+				<img class="d-block mx-auto mb-4"
+					src="resources/images/summer-2880261_1280.jpg" alt=""
+					style="width: 400px; height: 300px;">
 				<h2>ToGo 회원가입</h2>
-				<p class="lead" style="text-align: center">어서오세요! ToGo의 새로운 멤버로
-					가입하고 다양한 혜택을 누리세요 !</p>
+				<p class="lead" style="text-align: center">Welcome!</p>
+
 			</div>
 
 
 			<div class="col-md-7 col-lg-8">
-				<h4 class="mb-3">회원 가입 양식</h4>
-				
-				<form action="membersInsert" method="post" class="needs-validation" novalidate>
+				<div class="mb-3" style="margin-top: 50px;"></div>
+
+				<form action="membersInsert" method="post" class="needs-validation"
+					novalidate>
 					<div class="row g-3">
 
 						<div class="col-12">
 							<label for="inputId" class="form-label">아이디</label>
 							<div class="input-group has-validation">
-								<span class="input-group-text"><i class="fa-solid fa-fish"></i></span>
-								 <input	type="text" class="form-control" id="inputId" placeholder="id를 입력해주세요" required  name="mb_id">
+								<span class="input-group-text"><i
+									class="fa-solid fa-fish"></i></span> <input type="text"
+									class="form-control" id="inputId" placeholder="id를 입력해주세요"
+									required name="mb_id">
 								<div class="invalid-feedback">*아이디 입력은 필수사항입니다.</div>
-								
-	<!-- ID중복확인 -->								
-								<p><input  type="button" value="ID 중복체크" onclick="checkId()"></p>
-								<p><span id="resultCheck"></span></p>
+
+								<!-- ID중복확인 -->
+
 							</div>
+							<p align="right">
+								<input type="button" value="ID 중복체크" onclick="checkId()"
+									class="id-check-button">
+							</p>
+							<p>
+								<span id="resultCheck"></span>
+							</p>
 						</div>
 
 						<div class="col-12">
 							<label for="mb_pw" class="form-label">비밀번호</label>
 							<div class="input-group has-validation">
-								<span class="input-group-text"><i class="fa-solid fa-key"></i></i></span> <input
-									type="password" class="form-control" id="mb_pw" placeholder="pw를 입력해주세요" name="mb_pw"
-									required>
+								<span class="input-group-text"><i class="fa-solid fa-key"></i></i></span>
+								<input type="password" class="form-control" id="mb_pw"
+									placeholder="pw를 입력해주세요" name="mb_pw" required>
 								<div class="invalid-feedback">*비밀번호 입력은 필수사항입니다.</div>
 							</div>
 						</div>
@@ -263,154 +319,46 @@
 							</div>
 						</div> -->
 
-						
+
 						<div class="col-12">
 							<label for="mb_nick" class="form-label">닉네임</label>
 							<div class="input-group has-validation">
-								<span class="input-group-text"><i class="fa-solid fa-user-astronaut"></i></span> <input
-									type="text" class="form-control" id="mb_nick" placeholder="닉네임을 입력해주세요" name="mb_nick"
-									required>
+								<span class="input-group-text"><i
+									class="fa-solid fa-user-astronaut"></i></span> <input type="text"
+									class="form-control" id="mb_nick" placeholder="닉네임을 입력해주세요"
+									name="mb_nick" required>
 								<div class="invalid-feedback">*닉네임 입력은 필수사항입니다.</div>
 							</div>
 						</div>
-						
+
 						<div class="col-12">
 							<label for="mb_phone" class="form-label">휴대폰 번호</label>
 							<div class="input-group has-validation">
-								<span class="input-group-text"><i class="fa-solid fa-phone"></i></span> <input
-									type="text" class="form-control" id="mb_phone" placeholder="010-0000-0000" name="mb_phone"
-									required>
+								<span class="input-group-text"><i
+									class="fa-solid fa-phone"></i></span> <input type="text"
+									class="form-control" id="mb_phone" placeholder="010-0000-0000"
+									name="mb_phone" required>
 								<div class="invalid-feedback">*휴대폰 번호 입력은 필수사항입니다.</div>
 							</div>
 						</div>
 
-
-						<!-- <div class="col-md-5">
-							<label for="country" class="form-label">Country</label>
-							<select class="form-select" id="country" required>
-								<option value=""></option>
-								<option>여기에</option>
-								<option>뭘 활용하면</option>
-								<option>좋을까</option>
-							</select>
-							<div class="invalid-feedback">Please select a valid
-								country.</div>
-						</div>
-
-						<div class="col-md-4">
-							<label for="" class="form-label">State</label> <select
-								class="form-select" id="" required>
-								<option value="">Choose...</option>
-								<option>여기에</option>
-								<option>뭘 넣으면</option>
-								<option>좋을까</option>
-							</select>
-							<div class="invalid-feedback">* 은 필수 입력사항입니다.
-							</div>
-						</div>
-
-						<div class="col-md-3">
-							<label for="" class="form-label">Zip</label> <input
-								type="text" class="form-control" id="" placeholder=""
-								required>
-							<div class="invalid-feedback">* 은 필수 입력사항입니다.</div>
-						</div>
-					</div>
-
-					<hr class="my-4">
-
-					<div class="form-check">
-						<input type="checkbox" class="form-check-input" id="same-address">
-						<label class="form-check-label" for="same-address">배송 주소가 내 청구서 수신 주소와 동일합니다</label>
-					</div>
-
-					<div class="form-check">
-						<input type="checkbox" class="form-check-input" id="save-info">
-						<label class="form-check-label" for="save-info">내 정보 저장하기</label>
-					</div>
-
-					<hr class="my-4">
-
-					<h4 class="mb-3">결제 정보 저장</h4>
-
-					<div class="my-3">
-						<div class="form-check">
-							<input id="credit" name="paymentMethod" type="radio"
-								class="form-check-input" checked required> <label
-								class="form-check-label" for="credit">Credit card</label>
-						</div>
-						<div class="form-check">
-							<input id="debit" name="paymentMethod" type="radio"
-								class="form-check-input" required> <label
-								class="form-check-label" for="debit">Debit card</label>
-						</div>
-						<div class="form-check">
-							<input id="paypal" name="paymentMethod" type="radio"
-								class="form-check-input" required> <label
-								class="form-check-label" for="paypal">PayPal</label>
-						</div>
-					</div>
-
-					<div class="row gy-3">
-						<div class="col-md-6">
-							<label for="cc-name" class="form-label">Name on card</label> <input
-								type="text" class="form-control" id="cc-name" placeholder=""
-								required> <small class="text-body-secondary">Full
-								name as displayed on card</small>
-							<div class="invalid-feedback">Name on card is required</div>
-						</div>
-
-						<div class="col-md-6">
-							<label for="cc-number" class="form-label">Credit card
-								number</label> <input type="text" class="form-control" id="cc-number"
-								placeholder="" required>
-							<div class="invalid-feedback">Credit card number is
-								required</div>
-						</div>
-
-						<div class="col-md-3">
-							<label for="cc-expiration" class="form-label">Expiration</label>
-							<input type="text" class="form-control" id="cc-expiration"
-								placeholder="" required>
-							<div class="invalid-feedback">Expiration date required</div>
-						</div>
-
-						<div class="col-md-3">
-							<label for="cc-cvv" class="form-label">CVV</label> <input
-								type="text" class="form-control" id="cc-cvv" placeholder=""
-								required>
-							<div class="invalid-feedback">Security code required</div>
-						</div>
-					</div>
-					-->
-
-					<hr class="my-4">
-								<p><input class="w-100 btn btn-primary btn-lg" type="submit" value="회원가입"></p>
-					
-					<!-- 잠깐만!!
-					 <button class="w-100 btn btn-primary btn-lg" type="submit" onclick='location.href="JoinSuccess"'>회원가입 완료</button>
-					  -->
+						<hr class="my-3" style="margin: 0px;">
+						<p>
+							<input class="join-submit-button" type="submit"
+								value="회원가입">
+						</p>
 				</form>
 
-				
-				
+
+
 			</div>
 	</div>
 	</main>
 
 	<!-- 회원가입 영역 끝 -->
 
-	<!-- start footer Area - 홍창민 -->
-
-	<%@include file="./includes/footer.jsp"%>
-
-	<!-- End footer Area -->
-
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-	
-	
-	
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
 		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
@@ -425,7 +373,7 @@
 	<!--gmaps Js-->
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-	
+
 	<script src="resources/assets/js/main.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -435,26 +383,29 @@
 	<!-- 3.24 회원 가입 관련 js 파일 경로 설정 - 홍창민 -->
 	<script src="resources/assets/js/checkout.js"></script>
 	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://kit.fontawesome.com/d97bdf4abd.js" crossorigin="anonymous"></script>
-	
-	
+	<script src="https://kit.fontawesome.com/d97bdf4abd.js"
+		crossorigin="anonymous"></script>
+
+
 	<!-- 비동기식 id중복확인  -->
-	
- 
- 	<script type="text/javascript">
+
+
+	<script type="text/javascript">
 		function checkId() {
 			var inputId = $('#inputId').val();
 			//console.log(inputId);
 
 			$.ajax({
 				url : 'IdCheck',
-				data : {'inputId' : inputId},
+				data : {
+					'inputId' : inputId
+				},
 				type : 'get',
 				success : function(data) {
 					if (data == 1) {
-						$('#resultCheck').text('사용가능한 ID 입니다.')
+						$('#resultCheck').text('* 사용가능한 ID 입니다.')
 					} else {
-						$('#resultCheck').text('이미 사용중인 ID 입니다.')
+						$('#resultCheck').text('* 이미 사용중인 ID 입니다.')
 					}
 				},
 				error : function() {
