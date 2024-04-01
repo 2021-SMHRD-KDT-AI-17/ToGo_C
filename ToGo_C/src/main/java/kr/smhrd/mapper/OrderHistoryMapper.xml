@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.mapper.OrderHistoryMapper">
+
+	<select id="orderhistory"   parameterType="String" resultType="kr.smhrd.entity.Orders">
+	SELECT m.menu_name, od.order_cnt, o.order_total_amount
+	 FROM menus m JOIN order_details od
+	 ON m.menu_idx = od.menu_idx
+	 JOIN orders o
+	 ON (od.order_idx = o.order_idx)
+	 where mb_id = #{mb_id};
+ 
+ 	</select>
+
+
+
+
+</mapper>
