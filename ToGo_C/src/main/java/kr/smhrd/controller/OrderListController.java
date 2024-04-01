@@ -55,17 +55,26 @@ public class OrderListController {
 		order.setPick_up_time(5); // 픽업 시간
 
 		System.out.println(order.toString());
-		
 		//order 만들기
 		orderListMapper.orderInsert(order);
+		Orders order_idx = orderListMapper.orderSelect(loginMember.getMb_id());
+		session.setAttribute("order_idx", order_idx);
 		
 		List<BasketList> b_list = (List<BasketList>) session.getAttribute("b_list");
 		
 		for(int i = 0; i<b_list.size();i++) {
 			Order_details od = new Order_details();
 			//INSERT INTO order_details (menu_idx, order_cnt, order_request, order_idx, menu_good) VALUES (1, 1, 'order_request 1', 1, 'N');
+			od.setMenu_idx(b_list.get(i).getMenu_idx());
+			od.setOrder_cnt(b_list.get(i).getOrder_cnt());
+			od.setOrder_request(b_list.get(i).getOrder_request());
+			od.setOrder_idx(order_idx.getOrder_idx());
 			
+			orderListMapper.insertOrderDetail(od);
 		}
+		
+		List<Order_details> od_list = orderListMapper.selectOrderDetail(order_idx.getOrder_idx());
+		session.setAttribute("od_list", od_list);
 
 		
 //		List<Orders> order_list = orderListMapper.orderList();
