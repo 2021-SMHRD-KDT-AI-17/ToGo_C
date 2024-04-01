@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	body{
-		background:white;
-	}
+body {
+	background: white;
+}
 </style>
 </head>
 <body>
@@ -21,12 +21,12 @@
 	<header class="header_area sticky-header">
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light main_box">
-				<div class="container" style="margin : 10px">
+				<div class="container" style="margin: 10px">
 					<!-- 3.26 브랜드 로고 수정 - 홍창민 -->
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="goIndex"> <img
 						src="resources/images/ToGoLogo.png" alt=""
-						style="width: 80px; height: 50px;" >
+						style="width: 80px; height: 50px;">
 					</a>
 
 					<div class="service-name" style="margin-right: 20px">
@@ -103,24 +103,24 @@
 								<ul class="dropdown-menu">
 									<li class="nav-item">
 										<div class="form-check form-switch">
-											
+
 											<input class="form-check-input" type="checkbox" role="switch"
 												id="flexSwitchCheckDefault"> <label
 												class="form-check-label" for="flexSwitchCheckDefault">
-												</label>
+											</label>
 										</div>
 									</li>
 								</ul>
 							<li class="nav-item submenu dropdown">
 								<%
 								if (loginMember == null) {
-								%> <a href="goLogin"
-								class="nav-link dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false">로그인
-									해주세요</a> <%
+								%> <a href="goLogin" class="nav-link dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false" style="text-align: right;">로그인 해주세요</a> <%
  } else {
  %>
-							
+							<li class="nav-item"><a href="goBasket" class="cart"> <i
+									class="fa-solid fa-cart-shopping"></i></a></li>
 							<li class="nav-item" style="text-align: right;"><a
 								class="nav-link" href="#">환영합니다 <strong><%=loginMember.getMb_nick()%></strong>고객님!
 							</a></li>
@@ -130,6 +130,7 @@
 
 
 							</li>
+							
 
 
 						</ul>
@@ -137,8 +138,7 @@
 
 
 
-							<li class="nav-item"><a href="#" class="cart"><span
-									class="ti-bag"></span></a></li>
+							
 							<!-- <li class="nav-item">
                         <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
                      </li> -->
@@ -158,6 +158,7 @@
       </div> -->
 	</header>
 
-	<script src="https://kit.fontawesome.com/d97bdf4abd.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/d97bdf4abd.js"
+		crossorigin="anonymous"></script>
 </body>
 </html>

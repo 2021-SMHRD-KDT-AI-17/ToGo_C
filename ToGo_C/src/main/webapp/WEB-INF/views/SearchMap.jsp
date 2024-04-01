@@ -47,7 +47,7 @@
 
 .container {
   width: 100%;
-  height: 100%;
+  height: 800px;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -61,11 +61,11 @@
   top: 0;
   left: 0;
   z-index: -1;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .logo-intro-area img{
-	height:200px;
+	height:150px;
 	position: relative;
 }
 
@@ -128,7 +128,6 @@ input {
 	flex-direction: column;
 	padding: 10px;
 	background: #E9E7E8;
-	padding: 10px;
 }
 
 #searchInput {
@@ -138,6 +137,7 @@ input {
 	border-radius: 10px;
 	padding: 20px;
 }
+
 
 .search-input-box, .btn-box {
 	display: flex;
@@ -182,12 +182,15 @@ input {
 	display: flex;
 	width: 100%;
 	justify-content: center;
+	position:relative;
+	bottom:170px;
 }
 
 .submit-button{
 	border-radius: 20px;
 	background: #198754;
 	height: 60px;
+	width:300px;
 	font-size: 24px;
 	font-weight: 800;
 	color: white;
@@ -272,7 +275,7 @@ input {
 		</section> -->
 		<section class="map-box">
 			<div id="map"
-				style="width: 100%; height: 400px; bottom: 190px; border-radius: 10px;"></div>
+				style="width: 100%; height: 300px; bottom: 184px; border-radius: 10px;"></div>
 			<div class="service-area-bottom">
 				<form action="service_area_Select">
 					<input type="submit" value="휴게소 선택하기" class="submit-button">
