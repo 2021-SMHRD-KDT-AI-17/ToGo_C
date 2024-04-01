@@ -21,6 +21,8 @@ INSERT INTO members (mb_id, mb_pw, mb_nick, mb_phone, joined_at, mb_leave) VALUE
 
 drop table members;
 
+select * from order_details;
+
 
 CREATE TABLE members
 (
