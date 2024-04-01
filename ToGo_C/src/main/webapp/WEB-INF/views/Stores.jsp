@@ -256,8 +256,8 @@ span {
 								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal"  
 									style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_food(${status.count})">
 									<div class="menu-info-box">
-											<h3>이름 ${fm.menu_name}</h3>
-											<p>가격 ${fm.menu_price}원</p>
+											<h3>${fm.menu_name}</h3>
+											<p>${fm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
 											<div class="good-bad">
 											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
@@ -279,8 +279,8 @@ span {
 								<div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal" 
 									style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_snack(${status.count})">
 									<div class="menu-info-box">
-											<h3>이름 ${sm.menu_name}</h3>
-											<p>가격 ${sm.menu_price}원</p>
+											<h3>${sm.menu_name}</h3>
+											<p>${sm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
 											<div class="good-bad">
 											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
@@ -303,8 +303,8 @@ span {
 									style="display: flex; justify-content: space-around; cursor: pointer;" 
 									onclick="select_beverage(${status.count})">
 									<div class="menu-info-box" >
-											<h3>이름 ${bm.menu_name}</h3>
-											<p>가격 ${bm.menu_price}원</p>
+											<h3>${bm.menu_name}</h3>
+											<p>${bm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
 											<div class="good-bad">
 											<span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
@@ -572,7 +572,7 @@ span {
  	   const menu_name = document.getElementById('menuName').innerText;
  	   const menu_price = document.getElementById('menuPrice').innerText;
  	   const menu_Img = document.getElementById("menuImg");
- 	   const mb_id = '${loginMember.getMb_name()}'; 
+ 	   /* const mb_id = '${loginMember.getMb_name()}';  */
  	   const total = document.getElementById('total').innerText;
 
 
@@ -585,8 +585,8 @@ span {
  	        "menu_name" :menu_name,
  	        "menu_price":menu_price,
  	        "menu_Img":menu_Img,
- 	        "mb_id":mb_id,
- 	        "order_cnt":order_cnt,
+/*  	        "mb_id":mb_id,
+ */ 	        "order_cnt":order_cnt,
  	        "order_request":order_request,
  	        "total":total
  	   }

@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+   Members loginMember = (Members) session.getAttribute("loginMember");
+   %>
+   
+<h1>주문내역</h1>
+
+
+
+
 
 </body>
 </html>

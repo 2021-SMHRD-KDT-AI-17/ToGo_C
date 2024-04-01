@@ -17,12 +17,16 @@ public class OrderHistoryController {
 	@Autowired
 	private OrderListMapper orderListMapper;
 	
-	@RequestMapping("/goOrderList")
-	public String goOrderList(HttpSession session) {
-		List<Orders> order_list = orderListMapper.orderList();
-		session.setAttribute("order_list", order_list);
+	@RequestMapping("/goOrderHistory")
+	public String goOrderHistory(HttpSession session) {
+		
+		
+		
+		
+//		List<Orders> order_list = orderListMapper.orderList();
+//		session.setAttribute("order_list", order_list);
 
-		return "OrderList";
+		return "OrderHistory";
 	}
 	
 }
