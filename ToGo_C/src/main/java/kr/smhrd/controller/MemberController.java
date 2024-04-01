@@ -65,7 +65,7 @@ public class MemberController {
    // 회원정보 수정하는 페이지로 이동 /showUpdate
    @RequestMapping("/showUpdate")
    public String showUpdate() {
-      return "UpdateMember_HCM";
+      return "UpdateMember";
    }
 
    // 회원정보 수정

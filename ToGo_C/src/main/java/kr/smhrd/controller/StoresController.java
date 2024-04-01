@@ -19,7 +19,7 @@ import kr.smhrd.mapper.MenusMapper;
 
 
 @Controller
-public class StoresController_LMT {
+public class StoresController {
 
 
 	@Autowired
@@ -44,7 +44,7 @@ public class StoresController_LMT {
 		List<Menus> beverage_menus_list = menusMapper.beverageMenusList(store_idx.getService_idx());
 		session.setAttribute("beverage_menus_list", beverage_menus_list);
 		
-		return "Stores_HCM";
+		return "Stores";
 	}
 	
 	@RequestMapping("/exGoStores")

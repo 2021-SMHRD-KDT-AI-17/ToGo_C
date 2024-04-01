@@ -1,7 +1,7 @@
 package kr.smhrd.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.smhrd.entity.BasketList;
-import kr.smhrd.entity.Conveniences;
+//import kr.smhrd.entity.BasketList;
+//import kr.smhrd.entity.Conveniences;
 import kr.smhrd.entity.Menus;
-import kr.smhrd.entity.Service_areas;
+//import kr.smhrd.entity.Service_areas;
 import kr.smhrd.mapper.MenusMapper;
 
 @Controller
@@ -42,14 +42,7 @@ public class MenusController {
 		return "Menus";
 	}
 	
-//	@RequestMapping("/goShopBasketAdd")
-//	public String goShopBasketAdd(HttpSession session) {
-//		
-//		List<BasketList> basket_list = new ArrayList<BasketList>(); 
-//		session.setAttribute("basket_list", basket_list);
-//		
-//		return "ShopBasketAdd";
-//	}
+
 	
 	
 	/*

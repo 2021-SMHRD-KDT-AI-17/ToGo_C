@@ -1,25 +1,22 @@
 package kr.smhrd.controller;
 
-import java.util.List;
+//import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.smhrd.entity.Menus;
-import kr.smhrd.mapper.BasketMapper;
+//import kr.smhrd.entity.Menus;
 
 @Controller
 public class BasketController {
 	
-	@Autowired
-	private BasketMapper basketMapper;
+
 	
 	@RequestMapping("/goBasket")
 	public String goSearchMap() {				
-		return "ShopBasket_HCM";
+		return "ShopBasket";
 	}
 	
 	// 장바구니 전체 비우기
@@ -31,6 +28,6 @@ public class BasketController {
 		session.removeAttribute("b_list");
 		
 		
-		return "ShopBasket_HCM";
+		return "ShopBasket";
 	}
 }
