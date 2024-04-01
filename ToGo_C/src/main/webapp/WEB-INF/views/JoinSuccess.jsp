@@ -1,12 +1,24 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false"
-   pageEncoding="UTF-8" %>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
-<title>Forty by HTML5 UP</title>
-<meta charset="UTF-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Favicon-->
+<link rel="shortcut icon" href="resources/images/fav.png">
+<!-- Author Meta -->
+<meta name="author" content="CodePixar">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<!-- meta character set -->
+<meta charset="UTF-8">
+<!-- Site Title -->
+<title>ToGo</title>
 <!--
       CSS
       ============================================= -->
@@ -25,15 +37,31 @@
 
 </head>
 <style>
+
+
+.go-login-button{
+	display: inline-block;
+	width:240px;
+	height: 40px;
+	border: 1px solid black;
+	font-size: 16px;
+	font-weight: 900;
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px 0px black;
+	background: rgb(182, 198, 159);
+}
+	
+}
+
+
 #Update>ul.actions {
    margin-top: 10%;
 }
 
 .welcome-img{
-   margin-top:200px;
-   width:300px;
-   height:200px;
-   margin-left: 20px;
+   margin-top:100px;
+   width:350px;
+   height:300px;
 }
 
 #wrapper{
@@ -65,11 +93,11 @@
          </div>
 
          <div>
-            <ul class="list-group list-group-flush">
-               <li class="list-group-item"><h1>환영합니다 <%= join_member.getMb_nick()%>고객님!</h1></li>
+            <ul class="list-group list-group-flush" style="text-align: center;">
+               <li class="list-group-item"><h2>어서오세요 <br><%= join_member.getMb_nick()%>고객님!</h2></li>
                <li class="list-group-item">회원가입을 축하합니다.</li>
-               <li class="list-group-item">가입 일자 :<%= join_member.getJoined_at()%> </li>
-               <li><button onclick='location.href="goLogin"'>시작하기</button></li>
+               <li class="list-group-item" style="margin-bottom:10px;">가입 일자 : &nbsp;<%= join_member.getJoined_at()%> </li>
+               <li><button onclick='location.href="goLogin"' class="go-login-button">시작하기</button></li>
             </ul>
          </div>
       </section>
