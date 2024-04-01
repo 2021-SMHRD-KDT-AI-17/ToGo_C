@@ -202,7 +202,7 @@ a {
 								<td colspan="4">
 									<div>
 										<p>휴대폰 번호</p>
-										<input type="text" class="form-control" oninput="oninputPhone(this)" maxlength="13">
+										<input type="text" id="phone_no" class="form-control" oninput="oninputPhone(this)" maxlength="13">
 									</div>
 								</td>
 								<td></td>
@@ -263,12 +263,12 @@ a {
 										</div>
 									</div>
 								</td>
-							
+							</tr>
 							<tr class="out_button_area" style="border-top: none;">
 								<td colspan="2"><a class="gray_btn" href="goStores">쇼핑 계속하기</a> </td>
 								<td colspan="5">
 									<div>
-										<a class="primary-btn" onclick="requestPay()">결제하기</a>
+										<a class="primary-btn" onclick="checkPhone()">결제하기</a>
 									</div>
 								</td>
 								<td></td>
@@ -290,6 +290,8 @@ a {
 
 	<!-- footer 영역 끝 -->
 
+
+
 	<script type="text/javascript">
 	
 	let price = document.getElementsByClassName("price");
@@ -310,33 +312,54 @@ a {
 	        .replace(/[^0-9]/g, '')
 	        .replace(/(^02.{0}|^01.{1}|[0-9]{3,4})([0-9]{3,4})([0-9]{4})/g, "$1-$2-$3");
 	}
-		
-	</script>
-	
-	 <script>
 
-IMP.init("imp14397622");
+	 IMP.init("imp14397622");
 
-function requestPay() {
-    IMP.request_pay({
-        pg: "html5_inicis",
-        pay_method: "card",
-        merchant_uid: "",
-        name: "t",
-        amount: 100,
-        buyer_tel: "010-0000-0000",
-    }, async (rsp) => {
-        if (rsp.success) {
-            // 결제 성공시
-            alert("결제 성공");
-            // 결제 성공 후 페이지 이동
-            window.location.href = "goOrderList";
-        } else {
-            // 결제 실패시
-            alert("결제 실패");
-        }
-    });
-}
+	 function checkPhone() {
+		 
+		 var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
+		 var total_price = parseInt(document.getElementById("total_price").innerText);
+		 console.log("총금액"+t);
+
+		    if (!loginMemberValue) {
+		        
+		        console.log("로그인 안되어 있음");
+		        var phone_noValue = document.getElementById("phone_no").value;
+		        if (phone_noValue === "") {
+		            alert("전화번호를 입력하세요");
+		        } else {
+		        	var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t;
+		             window.location.href = dynamicUrl;
+		        }   
+		    } else {
+		    	console.log("로그인되어 있음");
+		    	var dynamicUrl = "goOrderList?total_price=" + total_price;
+	             window.location.href = dynamicUrl;
+		    }
+	 }
+
+	 function requestPay(phone_noValue) { // phone_noValue를 매개변수로 받도록 수정
+	     IMP.request_pay({
+	         pg: "html5_inicis",
+	         pay_method: "card",
+	         merchant_uid: "",
+	         name: "t",
+	         amount: 100,
+	         buyer_tel: phone_noValue, // 입력된 전화번호 사용
+	     }, async (rsp) => {
+	         if (rsp.success) {
+	             // 결제 성공시
+	             alert("결제 성공");
+	             // 결제 성공 후 페이지 이동
+	             var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue;
+	             window.location.href = dynamicUrl;
+	         } else {
+	             // 결제 실패시
+	             alert("결제 실패");
+	         }
+	     });
+	 }
+
 
 </script>
 
