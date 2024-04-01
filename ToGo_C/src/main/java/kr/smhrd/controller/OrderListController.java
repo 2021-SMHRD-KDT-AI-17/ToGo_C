@@ -75,6 +75,7 @@ public class OrderListController {
 		
 		List<Order_details> od_list = orderListMapper.selectOrderDetail(order_idx.getOrder_idx());
 		session.setAttribute("od_list", od_list);
+		System.out.println(od_list.toString());
 
 		
 //		List<Orders> order_list = orderListMapper.orderList();
