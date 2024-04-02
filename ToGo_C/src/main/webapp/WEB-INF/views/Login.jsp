@@ -42,39 +42,58 @@
 	crossorigin="anonymous">
 
 <style type="text/css">
+body[color-mode='dark'] {
+	background: #222222;
+}
+
+.login_form_inner[color-mode='dark'] {
+	background: white;
+}
+
+body[color-mode='dark'] {
+	color: #EDEDED;
+}
+
+/* 추가적인 스타일링은 이곳에 추가하세요. */
+.darkmode-toggle-button {
+	cursor: pointer;
+}
+
+.darkmode-toggle-button .icon {
+	font-size: 24px;
+}
+
 .cart-area-nav {
 	/* background: linear-gradient(62deg, #A5BD85, rgb(182, 198, 159)); */
 	background: rgb(182, 198, 159);
-	opacity:1;
+	opacity: 1;
 	width: 100%;
 	height: 200px;
 	margin-top: 0px;
 	position: relative;
 }
 
-.cart-area-nav-title{
-	font-size:21px;
-	font-weight:bold;
+.cart-area-nav-title {
+	font-size: 21px;
+	font-weight: bold;
 	position: relative;
-	top:60px;
+	top: 60px;
 }
 
-a{
+a {
 	text-decoration: none;
 }
 
-@font-face{
+@font-face {
 	font-family: 'BMJUA_ttf';
 	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
 	font-weight: normal;
 	font-style: normal;
 }
 
-h3, h4{	
+h3, h4 {
 	font-family: BMJUA_ttf;
-
 }
-
 </style>
 </head>
 
@@ -102,7 +121,8 @@ h3, h4{
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="login_box_img" style="margin: 0px;">
-						<img class="img-fluid" src="resources/images/play-stone-1738160_1280.jpg" alt="">
+						<img class="img-fluid"
+							src="resources/images/play-stone-1738160_1280.jpg" alt="">
 						<div class="hover">
 							<h4>처음 방문하셨나요?</h4>
 							<p>회원가입은 간편하게, 혜택은 다양하게!</p>
@@ -160,6 +180,10 @@ h3, h4{
 								<div id="naver_id_login"></div>
 							</div>
 
+							<p>다크모드 테스트</p>
+							<button class="darkmode-toggle-button" id="mode-toggle-button">모드
+								전환</button>
+
 						</form>
 					</div>
 				</div>
@@ -174,6 +198,22 @@ h3, h4{
 	<%@include file="./includes/footer.jsp"%>
 
 	<!-- End footer Area -->
+	<script type="text/javascript">
+		const toggleButton = document.getElementById('mode-toggle-button');
+		let colorMode = 'light';
+
+		toggleButton.addEventListener('click', function(event) {
+			event.preventDefault(); // 기본 동작 방지
+
+			if (colorMode === 'light') {
+				document.body.setAttribute('color-mode', 'dark');
+				colorMode = 'dark';
+			} else {
+				document.body.setAttribute('color-mode', 'light');
+				colorMode = 'light';
+			}
+		});
+	</script>
 
 
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>

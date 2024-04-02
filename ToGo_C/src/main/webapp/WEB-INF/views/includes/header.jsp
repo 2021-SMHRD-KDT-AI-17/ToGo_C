@@ -7,6 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+body[color-mode='dark'] {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+body[color-mode='light'] {
+	background-color: #ffffff;
+	color: #000000;
+}
 
 .service-search-icon {
 	display: flex;
@@ -19,11 +28,9 @@
 	margin-left: 15px;
 }
 
-.no-css{
+.no-css {
 	color: black !important;
 }
-
-
 </style>
 </head>
 <body>
@@ -77,7 +84,8 @@
 
 							<li class="nav-item submenu dropdown"><a href="#"
 								class="nav-link dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold;">ToGo</a>
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-weight: bold;">ToGo</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link no-css"
 										href="category.html">브랜드 소개</a></li>
@@ -90,22 +98,25 @@
 
 							<li class="nav-item submenu dropdown"><a href="#"
 								class="nav-link dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false" class="no-css" style="font-weight: bold;">마이
-									페이지</a>
+								role="button" aria-haspopup="true" aria-expanded="false"
+								class="no-css" style="font-weight: bold;">마이 페이지</a>
 								<ul class="dropdown-menu">
 									<%
 									if (loginMember == null) {
 									%>
-									<li class="nav-item"><a class="nav-link no-css" href="goLogin">로그인</a></li>
-									<li class="nav-item"><a class="nav-link no-css" href="goJoin">회원가입</a></li>
+									<li class="nav-item"><a class="nav-link no-css"
+										href="goLogin">로그인</a></li>
+									<li class="nav-item"><a class="nav-link no-css"
+										href="goJoin">회원가입</a></li>
 									<%
 									} else {
 									%>
 									<li class="nav-item"><a class="nav-link no-css"
 										href="goOrderHistory">주문내역</a></li>
-									<li class="nav-item"><a class="nav-link no-css" href="showUpdate">회원
-											정보 수정</a></li>
-									<li class="nav-item"><a class="nav-link no-css" href="deletePage">회원탈퇴</a></li>
+									<li class="nav-item"><a class="nav-link no-css"
+										href="showUpdate">회원 정보 수정</a></li>
+									<li class="nav-item"><a class="nav-link no-css"
+										href="deletePage">회원탈퇴</a></li>
 									<li class="nav-item"><a class="nav-link no-css"
 										href="membersLogout">로그 아웃 </a></li>
 									<%
@@ -118,7 +129,8 @@
 							<li></li>
 							<li class="nav-item submenu dropdown"><a href="#"
 								class="nav-link dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold;">다크모드</a>
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-weight: bold;">다크모드</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item">
 										<!-- <div class="form-check form-switch">
@@ -191,32 +203,28 @@
          </div>
       </div> -->
 	</header>
-	<script>
-	<script>
-    document.addEventListener('DOMContentLoaded', function(){
-        //다크모드 토글
-        if(document.querySelector('.darkmode')){
-            if(localStorage.getItem("darkmode") == 'on'){
-                //다크모드 켜기
-                document.body.dataset.darkmode='on';
-                document.querySelector('#toggle-radio-dark').checked = true;
-            }
-            //다크모드 이벤트 핸들러
-            document.querySelector('.darkmode').addEventListener("click", e=>{
-                if(e.target.classList.contains('todark')){
-                    document.body.dataset.darkmode='on';
-                    localStorage.setItem("darkmode", "on");
-                }else if(e.target.classList.contains('tolight')){
-                    document.body.dataset.darkmode='off';
-                    localStorage.setItem("darkmode", "off");
-                }
-            },false);
-        }else{
-            localStorage.removeItem("darkmode");
-        }
 
-    })
-</script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const toggleButton = document.getElementById('toggle-radio-dark');
+			const body = document.body;
+
+			toggleButton.addEventListener('change', function() {
+				if (toggleButton.checked) {
+					body.setAttribute('color-mode', 'dark');
+				} else {
+					body.setAttribute('color-mode', 'light');
+				}
+			});
+
+			// 페이지 로드 시에도 다크 모드 설정을 확인하고 적용
+			if (toggleButton.checked) {
+				body.setAttribute('color-mode', 'dark');
+			} else {
+				body.setAttribute('color-mode', 'light');
+			}
+		});
 	</script>
 
 	<script src="https://kit.fontawesome.com/d97bdf4abd.js"
