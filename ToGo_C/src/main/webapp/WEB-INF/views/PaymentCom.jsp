@@ -43,7 +43,7 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	
+<script src="https://www.gstatic.com/firebasejs/7.2/firebase.js"></script>
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -151,6 +151,20 @@ img {
 </head>
 
 <body>
+<script type="text/javascript">
+const firebaseConfig = {
+        apiKey: "AIzaSyDEWh-0Au3One8fsVTYatJyCaGCs8vmbj4",
+        authDomain: "webtest-a87c0.firebaseapp.com",
+        databaseURL: "https://webtest-a87c0-default-rtdb.firebaseio.com/",
+        projectId: "webtest-a87c0",
+        storageBucket: "webtest-a87c0.appspot.com",
+        messagingSenderId: "976815392508",
+        appId: "1:976815392508:web:c5cba683cfc72a0c167979",
+        measurementId: "G-8ZR2Z98ZS5"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
 
 	<!-- Start Header Area -->
 
@@ -222,6 +236,14 @@ img {
 			// 각 메뉴의 이름을 가져와서 출력
 			$(".menuName").each(function() {
 				var menu_idx = $(this).attr("id").split("_")[1]; // 메뉴 번호 가져오기
+				
+				var data = {
+						  "order_idx":  ${order_idx.order_idx },
+						  "total_price":  ${order_idx.order_total_amount }
+						};
+				
+				var dbRefObject = firebase.database().ref().child("object");
+			    dbRefObject.set(data);
 				fetchMenuName(menu_idx); // AJAX 요청 보내기
 			});
 		});

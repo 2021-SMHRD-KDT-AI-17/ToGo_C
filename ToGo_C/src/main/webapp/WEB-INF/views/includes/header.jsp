@@ -7,16 +7,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
 .service-search-icon {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: gray;
-	}
+}
 
-.navbar-toggler{
+.navbar-toggler {
 	margin-left: 15px;
 }
+
+.no-css{
+	color: black !important;
+}
+
+
 </style>
 </head>
 <body>
@@ -40,9 +47,11 @@
 						<div>
 							<a href="goMap">
 								<button type="button" class="btn btn-outline-secondary" disabled
-								 style="padding: 4px;">
-									<span class="search-icon-span"><i class="fa-solid fa-magnifying-glass"></i></span>
-									${select_area.getService_name() }</button>
+									style="padding: 4px;">
+									<span class="search-icon-span"><i
+										class="fa-solid fa-magnifying-glass"></i></span>
+									${select_area.getService_name() }
+								</button>
 							</a>
 						</div>
 					</div>
@@ -68,36 +77,36 @@
 
 							<li class="nav-item submenu dropdown"><a href="#"
 								class="nav-link dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false">ToGo</a>
+								role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold;">ToGo</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link"
+									<li class="nav-item"><a class="nav-link no-css"
 										href="category.html">브랜드 소개</a></li>
-									<li class="nav-item"><a class="nav-link"
+									<li class="nav-item"><a class="nav-link no-css"
 										href="single-product.html">기대 발전 방향 </a></li>
-									<li class="nav-item"><a class="nav-link"
+									<li class="nav-item"><a class="nav-link no-css"
 										href="checkout.html">환경 운동</a></li>
 								</ul></li>
 
 
 							<li class="nav-item submenu dropdown"><a href="#"
 								class="nav-link dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false">마이
+								role="button" aria-haspopup="true" aria-expanded="false" class="no-css" style="font-weight: bold;">마이
 									페이지</a>
 								<ul class="dropdown-menu">
 									<%
 									if (loginMember == null) {
 									%>
-									<li class="nav-item"><a class="nav-link" href="goLogin">로그인</a></li>
-									<li class="nav-item"><a class="nav-link" href="goJoin">회원가입</a></li>
+									<li class="nav-item"><a class="nav-link no-css" href="goLogin">로그인</a></li>
+									<li class="nav-item"><a class="nav-link no-css" href="goJoin">회원가입</a></li>
 									<%
 									} else {
 									%>
-									<li class="nav-item"><a class="nav-link"
+									<li class="nav-item"><a class="nav-link no-css"
 										href="goOrderHistory">주문내역</a></li>
-									<li class="nav-item"><a class="nav-link" href="showUpdate">회원
+									<li class="nav-item"><a class="nav-link no-css" href="showUpdate">회원
 											정보 수정</a></li>
-									<li class="nav-item"><a class="nav-link" href="deletePage">회원탈퇴</a></li>
-									<li class="nav-item"><a class="nav-link"
+									<li class="nav-item"><a class="nav-link no-css" href="deletePage">회원탈퇴</a></li>
+									<li class="nav-item"><a class="nav-link no-css"
 										href="membersLogout">로그 아웃 </a></li>
 									<%
 									}
@@ -105,20 +114,33 @@
 								</ul></li>
 
 							<!-- 3.24 로그인 해주세요 / 만약 로그인에 성공했다면 OOO 님 환영합니다! 로 변경 -홍창민 -->
-
 							<li></li>
 							<li></li>
 							<li class="nav-item submenu dropdown"><a href="#"
 								class="nav-link dropdown-toggle" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false">다크모드</a>
+								role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold;">다크모드</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item">
-										<div class="form-check form-switch">
+										<!-- <div class="form-check form-switch">
 
 											<input class="form-check-input" type="checkbox" role="switch"
 												id="flexSwitchCheckDefault"> <label
 												class="form-check-label" for="flexSwitchCheckDefault">
-											</label>
+											</label> <input type="button" class="goStoresButton" id="dark-icon"
+												value="다크모드">
+										</div> -->
+										<div class="wrap">
+											<div class="darkmode">
+												<div class="inner">
+													<input type="radio" name="toggle" id="toggle-radio-light"
+														checked><label for="toggle-radio-light"
+														class="tolight"><i class="fas fa-sun tolight"></i></label>
+													<input type="radio" name="toggle" id="toggle-radio-dark"><label
+														for="toggle-radio-dark" class="todark"><i
+														class="fas fa-moon todark"></i></label>
+													<div class="darkmode-bg"></div>
+												</div>
+											</div>
 										</div>
 									</li>
 								</ul>
@@ -169,6 +191,33 @@
          </div>
       </div> -->
 	</header>
+	<script>
+	<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        //다크모드 토글
+        if(document.querySelector('.darkmode')){
+            if(localStorage.getItem("darkmode") == 'on'){
+                //다크모드 켜기
+                document.body.dataset.darkmode='on';
+                document.querySelector('#toggle-radio-dark').checked = true;
+            }
+            //다크모드 이벤트 핸들러
+            document.querySelector('.darkmode').addEventListener("click", e=>{
+                if(e.target.classList.contains('todark')){
+                    document.body.dataset.darkmode='on';
+                    localStorage.setItem("darkmode", "on");
+                }else if(e.target.classList.contains('tolight')){
+                    document.body.dataset.darkmode='off';
+                    localStorage.setItem("darkmode", "off");
+                }
+            },false);
+        }else{
+            localStorage.removeItem("darkmode");
+        }
+
+    })
+</script>
+	</script>
 
 	<script src="https://kit.fontawesome.com/d97bdf4abd.js"
 		crossorigin="anonymous"></script>

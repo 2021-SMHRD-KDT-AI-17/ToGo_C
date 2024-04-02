@@ -43,20 +43,43 @@
 
 <style type="text/css">
 .cart-area-nav {
+	/* background: linear-gradient(62deg, #A5BD85, rgb(182, 198, 159)); */
 	background: rgb(182, 198, 159);
+	opacity:1;
 	width: 100%;
 	height: 200px;
 	margin-top: 0px;
 	position: relative;
 }
+
+.cart-area-nav-title{
+	font-size:21px;
+	font-weight:bold;
+	position: relative;
+	top:60px;
+}
+
 a{
 	text-decoration: none;
 }
+
+@font-face{
+	font-family: 'BMJUA_ttf';
+	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+h3, h4{	
+	font-family: BMJUA_ttf;
+
+}
+
 </style>
 </head>
 
 
-<body>
+<body style="font-family: BMJUA_ttf">
 
 	<!-- Start Header Area -->
 
