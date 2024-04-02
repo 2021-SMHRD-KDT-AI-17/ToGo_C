@@ -9,19 +9,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 
 import kr.smhrd.entity.BasketList;
+import kr.smhrd.entity.Menus;
 import kr.smhrd.entity.Service_areas;
 import kr.smhrd.mapper.AreaMapper;
+import kr.smhrd.mapper.MenusMapper;
 
 @RestController
 public class RestController_SHS {
 
 	@Autowired
 	private AreaMapper areaMapper;
+	@Autowired
+	private MenusMapper menuMapper;
 	List<BasketList> bs_list;
 	
 	@RequestMapping("/getArea")
@@ -51,6 +56,12 @@ public class RestController_SHS {
 
 	    return "success";
     }
+	
+	@RequestMapping("/getMenuName")
+	public Menus getMenuName(@RequestParam("menu_idx") int menu_idx) {
+		Menus menu = menuMapper.getMenuName(menu_idx);
+		return menu;
+	}
 	
 	
 	

@@ -14,6 +14,7 @@ import kr.smhrd.entity.Members;
 import kr.smhrd.entity.Order_details;
 import kr.smhrd.entity.Orders;
 import kr.smhrd.mapper.MembersMapper;
+import kr.smhrd.mapper.MenusMapper;
 import kr.smhrd.mapper.OrderListMapper;
 
 @Controller
@@ -23,6 +24,8 @@ public class OrderListController {
 	private OrderListMapper orderListMapper;
 	@Autowired
 	private MembersMapper membersMapper;
+	@Autowired
+	private MenusMapper menusMapper;
 	
 	@RequestMapping("/goOrderList")
 	public String goOrderList(@RequestParam("phone_noValue") String phone_noValue, @RequestParam("t") int t,HttpSession session) {
@@ -69,12 +72,12 @@ public class OrderListController {
 			od.setOrder_request(b_list.get(i).getOrder_request());
 			od.setOrder_idx(order_idx.getOrder_idx());
 			System.out.println(od.toString());
-//			orderListMapper.insertOrderDetail(od);
+			orderListMapper.insertOrderDetail(od);
 		}
-//		
-//		List<Order_details> od_list = orderListMapper.selectOrderDetail(order_idx.getOrder_idx());
-//		session.setAttribute("od_list", od_list);
-//		System.out.println(od_list.toString());
+		
+		List<Order_details> od_list = orderListMapper.selectOrderDetail(order_idx.getOrder_idx());
+		session.setAttribute("od_list", od_list);
+		System.out.println(od_list.toString());
 
 		return "PaymentCom";
 	}
