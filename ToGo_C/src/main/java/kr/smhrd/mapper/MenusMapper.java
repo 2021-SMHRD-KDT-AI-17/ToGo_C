@@ -22,6 +22,8 @@ public interface MenusMapper {
 	Menus snackMenus(int count);
 
 	Menus beverageMenus(int count);
+
+	Menus getMenuName(int menu_idx);
 	
 	
 

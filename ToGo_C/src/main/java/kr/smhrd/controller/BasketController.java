@@ -22,11 +22,7 @@ public class BasketController {
 	// 장바구니 전체 비우기
 	@RequestMapping("/basketAllDelete")
 	public String basketAllDelete(HttpSession session) {
-//		session.removeAttribute("food_menus_list");
-//		session.removeAttribute("snack_menus_list");
-//		session.removeAttribute("beverage_menus_list");
-		session.removeAttribute("b_list");
-		
+		session.removeAttribute("b_list");	
 		
 		return "ShopBasket";
 	}

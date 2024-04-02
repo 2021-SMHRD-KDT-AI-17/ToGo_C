@@ -2,8 +2,6 @@
    pageEncoding="UTF-8"%>
    <%@ page import="java.util.List" %>
 <%@ page import="kr.smhrd.entity.Menus" %>
-   
-   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    
 <!DOCTYPE html>
@@ -755,6 +753,7 @@ font-size: 14px;
 
         const store_id = '${select_area.getService_name()}';
         const menu_name = document.getElementById('menuName').innerText;
+        const menu_idx = document.getElementById('idx').innerText;
         const menu_price = document.getElementById('menuPrice').innerText;
         const menu_Img = document.getElementById("menuImg");
         const total = document.getElementById('total').innerText;
@@ -764,6 +763,7 @@ font-size: 14px;
 
         let list = {
             "store_id": store_id,
+            "menu_idx" : menu_idx,
             "menu_name": menu_name,
             "menu_price": menu_price,
             "menu_Img": menu_Img,
@@ -792,19 +792,6 @@ font-size: 14px;
         // 팝업이 바로 닫히도록 처리합니다.
         closePopup();
     }
-
-       
-
-    
-    
- 
-    
-
-
-              
-   
-      
-   
 
 </script>
 

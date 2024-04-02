@@ -24,6 +24,10 @@
 		stores where store_cate ="음료" and service_idx = #{i})
 	</select>
 	
+	<select id="getMenuName" parameterType="int" resultType="kr.smhrd.entity.Menus">
+		select * from menus where menu_idx = #{menu_idx}
+	</select>
+	
 <!-- 	
 	
 
