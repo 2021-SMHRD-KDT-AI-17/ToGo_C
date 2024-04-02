@@ -394,7 +394,7 @@ a {
               }   
           } else {
              console.log("로그인되어 있음");
-             var dynamicUrl = "goOrderList?total_price=" + total_price;
+             var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t;
                 window.location.href = dynamicUrl;
           }
     }
