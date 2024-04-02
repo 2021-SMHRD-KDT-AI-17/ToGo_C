@@ -7,8 +7,8 @@
 	 FROM menus m JOIN order_details od
 	 ON m.menu_idx = od.menu_idx
 	 JOIN orders o
-	 ON (od.order_idx = o.order_idx);
-	 <!-- where mb_id = #{mb_id}; -->
+	 ON (od.order_idx = o.order_idx)
+ 	 where mb_id = #{mb_id}
  
  	</select>
 
