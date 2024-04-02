@@ -10,7 +10,8 @@
 		SELECT * FROM orders where mb_id= #{mb_id} ORDER BY ordered_at DESC LIMIT 1;
 	</select>
 	<insert id="insertOrderDetail" parameterType="kr.smhrd.entity.Order_details">
-	INSERT INTO order_details (menu_idx, order_cnt, order_request, order_idx, menu_good) VALUES (#{menu_idx}, #{order_cnt}, #{order_request}, #{order_idx}, 'N');
+	INSERT INTO order_details (menu_idx, order_cnt, order_request, order_idx, menu_good)
+	 VALUES (#{menu_idx}, #{order_cnt}, #{order_request}, #{order_idx}, 'N');
 	</insert>
 	<select id="selectOrderDetail" parameterType="int" resultType="kr.smhrd.entity.Order_details">
 	    select * from order_details where order_idx = #{order_idx}

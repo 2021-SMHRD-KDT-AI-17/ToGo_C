@@ -19,15 +19,11 @@
 				<p>${oh.menu_name }</p>
 				<p>${oh.order_cnt }</p>
 				<p>${oh.order_total_amount }</p>
-				<p>${ordered_at }</p>
+				<p>${oh.ordered_at }</p>
 				
 				</c:forEach>
 				
 
-<script>
-	console.log(orderhistory_list);
-	console.log("나와라");
-</script>
 
 
 </body>
