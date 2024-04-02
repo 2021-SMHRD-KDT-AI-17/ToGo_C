@@ -65,7 +65,10 @@ a {
    color: #333;
 }
 
-h
+h1{
+
+	font-weight: bold;
+}
 
 
 .wrap {
@@ -98,7 +101,7 @@ h
 }
 
 .tab_menu .list .btn {
-   font-size: 25px;
+   font-size: 20px;
 }
 
 .tab_menu .list .cont {
@@ -113,18 +116,21 @@ h
 }
 
 .tab_menu .list li.is_on .btn {
+   text-align:center;
    font-weight: bold;
-   color: white;
-   background: #555;
+   width:82px;
+   color: black;
+   background: rgb(182, 198, 159);
 }
 
 .tab_menu .list li.is_on .cont {
    display: block;
 }
 
-span {
-   padding: 0px 10px 0px 0px;
+.is_on a{
+	border-radius: 5px 5px 0px 0px;
 }
+
 
 #total{
    padding: 20px 0px 10px 0px;
@@ -145,11 +151,12 @@ span {
 
 .menu-info-box{
    padding-right: 20px;
+   width:150px;
 }
 
 .menu-select-area{
    margin-top: 30px;
-   width: 90%; 
+   width: 95%; 
    background: wheat; 
    height: 520px; 
    border-radius: 10px;
@@ -157,7 +164,7 @@ span {
 }
 
 .menu-img-box{
-   width: 100px;
+   width: 100%;
    height: 100%;
 }
 
@@ -223,6 +230,8 @@ span {
 
 .request-text-box {
    resize: none;
+   border: 1px solid black;
+   
 }
 
 .request-text{
@@ -263,9 +272,15 @@ span {
    width: 330px;
 }
 
+.about-menu{
+font-size: 14px;
+	padding: 10px 0px 5px 10px;
+	
+}
+
 #menuName{
    font-size: 18px;
-   padding: 20px 0px 10px 20px;
+   padding: 10px 0px 5px 10px;
    margin: 0;
 }
 
@@ -274,7 +289,7 @@ span {
 }
 
 .menu-price{
-   padding: 10px 0px 0px 20px;
+   padding: 2px 0px 0px 20px;
 }
 
 #menuPrice{
@@ -357,6 +372,12 @@ span {
    display: flex;
    justify-content: space-between;
 }
+
+.modal-title, #menuName, .menu-price, .menu-count-left, .menu-total{
+	
+	font-weight: bold;
+	
+}
 </style>
 
 
@@ -403,18 +424,18 @@ span {
 
       <div class="wrap">
          <div class="tab_menu">
-            <ul class="list" style="padding-left: 25px; margin-bottom: 0px;">
+            <ul class="list" style="padding-right:10px; margin-bottom: 0px;">
                <li class="is_on"><a href="#tab1" class="btn">식사</a>
                   <div id="tab1" class="cont" style="overflow-y: scroll;">
                      <c:forEach items="${food_menus_list}" var="fm" varStatus="status">
                         <div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal"  
                            style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_food(${status.count})">
                            <div class="menu-info-box">
-                                 <h4> ${fm.menu_name}</h4>
+                                 <h6> ${fm.menu_name}</h6>
                                  <p> ${fm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
                                  <div class="good-bad">
-                                 <span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
+                                 <span><i class="fa-regular fa-thumbs-up"></i></span><span>&nbsp;89개</span>
                                  </div>
                            </div>                                 
                            <div class="menu-img-box">
@@ -433,11 +454,11 @@ span {
                         <div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal" 
                            style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_snack(${status.count})">
                            <div class="menu-info-box">
-                                 <h4> ${sm.menu_name}</h4>
+                                 <h6> ${sm.menu_name}</h6>
                                  <p> ${sm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
                                  <div class="good-bad">
-                                 <span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
+                                 <span><i class="fa-regular fa-thumbs-up"></i></span><span>&nbsp;89개</span>
                                  </div>
                            </div>                                 
                            <div class="menu-img-box">
@@ -450,18 +471,18 @@ span {
                
                
                <li class="is_on"><a href="#tab3" class="btn" id="beverage_select">음료</a>
-                  <div id="tab3" class="cont" style="overflow-y: scroll;">
+                  <div id="tab3" class="cont" style="overflow-y: scroll; margin-right: 0px;">
       
                      <c:forEach items="${beverage_menus_list}" var="bm" varStatus="status">
                         <div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal" 
                            style="display: flex; justify-content: space-around; cursor: pointer;" 
                            onclick="select_beverage(${status.count})">
                            <div class="menu-info-box" >
-                                 <h4> ${bm.menu_name}</h4>
+                                 <h6> ${bm.menu_name}</h6>
                                  <p> ${bm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
                                  <div class="good-bad">
-                                 <span><i class="fa-regular fa-thumbs-up"></i></span><span>89개</span>
+                                 <span><i class="fa-regular fa-thumbs-up"></i></span><span>&nbsp;89개</span>
                                  </div>
                                  
                            </div>                                 
@@ -523,7 +544,9 @@ span {
                   </div>
                   <div class="menu-detail">
                      <article>
+                    
                      <p id="menuName" name="menuId_option"> </p>
+                     <p class="about-menu" style="margin-bottom: 5px;">여기에 설명 넣으시면 됩니다.</p>
                      <p class="menu-price">단가:<span id = "menuPrice" name="menuPrice_option"></span> 원</p>
                         <p></p>
                      </article>
@@ -533,14 +556,16 @@ span {
                            <span> 수량 </span>
                         </div>
                         <div class="menu-count-right">
-                           <input type='button' class="plus-button" onclick='count("plus")' value='+' />
-                           <span id='result' name="result_option">1</span>
+                           
+                           
                            <input type='button' class="minus-button" onclick='count("minus")' value='-' />
+                           <span id='result' name="result_option">1</span>
+                           <input type='button' class="plus-button" onclick='count("plus")' value='+' />
                         </div>
                      </section>
 
                      <section>
-                        <p class="menu-total">총 가격 :<span id="total" name="total_option"></span>
+                        <p class="menu-total">총 가격 :&nbsp;<span id="total" name="total_option"></span>
                          <span class="won">원</span></p>
                      </section>
                   </div>
@@ -566,7 +591,7 @@ span {
                   data-bs-dismiss="modal">닫기</button>
 
                <button type="submit" class="add-basket" onclick = "Add()" data-bs-dismiss="modal">
-               <i class="fa-solid fa-plus"></i>상품 담기</button>
+               <i class="fa-solid fa-plus"></i>&nbsp;상품 담기</button>
             </div>
          </div>
       </div>
