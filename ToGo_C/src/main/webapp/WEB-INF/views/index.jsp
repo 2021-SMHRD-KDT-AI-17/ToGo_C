@@ -180,7 +180,7 @@ p {
 	align-items: center;
 	padding: 20px;
 	border-radius: 10px;
-	background-color: #FCFF94;
+	background-color: #F9F9E8;
 }
 
 .conv-info-item-icon {
@@ -297,7 +297,7 @@ p {
 	top: 10px;
 }
 
-.festival-area-title {
+.festival-area-title p{
 	font-size: 18px;
 	font-weight: 800;
 	position: relative;
@@ -314,7 +314,8 @@ p {
 
 .festival-area-link, .road-view-gallery-slide {
 	position: relative;
-	left: 270px;
+	left: 285px;
+	top:10px;
 	text-align: right;
 }
 
@@ -323,6 +324,12 @@ p {
 	list-style: none;
 	text-decoration: none;
 	color: #999;
+}
+
+.road-view-gallary-box{
+	width: 100%;
+	height: 600px;
+	padding-top: 20px;
 }
 </style>
 </head>
@@ -339,7 +346,7 @@ p {
 
 	<!-- 3.27 주유소 요금 정보 section 시작 -->
 
-	<div class="welcome-message-box" style="margin-top: 100px">
+	<div class="welcome-message-box" style="margin-top: 80px">
 		<p class="welcome-message1 black-han sans-regular">고객님,</p>
 		<p class="welcome-message2 black-han sans-regular">오늘도</p>
 		<p class="welcome-message2 black-han sans-regular">맛있는 여행 되세요!</p>
@@ -350,8 +357,8 @@ p {
 			<div class="" style="display: flex; justify-content: center;">
 
 				<div class="gas-icon">
-					<i class="fa-solid fa-gas-pump"></i> <img alt=""
-						src="resources/images/conv-icon/gas_03_29.png" height="25px">
+					<i class="fa-solid fa-gas-pump"></i> 
+					<img alt="" src="resources/images/conv-icon/gas_03_29.png" height="25px">
 				</div>
 				<%
 				Service_areas select_area = (Service_areas) session.getAttribute("select_area");
@@ -481,7 +488,7 @@ p {
 						</div>
 					</div>
 					<div class="go-store-button">
-						<div class="go-store-title">BEST 추천 메뉴</div>
+						<div class="go-store-title"><strong>BEST 추천 메뉴</strong></div>
 						<a href="goStores"><input type="button" class="goStoresButton"
 							value="주문하러 가기!"></a>
 					</div>
@@ -645,7 +652,7 @@ p {
 				<p class="">축제 / 관광 정보</p>
 				<span class="festival-area-link"><a
 					href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do"
-					target="_blank">전체 보기</a> </span>
+					target="_blank">전체 보기 ></a> </span>
 			</div>
 			<div></div>
 			<figure>
@@ -682,15 +689,21 @@ p {
 			style="display: flex; flex-direction: column;">
 
 			<div class="road-view-gallery-title">
-				<p class="">이모저모 사진전</p>
+				<p class=""></p>
 				<span class="road-view-gallery-slide"><a
 					href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do"
-					target="_blank">> 슬라이드 감상</a> </span>
+					target="_blank"></a> </span>
+			</div>
+			<div class="festival-area-title">
+				<p class="">우리나라 이모저모</p>
+				<span class="festival-area-link"><a
+					href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do"
+					target="_blank"> 갤러리 이동 ></a> </span>
 			</div>
 		</div>
-		<article>
+		<article class="road-view-gallary-box">
 			<img src="resources/images/road-view-gallary/road-view (8).jpg"
-				alt="">
+				alt="" class="road-view-gallary-box">
 		</article>
 
 	</section>
