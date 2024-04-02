@@ -64,22 +64,17 @@ public class OrderListController {
 		
 		for(int i = 0; i<b_list.size();i++) {
 			Order_details od = new Order_details();
-			//INSERT INTO order_details (menu_idx, order_cnt, order_request, order_idx, menu_good) VALUES (1, 1, 'order_request 1', 1, 'N');
 			od.setMenu_idx(b_list.get(i).getMenu_idx());
 			od.setOrder_cnt(b_list.get(i).getOrder_cnt());
 			od.setOrder_request(b_list.get(i).getOrder_request());
 			od.setOrder_idx(order_idx.getOrder_idx());
-			
-			orderListMapper.insertOrderDetail(od);
+			System.out.println(od.toString());
+//			orderListMapper.insertOrderDetail(od);
 		}
-		
-		List<Order_details> od_list = orderListMapper.selectOrderDetail(order_idx.getOrder_idx());
-		session.setAttribute("od_list", od_list);
-		System.out.println(od_list.toString());
-
-		
-//		List<Orders> order_list = orderListMapper.orderList();
-//		session.setAttribute("order_list", order_list);
+//		
+//		List<Order_details> od_list = orderListMapper.selectOrderDetail(order_idx.getOrder_idx());
+//		session.setAttribute("od_list", od_list);
+//		System.out.println(od_list.toString());
 
 		return "PaymentCom";
 	}
