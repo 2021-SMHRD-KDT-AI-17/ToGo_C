@@ -221,7 +221,13 @@ a {
 											<span class="price">${b.total}</span>원
 										</h5>
 									</td>
-									<td>X</td>
+									<td>
+									<!-- Delete button for individual item -->
+            <form action="basketDelete" method="post">
+                <input type="hidden" name="itemIndex" value="${status.index}" />
+                <button type="submit">Delete</button>
+            </form>
+									</td>
 								</tr>
 							</c:forEach>
 
