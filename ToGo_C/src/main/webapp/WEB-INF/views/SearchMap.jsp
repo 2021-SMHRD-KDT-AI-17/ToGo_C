@@ -112,6 +112,7 @@ input {
 	border-bottom: 1px solid #ddd;
 	position: relative;
 	margin-top: 5px;
+	
 }
 
 .search-box-title {
@@ -155,6 +156,10 @@ input {
 	overflow-y: auto;
 	position: relative;
 	height: 300px;
+}
+
+.search-result-box ul{
+	padding-left:0px;
 }
 
 .result-details {

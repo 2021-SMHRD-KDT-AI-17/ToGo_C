@@ -7,8 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-body {
-	background: white;
+.service-search-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: gray;
+	}
+
+.navbar-toggler{
+	margin-left: 15px;
 }
 </style>
 </head>
@@ -26,14 +33,18 @@ body {
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="goIndex"> <img
 						src="resources/images/ToGoLogo.png" alt=""
-						style="width: 80px; height: 50px;">
+						style="width: 55px; height: 35px;">
 					</a>
 
-					<div class="service-name" style="margin-right: 20px">
-						<a href="goMap">
-							<button type="button" class="btn btn-outline-secondary" disabled>
-								${select_area.getService_name() }</button>
-						</a>
+					<div class="service-name" style="display: flex;">
+						<div>
+							<a href="goMap">
+								<button type="button" class="btn btn-outline-secondary" disabled
+								 style="padding: 4px;">
+									<span class="search-icon-span"><i class="fa-solid fa-magnifying-glass"></i></span>
+									${select_area.getService_name() }</button>
+							</a>
+						</div>
 					</div>
 
 
@@ -119,6 +130,7 @@ body {
 								aria-expanded="false" style="text-align: right;">로그인 해주세요</a> <%
  } else {
  %>
+							
 							<li class="nav-item"><a href="goBasket" class="cart"> <i
 									class="fa-solid fa-cart-shopping"></i></a></li>
 							<li class="nav-item" style="text-align: right;"><a
@@ -130,7 +142,7 @@ body {
 
 
 							</li>
-							
+
 
 
 						</ul>
@@ -138,7 +150,7 @@ body {
 
 
 
-							
+
 							<!-- <li class="nav-item">
                         <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
                      </li> -->
