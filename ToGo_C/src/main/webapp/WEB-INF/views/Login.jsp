@@ -199,20 +199,45 @@ h3, h4 {
 
 	<!-- End footer Area -->
 	<script type="text/javascript">
-		const toggleButton = document.getElementById('mode-toggle-button');
-		let colorMode = 'light';
+	document.addEventListener('DOMContentLoaded', function() {
+	    const toggleButton = document.getElementById('toggle-radio-dark');
+	    const body = document.body;
 
-		toggleButton.addEventListener('click', function(event) {
-			event.preventDefault(); // 기본 동작 방지
+	    // 페이지 로드 시에 로컬 스토리지에서 다크 모드 설정을 가져와 적용
+	    const colorMode = localStorage.getItem('color-mode');
+	    if (colorMode === 'dark') {
+	        body.setAttribute('color-mode', 'dark');
+	        toggleButton.checked = true;
+	    } else {
+	        body.setAttribute('color-mode', 'light');
+	    }
 
-			if (colorMode === 'light') {
-				document.body.setAttribute('color-mode', 'dark');
-				colorMode = 'dark';
-			} else {
-				document.body.setAttribute('color-mode', 'light');
-				colorMode = 'light';
-			}
-		});
+	    // 토글 버튼 클릭 시에 다크 모드 설정을 변경하고 로컬 스토리지에 저장
+	    toggleButton.addEventListener('change', function() {
+	        if (toggleButton.checked) {
+	            enableDarkMode();
+	        } else {
+	            disableDarkMode();
+	        }
+	    });
+
+	    // 태양 버튼 클릭 시에 다크 모드 설정 초기화
+	    const sunButton = document.getElementById('toggle-radio-light');
+	    sunButton.addEventListener('change', function() {
+	        disableDarkMode();
+	    });
+
+	    function enableDarkMode() {
+	        body.setAttribute('color-mode', 'dark');
+	        localStorage.setItem('color-mode', 'dark');
+	    }
+
+	    function disableDarkMode() {
+	        body.setAttribute('color-mode', 'light');
+	        localStorage.removeItem('color-mode');
+	    }
+	});
+
 	</script>
 
 
