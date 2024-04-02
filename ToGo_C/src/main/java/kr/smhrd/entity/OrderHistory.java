@@ -15,5 +15,6 @@ public class OrderHistory {
 	private int order_cnt;
 	private int order_total_amount;
 	private String ordered_at;
+	private String mb_id;
 	
 }

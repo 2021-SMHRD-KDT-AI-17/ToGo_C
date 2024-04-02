@@ -12,7 +12,6 @@ import kr.smhrd.entity.OrderHistory;
 public interface OrderHistoryMapper {
 
 
-	List<OrderHistory> orderhistory();
-
+	List<OrderHistory> orderhistory(@Param("mb_id") String mb_id);
 
 }

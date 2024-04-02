@@ -112,7 +112,7 @@ body[color-mode='light'] {
 									} else {
 									%>
 									<li class="nav-item"><a class="nav-link no-css"
-										href="goOrderHistory">주문내역</a></li>
+										href="goOrderHistory?mb_id=<%=loginMember.getMb_id()%>">주문내역</a></li>
 									<li class="nav-item"><a class="nav-link no-css"
 										href="showUpdate">회원 정보 수정</a></li>
 									<li class="nav-item"><a class="nav-link no-css"

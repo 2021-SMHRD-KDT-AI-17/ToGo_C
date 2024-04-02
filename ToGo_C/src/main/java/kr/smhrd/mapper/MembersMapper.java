@@ -26,4 +26,5 @@ public interface MembersMapper {
 	@Select("select * from members where mb_id = #{mb_id}")
     Members IdCheck(String inputId);
 
+
 }
