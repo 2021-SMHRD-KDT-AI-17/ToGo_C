@@ -282,7 +282,7 @@ a {
 
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value=5>&nbsp;5분
+                                    style="font-size: 18px; background: #ffdfdf;">&nbsp;5분
                                     후</button>
                               </div>
                               <div>
@@ -385,20 +385,110 @@ a {
    
    <!-- 픽업시간 선택 스크립트 -->
    
-/*     document.querySelectorAll('.btn.btn-light').forEach(button => {
+   
+<%--    document.querySelectorAll('.btn.btn-light').forEach(button => {
 	    button.addEventListener('click', function() {
 	        // 클릭된 버튼의 내용(텍스트) 값을 가져와서 출력
 	        //console.log("Clicked button value:", this.textContent);
 	        // 클릭된 버튼의 내용에서 숫자만 추출하여 출력
-	        const pick_up_time = parseInt(this.textContent.replace(/\D/g, ''));
+	        var pick_up_time = parseInt(this.textContent.replace(/\D/g, ''));
 	        console.log("pick_up_time:", pick_up_time);
 	        
-	        	        
+	        // pick_up_time 값을 checkPhone 함수로 전달하여 호출
+	        checkPhone(pick_up_time);
 	    });
 	});
-	        */
+
+	function checkPhone(pick_up_time) {
+	    var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
+	    var total_price = parseInt(document.getElementById("total_price").innerText);
+	    console.log("총금액"+t);
+
+	    if (!loginMemberValue) {
+	        console.log("로그인 안되어 있음");
+	        var phone_noValue = document.getElementById("phone_no").value;
+	        if (phone_noValue === "") {
+	            alert("전화번호를 입력하세요");
+	        } else {
+	            var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t+"&pick_up_time="+pick_up_time;
+	            window.location.href = dynamicUrl;
+	        }   
+	    } else {
+	        console.log("로그인되어 있음");
+	        var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t+"&pick_up_time="+pick_up_time;
+	        window.location.href = dynamicUrl;
+	    }
+	} --%>
+
+   
+   
+<%--      document.querySelectorAll('.btn.btn-light').forEach(button => {
+	    button.addEventListener('click', function() {
+	        // 클릭된 버튼의 내용(텍스트) 값을 가져와서 출력
+	        //console.log("Clicked button value:", this.textContent);
+	        // 클릭된 버튼의 내용에서 숫자만 추출하여 출력
+	        var pick_up_time = parseInt(this.textContent.replace(/\D/g, ''));
+	        console.log("pick_up_time:", pick_up_time);
 	        
-   /*          $.ajax({
+	        
+
+
+
+
+	        혜선씨가 만든 로직 0403(주문시간 포함되지 않았을때)
+	       	    function checkPhone() {
+	              
+	              var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
+	              var total_price = parseInt(document.getElementById("total_price").innerText);
+	              console.log("총금액"+t);
+
+	                 if (!loginMemberValue) {
+	                     
+	                     console.log("로그인 안되어 있음");
+	                     var phone_noValue = document.getElementById("phone_no").value;
+	                     if (phone_noValue === "") {
+	                         alert("전화번호를 입력하세요");
+	                     } else {
+	                        var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t+"&pick_up_time="+pick_up_time;
+	                          window.location.href = dynamicUrl;
+	                     }   
+	                 } else {
+	                    console.log("로그인되어 있음");
+	                    var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t+"&pick_up_time="+pick_up_time;
+	                       window.location.href = dynamicUrl;
+	                 }
+	           } 
+	           
+	           
+	           IMP.init("imp14397622");
+
+	           function requestPay(phone_noValue) { // phone_noValue를 매개변수로 받도록 수정
+	               IMP.request_pay({
+	                   pg: "html5_inicis",
+	                   pay_method: "card",
+	                   merchant_uid: "",
+	                   name: "t",
+	                   amount: 100,
+	                   buyer_tel: phone_noValue, // 입력된 전화번호 사용
+	               }, async (rsp) => {
+	                   if (rsp.success) {
+	                       // 결제 성공시
+	                       alert("결제 성공");
+	                       // 결제 성공 후 페이지 이동
+	                       var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue;
+	                       window.location.href = dynamicUrl;
+	                   } else {
+	                       // 결제 실패시
+	                       alert("결제 실패");
+	                   }
+	               });
+	           }	  --%>       
+	        
+	        	        
+
+	        
+	        
+/*             $.ajax({
                 url: "goOrderList",
                 method: "get",
                 data: {
@@ -411,33 +501,34 @@ a {
                 error: function () {
                     console.log('pickup시간전송 실패했습니다.');
                 }
-            }); */
+            });  */
 	        
-	        
+
 
    
    
    
    
 
-    IMP.init("imp14397622");
+            
+   
+
+            
+    
  
-
-<%--             function checkPhone() {
+          function checkPhone() {
                 var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
                 var total_price = parseInt(document.getElementById("total_price").innerText);
                 var phone_noValue = document.getElementById("phone_no").value;
                 
-                // pick_up_time 값을 저장할 변수
-                var pick_up_time = null;
-
                 // 버튼 클릭 이벤트 핸들러 내에서 pick_up_time 값을 저장
+                var pick_up_time = null;
                 document.querySelectorAll('.btn.btn-light').forEach(button => {
                     button.addEventListener('click', function() {
                         pick_up_time = parseInt(this.textContent.replace(/\D/g, ''));
                         console.log("pick_up_time:", pick_up_time);
                         
-                        // 저장된 pick_up_time 값과 함께 checkPhone() 메서드 호출
+                        // pick_up_time 값을 받은 후에 checkPhone() 메서드 호출
                         executeCheckPhone(phone_noValue, total_price, pick_up_time, loginMemberValue);
                     });
                 });
@@ -457,73 +548,18 @@ a {
                     var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t=" + total_price + "&pick_up_time=" + pick_up_time;
                     window.location.href = dynamicUrl;
                 }
-            } --%>
+            }
+ 
             
+            
+            
+            
+<%--             // 동적 URL 생성 및 페이지 이동 함수
 
             
             
-<%--             
             
-
-            
-            document.querySelectorAll('.btn.btn-light').forEach(button => {
-	    button.addEventListener('click', function() {
-	        // 클릭된 버튼의 내용(텍스트) 값을 가져와서 출력
-	        //console.log("Clicked button value:", this.textContent);
-	        // 클릭된 버튼의 내용에서 숫자만 추출하여 출력
-	        var pick_up_time = parseInt(this.textContent.replace(/\D/g, ''));
-	        console.log("pick_up_time:", pick_up_time);
-	        
-	        
-	        function checkPhone() {
-	            
-	            var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
-	            var total_price = parseInt(document.getElementById("total_price").innerText);
-	            console.log("총금액"+t);
-
-	               if (!loginMemberValue) {
-	                   
-	                   console.log("로그인 안되어 있음");
-	                   var phone_noValue = document.getElementById("phone_no").value;
-	                   if (phone_noValue === "") {
-	                       alert("전화번호를 입력하세요");
-	                   } else {
-	                      var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t+"&pick_up_time="+pick_up_time;
-	                        window.location.href = dynamicUrl;
-	                   }   
-	               } else {
-	                  console.log("로그인되어 있음");
-	                  var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t+"&pick_up_time="+pick_up_time;
-	                     window.location.href = dynamicUrl;
-	               }
-	         } 
-	         
-	         
-	         IMP.init("imp14397622");
-
-	         function requestPay(phone_noValue) { // phone_noValue를 매개변수로 받도록 수정
-	             IMP.request_pay({
-	                 pg: "html5_inicis",
-	                 pay_method: "card",
-	                 merchant_uid: "",
-	                 name: "t",
-	                 amount: 100,
-	                 buyer_tel: phone_noValue, // 입력된 전화번호 사용
-	             }, async (rsp) => {
-	                 if (rsp.success) {
-	                     // 결제 성공시
-	                     alert("결제 성공");
-	                     // 결제 성공 후 페이지 이동
-	                     var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue;
-	                     window.location.href = dynamicUrl;
-	                 } else {
-	                     // 결제 실패시
-	                     alert("결제 실패"); --%>
-	                 }
-	             });
-	         }
-            
-             function checkPhone() {
+            function checkPhone() {
 
                 var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
                 var total_price = parseInt(document.getElementById("total_price").innerText);
@@ -565,62 +601,10 @@ a {
                 }
                 
                 
-            } 
- 
-
-
-
-
-
-<%-- 혜선씨가 만든 로직 0403(주문시간 포함되지 않았을때)
-	    function checkPhone() {
-       
-       var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
-       var total_price = parseInt(document.getElementById("total_price").innerText);
-       console.log("총금액"+t);
-
-          if (!loginMemberValue) {
-              
-              console.log("로그인 안되어 있음");
-              var phone_noValue = document.getElementById("phone_no").value;
-              if (phone_noValue === "") {
-                  alert("전화번호를 입력하세요");
-              } else {
-                 var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t+"&pick_up_time="+pick_up_time;
-                   window.location.href = dynamicUrl;
-              }   
-          } else {
-             console.log("로그인되어 있음");
-             var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t+"&pick_up_time="+pick_up_time;
-                window.location.href = dynamicUrl;
-          }
-    } 
-    
-    
-    IMP.init("imp14397622");
-
-    function requestPay(phone_noValue) { // phone_noValue를 매개변수로 받도록 수정
-        IMP.request_pay({
-            pg: "html5_inicis",
-            pay_method: "card",
-            merchant_uid: "",
-            name: "t",
-            amount: 100,
-            buyer_tel: phone_noValue, // 입력된 전화번호 사용
-        }, async (rsp) => {
-            if (rsp.success) {
-                // 결제 성공시
-                alert("결제 성공");
-                // 결제 성공 후 페이지 이동
-                var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue;
-                window.location.href = dynamicUrl;
-            } else {
-                // 결제 실패시
-                alert("결제 실패");
             }
-        });
-    }
-    --%>
+ --%>
+
+
 
 
 </script>
