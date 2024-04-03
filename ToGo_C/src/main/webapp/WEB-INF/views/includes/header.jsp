@@ -177,12 +177,12 @@ span[color-mode='light']{
 										</div>
 									</li>
 								</ul>
-							<li class="nav-item submenu dropdown">
+							<li class="nav-item submenu dropdown" style="text-align: right;">
 								<%
 								if (loginMember == null) {
 								%> <a href="goLogin" class="nav-link dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false" style="text-align: right;">로그인 해주세요</a> <%
+								aria-expanded="false">로그인 해주세요</a> <%
  } else {
  %>
 							

@@ -42,12 +42,20 @@
 	crossorigin="anonymous">
 
 <style type="text/css">
-body[color-mode='dark'] {
-	background: #2B2B2B;
+
+
+.login_form_inner{
+	box-shadow : 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+	margin-top: 10px;
 }
 
-.login_form_inner[color-mode='dark'] {
-	background: white;
+span, h3, label[color-mode='dark']{
+	color: #F7F7F7;
+}
+
+span, h3, label[color-mode='light']{
+	color: #2B2B2B;
+	
 }
 
 body[color-mode='dark'] {
@@ -64,8 +72,8 @@ body[color-mode='dark'] {
 }
 
 .cart-area-nav {
-	/* background: linear-gradient(62deg, #A5BD85, rgb(182, 198, 159)); */
-	background: rgb(182, 198, 159);
+	background: linear-gradient(62deg, #4ca1af, #c4e0e5);
+	/* background: rgb(182, 198, 159); */
 	opacity: 1;
 	width: 100%;
 	height: 200px;
@@ -78,6 +86,9 @@ body[color-mode='dark'] {
 	font-weight: bold;
 	position: relative;
 	top: 60px;
+	left:20px;
+	font-family: BMJUA_ttf;
+	text-indent: 10px;
 }
 
 a {
@@ -116,7 +127,7 @@ h3, h4 {
 
 	<!--================ 3.23 로그인 박스 영역 시작 =================-->
 
-	<section class="login_box_area section_gap">
+	<section class="login_box_area section_gap" style="padding-top: 30px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
@@ -179,11 +190,6 @@ h3, h4 {
 							<div class="col-md-12 form-group">
 								<div id="naver_id_login"></div>
 							</div>
-
-							<p>다크모드 테스트</p>
-							<button class="darkmode-toggle-button" id="mode-toggle-button">모드
-								전환</button>
-
 						</form>
 					</div>
 				</div>
@@ -201,18 +207,41 @@ h3, h4 {
 	<script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() {
 	    const toggleButton = document.getElementById('toggle-radio-dark');
+	    const sunButton = document.getElementById('toggle-radio-light');
 	    const body = document.body;
 
-	    // 페이지 로드 시에 로컬 스토리지에서 다크 모드 설정을 가져와 적용
+	    // Dark Mode 활성화 함수
+	    function enableDarkMode() {
+	        body.setAttribute('color-mode', 'dark');
+	        // .font-white 클래스를 가진 요소들의 글자색을 흰색으로 변경
+	        const fontWhiteElements = document.querySelectorAll('.font-white');
+	        fontWhiteElements.forEach(function(element) {
+	            element.style.color = '#fff'; // 흰색으로 설정
+	        });
+	        localStorage.setItem('color-mode', 'dark');
+	    }
+
+	    // Dark Mode 비활성화 함수
+	    function disableDarkMode() {
+	        body.setAttribute('color-mode', 'light');
+	        // .font-white 클래스를 가진 요소들의 글자색을 원래 색상으로 변경 (예: 검은색)
+	        const fontWhiteElements = document.querySelectorAll('.font-white');
+	        fontWhiteElements.forEach(function(element) {
+	            // 기존에 지정된 스타일로 변경하거나 초기값으로 변경해주세요.
+	            element.style.color = ''; // 초기값으로 변경하거나 다른 스타일을 지정해야 합니다.
+	        });
+	        localStorage.setItem('color-mode', 'light');
+	    }
+
 	    const colorMode = localStorage.getItem('color-mode');
 	    if (colorMode === 'dark') {
 	        body.setAttribute('color-mode', 'dark');
 	        toggleButton.checked = true;
+	        enableDarkMode(); // 페이지가 로드될 때 Dark Mode가 활성화된 경우
 	    } else {
 	        body.setAttribute('color-mode', 'light');
 	    }
 
-	    // 토글 버튼 클릭 시에 다크 모드 설정을 변경하고 로컬 스토리지에 저장
 	    toggleButton.addEventListener('change', function() {
 	        if (toggleButton.checked) {
 	            enableDarkMode();
@@ -221,24 +250,12 @@ h3, h4 {
 	        }
 	    });
 
-	    // 태양 버튼 클릭 시에 다크 모드 설정 초기화
-	    const sunButton = document.getElementById('toggle-radio-light');
 	    sunButton.addEventListener('change', function() {
 	        disableDarkMode();
 	    });
-
-	    function enableDarkMode() {
-	        body.setAttribute('color-mode', 'dark');
-	        localStorage.setItem('color-mode', 'dark');
-	    }
-
-	    function disableDarkMode() {
-	        body.setAttribute('color-mode', 'light');
-	        localStorage.removeItem('color-mode');
-	    }
 	});
-
 	</script>
+	
 
 
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
