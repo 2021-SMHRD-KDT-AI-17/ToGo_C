@@ -108,7 +108,7 @@ p {
 .image img {
 	display: block;
 	width: 100%;
-	height: auto;
+	height: 100%;
 	border-radius: 10px; /* 이미지에도 둥근 테두리 적용 */
 }
 
@@ -180,7 +180,9 @@ p {
 	align-items: center;
 	padding: 20px;
 	border-radius: 10px;
-	background-color: #F9F9E8;
+	background-color: #ffffff;
+	box-shadow: 1px 1px 1px 1px lightgray;
+	
 }
 
 .conv-info-item-icon {
@@ -209,7 +211,8 @@ p {
 	display: flex;
 	justify-content: left;
 	align-items: center;
-	margin-right: 100px;
+	margin-right: 140px;
+	margin-top: 20px;
 }
 
 .go-store-button {

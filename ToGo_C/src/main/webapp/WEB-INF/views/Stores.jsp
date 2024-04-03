@@ -53,6 +53,14 @@
    padding: 0;
 }
 
+@font-face {
+	font-family: 'BMJUA_ttf';
+	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
+/* 	font-weight: normal;
+	font-style: normal; */
+}
+
+
 ul {
    list-style: none;
    text-align: center;
@@ -68,6 +76,13 @@ h1{
 	font-weight: bold;
 }
 
+h2{
+	font-family: 'BMJUA_ttf';
+	position: relative;
+	left: 20px;
+	padding-top: 10px;
+}
+
 
 .wrap {
    letter-spacing: -0.5px;
@@ -75,7 +90,7 @@ h1{
 }
 
 .cart-area-nav{
-   background: rgb(182, 198, 159);
+   background: linear-gradient(62deg, #c2e59c, #64b3f4);
    width: 100%; 
    height: 200px;
    margin-top:0px;
@@ -110,7 +125,8 @@ h1{
    color: black;
    text-align: center;
    width: 100%;
-   height: 400px;
+   height: 430px;
+   border-radius: 0px 5px 5px 5px;
 }
 
 .tab_menu .list li.is_on .btn {
@@ -326,7 +342,7 @@ font-size: 14px;
 
 .go-cart{
    display: flex;
-   justify-content: flex-end;
+   justify-content: center;
 }
 
 .go-basket-b{
@@ -383,7 +399,7 @@ font-size: 14px;
 
 </head>
 
-<body>
+<body style="font-family: BMJUA_ttf;">
 
 
    <!-- Start Header Area -->
@@ -429,7 +445,7 @@ font-size: 14px;
                         <div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal"  
                            style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_food(${status.count})">
                            <div class="menu-info-box">
-                                 <h6> ${fm.menu_name}</h6>
+                                 <p> ${fm.menu_name}</p>
                                  <p> ${fm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
                                  <div class="good-bad">
@@ -452,7 +468,7 @@ font-size: 14px;
                         <div class="flexx" data-bs-toggle="modal" data-bs-target="#exampleModal" 
                            style="display: flex; justify-content: space-around; cursor: pointer;" onclick="select_snack(${status.count})">
                            <div class="menu-info-box">
-                                 <h6> ${sm.menu_name}</h6>
+                                 <p> ${sm.menu_name}</p>
                                  <p> ${sm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
                                  <div class="good-bad">
@@ -476,7 +492,7 @@ font-size: 14px;
                            style="display: flex; justify-content: space-around; cursor: pointer;" 
                            onclick="select_beverage(${status.count})">
                            <div class="menu-info-box" >
-                                 <h6> ${bm.menu_name}</h6>
+                                 <p> ${bm.menu_name}</p>
                                  <p> ${bm.menu_price}원</p>
 <!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
                                  <div class="good-bad">
@@ -502,7 +518,7 @@ font-size: 14px;
       <div class="go-cart-button">
          
          <button onclick = "location.href ='goBasket'" class="go-basket-b">
-         <span><i class="fa-solid fa-cart-shopping"></i></span>장바구니로 이동</button>
+         <span><i class="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;</span>장바구니로 이동</button>
       </div>
    </section>
 
