@@ -7,15 +7,36 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
+
 body[color-mode='dark'] {
-	background-color: #000000;
-	color: #ffffff;
+	background-color: #2B2B2B;
+	transition:all ease-in-out .3s;
 }
 
 body[color-mode='light'] {
-	background-color: #ffffff;
-	color: #000000;
+	background-color: #FCFBF8;
+	transition:all ease-in-out .3s;
 }
+
+@font-face {
+	font-family: 'BMJUA_ttf';
+	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
+/* 	font-weight: normal;
+	font-style: normal; */
+}
+
+
+
+span[color-mode='dark']{
+	color: #F7F7F7;
+}
+
+span[color-mode='light']{
+	color: #2B2B2B;
+	
+}
+
 
 .service-search-icon {
 	display: flex;
@@ -33,7 +54,7 @@ body[color-mode='light'] {
 }
 </style>
 </head>
-<body>
+<body style="font-family: BMJUA_ttf">
 
 	<%
 	Members loginMember = (Members) session.getAttribute("loginMember");
@@ -206,20 +227,44 @@ body[color-mode='light'] {
 
 
 	<script>
+
 	document.addEventListener('DOMContentLoaded', function() {
 	    const toggleButton = document.getElementById('toggle-radio-dark');
+	    const sunButton = document.getElementById('toggle-radio-light');
 	    const body = document.body;
 
-	    // 페이지 로드 시에 로컬 스토리지에서 다크 모드 설정을 가져와 적용
+	    // Dark Mode 활성화 함수
+	    function enableDarkMode() {
+	        body.setAttribute('color-mode', 'dark');
+	        // .font-white 클래스를 가진 요소들의 글자색을 흰색으로 변경
+	        const fontWhiteElements = document.querySelectorAll('.font-white');
+	        fontWhiteElements.forEach(function(element) {
+	            element.style.color = '#fff'; // 흰색으로 설정
+	        });
+	        localStorage.setItem('color-mode', 'dark');
+	    }
+
+	    // Dark Mode 비활성화 함수
+	    function disableDarkMode() {
+	        body.setAttribute('color-mode', 'light');
+	        // .font-white 클래스를 가진 요소들의 글자색을 원래 색상으로 변경 (예: 검은색)
+	        const fontWhiteElements = document.querySelectorAll('.font-white');
+	        fontWhiteElements.forEach(function(element) {
+	            // 기존에 지정된 스타일로 변경하거나 초기값으로 변경해주세요.
+	            element.style.color = ''; // 초기값으로 변경하거나 다른 스타일을 지정해야 합니다.
+	        });
+	        localStorage.setItem('color-mode', 'light');
+	    }
+
 	    const colorMode = localStorage.getItem('color-mode');
 	    if (colorMode === 'dark') {
 	        body.setAttribute('color-mode', 'dark');
 	        toggleButton.checked = true;
+	        enableDarkMode(); // 페이지가 로드될 때 Dark Mode가 활성화된 경우
 	    } else {
 	        body.setAttribute('color-mode', 'light');
 	    }
 
-	    // 토글 버튼 클릭 시에 다크 모드 설정을 변경하고 로컬 스토리지에 저장
 	    toggleButton.addEventListener('change', function() {
 	        if (toggleButton.checked) {
 	            enableDarkMode();
@@ -228,22 +273,11 @@ body[color-mode='light'] {
 	        }
 	    });
 
-	    // 태양 버튼 클릭 시에 다크 모드 설정 초기화
-	    const sunButton = document.getElementById('toggle-radio-light');
 	    sunButton.addEventListener('change', function() {
 	        disableDarkMode();
 	    });
-
-	    function enableDarkMode() {
-	        body.setAttribute('color-mode', 'dark');
-	        localStorage.setItem('color-mode', 'dark');
-	    }
-
-	    function disableDarkMode() {
-	        body.setAttribute('color-mode', 'light');
-	        localStorage.removeItem('color-mode');
-	    }
 	});
+
 
 	</script>
 

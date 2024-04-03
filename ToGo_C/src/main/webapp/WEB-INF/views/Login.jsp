@@ -43,7 +43,7 @@
 
 <style type="text/css">
 body[color-mode='dark'] {
-	background: #222222;
+	background: #2B2B2B;
 }
 
 .login_form_inner[color-mode='dark'] {
@@ -51,7 +51,7 @@ body[color-mode='dark'] {
 }
 
 body[color-mode='dark'] {
-	color: #EDEDED;
+	color: #2B2B2B;
 }
 
 /* 추가적인 스타일링은 이곳에 추가하세요. */
