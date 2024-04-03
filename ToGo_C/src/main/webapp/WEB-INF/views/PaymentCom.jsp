@@ -228,7 +228,7 @@ const firebaseConfig = {
 			</p>
 		</div>
 
-		<div class="result-time-message">OO 분 후에 픽업해주세요.</div>
+		<div class="result-time-message">${order_idx.pick_up_time}분 후에 픽업해주세요.</div>
 	</section>
 	<!-- 3.30 결제 완료 창 끝-->
 	<script type="text/javascript">
@@ -257,7 +257,6 @@ const firebaseConfig = {
 					menu_idx : menu_idx
 				},
 				success : function(menu) {
-					console.log("젭알좀 되라,,, 씨바노마")
 					console.log(menu.menu_name);
 					console.log(menu)
 					$("#menuName_" + menu_idx).text(menu.menu_name);

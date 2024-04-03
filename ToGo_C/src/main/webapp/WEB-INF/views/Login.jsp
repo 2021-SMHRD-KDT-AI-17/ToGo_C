@@ -42,39 +42,58 @@
 	crossorigin="anonymous">
 
 <style type="text/css">
+body[color-mode='dark'] {
+	background: #2B2B2B;
+}
+
+.login_form_inner[color-mode='dark'] {
+	background: white;
+}
+
+body[color-mode='dark'] {
+	color: #2B2B2B;
+}
+
+/* 추가적인 스타일링은 이곳에 추가하세요. */
+.darkmode-toggle-button {
+	cursor: pointer;
+}
+
+.darkmode-toggle-button .icon {
+	font-size: 24px;
+}
+
 .cart-area-nav {
 	/* background: linear-gradient(62deg, #A5BD85, rgb(182, 198, 159)); */
 	background: rgb(182, 198, 159);
-	opacity:1;
+	opacity: 1;
 	width: 100%;
 	height: 200px;
 	margin-top: 0px;
 	position: relative;
 }
 
-.cart-area-nav-title{
-	font-size:21px;
-	font-weight:bold;
+.cart-area-nav-title {
+	font-size: 21px;
+	font-weight: bold;
 	position: relative;
-	top:60px;
+	top: 60px;
 }
 
-a{
+a {
 	text-decoration: none;
 }
 
-@font-face{
+@font-face {
 	font-family: 'BMJUA_ttf';
 	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
 	font-weight: normal;
 	font-style: normal;
 }
 
-h3, h4{	
+h3, h4 {
 	font-family: BMJUA_ttf;
-
 }
-
 </style>
 </head>
 
@@ -102,7 +121,8 @@ h3, h4{
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="login_box_img" style="margin: 0px;">
-						<img class="img-fluid" src="resources/images/play-stone-1738160_1280.jpg" alt="">
+						<img class="img-fluid"
+							src="resources/images/play-stone-1738160_1280.jpg" alt="">
 						<div class="hover">
 							<h4>처음 방문하셨나요?</h4>
 							<p>회원가입은 간편하게, 혜택은 다양하게!</p>
@@ -160,6 +180,10 @@ h3, h4{
 								<div id="naver_id_login"></div>
 							</div>
 
+							<p>다크모드 테스트</p>
+							<button class="darkmode-toggle-button" id="mode-toggle-button">모드
+								전환</button>
+
 						</form>
 					</div>
 				</div>
@@ -174,6 +198,47 @@ h3, h4{
 	<%@include file="./includes/footer.jsp"%>
 
 	<!-- End footer Area -->
+	<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+	    const toggleButton = document.getElementById('toggle-radio-dark');
+	    const body = document.body;
+
+	    // 페이지 로드 시에 로컬 스토리지에서 다크 모드 설정을 가져와 적용
+	    const colorMode = localStorage.getItem('color-mode');
+	    if (colorMode === 'dark') {
+	        body.setAttribute('color-mode', 'dark');
+	        toggleButton.checked = true;
+	    } else {
+	        body.setAttribute('color-mode', 'light');
+	    }
+
+	    // 토글 버튼 클릭 시에 다크 모드 설정을 변경하고 로컬 스토리지에 저장
+	    toggleButton.addEventListener('change', function() {
+	        if (toggleButton.checked) {
+	            enableDarkMode();
+	        } else {
+	            disableDarkMode();
+	        }
+	    });
+
+	    // 태양 버튼 클릭 시에 다크 모드 설정 초기화
+	    const sunButton = document.getElementById('toggle-radio-light');
+	    sunButton.addEventListener('change', function() {
+	        disableDarkMode();
+	    });
+
+	    function enableDarkMode() {
+	        body.setAttribute('color-mode', 'dark');
+	        localStorage.setItem('color-mode', 'dark');
+	    }
+
+	    function disableDarkMode() {
+	        body.setAttribute('color-mode', 'light');
+	        localStorage.removeItem('color-mode');
+	    }
+	});
+
+	</script>
 
 
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>

@@ -16,5 +16,9 @@
 	<select id="selectOrderDetail" parameterType="int" resultType="kr.smhrd.entity.Order_details">
 	    select * from order_details where order_idx = #{order_idx}
 	</select>
+	
+<!--    <update id="orderPickuptime" parameterType="int">
+      UPDATE orders SET pick_up_time = #{pick_up_time} where mb_id=#{mb_id}
+   </update>	 -->
 
 </mapper>

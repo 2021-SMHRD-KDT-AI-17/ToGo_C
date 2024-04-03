@@ -91,7 +91,7 @@ select * from menus;
  ON m.menu_idx = od.menu_idx
  JOIN orders o
  ON (od.order_idx = o.order_idx)
- where mb_id = 'admin';
+ where mb_id = 'test123';
  
  select * from orders;
 select * from order_details;

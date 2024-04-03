@@ -3,6 +3,7 @@ package kr.smhrd.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import kr.smhrd.entity.OrderHistory;
 
@@ -11,7 +12,6 @@ import kr.smhrd.entity.OrderHistory;
 public interface OrderHistoryMapper {
 
 
-	List<OrderHistory> orderhistory();
-
+	List<OrderHistory> orderhistory(@Param("mb_id") String mb_id);
 
 }

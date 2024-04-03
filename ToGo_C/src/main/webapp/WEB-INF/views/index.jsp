@@ -60,7 +60,7 @@
 
 /* 기본 스타일링 */
 body {
-	font-family: Arial, sans-serif;
+	font-family: BMJUA_ttf;
 	margin: 0;
 	padding: 0;
 	background-color: #f4f4f4;
@@ -68,16 +68,16 @@ body {
 	
 }
 
-p {
-	margin-bottom: 0px;
+
+@font-face {
+	font-family: 'BMJUA_ttf';
+	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
+	font-style: normal;
 }
 
-.welcome-message-box {
-	/*  font-family: "Noto Sans KR", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal; */
-	
+
+p {
+	margin-bottom: 0px;
 }
 
 .container {
@@ -145,17 +145,17 @@ p {
 	height: 200px;
 	width: 100%;
 	border-radius: 10px;
-	font-family: "Black Han Sans", sans-serif;
+	/* font-family: "Black Han Sans", sans-serif; */
 	font-weight: 400;
 	font-style: normal;
 	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
-	font-family: "Black Han Sans", sans-serif;
+	
 }
 
 .welcome-message1 {
-	font-size: 24px;
+	font-size: 23px;
 	padding: 40px 20px 20px 20px;
 }
 
@@ -268,7 +268,24 @@ p {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	bor
+	font-size: 15px !important;
+}
+
+.card[color-mode='dark']{
+	background-color: red;
+	color: #000000;
+	transition:all ease-in-out .3s;
+}
+
+.card[color-mode='light']{
+	background-color: #ffffff;
+	color: #000000;
+	transition:all ease-in-out .3s;
+}
+
+.card-img-top{
+	width: 100%;
+	height: 140px;
 }
 
 #carouselExampleCaptions {
@@ -357,7 +374,6 @@ p {
 			<div class="" style="display: flex; justify-content: center;">
 
 				<div class="gas-icon">
-					<i class="fa-solid fa-gas-pump"></i> 
 					<img alt="" src="resources/images/conv-icon/gas_03_29.png" height="25px">
 				</div>
 				<%
@@ -367,14 +383,14 @@ p {
 
 				<div class="gas-gasoline">
 					<img alt="" src="resources/images/conv-icon/Gasoline.png"
-						height="25px"> <span class="gas-gasoline-price" id="money">${select_area.getGasoline_price() }
+						height="25px"> <span class="gas-gasoline-price font-white" id="money">${select_area.getGasoline_price() }
 						<span>원</span>
 					</span>
 				</div>
 				<div class="wantGoHome"></div>
 				<div class="gas-diesel">
 					<img alt="" src="resources/images/conv-icon/diesel.png"
-						height="25px"> <span class="gas-diesel-price">${select_area.getDiesel_price() }
+						height="25px"> <span class="gas-diesel-price font-white">${select_area.getDiesel_price() }
 						<span>원</span>
 					</span>
 				</div>
@@ -423,13 +439,13 @@ p {
 					<c:if test="${c.conv_name eq '쉼터'}">
 						<div class="conv-info-item-icon">
 							<img src="resources/images/conv-icon/park-32px.png" alt="">
-							<p>${c.conv_name}</p>
+							<p class="">${c.conv_name}</p>
 						</div>
 					</c:if>
 					<c:if test="${c.conv_name eq '경정비'}">
 						<div class="conv-info-item-icon">
 							<img src="resources/images/conv-icon/maintenance-32px.png" alt="">
-							<p>${c.conv_name}</p>
+							<p class="">${c.conv_name}</p>
 						</div>
 					</c:if>
 					<c:if test="${c.conv_name eq 'ATM'}">
@@ -441,13 +457,13 @@ p {
 					<c:if test="${c.conv_name eq '특산물'}">
 						<div class="conv-info-item-icon">
 							<img src="resources/images/conv-icon/souvenir-32px.png" alt="">
-							<p>${c.conv_name}</p>
+							<p class="">${c.conv_name}</p>
 						</div>
 					</c:if>
 					<c:if test="${c.conv_name eq '수면실'}">
 						<div class="conv-info-item-icon">
 							<img src="resources/images/conv-icon/sleep-32px.png" alt="">
-							<p>${c.conv_name}</p>
+							<p class="">${c.conv_name}</p>
 						</div>
 					</c:if>
 
@@ -488,7 +504,7 @@ p {
 						</div>
 					</div>
 					<div class="go-store-button">
-						<div class="go-store-title"><strong>BEST 추천 메뉴</strong></div>
+						<div class="go-store-title"><strong><span class="font-white">BEST 추천 메뉴</span></strong></div>
 						<a href="goStores"><input type="button" class="goStoresButton"
 							value="주문하러 가기!"></a>
 					</div>
@@ -497,11 +513,11 @@ p {
 					<td class="best-food-item">
 						<div>
 							<div class="card" style="margin: 5px;">
-								<img src="resources/images/MainOrder.png" class="card-img-top"
+								<img src="resources/images/best-food/main-food-ex1.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<p class="card-text">떡볶이</p>
-									<div>3,500원</div>
+									<p class="card-text">라면</p>
+									<div>4,500원</div>
 								</div>
 							</div>
 						</div>
@@ -509,11 +525,11 @@ p {
 					<td class="best-food-item">
 						<div>
 							<div class="card" style="margin: 5px;">
-								<img src="resources/images/MainOrder.png" class="card-img-top"
+								<img src="resources/images/best-food/ice-coffee-7995033_640.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<p class="card-text">떡볶이</p>
-									<div>3,500원</div>
+									<p class="card-text">아메리카노</p>
+									<div>2,500원</div>
 
 								</div>
 							</div>
@@ -524,11 +540,11 @@ p {
 					<td class="best-food-item">
 						<div>
 							<div class="card" style="margin: 5px;">
-								<img src="resources/images/MainOrder.png" class="card-img-top"
+								<img src="resources/images/best-food/main-food-ex7.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<p class="card-text">떡볶이</p>
-									<div>3,500원</div>
+									<p class="card-text">소떡소떡</p>
+									<div>3,000원</div>
 								</div>
 							</div>
 						</div>
@@ -539,8 +555,8 @@ p {
 								<img src="resources/images/MainOrder.png" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<p class="card-text">떡볶이</p>
-									<div>3,500원</div>
+									<p class="card-text">바지락된장찌개</p>
+									<div>12,000원</div>
 								</div>
 							</div>
 						</div>
@@ -649,7 +665,7 @@ p {
 			style="display: flex; flex-direction: column;">
 
 			<div class="festival-area-title">
-				<p class="">축제 / 관광 정보</p>
+				<p class="font-white">축제 / 관광 정보</p>
 				<span class="festival-area-link"><a
 					href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do"
 					target="_blank">전체 보기 ></a> </span>
@@ -695,7 +711,7 @@ p {
 					target="_blank"></a> </span>
 			</div>
 			<div class="festival-area-title">
-				<p class="">우리나라 이모저모</p>
+				<p class="font-white">우리나라 이모저모</p>
 				<span class="festival-area-link"><a
 					href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do"
 					target="_blank"> 갤러리 이동 ></a> </span>
@@ -724,6 +740,57 @@ p {
 		   .replace(/[^0-9]/g, ''))
 		   .toLocaleString();
 		}
+	</script>
+	
+	
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	    const toggleButton = document.getElementById('toggle-radio-dark');
+	    const body = document.body;
+
+	    
+	    const colorMode = localStorage.getItem('color-mode');
+	    if (colorMode === 'dark') {
+	        body.setAttribute('color-mode', 'dark');
+	        toggleButton.checked = true;
+	        enableDarkMode(); // 페이지가 로드될 때 Dark Mode가 활성화된 경우
+	    } else {
+	        body.setAttribute('color-mode', 'light');
+	    }
+
+	    
+	    toggleButton.addEventListener('change', function() {
+	        if (toggleButton.checked) {
+	            enableDarkMode();
+	        } else {
+	            disableDarkMode();
+	        }
+	    });
+
+	   
+	    function enableDarkMode() {
+	        body.setAttribute('color-mode', 'dark');
+	        
+	        const fontWhiteElements = document.querySelectorAll('.font-white');
+	        fontWhiteElements.forEach(function(element) {
+	            element.style.color = '#F5F5F5';
+	        });
+	        localStorage.setItem('color-mode', 'dark');
+	    }
+
+	    
+	    function disableDarkMode() {
+	        body.setAttribute('color-mode', 'light');
+	       
+	        const fontWhiteElements = document.querySelectorAll('.font-white');
+	        fontWhiteElements.forEach(function(element) {
+	           
+	            element.style.color = ''; 
+	        });
+	        localStorage.setItem('color-mode', 'light');
+	    }
+	});
+
 	</script>
 
 
