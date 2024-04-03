@@ -59,7 +59,6 @@ public class OrderListController {
 		order.setStore_id("admin"); // 업체 아이디
 		order.setPick_up_time(pick_up_time); // 픽업 시간
 
-//		System.out.println(order.toString());
 		//order 만들기
 		orderListMapper.orderInsert(order);
 		
@@ -81,7 +80,7 @@ public class OrderListController {
 		
 		List<Order_details> od_list = orderListMapper.selectOrderDetail(order_idx.getOrder_idx());
 		session.setAttribute("od_list", od_list);
-		System.out.println(od_list.toString());
+		session.removeAttribute("b_list");
 
 		return "PaymentCom";
 	}
