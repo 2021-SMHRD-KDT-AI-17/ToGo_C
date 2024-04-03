@@ -187,7 +187,7 @@ span[color-mode='light']{
  %>
 							
 							<li class="nav-item"><a href="goBasket" class="cart"> <i
-									class="fa-solid fa-cart-shopping"></i></a></li>
+									class="fa-solid fa-cart-shopping" style="color:black;"></i></a></li>
 							<li class="nav-item" style="text-align: right;"><a
 								class="nav-link" href="#">환영합니다 <strong><%=loginMember.getMb_nick()%></strong>고객님!
 							</a></li>

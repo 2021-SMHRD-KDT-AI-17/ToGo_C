@@ -136,9 +136,10 @@ a {
 }
 
 .cart-area-nav {
-   background: linear-gradient(62deg, #c2e59c, #64b3f4);
+   /* background: linear-gradient(62deg, #c2e59c, #64b3f4); */
+   background: white;
    width: 100%;
-   height: 200px;
+   height: 150px;
    margin-bottom: 10px;
    position: relative;
 }
@@ -150,7 +151,7 @@ a {
 
 .cart-area-nav-title {
    position: absolute;
-   top: 60px;
+   top: 50px;
    left: 16px;
 }
 
@@ -275,18 +276,18 @@ a {
                      <tr class="bottom_button">
                         <td colspan="2"><a class="gray_btn strong gray-btn-width"
                            href="basketAllDelete"
-                           style="padding: 5px; text-decoration: none; border-radius: 10px;">
+                           style="padding: 5px; text-decoration: none; border-radius: 10px; background: #FFFFD4; box-shadow: 2px 3px 1px 0px black;">
                               전체 삭제</a></td>
                         
                         <td colspan="3"><a class="gray_btn strong gray-btn-width" href="goStores"
-                           style="text-align:center; padding: 5px; text-decoration: none; border-radius: 10px;">쇼핑
+                           style="text-align:center; padding: 5px; text-decoration: none; border-radius: 10px; background: #FFFFD4; box-shadow: 2px 3px 1px 0px black;">쇼핑
                               계속하기</a></td>
 
                      </tr>
                      <tr>
 
 
-                        <td style="background: #ffdfdf; text-align:center; font-size: 25px">
+                        <td style="text-align:center; font-size: 25px">
                         	<h5 style="font-family: 'BMJUA_ttf';">
                               총 가격
                            </h5></td>
@@ -309,17 +310,17 @@ a {
 
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;">&nbsp;5분
+                                    style="font-size: 18px; background: rgb(182, 198, 159);">&nbsp;5분
                                     후</button>
                               </div>
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="10">10분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="10">10분 후
                                  </button>
                               </div>
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="15">15분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="15">15분 후
                                  </button>
                               </div>
 
@@ -332,17 +333,17 @@ a {
                               style="display: flex; justify-content: space-around;">
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="20">20분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="20">20분 후
                                  </button>
                               </div>
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="25">25분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="25">25분 후
                                  </button>
                               </div>
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="30">30분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="30">30분 후
                                  </button>
                               </div>
                            </div>

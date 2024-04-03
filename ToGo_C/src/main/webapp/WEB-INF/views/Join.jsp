@@ -79,8 +79,7 @@
 	font-weight: 900;
 	border-radius: 10px;
 	box-shadow: 1px 1px 1px 0px black;
-	background: linear-gradient(62deg, #c2e59c, #64b3f4);
-	/* background: rgb(182, 198, 159); */
+	background: #FFFFD4;
 }
 
 #resultCheck{
