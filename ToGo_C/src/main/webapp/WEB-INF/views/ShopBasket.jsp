@@ -385,40 +385,44 @@ a {
    
    <!-- 픽업시간 선택 스크립트 -->
    
-   
-<%--    document.querySelectorAll('.btn.btn-light').forEach(button => {
-	    button.addEventListener('click', function() {
-	        // 클릭된 버튼의 내용(텍스트) 값을 가져와서 출력
-	        //console.log("Clicked button value:", this.textContent);
-	        // 클릭된 버튼의 내용에서 숫자만 추출하여 출력
-	        var pick_up_time = parseInt(this.textContent.replace(/\D/g, ''));
-	        console.log("pick_up_time:", pick_up_time);
-	        
-	        // pick_up_time 값을 checkPhone 함수로 전달하여 호출
-	        checkPhone(pick_up_time);
-	    });
-	});
+// 픽업 시간을 저장할 전역 변수
+   var pick_up_time = null;
 
-	function checkPhone(pick_up_time) {
-	    var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
-	    var total_price = parseInt(document.getElementById("total_price").innerText);
-	    console.log("총금액"+t);
+   document.querySelectorAll('.btn.btn-light').forEach(button => {
+       button.addEventListener('click', function() {
+           // 클릭된 버튼의 내용(텍스트) 값을 가져와서 출력
+           //console.log("Clicked button value:", this.textContent);
+           // 클릭된 버튼의 내용에서 숫자만 추출하여 출력
+           pick_up_time = parseInt(this.textContent.replace(/\D/g, ''));
+           console.log("pick_up_time:", pick_up_time);
+       });
+   });
 
-	    if (!loginMemberValue) {
-	        console.log("로그인 안되어 있음");
-	        var phone_noValue = document.getElementById("phone_no").value;
-	        if (phone_noValue === "") {
-	            alert("전화번호를 입력하세요");
-	        } else {
-	            var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t+"&pick_up_time="+pick_up_time;
-	            window.location.href = dynamicUrl;
-	        }   
-	    } else {
-	        console.log("로그인되어 있음");
-	        var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t+"&pick_up_time="+pick_up_time;
-	        window.location.href = dynamicUrl;
-	    }
-	} --%>
+   function executeCheckPhone() {
+       checkPhone(pick_up_time.toString());
+   }
+
+   function checkPhone() {
+       var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
+       var total_price = parseInt(document.getElementById("total_price").innerText);
+
+       if (!loginMemberValue) {
+           console.log("로그인 안되어 있음");
+           var phone_noValue = document.getElementById("phone_no").value;
+           if (phone_noValue === "") {
+               alert("전화번호를 입력하세요");
+           } else {
+               var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t +"&pick_up_time="+pick_up_time;
+               window.location.href = dynamicUrl;
+           }   
+       } else {
+           console.log("로그인되어 있음");
+           var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t+"&pick_up_time="+pick_up_time;
+           window.location.href = dynamicUrl;
+       }
+   }
+
+
 
    
    
@@ -515,7 +519,7 @@ a {
 
             
     
- 
+<%--  그나마 되는거 근데 순서가 결제하기누르고 -> 시간 선택해야함 (ㄱ ㅐ 가 ㅌ 으 ㅁ.....)
           function checkPhone() {
                 var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
                 var total_price = parseInt(document.getElementById("total_price").innerText);
@@ -548,7 +552,7 @@ a {
                     var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t=" + total_price + "&pick_up_time=" + pick_up_time;
                     window.location.href = dynamicUrl;
                 }
-            }
+            } --%>
  
             
             
