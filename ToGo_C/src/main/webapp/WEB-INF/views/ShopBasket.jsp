@@ -235,7 +235,14 @@ a {
                                  <span class="price">${b.total}</span>원
                               </h5>
                            </td>
-                           <td>X</td>
+                           <td>
+                          <form action="basketDelete" method="post">
+            		<!-- 각 상품의 ID를 hidden input으로 전달 -->
+            					<input type="hidden" name="itemIndex" value="${status.index}" />
+            					<button type="submit">-</button>
+        					</form>
+                           
+                           </td>
                         </tr>
                      </c:forEach>
 
