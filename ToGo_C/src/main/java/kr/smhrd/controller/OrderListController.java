@@ -28,11 +28,13 @@ public class OrderListController {
 	private MenusMapper menusMapper;
 	
 	@RequestMapping("/goOrderList")
-	public String goOrderList(@RequestParam("phone_noValue") String phone_noValue, @RequestParam("t") int t,HttpSession session) {
+	public String goOrderList(@RequestParam("phone_noValue") String phone_noValue,
+			@RequestParam("t") int t, HttpSession session, @RequestParam("pick_up_time") int pick_up_time) {
 
 		Members loginMember = (Members) session.getAttribute("loginMember");
 		Orders order = new Orders();
-
+		System.out.println(pick_up_time);
+		
 		if(loginMember != null) {
 //			// 로그인이 되어 있음
 			order.setMb_id(loginMember.getMb_id());
@@ -55,11 +57,13 @@ public class OrderListController {
 		order.setOrder_total_amount(t); // 주문 총 가격
 		order.setOrder_status("준비중"); // 주문 상태
 		order.setStore_id("admin"); // 업체 아이디
-		order.setPick_up_time(5); // 픽업 시간
+		order.setPick_up_time(pick_up_time); // 픽업 시간
 
-		System.out.println(order.toString());
+//		System.out.println(order.toString());
 		//order 만들기
 		orderListMapper.orderInsert(order);
+		
+		
 		Orders order_idx = orderListMapper.orderSelect(loginMember.getMb_id());
 		session.setAttribute("order_idx", order_idx);
 		
