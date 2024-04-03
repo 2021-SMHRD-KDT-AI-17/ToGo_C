@@ -45,6 +45,19 @@
 	
 } */
 
+@font-face {
+	font-family: 'BMJUA_ttf';
+	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+h3, h4 {
+	font-family: BMJUA_ttf;
+}
+
+
+
 .container {
   width: 100%;
   height: 800px;
@@ -204,7 +217,9 @@ input {
 </style>
 
 </head>
-<body>
+
+
+<body style="font-family: BMJUA_ttf">
 	<div class="logo-intro-area">
 		<article class="bg-image">
 			<img src="resources/images/intro-image.png">
