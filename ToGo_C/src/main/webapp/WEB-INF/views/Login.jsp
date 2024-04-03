@@ -72,11 +72,11 @@ body[color-mode='dark'] {
 }
 
 .cart-area-nav {
-	background: linear-gradient(62deg, #4ca1af, #c4e0e5);
+	
 	/* background: rgb(182, 198, 159); */
 	opacity: 1;
 	width: 100%;
-	height: 200px;
+	height: 140px;
 	margin-top: 0px;
 	position: relative;
 }
@@ -85,8 +85,8 @@ body[color-mode='dark'] {
 	font-size: 21px;
 	font-weight: bold;
 	position: relative;
-	top: 60px;
-	left:20px;
+	top: 40px;
+	left:10px;
 	font-family: BMJUA_ttf;
 	text-indent: 10px;
 }
@@ -118,11 +118,11 @@ h3, h4 {
 	<!-- End Header Area -->
 
 	<!-- Start Banner Area -->
-	<section class="cart-area-nav">
+	<!-- <section class="cart-area-nav">
 		<div class="container cart-area-nav-title">
 			<h2 class="cart-area-nav-title">로그인 / 회원가입</h2>
 		</div>
-	</section>
+	</section> -->
 	<!-- End Banner Area -->
 
 	<!--================ 3.23 로그인 박스 영역 시작 =================-->
@@ -131,7 +131,7 @@ h3, h4 {
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
-					<div class="login_box_img" style="margin: 0px;">
+					<div class="login_box_img" style="margin-top: 50px; margin-right: 2px;">
 						<img class="img-fluid"
 							src="resources/images/play-stone-1738160_1280.jpg" alt="">
 						<div class="hover">
@@ -169,27 +169,14 @@ h3, h4 {
 								<label for="floatingPassword">비밀번호</label>
 							</div>
 							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">로그인 상태 유지</label>
-								</div>
+								
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="primary-btn">로그인</button>
-								<a href="#">비밀번호 찾기</a>
+								
 							</div>
 
-							<div class="col-md-12 form-group">
-								<a id="kakao-login-btn" href="javascript:loginWithKakao()">
-									<img
-									src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
-									width="222" alt="카카오 로그인 버튼" />
-								</a>
-								<p id="token-result"></p>
-							</div>
-							<div class="col-md-12 form-group">
-								<div id="naver_id_login"></div>
-							</div>
+							
 						</form>
 					</div>
 				</div>

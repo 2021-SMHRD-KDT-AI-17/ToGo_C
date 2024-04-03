@@ -63,7 +63,6 @@
 
 ul {
    list-style: none;
-   text-align: center;
 }
 
 a {
@@ -90,11 +89,12 @@ h2{
 }
 
 .cart-area-nav{
-   background: linear-gradient(62deg, #c2e59c, #64b3f4);
+   background: FCFBF8;
    width: 100%; 
-   height: 200px;
+   height: 100px;
    margin-top:0px;
    position:relative;
+   color: black;
     
 }
 
@@ -102,6 +102,7 @@ h2{
    position: relative;
    top:20px;
    text-align: center;
+   color: black;
 }
 
 .tab_menu .list {
@@ -130,11 +131,13 @@ h2{
 }
 
 .tab_menu .list li.is_on .btn {
-   text-align:center;
+   /* text-align:center; */
    font-weight: bold;
    width:82px;
-   color: black;
-   background: rgb(182, 198, 159);
+	background: #EC6341;
+/* background: lightgray; */
+   color:black;
+   letter-spacing: 2px;
 }
 
 .tab_menu .list li.is_on .cont {
@@ -143,6 +146,7 @@ h2{
 
 .is_on a{
 	border-radius: 5px 5px 0px 0px;
+	color: white;
 }
 
 
@@ -160,7 +164,7 @@ h2{
 
 .cart-area-nav-title{
    position: relative;
-   top: 55px;
+   top: 40px;
 }
 
 .menu-info-box{
@@ -355,7 +359,7 @@ font-size: 14px;
    box-shadow: 2px 3px 1px 0px black;
    margin: 15px;
    
-   background: #FCFF94;
+   background: #FFFFD4;
 }
 
 .close-basket{

@@ -40,6 +40,22 @@
    background-image: url("resources/images/MainFestival.jpg")
 }
 
+@font-face {
+	font-family: 'BMJUA_ttf';
+	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+h2, h3, h4, h5{
+	font-family: BMJUA_ttf;
+}
+
+.cart_inner{
+	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .02);
+}
+
+
 .strong {
    font-weight: 800px;
    margin-bottom: 0;
@@ -111,13 +127,23 @@ a {
    transition: all 0.3s ease 0s;
 }
 
+.delete-btn{
+ 	   
+   width:20px;
+   text-align: center;
+   margin-left: 13px;
+   border: 1px solid lightgray;
+}
+
 .cart-area-nav {
-   background: rgb(182, 198, 159);
+   /* background: linear-gradient(62deg, #c2e59c, #64b3f4); */
+   background: white;
    width: 100%;
-   height: 200px;
-   margin-top: 0px;
+   height: 150px;
+   margin-bottom: 10px;
    position: relative;
 }
+
 
 #total_price {
    
@@ -125,7 +151,8 @@ a {
 
 .cart-area-nav-title {
    position: absolute;
-   top: 70px;
+   top: 50px;
+   left: 16px;
 }
 
 .go-credit-box{
@@ -162,7 +189,7 @@ a {
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
 
-<body>
+<body style="font-family: BMJUA_ttf;">
 
    <!-- 헤더 영역 시작(includes 폴더) -->
 
@@ -181,7 +208,7 @@ a {
      =================-->
    <section class="cart-area-nav">
       <div class="container cart-area-nav-title">
-         <h2 class="cart-area-nav-title">장바구니 목록</h2>
+         <h2 class="cart-area-nav-title" style="font-family: 'BMJUA_ttf';">장바구니 목록</h2>
       </div>
    </section>
 
@@ -213,7 +240,7 @@ a {
                                     style="display: flex; flex-direction: column; padding: 0px;">
                                     <div>
                                        <img src="<%-- 사진여기에 넣으면됨 ${b.menu_Img} --%>" alt=""
-                                          style="width: 90px; height: 70px">
+                                          style="width: 90px; height: 70px; margin-bottom: 10px;">
 
                                     </div>
                                     <div>
@@ -239,7 +266,7 @@ a {
                           <form action="basketDelete" method="post">
             		<!-- 각 상품의 ID를 hidden input으로 전달 -->
             					<input type="hidden" name="itemIndex" value="${status.index}" />
-            					<button type="submit">-</button>
+            					<button type="submit" class="delete-btn">-</button>
         					</form>
                            
                            </td>
@@ -249,19 +276,20 @@ a {
                      <tr class="bottom_button">
                         <td colspan="2"><a class="gray_btn strong gray-btn-width"
                            href="basketAllDelete"
-                           style="padding: 5px; text-decoration: none; border-radius: 10px;">
+                           style="padding: 5px; text-decoration: none; border-radius: 10px; background: #FFFFD4; box-shadow: 2px 3px 1px 0px black;">
                               전체 삭제</a></td>
                         
                         <td colspan="3"><a class="gray_btn strong gray-btn-width" href="goStores"
-                           style="text-align:center; padding: 5px; text-decoration: none; border-radius: 10px;">쇼핑
+                           style="text-align:center; padding: 5px; text-decoration: none; border-radius: 10px; background: #FFFFD4; box-shadow: 2px 3px 1px 0px black;">쇼핑
                               계속하기</a></td>
 
                      </tr>
                      <tr>
 
 
-                        <td style="background: #ffdfdf; text-align:center; font-size: 25px"><h5>
-                              <strong>총 가격</strong>
+                        <td style="text-align:center; font-size: 25px">
+                        	<h5 style="font-family: 'BMJUA_ttf';">
+                              총 가격
                            </h5></td>
                         <td></td>
 
@@ -273,7 +301,7 @@ a {
                            <p class="strong">픽업 예정 시간</p>
                         </td>
                         <td></td>
-
+						<td></td>
                      </tr>
                      <tr style="border-bottom: none;">
                         <td colspan="5" style="border-bottom: none;">
@@ -282,17 +310,17 @@ a {
 
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;">&nbsp;5분
+                                    style="font-size: 18px; background: rgb(182, 198, 159);">&nbsp;5분
                                     후</button>
                               </div>
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="10">10분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="10">10분 후
                                  </button>
                               </div>
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="15">15분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="15">15분 후
                                  </button>
                               </div>
 
@@ -305,17 +333,17 @@ a {
                               style="display: flex; justify-content: space-around;">
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="20">20분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="20">20분 후
                                  </button>
                               </div>
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="25">25분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="25">25분 후
                                  </button>
                               </div>
                               <div>
                                  <button class="btn btn-light strong"
-                                    style="font-size: 18px; background: #ffdfdf;" value="30">30분 후
+                                    style="font-size: 18px; background: rgb(182, 198, 159);" value="30">30분 후
                                  </button>
                               </div>
                            </div>
@@ -329,7 +357,7 @@ a {
                      <tr class="out_button_area" style="border-top: none;">
                         <td colspan="2">
                            <div>
-                              <p class="strong" style="margin-bottom: 18px">휴대폰 번호</p>
+                              <p class="strong" style="margin-bottom: 3px">휴대폰 번호</p>
                               <input type="text" id="phone_no" class="form-control"
                                  oninput="oninputPhone(this)" maxlength="13">
                            </div>
@@ -338,7 +366,7 @@ a {
                         <td colspan="3">
                            <div class="go-credit-box">
                               <a class="primary-btn strong go-credit"
-                                 style="width: 160px; height: 60px; border: 1px solid black; font-size: 16px; font-weight: 900; border-radius: 10px; box-shadow: 2px 3px 1px 0px black; margin: 10px; background: #FCFF94;"
+                                 style="width: 150px; height: 50px; border: 1px solid black; font-size: 16px; font-weight: 900; border-radius: 10px; box-shadow: 2px 3px 1px 0px black; margin: 10px; background: #FCFF94;"
                                  onclick="checkPhone()"><i class="fa-regular fa-credit-card"></i>&nbsp;결제하기</a>
                            </div>
                         </td>

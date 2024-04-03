@@ -252,7 +252,7 @@ input {
 
 			</div>
 
-			<div class="search-count">검색 결과 3개</div>
+			<div class="search-count">검색 결과</div>
 
 			<div class="search-result-box">
 				<ul class="search-result-list" id="service_area_list">

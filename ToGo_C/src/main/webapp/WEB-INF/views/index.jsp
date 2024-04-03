@@ -227,7 +227,7 @@ p {
 	box-shadow: 2px 3px 1px 0px black;
 	margin: 15px;
 	height: 40px;
-	background: #FCFF94;
+	background: #FFFFD4;
 }
 
 .food-recommand-tag {
