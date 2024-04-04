@@ -7,36 +7,30 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
-
 body[color-mode='dark'] {
 	background-color: #2B2B2B;
-	transition:all ease-in-out .3s;
+	transition: all ease-in-out .5s;
 }
 
 body[color-mode='light'] {
-	background-color: #FCFBF8;
-	transition:all ease-in-out .3s;
+	ㄴ background-color: #FCFBF8;
+	transition: all ease-in-out .5s;
 }
 
 @font-face {
 	font-family: 'BMJUA_ttf';
 	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
-/* 	font-weight: normal;
+	/* 	font-weight: normal;
 	font-style: normal; */
 }
 
-
-
-span[color-mode='dark']{
+span[color-mode='dark'] {
 	color: #F7F7F7;
 }
 
-span[color-mode='light']{
+span[color-mode='light'] {
 	color: #2B2B2B;
-	
 }
-
 
 .service-search-icon {
 	display: flex;
@@ -154,14 +148,6 @@ span[color-mode='light']{
 								style="font-weight: bold;">다크모드</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item">
-										<!-- <div class="form-check form-switch">
-
-											<input class="form-check-input" type="checkbox" role="switch"
-												id="flexSwitchCheckDefault"> <label
-												class="form-check-label" for="flexSwitchCheckDefault">
-											</label> <input type="button" class="goStoresButton" id="dark-icon"
-												value="다크모드">
-										</div> -->
 										<div class="wrap">
 											<div class="darkmode">
 												<div class="inner">
@@ -187,7 +173,7 @@ span[color-mode='light']{
  %>
 							
 							<li class="nav-item"><a href="goBasket" class="cart"> <i
-									class="fa-solid fa-cart-shopping" style="color:black;"></i></a></li>
+									class="fa-solid fa-cart-shopping" style="color: black;"></i></a></li>
 							<li class="nav-item" style="text-align: right;"><a
 								class="nav-link" href="#">환영합니다 <strong><%=loginMember.getMb_nick()%></strong>고객님!
 							</a></li>
@@ -195,90 +181,64 @@ span[color-mode='light']{
 							}
 							%>
 
-
 							</li>
-
-
 
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-
-
-
-
-							<!-- <li class="nav-item">
-                        <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
-                     </li> -->
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-		<!-- <div class="search_input" id="search_input_box">
-         <div class="container">
-            <form class="d-flex justify-content-between">
-               <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-               <button type="submit" class="btn"></button>
-               <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-            </form>
-         </div>
-      </div> -->
 	</header>
 
 
 	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const toggleButton = document.getElementById('toggle-radio-dark');
+			const sunButton = document.getElementById('toggle-radio-light');
+			const body = document.body;
 
-	document.addEventListener('DOMContentLoaded', function() {
-	    const toggleButton = document.getElementById('toggle-radio-dark');
-	    const sunButton = document.getElementById('toggle-radio-light');
-	    const body = document.body;
+			function enableDarkMode() {
+				body.setAttribute('color-mode', 'dark');
 
-	    // Dark Mode 활성화 함수
-	    function enableDarkMode() {
-	        body.setAttribute('color-mode', 'dark');
-	        // .font-white 클래스를 가진 요소들의 글자색을 흰색으로 변경
-	        const fontWhiteElements = document.querySelectorAll('.font-white');
-	        fontWhiteElements.forEach(function(element) {
-	            element.style.color = '#fff'; // 흰색으로 설정
-	        });
-	        localStorage.setItem('color-mode', 'dark');
-	    }
+				const fontWhiteElements = document
+						.querySelectorAll('.font-white');
+				fontWhiteElements.forEach(function(element) {
+					element.style.color = '#fff';
+				});
+				localStorage.setItem('color-mode', 'dark');
+			}
 
-	    // Dark Mode 비활성화 함수
-	    function disableDarkMode() {
-	        body.setAttribute('color-mode', 'light');
-	        // .font-white 클래스를 가진 요소들의 글자색을 원래 색상으로 변경 (예: 검은색)
-	        const fontWhiteElements = document.querySelectorAll('.font-white');
-	        fontWhiteElements.forEach(function(element) {
-	            // 기존에 지정된 스타일로 변경하거나 초기값으로 변경해주세요.
-	            element.style.color = ''; // 초기값으로 변경하거나 다른 스타일을 지정해야 합니다.
-	        });
-	        localStorage.setItem('color-mode', 'light');
-	    }
+			// Dark Mode 비활성화 함수
+			function disableDarkMode() {
+				body.setAttribute('color-mode', 'light');
 
-	    const colorMode = localStorage.getItem('color-mode');
-	    if (colorMode === 'dark') {
-	        body.setAttribute('color-mode', 'dark');
-	        toggleButton.checked = true;
-	        enableDarkMode(); // 페이지가 로드될 때 Dark Mode가 활성화된 경우
-	    } else {
-	        body.setAttribute('color-mode', 'light');
-	    }
+				const fontWhiteElements = document
+						.querySelectorAll('.font-white');
+				fontWhiteElements.forEach(function(element) {
 
-	    toggleButton.addEventListener('change', function() {
-	        if (toggleButton.checked) {
-	            enableDarkMode();
-	        } else {
-	            disableDarkMode();
-	        }
-	    });
+					element.style.color = '';
+				});
+				localStorage.setItem('color-mode', 'light');
+			}
 
-	    sunButton.addEventListener('change', function() {
-	        disableDarkMode();
-	    });
-	});
+			const colorMode = localStorage.getItem('color-mode');
+			if (colorMode === 'dark') {
+				body.setAttribute('color-mode', 'dark');
+				toggleButton.checked = true;
+				enableDarkMode();
+			} else {
+				body.setAttribute('color-mode', 'light');
+			}
 
+			toggleButton.addEventListener('change', function() {
+				if (toggleButton.checked) {
+					enableDarkMode();
+				} else {
+					disableDarkMode();
+				}
+			});
 
+			sunButton.addEventListener('change', function() {
+				disableDarkMode();
+			});
+		});
 	</script>
 
 	<script src="https://kit.fontawesome.com/d97bdf4abd.js"
