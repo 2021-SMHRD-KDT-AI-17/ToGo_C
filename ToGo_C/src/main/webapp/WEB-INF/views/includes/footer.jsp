@@ -12,14 +12,14 @@ h5 {
 }
 
 .p-font1{
-	font-size: 15px;
+	font-size: 13px;
 	color: #f5f5f5;
 	padding-left:20px;
 	padding-top:20px;
 }
 
 .p-font2{
-	font-size: 15px;
+	font-size: 13px;
 	color: #f5f5f5;
 	padding-left:20px;
 	
@@ -69,7 +69,8 @@ a:hover {
 					<div class="single-footer-widget">
 						<h5 class="mb-20" style="margin-left:15px;">About Us</h5>
 						<p class="p-font1">여행을 더욱 특별하게 만드는 휴게소 미리주문 서비스</P>
-						<p class="p-font2">여행의 시작부터 휴식까지, To Go와 함께하세요 !</p>
+						<p class="p-font2">귀중한 시간 시작부터 휴식까지,</p>
+						<p class="p-font2">To Go와 함께하세요 !</p>
 					</div>
 				</div>
 				
