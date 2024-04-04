@@ -47,6 +47,32 @@ span[color-mode='light'] {
 	color: black !important;
 }
 </style>
+
+    <!--
+		CSS
+		============================================= -->
+<link rel="stylesheet" href="resources/assets/css/linearicons.css">
+<link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="resources/assets/css/themify-icons.css">
+<link rel="stylesheet" href="resources/assets/css/bootstrap.css">
+<link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
+<link rel="stylesheet" href="resources/assets/css/nice-select.css">
+<link rel="stylesheet" href="resources/assets/css/nouislider.min.css">
+<link rel="stylesheet" href="resources/assets/css/ion.rangeSlider.css" />
+<link rel="stylesheet"
+	href="resources/assets/css/ion.rangeSlider.skinFlat.css" />
+<link rel="stylesheet" href="resources/assets/css/magnific-popup.css">
+<link rel="stylesheet" href="resources/assets/css/main.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100..900&display=swap"
+	rel="stylesheet">
 </head>
 <body style="font-family: BMJUA_ttf">
 
@@ -241,7 +267,5 @@ span[color-mode='light'] {
 		});
 	</script>
 
-	<script src="https://kit.fontawesome.com/d97bdf4abd.js"
-		crossorigin="anonymous"></script>
 </body>
 </html>
