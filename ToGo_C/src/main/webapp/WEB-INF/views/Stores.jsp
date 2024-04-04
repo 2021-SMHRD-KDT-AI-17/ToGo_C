@@ -457,7 +457,7 @@ font-size: 14px;
                                  </div>
                            </div>                                 
                            <div class="menu-img-box">
-                              <img src="resources/images/logo.png" 사진 ${fm.menu_img} alt="">
+                              <img src="resources/images/food/${fm.menu_img}" 사진 ${fm.menu_img} alt="">
                            </div>                              
                         </div>         
                      </c:forEach>
@@ -480,7 +480,7 @@ font-size: 14px;
                                  </div>
                            </div>                                 
                            <div class="menu-img-box">
-                              <img src="pl1.jpg" 사진 ${sm.menu_img} alt="" >
+                              <img src="resources/images/food/${sm.menu_img}"alt="" >
                            </div>                              
                         </div>         
                      </c:forEach>
@@ -505,7 +505,7 @@ font-size: 14px;
                                  
                            </div>                                 
                            <div class="menu-img-box">
-                              <img src="pl1.jpg" 사진 ${bm.menu_img} alt="">
+                              <img src="resources/images/food/${bm.menu_img}" 사진 ${bm.menu_img} alt="">
                            </div>                              
                         </div>         
                      </c:forEach>
