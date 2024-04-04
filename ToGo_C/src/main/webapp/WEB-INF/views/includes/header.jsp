@@ -46,9 +46,43 @@ span[color-mode='light'] {
 .no-css {
 	color: black !important;
 }
+
+#toggle-radio-light, #toggle-radio-dark {
+	margin: 10px;
+	font-size:10px ; 
+	width:20px;
+	height:20px;
+
+}
+
+
+.label-toggle {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+
+.check-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease;
+}
+
+
+#toggle-radio-light:checked ~ .tolight .check-icon,
+#toggle-radio-dark:checked ~ .todark .check-icon {
+  transform: translate(-50%, -50%) scale(1); 
+}
+
 </style>
 
-    <!--
+<!--
 		CSS
 		============================================= -->
 <link rel="stylesheet" href="resources/assets/css/linearicons.css">
@@ -174,21 +208,38 @@ span[color-mode='light'] {
 								style="font-weight: bold;">다크모드</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item">
-										<div class="wrap">
+										<!-- <div class="wrap">
 											<div class="darkmode">
 												<div class="inner">
 													<input type="radio" name="toggle" id="toggle-radio-light"
 														checked><label for="toggle-radio-light"
 														class="tolight"><i class="fas fa-sun tolight"></i></label>
+														
 													<input type="radio" name="toggle" id="toggle-radio-dark"><label
 														for="toggle-radio-dark" class="todark"><i
 														class="fas fa-moon todark"></i></label>
 													<div class="darkmode-bg"></div>
 												</div>
 											</div>
+										</div> -->
+										<div class="wrap">
+											<div class="darkmode">
+												<div class="inner">
+													<input type="radio" name="toggle" id="toggle-radio-light"
+														checked> <label for="toggle-radio-light"
+														class="tolight label-toggle"> <i
+														class="fas fa-sun tolight check-icon"></i> <!-- 체크 아이콘 추가 -->
+													</label> <input type="radio" name="toggle" id="toggle-radio-dark">
+													<label for="toggle-radio-dark" class="todark label-toggle">
+														<i class="fas fa-moon todark check-icon"></i> <!-- 체크 아이콘 추가 -->
+													</label>
+													<div class="darkmode-bg"></div>
+												</div>
+											</div>
 										</div>
+
 									</li>
-								</ul>
+								</ul></li>
 							<li class="nav-item submenu dropdown" style="text-align: right;">
 								<%
 								if (loginMember == null) {
@@ -213,7 +264,8 @@ span[color-mode='light'] {
 						<ul class="nav navbar-nav navbar-right">
 	</header>
 
-
+	<script src="https://kit.fontawesome.com/d97bdf4abd.js"
+		crossorigin="anonymous"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
 			const toggleButton = document.getElementById('toggle-radio-dark');
