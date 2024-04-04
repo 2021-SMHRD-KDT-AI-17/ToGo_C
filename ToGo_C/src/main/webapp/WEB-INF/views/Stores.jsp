@@ -127,7 +127,7 @@ h2{
    color: black;
    text-align: center;
    width: 100%;
-   height: 510px;
+   height: 430px;
    border-radius: 0px 5px 5px 5px;
 }
 
@@ -177,7 +177,7 @@ h2{
    margin-top: 30px;
    width: 95%; 
    background: wheat; 
-   height: 600px; 
+   height: 520px; 
    border-radius: 10px;
    
 }
@@ -279,21 +279,11 @@ h2{
    box-sizing: border-box;
 }
 
-.menu-img-box {
-   width: 130px;
-   height: 150px;
-   background-image: url('resources/images/food/'); /* 이미지가 아닌 배경 이미지로 설정됨 */
-   background-size: cover; /* 이미지를 컨테이너에 맞게 확대 또는 축소 */
-   background-position: center; /* 이미지를 가운데 정렬 */
+.menu-img {
+   height: 200px;
+   width: 100%;   
+   border: 1px solid #999999;
 }
-
-.menu-img-box img {
-   width: 100%; /* 부모 요소에 맞게 이미지 크기 조정 */
-   height: 100%; /* 부모 요소에 맞게 이미지 크기 조정 */
-   object-fit: cover; /* 이미지를 확대 또는 축소하여 컨테이너에 맞게 채움 */
-   object-position: center; /* 이미지를 가운데 정렬 */
-}
-
 
 
 .menu-detail {
@@ -763,7 +753,11 @@ font-size: 14px;
 		const requirementsElement = document.getElementById('requirements');
 		 requirementsElement.value = "";
        num  = parseInt(num);
+       
+       
        var beverage_menus_list = <%= new com.google.gson.Gson().toJson(beverage_menus_list) %>;
+       
+       
        
        let idx = document.getElementById("idx");
        let menuName = document.getElementById("menuName");
