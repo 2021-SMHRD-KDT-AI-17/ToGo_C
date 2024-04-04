@@ -13,7 +13,7 @@ body[color-mode='dark'] {
 }
 
 body[color-mode='light'] {
-	ㄴ background-color: #FCFBF8;
+	background-color: #FCFBF8;
 	transition: all ease-in-out .5s;
 }
 
@@ -86,7 +86,7 @@ span[color-mode='light'] {
 		CSS
 		============================================= -->
 <link rel="stylesheet" href="resources/assets/css/linearicons.css">
-<link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
+
 <link rel="stylesheet" href="resources/assets/css/themify-icons.css">
 <link rel="stylesheet" href="resources/assets/css/bootstrap.css">
 <link rel="stylesheet" href="resources/assets/css/owl.carousel.css">

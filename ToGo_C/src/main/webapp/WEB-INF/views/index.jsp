@@ -515,11 +515,11 @@ p {
 				<tr>
 					<td class="best-food-item">
 						<div>
-							<div class="card" style="margin: 5px;">
+							<div class="card" style="margin: 2px;">
 								<img src="resources/images/best-food/main-food-ex1.jpg" class="card-img-top"
 									alt="...">
-								<div class="card-body">
-									<p class="card-text">라면</p>
+								<div class="card-body" style="padding: 10px;">
+									<p class="card-text" style="margin-bottom:0px;"> 라면</p>
 									<div>4,500원</div>
 								</div>
 							</div>
@@ -527,11 +527,11 @@ p {
 					</td>
 					<td class="best-food-item">
 						<div>
-							<div class="card" style="margin: 5px;">
+							<div class="card" style="margin: 2px;">
 								<img src="resources/images/best-food/ice-coffee-7995033_640.jpg" class="card-img-top"
 									alt="...">
-								<div class="card-body">
-									<p class="card-text">아메리카노</p>
+								<div class="card-body" style="padding: 10px;">
+									<p class="card-text" style="margin-bottom:0px;">아메리카노</p>
 									<div>2,500원</div>
 
 								</div>
@@ -542,11 +542,11 @@ p {
 				<tr>
 					<td class="best-food-item">
 						<div>
-							<div class="card" style="margin: 5px;">
+							<div class="card" style="margin: 2px;">
 								<img src="resources/images/best-food/main-food-ex7.jpg" class="card-img-top"
 									alt="...">
-								<div class="card-body">
-									<p class="card-text">소떡소떡</p>
+								<div class="card-body" style="padding: 10px;">
+									<p class="card-text" style="margin-bottom:0px;">소떡소떡</p>
 									<div>3,000원</div>
 								</div>
 							</div>
@@ -554,11 +554,11 @@ p {
 					</td>
 					<td class="best-food-item">
 						<div>
-							<div class="card" style="margin: 5px;">
+							<div class="card" style="margin: 2px;">
 								<img src="resources/images/MainOrder.png" class="card-img-top"
 									alt="...">
-								<div class="card-body">
-									<p class="card-text">바지락된장찌개</p>
+								<div class="card-body" style="padding: 10px;">
+									<p class="card-text" style="margin-bottom:0px;">바지락된장찌개</p>
 									<div>12,000원</div>
 								</div>
 							</div>
@@ -807,14 +807,9 @@ p {
 	<script src="resources/assets/js/jquery.nice-select.min.js"></script>
 	<script src="resources/assets/js/jquery.sticky.js"></script>
 	<script src="resources/assets/js/nouislider.min.js"></script>
-	<script src="resources/assets/js/countdown.js"></script>
 	<script src="resources/assets/js/jquery.magnific-popup.min.js"></script>
 	<script src="resources/assets/js/owl.carousel.min.js"></script>
-	<!--gmaps Js-->
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-	<script src="resources/assets/js/gmaps.min.js"></script>
-	<script src="resources/assets/js/main.js"></script>
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
