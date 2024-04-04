@@ -8,7 +8,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Favicon-->
-<link rel="shortcut icon" href="resources/images/fav.png">
+<link rel="shortcut icon" href="resources/images/favicon-logo.png">
 <!-- Author Meta -->
 <meta name="author" content="CodePixar">
 <!-- Meta Description -->
@@ -20,92 +20,152 @@
 <!-- Site Title -->
 <title>ToGo</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-   <!--
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+<link
+	rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<!--
       CSS
       ============================================= -->
-   <link rel="stylesheet" href="resources/assets/css/linearicons.css">
-   <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
-   <link rel="stylesheet" href="resources/assets/css/themify-icons.css">
+<link rel="stylesheet" href="resources/assets/css/linearicons.css">
+<link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="resources/assets/css/themify-icons.css">
 
-   <link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
-   <link rel="stylesheet" href="resources/assets/css/nice-select.css">
-   <link rel="stylesheet" href="resources/assets/css/nouislider.min.css">
-   <link rel="stylesheet" href="resources/assets/css/ion.rangeSlider.css" />
-   <link rel="stylesheet" href="resources/assets/css/ion.rangeSlider.skinFlat.css" />
-   <link rel="stylesheet" href="resources/assets/css/magnific-popup.css">
-   <link rel="stylesheet" href="resources/assets/css/main.css">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
+<link rel="stylesheet" href="resources/assets/css/nice-select.css">
+<link rel="stylesheet" href="resources/assets/css/nouislider.min.css">
+<link rel="stylesheet" href="resources/assets/css/ion.rangeSlider.css" />
+<link rel="stylesheet"
+	href="resources/assets/css/ion.rangeSlider.skinFlat.css" />
+<link rel="stylesheet" href="resources/assets/css/magnific-popup.css">
+<link rel="stylesheet" href="resources/assets/css/main.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
 <style>
-			
-        .updateMember {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 500px;
-            margin-top: 200px;
-        }
-        
-        .h1-tag{
-        	padding: 20px 0px 40px 0px;
-        }
-        
-        .p-tag{
-        	text-align: left;
-        	width: 90%;
-        	font-size: 17px;
-        	font-weight: 800;
-        	
-        }
 
-        .accordion {
-            width: 400px;
-        }
-        .accordion-body {
-            display: flex;
-            justify-content: space-between;
-            height: 70px;
-            padding-top: 23px;
-            
-        }
-        
-        .accordion-body-left{
-        	align-items: center;
-        }
-        
-        .accordion-button{
-        	background: green;
-        }
-        .home-submit{
-            display: flex;
-            justify-content: space-around;
-            
-            
-        }
-        .home-submit div{
-            padding: 20px;          
-        }
-        
-        .eyes, .fa-eye{
-        	position: relative;
-        }
-        
-        .fa-eye{
-        	position: absolute;
-        	top:14px;
-        	right: 8px;
-        }
-        
+@font-face {
+	font-family: 'BMJUA_ttf';
+	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
 
-    </style>
- 
+h1,p, button{
+	font-family: 'BMJUA_ttf';
+}
+
+.updateMember {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 500px;
+	margin-top: 150px;
+}
+
+.h1-tag {
+	padding: 20px 0px 40px 0px;
+}
+
+.p-tag {
+	text-align: left;
+	width: 90%;
+	font-size: 15px;
+	font-weight: 800;
+	color: #6E6E6E;
+}
+
+.accordion {
+	width: 400px;
+}
+
+.accordion-body {
+	display: flex;
+	justify-content: space-between;
+	height: 70px;
+	padding-top: 23px;
+}
+
+.accordion-body-left {
+	align-items: center;
+}
+
+.accordion-button {
+	background: green;
+	font-weight: bold;
+}
+
+.home-submit {
+	display: flex;
+	justify-content: center;
+}
+
+.home-submit div {
+	padding: 30px 0px 0px 15px;
+}
+
+.eyes, .fa-eye {
+	position: relative;
+}
+
+.fa-eye {
+	position: absolute;
+	top: 14px;
+	right: 8px;
+}
+
+.font-align1 {
+	position: relative;
+	left: 35px;
+	top:4px;
+	font-family: 'BMJUA_ttf';
+}
+
+.font-align2 {
+	position: relative;
+	left: 50px;
+	top:4px;
+	font-family: 'BMJUA_ttf';
+}
+
+.font-align3 {
+	position: relative;
+	left: 20px;
+	top:4px;
+	font-family: 'BMJUA_ttf';
+}
+
+.go-home-save-button {
+	text-align: center;
+	font-family: 'BMJUA_ttf';
+	padding: 5px 10px 5px 10px;
+	font-size: 17px;
+	width:150px;
+	text-decoration: none;
+	border-radius: 10px;
+	background: #FFFFD4;
+	box-shadow: 2px 3px 1px 0px black;
+}
+
+.form-input{
+	border-radius: 5px;
+	border: 1px solid #D4D4D4; 
+	padding: 4px;
+	font-size: 14px;
+}
+</style>
+
 
 </head>
-<body style="height: 0px; background: #FDFDF9;>
+<body
+	style="height: 0px; background: #FDFDF9;>
 
    <!-- Start Header Area -->
 
@@ -126,14 +186,14 @@
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
                             aria-controls="panelsStayOpen-collapseOne"
-                            style="background: rgb(182, 198, 159);">
+                            style="background: rgb(182, 198, 159); ">
                             비밀번호 변경
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                         <div class="accordion-body">
                             <div class="accordion-body-left">
-                                <strong>비밀번호 입력 : </strong>
+                                <strong class="font-align1">비밀번호 입력 : </strong>
                             </div>
                             <div class="accordion-body-right eyes">
                                 <input type="password" name="mb_pw" id="mb_pw" class="form-input" placeholder="PW를 입력하세요"
@@ -163,7 +223,7 @@
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                         <div class="accordion-body">
                             <div class="accordion-body-left">
-                                <strong>닉네임 입력 : </strong>
+                                <strong class="font-align2">닉네임 입력 : </strong>
                             </div>
                             <div class="accordion-body-right">
                                 <input type="text" name="mb_nick" id="mb_nick" class="form-input" value="${loginMember.mb_nick}" placeholder="변경할 닉네임을 입력하세요"
@@ -186,7 +246,7 @@
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                         <div class="accordion-body">
                             <div class="accordion-body-left">
-                                <strong>핸드폰 번호 입력 : </strong>
+                                <strong class="font-align3">핸드폰 번호 입력 : </strong>
                             </div>
                             <div class="accordion-body-right">
                                 <%-- <input type="text" name="mb_phone" id="mb_phone" class="form-input" value="${loginMember.mb_phone}" placeholder="전화번호를 입력하세요"
@@ -204,10 +264,10 @@
             </div>
             <div class="home-submit">
                 <div class="home-button">
-                    <button type="button" class="btn btn-outline-secondary">홈 화면으로</button>
+                    <button type="button" class="go-home-save-button">홈 화면으로</button>
                 </div>
                 <div class="submit-button">
-                    <input type="submit" value="변경내용저장" class="btn btn-primary"></input>
+                    <input type="submit" value="변경내용저장" class="go-home-save-button"></input>
                 </div>
 
             </div>
