@@ -440,7 +440,9 @@ a {
            if (phone_noValue === "") {
                alert("전화번호를 입력하세요");
            } else {
-        	   requestPay(phone_noValue);
+        	   var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t +"&pick_up_time="+pick_up_time;
+               window.location.href = dynamicUrl;
+        	   /* requestPay(phone_noValue); */
            }   
        } else {
            console.log("로그인되어 있음");
