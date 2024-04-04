@@ -282,9 +282,17 @@ h2 {
 }
 
 .menu-img {
-	height: 200px;
-	width: 100%;
-	border: 1px solid #999999;
+    height: 200px; 
+    width: 100%; 
+    border: 1px solid #999999; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.menu-img img {
+    max-width: 100%; 
+    max-height: 100%; 
 }
 
 .menu-detail {
@@ -385,7 +393,7 @@ h2 {
 .modal-footer {
 	background: #E8E8CA;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around !important;
 }
 
 .modal-title, #menuName, .menu-price, .menu-count-left, .menu-total {
