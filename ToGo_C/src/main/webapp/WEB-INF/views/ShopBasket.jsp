@@ -239,7 +239,7 @@ a {
                                  <div class="d-flex"
                                     style="display: flex; flex-direction: column; padding: 0px;">
                                     <div>
-                                       <img src="<%-- 사진여기에 넣으면됨 ${b.menu_Img} --%>" alt=""
+                                       <img src="resources/images/food/${b.menu_img}" alt=""
                                           style="width: 90px; height: 70px; margin-bottom: 10px;">
 
                                     </div>
@@ -440,14 +440,37 @@ a {
            if (phone_noValue === "") {
                alert("전화번호를 입력하세요");
            } else {
-               var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t +"&pick_up_time="+pick_up_time;
-               window.location.href = dynamicUrl;
+        	   requestPay(phone_noValue);
            }   
        } else {
            console.log("로그인되어 있음");
            var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t+"&pick_up_time="+pick_up_time;
            window.location.href = dynamicUrl;
        }
+   }
+   
+   IMP.init("imp14397622");
+
+   function requestPay(phone_noValue) { // phone_noValue를 매개변수로 받도록 수정
+       IMP.request_pay({
+           pg: "html5_inicis",
+           pay_method: "card",
+           merchant_uid: "",
+           name: "t",
+           amount: 100,
+           buyer_tel: phone_noValue, // 입력된 전화번호 사용
+       }, async (rsp) => {
+           if (rsp.success) {
+               // 결제 성공시
+               alert("결제 성공");
+               // 결제 성공 후 페이지 이동
+               var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t +"&pick_up_time="+pick_up_time;
+               window.location.href = dynamicUrl;
+           } else {
+               // 결제 실패시
+               alert("결제 실패");
+           }
+       });
    }
 
 

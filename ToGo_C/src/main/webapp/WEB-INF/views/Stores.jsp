@@ -457,7 +457,7 @@ font-size: 14px;
                                  </div>
                            </div>                                 
                            <div class="menu-img-box">
-                              <img src="resources/images/food/${fm.menu_img}" 사진 ${fm.menu_img} alt="">
+                              <img src="resources/images/food/${fm.menu_img}" alt="" height = "100px" >
                            </div>                              
                         </div>         
                      </c:forEach>
@@ -480,7 +480,7 @@ font-size: 14px;
                                  </div>
                            </div>                                 
                            <div class="menu-img-box">
-                              <img src="resources/images/food/${sm.menu_img}"alt="" >
+                              <img src="resources/images/food/${sm.menu_img}"alt=""  height = "100px">
                            </div>                              
                         </div>         
                      </c:forEach>
@@ -505,7 +505,7 @@ font-size: 14px;
                                  
                            </div>                                 
                            <div class="menu-img-box">
-                              <img src="resources/images/food/${bm.menu_img}" 사진 ${bm.menu_img} alt="">
+                              <img src="resources/images/food/${bm.menu_img}" alt=""  height = "100px">
                            </div>                              
                         </div>         
                      </c:forEach>
@@ -557,14 +557,14 @@ font-size: 14px;
                <div class="menu-modal-box-wrap">
 
                   <div class="menu-img">
-                  <p id="menuImg" name="menuImg_option"></p>
+                  <img id="menuImg" name="menuImg_option"></img>
                   
                   </div>
                   <div class="menu-detail">
                      <article>
                     
                      <p id="menuName" name="menuId_option"> </p>
-                     <p class="about-menu" style="margin-bottom: 5px;">여기에 설명 넣으시면 됩니다.</p>
+                     <p class="about-menu" style="margin-bottom: 5px;" id="m_menu_desc">여기에 설명 넣으시면 됩니다.</p>
                      <p class="menu-price">단가:<span id = "menuPrice" name="menuPrice_option"></span> 원</p>
                         <p></p>
                      </article>
@@ -703,12 +703,14 @@ font-size: 14px;
        let menuImg = document.getElementById("menuImg");
        let menuPrice = document.getElementById("menuPrice");
        let total = document.getElementById("total");
+       let img = document.getElementById("menuImg");
 
        idx.innerText = food_menus_list[num-1].menu_idx;
        menuName.innerText = food_menus_list[num-1].menu_name;
        menuImg.innerText = food_menus_list[num-1].menu_img;
        menuPrice.innerText = food_menus_list[num-1].menu_price;
        total.innerText = food_menus_list[num-1].menu_price;
+       img.src ="resources/images/food/" +food_menus_list[num-1].menu_img
        
        
        
@@ -731,12 +733,14 @@ font-size: 14px;
        let menuImg = document.getElementById("menuImg");
        let menuPrice = document.getElementById("menuPrice");
        let total = document.getElementById("total");
+       let img = document.getElementById("menuImg");
 
        idx.innerText = snack_menus_list[num-1].menu_idx;
        menuName.innerText = snack_menus_list[num-1].menu_name;
        menuImg.innerText = snack_menus_list[num-1].menu_img;
        menuPrice.innerText = snack_menus_list[num-1].menu_price;
        total.innerText = snack_menus_list[num-1].menu_price;
+       img.src = "resources/images/food/"+snack_menus_list[num-1].menu_img;
        
 
     }
@@ -757,12 +761,14 @@ font-size: 14px;
        let menuImg = document.getElementById("menuImg");
        let menuPrice = document.getElementById("menuPrice");
        let total = document.getElementById("total");
+       let img = document.getElementById("menuImg");
 
        idx.innerText = beverage_menus_list[num-1].menu_idx;
        menuName.innerText = beverage_menus_list[num-1].menu_name;
        menuImg.innerText = beverage_menus_list[num-1].menu_img;
        menuPrice.innerText = beverage_menus_list[num-1].menu_price;
        total.innerText = beverage_menus_list[num-1].menu_price;
+       img.src = "resources/images/food/"+beverage_menus_list[num-1].menu_img;
        
 
     }
