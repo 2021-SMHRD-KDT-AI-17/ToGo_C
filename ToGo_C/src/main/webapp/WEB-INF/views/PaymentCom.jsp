@@ -264,8 +264,6 @@ const firebaseConfig = {
 					let cnt = document.getElementById("menuCnt_"+menu_idx).innerText;
 					console.log("cnt: " + cnt)
 					$("#menuTotal_" + menu_idx).text(menu.menu_price * cnt);
-					
-					
 				},
 				error : function() {
 					console.log("메뉴 이름 가져오기 실패");

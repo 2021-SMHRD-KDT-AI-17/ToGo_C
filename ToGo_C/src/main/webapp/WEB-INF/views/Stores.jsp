@@ -2,6 +2,7 @@
    pageEncoding="UTF-8"%>
    <%@ page import="java.util.List" %>
 <%@ page import="kr.smhrd.entity.Menus" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    
 <!DOCTYPE html>
@@ -498,11 +499,9 @@ font-size: 14px;
                            <div class="menu-info-box" >
                                  <p> ${bm.menu_name}</p>
                                  <p> ${bm.menu_price}원</p>
-<!-- 좋아요는 결제완료 페이지에서 구현예정 현재는 임시임 -->
                                  <div class="good-bad">
                                  <span><i class="fa-regular fa-thumbs-up"></i></span><span>&nbsp;89개</span>
                                  </div>
-                                 
                            </div>                                 
                            <div class="menu-img-box">
                               <img src="resources/images/food/${bm.menu_img}" alt=""  height = "100px">
@@ -786,13 +785,14 @@ font-size: 14px;
 
         const order_cnt = document.getElementById('result').innerText;
         const order_request = document.getElementById('requirements').innerText;
+        
 
         let list = {
             "store_id": store_id,
             "menu_idx" : menu_idx,
             "menu_name": menu_name,
             "menu_price": menu_price,
-            "menu_Img": menu_Img,
+            "menu_img": menu_Img.src.split("/")[7],
             "order_cnt": order_cnt,
             "order_request": order_request,
             "total": total
