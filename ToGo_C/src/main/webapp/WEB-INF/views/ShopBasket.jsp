@@ -129,10 +129,12 @@ a {
 
 .delete-btn{
  	   
-   width:20px;
+   width:22px;
    text-align: center;
+   padding-top: 2px;
    margin-left: 13px;
    border: 1px solid lightgray;
+   border-radius: 5px;
 }
 
 .cart-area-nav {
@@ -145,8 +147,10 @@ a {
 }
 
 
-#total_price {
-   
+.total_price-font{
+	font-size: 21px;
+	text-align: center;
+	
 }
 
 .cart-area-nav-title {
@@ -287,18 +291,17 @@ a {
                      <tr>
 
 
-                        <td style="text-align:center; font-size: 25px">
-                        	<h5 style="font-family: 'BMJUA_ttf';">
-                              총 가격
-                           </h5></td>
+                        <td>
+                        	<p style="font-family: 'BMJUA_ttf'; text-align:center; font-size: 21px; margin-bottom:0px;">총 가격</p>
+                        </td>
                         <td></td>
 
-                        <td colspan="3"><span id="total_price"></span>원</td>
+                        <td colspan="3" class="total_price-font"><span id="total_price"></span>원</td>
                      </tr>
                      <tr>
                         <td colspan="3" class="pickup-title"
-                           style="border-bottom: none; padding-top: 10px; padding-bottom: 10px">
-                           <p class="strong">픽업 예정 시간</p>
+                           style="border-bottom: none; padding-top: 10px; padding-bottom: 10px;  margin-left: 3px;">
+                           <p class="strong" >픽업 예정 시간</p>
                         </td>
                         <td></td>
 						<td></td>
@@ -357,7 +360,7 @@ a {
                      <tr class="out_button_area" style="border-top: none;">
                         <td colspan="2">
                            <div>
-                              <p class="strong" style="margin-bottom: 3px">휴대폰 번호</p>
+                              <p class="strong" style="margin-bottom: 3px; margin-left: 3px;">휴대폰 번호</p>
                               <input type="text" id="phone_no" class="form-control"
                                  oninput="oninputPhone(this)" maxlength="13">
                            </div>

@@ -337,7 +337,7 @@ h2 {
 .menu-total {
 	padding: 10px 0px 10px 20px;
 	text-align: right;
-	font-size: 20px;
+	font-size: 23px;
 }
 
 #result {
