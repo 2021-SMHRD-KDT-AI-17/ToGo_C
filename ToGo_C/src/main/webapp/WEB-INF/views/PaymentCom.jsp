@@ -176,7 +176,7 @@ const firebaseConfig = {
 	<figure class="pmc-banner-img"></figure>
 
 
-	<section class="container result-order-box">
+	<section class="container result-order-box" style="width:95%">
 		<div class="check-img">
 			<img src="resources/images/orderResult3.png" alt="">
 		</div>
