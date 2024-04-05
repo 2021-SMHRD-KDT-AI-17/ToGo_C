@@ -38,6 +38,7 @@ public class OrderListController {
 		if(loginMember != null) {
 //			// 로그인이 되어 있음
 			order.setMb_id(loginMember.getMb_id());
+			System.out.println("로그인 됨");
 		}else{
 			loginMember = new Members();
 			// 로그인이 안되어 있음	
