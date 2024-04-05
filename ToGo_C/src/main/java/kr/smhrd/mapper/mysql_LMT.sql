@@ -97,6 +97,11 @@ select * from menus;
 select * from order_details;
 select * from order_details where order_idx=1;
 
+      UPDATE menus SET menu_img = 'Pork_Kimchi_Stew.jpg' where menu_idx=79;
+      UPDATE menus SET menu_img = 'Tofu_Stew.jpg' where menu_idx=80;
+      UPDATE menus SET menu_img = 'ramen.jpg' where menu_idx=81;
+update 
+
 
 
 
