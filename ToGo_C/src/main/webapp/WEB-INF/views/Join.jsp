@@ -58,6 +58,12 @@
 	user-select: none;
 }
 
+@font-face {
+	font-family: 'BMJUA_ttf';
+	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
+	font-style: normal;
+}
+
 .id-check-button {
 	margin-top: 5px;
 	width: 90px;
@@ -178,7 +184,7 @@
 <link href="resources/assets/css/checkout.css" rel="stylesheet">
 
 </head>
-<body class="bg-body-tertiary">
+<body>
 
 
 	<!-- 헤더 영역 시작(includes 폴더) - 홍창민 -->
@@ -286,7 +292,8 @@
 								<span class="input-group-text"><i
 									class="fa-solid fa-fish"></i></span> <input type="text"
 									class="form-control" id="inputId" placeholder="id를 입력해주세요"
-									required name="mb_id">
+									required name="mb_id"
+									style="font-family: sans-serif; font-size: 14px; font-weight: bold;">
 								<div class="invalid-feedback">*아이디 입력은 필수사항입니다.</div>
 
 								<!-- ID중복확인 -->
@@ -306,7 +313,8 @@
 							<div class="input-group has-validation">
 								<span class="input-group-text"><i class="fa-solid fa-key"></i></i></span>
 								<input type="password" class="form-control" id="mb_pw"
-									placeholder="pw를 입력해주세요" name="mb_pw" required>
+									placeholder="pw를 입력해주세요" name="mb_pw" required
+									style="font-family: sans-serif; font-size: 14px; font-weight: bold;">
 								<div class="invalid-feedback">*비밀번호 입력은 필수사항입니다.</div>
 							</div>
 						</div>
@@ -328,7 +336,8 @@
 								<span class="input-group-text"><i
 									class="fa-solid fa-user-astronaut"></i></span> <input type="text"
 									class="form-control" id="mb_nick" placeholder="닉네임을 입력해주세요"
-									name="mb_nick" required>
+									name="mb_nick" required
+									style="font-family: sans-serif; font-size: 14px; font-weight: bold;">
 								<div class="invalid-feedback">*닉네임 입력은 필수사항입니다.</div>
 							</div>
 						</div>
