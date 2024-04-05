@@ -228,6 +228,7 @@ p {
 	margin: 15px;
 	height: 40px;
 	background: #FFFFD4;
+	color:black;
 }
 
 .food-recommand-tag {

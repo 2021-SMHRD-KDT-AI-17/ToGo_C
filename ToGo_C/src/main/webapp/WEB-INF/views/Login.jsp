@@ -118,6 +118,7 @@ h3, h4 {
 	border-radius: 10px;
 	background: #FFFFD4;
 	box-shadow: 2px 3px 1px 0px black;
+	width: 100px;
 }
 
 .login-button{
@@ -125,6 +126,7 @@ h3, h4 {
 	padding: 5px 130px 5px 130px;
 	font-size:17px;
 	font-weight: bold;
+	color:black;
 	text-decoration: none;
 	border-radius: 10px;
 	background: #FFFFD4;

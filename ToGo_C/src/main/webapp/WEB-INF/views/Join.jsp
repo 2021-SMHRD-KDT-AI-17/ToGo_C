@@ -86,6 +86,7 @@
 	border-radius: 10px;
 	box-shadow: 1px 1px 1px 0px black;
 	background: #FFFFD4;
+	color: black;
 }
 
 #resultCheck {

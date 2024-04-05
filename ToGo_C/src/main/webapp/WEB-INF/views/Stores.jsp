@@ -365,6 +365,7 @@ h2 {
 	box-shadow: 2px 3px 1px 0px black;
 	margin: 15px;
 	background: #FFFFD4;
+	color:black;
 }
 
 .close-basket {
