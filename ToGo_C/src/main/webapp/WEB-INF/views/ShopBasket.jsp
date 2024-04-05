@@ -41,18 +41,18 @@
 }
 
 @font-face {
-	font-family: 'BMJUA_ttf';
-	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
-	font-weight: normal;
-	font-style: normal;
+   font-family: 'BMJUA_ttf';
+   src: url("resources/assets/fonts/BMJUA_ttf.ttf");
+   font-weight: normal;
+   font-style: normal;
 }
 
 h2, h3, h4, h5{
-	font-family: BMJUA_ttf;
+   font-family: BMJUA_ttf;
 }
 
 .cart_inner{
-	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .02);
+   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .02);
 }
 
 
@@ -128,7 +128,7 @@ a {
 }
 
 .delete-btn{
- 	   
+       
    width:22px;
    text-align: center;
    padding-top: 2px;
@@ -148,9 +148,9 @@ a {
 
 
 .total_price-font{
-	font-size: 21px;
-	text-align: center;
-	
+   font-size: 21px;
+   text-align: center;
+   
 }
 
 .cart-area-nav-title {
@@ -268,10 +268,10 @@ a {
                            </td>
                            <td>
                           <form action="basketDelete" method="post">
-            		<!-- 각 상품의 ID를 hidden input으로 전달 -->
-            					<input type="hidden" name="itemIndex" value="${status.index}" />
-            					<button type="submit" class="delete-btn">-</button>
-        					</form>
+                  <!-- 각 상품의 ID를 hidden input으로 전달 -->
+                           <input type="hidden" name="itemIndex" value="${status.index}" />
+                           <button type="submit" class="delete-btn">-</button>
+                       </form>
                            
                            </td>
                         </tr>
@@ -292,7 +292,7 @@ a {
 
 
                         <td>
-                        	<p style="font-family: 'BMJUA_ttf'; text-align:center; font-size: 21px; margin-bottom:0px;">총 가격</p>
+                           <p style="font-family: 'BMJUA_ttf'; text-align:center; font-size: 21px; margin-bottom:0px;">총 가격</p>
                         </td>
                         <td></td>
 
@@ -304,7 +304,7 @@ a {
                            <p class="strong" >픽업 예정 시간</p>
                         </td>
                         <td></td>
-						<td></td>
+                  <td></td>
                      </tr>
                      <tr style="border-bottom: none;">
                         <td colspan="5" style="border-bottom: none;">
@@ -443,9 +443,9 @@ a {
            if (phone_noValue === "") {
                alert("전화번호를 입력하세요");
            } else {
-        	   var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t +"&pick_up_time="+pick_up_time;
+              var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t +"&pick_up_time="+pick_up_time;
                window.location.href = dynamicUrl;
-        	   /* requestPay(phone_noValue); */
+              /* requestPay(phone_noValue); */
            }   
        } else {
            console.log("로그인되어 있음");
@@ -483,71 +483,71 @@ a {
    
    
 <%--      document.querySelectorAll('.btn.btn-light').forEach(button => {
-	    button.addEventListener('click', function() {
-	        // 클릭된 버튼의 내용(텍스트) 값을 가져와서 출력
-	        //console.log("Clicked button value:", this.textContent);
-	        // 클릭된 버튼의 내용에서 숫자만 추출하여 출력
-	        var pick_up_time = parseInt(this.textContent.replace(/\D/g, ''));
-	        console.log("pick_up_time:", pick_up_time);
-	        
-	        
+       button.addEventListener('click', function() {
+           // 클릭된 버튼의 내용(텍스트) 값을 가져와서 출력
+           //console.log("Clicked button value:", this.textContent);
+           // 클릭된 버튼의 내용에서 숫자만 추출하여 출력
+           var pick_up_time = parseInt(this.textContent.replace(/\D/g, ''));
+           console.log("pick_up_time:", pick_up_time);
+           
+           
 
 
 
 
-	        혜선씨가 만든 로직 0403(주문시간 포함되지 않았을때)
-	       	    function checkPhone() {
-	              
-	              var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
-	              var total_price = parseInt(document.getElementById("total_price").innerText);
-	              console.log("총금액"+t);
+           혜선씨가 만든 로직 0403(주문시간 포함되지 않았을때)
+                 function checkPhone() {
+                 
+                 var loginMemberValue = <%= loginMember != null ? "true" : "false" %>;
+                 var total_price = parseInt(document.getElementById("total_price").innerText);
+                 console.log("총금액"+t);
 
-	                 if (!loginMemberValue) {
-	                     
-	                     console.log("로그인 안되어 있음");
-	                     var phone_noValue = document.getElementById("phone_no").value;
-	                     if (phone_noValue === "") {
-	                         alert("전화번호를 입력하세요");
-	                     } else {
-	                        var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t+"&pick_up_time="+pick_up_time;
-	                          window.location.href = dynamicUrl;
-	                     }   
-	                 } else {
-	                    console.log("로그인되어 있음");
-	                    var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t+"&pick_up_time="+pick_up_time;
-	                       window.location.href = dynamicUrl;
-	                 }
-	           } 
-	           
-	           
-	           IMP.init("imp14397622");
+                    if (!loginMemberValue) {
+                        
+                        console.log("로그인 안되어 있음");
+                        var phone_noValue = document.getElementById("phone_no").value;
+                        if (phone_noValue === "") {
+                            alert("전화번호를 입력하세요");
+                        } else {
+                           var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t="+t+"&pick_up_time="+pick_up_time;
+                             window.location.href = dynamicUrl;
+                        }   
+                    } else {
+                       console.log("로그인되어 있음");
+                       var dynamicUrl = "goOrderList?phone_noValue=" + ${loginMember.mb_phone} + "&t="+t+"&pick_up_time="+pick_up_time;
+                          window.location.href = dynamicUrl;
+                    }
+              } 
+              
+              
+              IMP.init("imp14397622");
 
-	           function requestPay(phone_noValue) { // phone_noValue를 매개변수로 받도록 수정
-	               IMP.request_pay({
-	                   pg: "html5_inicis",
-	                   pay_method: "card",
-	                   merchant_uid: "",
-	                   name: "t",
-	                   amount: 100,
-	                   buyer_tel: phone_noValue, // 입력된 전화번호 사용
-	               }, async (rsp) => {
-	                   if (rsp.success) {
-	                       // 결제 성공시
-	                       alert("결제 성공");
-	                       // 결제 성공 후 페이지 이동
-	                       var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue;
-	                       window.location.href = dynamicUrl;
-	                   } else {
-	                       // 결제 실패시
-	                       alert("결제 실패");
-	                   }
-	               });
-	           }	  --%>       
-	        
-	        	        
+              function requestPay(phone_noValue) { // phone_noValue를 매개변수로 받도록 수정
+                  IMP.request_pay({
+                      pg: "html5_inicis",
+                      pay_method: "card",
+                      merchant_uid: "",
+                      name: "t",
+                      amount: 100,
+                      buyer_tel: phone_noValue, // 입력된 전화번호 사용
+                  }, async (rsp) => {
+                      if (rsp.success) {
+                          // 결제 성공시
+                          alert("결제 성공");
+                          // 결제 성공 후 페이지 이동
+                          var dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue;
+                          window.location.href = dynamicUrl;
+                      } else {
+                          // 결제 실패시
+                          alert("결제 실패");
+                      }
+                  });
+              }     --%>       
+           
+                      
 
-	        
-	        
+           
+           
 /*             $.ajax({
                 url: "goOrderList",
                 method: "get",
@@ -555,14 +555,14 @@ a {
                     "pick_up_time": pick_up_time
                 },
                 success: function () {
-                	
+                   
                     console.log(pick_up_time+'pickup시간전송완료.');
                 },
                 error: function () {
                     console.log('pickup시간전송 실패했습니다.');
                 }
             });  */
-	        
+           
 
 
    
@@ -651,7 +651,7 @@ a {
                 }
                 
                 function generateDynamicURL(phone_noValue, total_price, pick_up_time, loginMemberValue) {
-                	var dynamicUrl;
+                   var dynamicUrl;
                     if (!loginMemberValue) {
                         dynamicUrl = "goOrderList?phone_noValue=" + phone_noValue + "&t=" + total_price + "&pick_up_time=" + pick_up_time;
                     } else {
