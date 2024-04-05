@@ -77,8 +77,8 @@
 	background: white;
 }
 
-.join-submit-button{
-	width:250px;
+.join-submit-button {
+	width: 250px;
 	height: 50px;
 	border: 1px solid black;
 	font-size: 16px;
@@ -88,11 +88,9 @@
 	background: #FFFFD4;
 }
 
-#resultCheck{
+#resultCheck {
 	color: blue;
 }
-
-
 
 .input-group-text {
 	/* background: rgb(182, 198, 159); */
@@ -348,15 +346,15 @@
 								<span class="input-group-text"><i
 									class="fa-solid fa-phone"></i></span> <input type="text"
 									class="form-control" id="mb_phone" placeholder="010-0000-0000"
-									name="mb_phone" required>
+									name="mb_phone" oninput="oninputPhone(this)" maxlength="13"
+									required>
 								<div class="invalid-feedback">*휴대폰 번호 입력은 필수사항입니다.</div>
 							</div>
 						</div>
 
 						<hr class="my-3" style="margin: 0px;">
 						<p>
-							<input class="join-submit-button" type="submit"
-								value="회원가입">
+							<input class="join-submit-button" type="submit" value="회원가입">
 						</p>
 				</form>
 
@@ -424,6 +422,12 @@
 				}
 			})
 
+		}
+
+		function oninputPhone(target) {
+			target.value = target.value.replace(/[^0-9]/g, '').replace(
+					/(^02.{0}|^01.{1}|[0-9]{3,4})([0-9]{3,4})([0-9]{4})/g,
+					"$1-$2-$3");
 		}
 	</script>
 
