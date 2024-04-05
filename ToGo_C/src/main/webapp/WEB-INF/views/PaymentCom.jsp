@@ -239,7 +239,8 @@ const firebaseConfig = {
 				
 				var data = {
 						  "order_idx":  ${order_idx.order_idx },
-						  "total_price":  ${order_idx.order_total_amount }
+						  "total_price":  ${order_idx.order_total_amount },
+						  "pick_up_time": ${order_idx.pick_up_time}
 						};
 				
 				var dbRefObject = firebase.database().ref().child("object");
