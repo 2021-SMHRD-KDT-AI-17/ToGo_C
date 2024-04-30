@@ -361,8 +361,7 @@ a {
                         <td colspan="2">
                            <div>
                               <p class="strong" style="margin-bottom: 3px; margin-left: 3px;">휴대폰 번호</p>
-                              <input type="text" id="phone_no" class="form-control"
-                                 oninput="oninputPhone(this)" maxlength="13">
+                              <input type="text" id="phone_no" class="form-control" maxlength="13">
                            </div>
                         </td>
                         
@@ -405,13 +404,6 @@ a {
    }
    
    document.getElementById("total_price").innerText = t;
-   
-   function oninputPhone(target) {
-       target.value = target.value
-           .replace(/[^0-9]/g, '')
-           .replace(/(^02.{0}|^01.{1}|[0-9]{3,4})([0-9]{3,4})([0-9]{4})/g, "$1-$2-$3");
-   }
-   
    
    
    <!-- 픽업시간 선택 스크립트 -->
