@@ -14,8 +14,7 @@
 
 
 <!-- 지도 api 스크립트 부분 -->
-<script type="text/javascript"
-	src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=tzbwlpiic2"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fabda7b4ba1460871dbd6208a1999ac8"></script>
 
 <!--
       CSS
@@ -323,7 +322,7 @@ input {
 			data : {'service_idx' : s},
 			success:function(res){
 				
-				map = new naver.maps.Map('map', {
+				/* map = new naver.maps.Map('map', {
 			        center: new naver.maps.LatLng(res.lat, res.lng), //지도의 초기 중심 좌표
 			        zoom: 17, //지도의 초기 줌 레벨
 			        minZoom: 8, //지도의 최소 줌 레벨
@@ -336,8 +335,23 @@ input {
 				var marker = new naver.maps.Marker({    //마커
 			        position: new naver.maps.LatLng(res.lat, res.lng), //위도,경도
 			        map: map
-			    });
-				
+			    }); */
+				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			    mapOption = { 
+			        center: new kakao.maps.LatLng(res.lat, res.lng), // 지도의 중심좌표
+			        level: 3 // 지도의 확대 레벨
+			    };
+
+			// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+			var map = new kakao.maps.Map(mapContainer, mapOption); 
+			    
+			var markerPosition = new kakao.maps.LatLng(res.lat, res.lng); // 마커   
+			    
+			 var marker = new kakao.maps.Marker({
+			        position: markerPosition
+			    });    
+			marker.setMap(map);     
+			    
 			},
 			error:function(){
 				alert("실패");
