@@ -65,16 +65,13 @@ body {
 	padding: 0;
 	background-color: #f4f4f4;
 	height: 100vh;
-	
 }
-
 
 @font-face {
 	font-family: 'BMJUA_ttf';
 	src: url("resources/assets/fonts/BMJUA_ttf.ttf");
 	font-style: normal;
 }
-
 
 p {
 	margin-bottom: 0px;
@@ -151,7 +148,6 @@ p {
 	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
-	
 }
 
 .welcome-message1 {
@@ -182,7 +178,6 @@ p {
 	border-radius: 10px;
 	background-color: #ffffff;
 	box-shadow: 1px 1px 1px 1px lightgray;
-	
 }
 
 .conv-info-item-icon {
@@ -228,7 +223,7 @@ p {
 	margin: 15px;
 	height: 40px;
 	background: #FFFFD4;
-	color:black;
+	color: black;
 }
 
 .food-recommand-tag {
@@ -242,7 +237,8 @@ p {
 	height: 40px;
 	width: 100%;
 	display: flex;
-	text-align: center; align-items : center;
+	text-align: center;
+	align-items: center;
 	border-radius: 10px;
 	align-items: center;
 }
@@ -275,19 +271,19 @@ p {
 	font-size: 15px !important;
 }
 
-.card[color-mode='dark']{
+.card[color-mode='dark'] {
 	background-color: red;
 	color: #000000;
-	transition:all ease-in-out .3s;
+	transition: all ease-in-out .3s;
 }
 
-.card[color-mode='light']{
+.card[color-mode='light'] {
 	background-color: #ffffff;
 	color: #000000;
-	transition:all ease-in-out .3s;
+	transition: all ease-in-out .3s;
 }
 
-.card-img-top{
+.card-img-top {
 	width: 100%;
 	height: 140px;
 }
@@ -318,7 +314,7 @@ p {
 	top: 10px;
 }
 
-.festival-area-title p{
+.festival-area-title p {
 	font-size: 18px;
 	font-weight: 800;
 	position: relative;
@@ -336,10 +332,9 @@ p {
 .festival-area-link, .road-view-gallery-slide {
 	position: relative;
 	left: 285px;
-	top:10px;
+	top: 10px;
 	text-align: right;
 }
-
 
 .festival-area-link a, .road-view-gallery-slide a {
 	list-style: none;
@@ -347,10 +342,51 @@ p {
 	color: #999;
 }
 
-.road-view-gallary-box{
+.road-view-gallary-box {
 	width: 100%;
 	height: 600px;
 	padding-top: 20px;
+}
+
+/* 추가 코드 */
+
+/* 모달 스타일 */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	padding-top: 50px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	height: auto;
+}
+
+.close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
 }
 </style>
 </head>
@@ -378,7 +414,8 @@ p {
 			<div class="" style="display: flex; justify-content: center;">
 
 				<div class="gas-icon">
-					<img alt="" src="resources/images/conv-icon/gas_03_29.png" height="25px">
+					<img alt="" src="resources/images/conv-icon/gas_03_29.png"
+						height="25px">
 				</div>
 				<%
 				Service_areas select_area = (Service_areas) session.getAttribute("select_area");
@@ -387,8 +424,8 @@ p {
 
 				<div class="gas-gasoline">
 					<img alt="" src="resources/images/conv-icon/Gasoline.png"
-						height="25px"> <span class="gas-gasoline-price font-white" id="money">${select_area.getGasoline_price() }
-						<span>원</span>
+						height="25px"> <span class="gas-gasoline-price font-white"
+						id="money">${select_area.getGasoline_price() } <span>원</span>
 					</span>
 				</div>
 				<div class="wantGoHome"></div>
@@ -508,7 +545,9 @@ p {
 						</div>
 					</div>
 					<div class="go-store-button">
-						<div class="go-store-title"><strong><span class="font-white">BEST 추천 메뉴</span></strong></div>
+						<div class="go-store-title">
+							<strong><span class="font-white">BEST 추천 메뉴</span></strong>
+						</div>
 						<a href="goStores"><input type="button" class="goStoresButton"
 							value="주문하러 가기!"></a>
 					</div>
@@ -517,10 +556,10 @@ p {
 					<td class="best-food-item">
 						<div>
 							<div class="card" style="margin: 2px;">
-								<img src="resources/images/best-food/main-food-ex1.jpg" class="card-img-top"
-									alt="...">
+								<img src="resources/images/best-food/main-food-ex1.jpg"
+									class="card-img-top" alt="...">
 								<div class="card-body" style="padding: 10px;">
-									<p class="card-text" style="margin-bottom:0px;"> 라면</p>
+									<p class="card-text" style="margin-bottom: 0px;">라면</p>
 									<div>4,500원</div>
 								</div>
 							</div>
@@ -529,10 +568,10 @@ p {
 					<td class="best-food-item">
 						<div>
 							<div class="card" style="margin: 2px;">
-								<img src="resources/images/best-food/ice-coffee-7995033_640.jpg" class="card-img-top"
-									alt="...">
+								<img src="resources/images/best-food/ice-coffee-7995033_640.jpg"
+									class="card-img-top" alt="...">
 								<div class="card-body" style="padding: 10px;">
-									<p class="card-text" style="margin-bottom:0px;">아메리카노</p>
+									<p class="card-text" style="margin-bottom: 0px;">아메리카노</p>
 									<div>2,500원</div>
 
 								</div>
@@ -544,10 +583,10 @@ p {
 					<td class="best-food-item">
 						<div>
 							<div class="card" style="margin: 2px;">
-								<img src="resources/images/best-food/main-food-ex7.jpg" class="card-img-top"
-									alt="...">
+								<img src="resources/images/best-food/main-food-ex7.jpg"
+									class="card-img-top" alt="...">
 								<div class="card-body" style="padding: 10px;">
-									<p class="card-text" style="margin-bottom:0px;">소떡소떡</p>
+									<p class="card-text" style="margin-bottom: 0px;">소떡소떡</p>
 									<div>3,000원</div>
 								</div>
 							</div>
@@ -559,7 +598,7 @@ p {
 								<img src="resources/images/MainOrder.png" class="card-img-top"
 									alt="...">
 								<div class="card-body" style="padding: 10px;">
-									<p class="card-text" style="margin-bottom:0px;">바지락된장찌개</p>
+									<p class="card-text" style="margin-bottom: 0px;">바지락된장찌개</p>
 									<div>12,000원</div>
 								</div>
 							</div>
@@ -663,8 +702,8 @@ p {
 		</div>
 	</section>
 
-
-	<section class="festival-area">
+	<!-- 원래 코드 -->
+	<!-- <section class="festival-area">
 		<div class="festival-area-nav"
 			style="display: flex; flex-direction: column;">
 
@@ -699,7 +738,64 @@ p {
 
 		<div></div>
 
+	</section> -->
+
+	<section class="festival-area">
+		<div class="festival-area-nav"
+			style="display: flex; flex-direction: column;">
+			<div class="festival-area-title">
+				<p class="font-white">축제 / 관광 정보</p>
+				<span class="festival-area-link"><a
+					href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do"
+					target="_blank">전체 보기 ></a></span>
+			</div>
+			<div></div>
+			<figure>
+				<div class="container">
+					<div class="image-box">
+						<div class="image">
+							<img src="resources/images/festival-pic/축제1.jpg" alt="Image 1">
+						</div>
+						<div class="image">
+							<img src="resources/images/festival-pic/축제2.jpeg" alt="Image 2">
+						</div>
+						<div class="image">
+							<img src="resources/images/festival-pic/축제3.png" alt="Image 3">
+						</div>
+						<div class="image">
+							<img src="resources/images/festival-pic/축제4.jpg" alt="Image 4">
+						</div>
+					</div>
+				</div>
+			</figure>
+		</div>
+		<div></div>
 	</section>
+
+	<!-- 모달 창 -->
+	<div id="myModal" class="modal">
+		<span class="close">&times;</span> <img class="modal-content"
+			id="modalImg">
+		<div class="festival-info">
+			<table id="eventTable">
+				<thead>
+					<tr>
+						<th>행사명</th>
+						<th>장소</th>
+						<th>시작 일시</th>
+						<th>종료 일시</th>
+						<th>내용</th>
+						<th>이미지</th>
+						<th>이미지2</th>
+					</tr>
+				</thead>
+				<tbody id="eventTableBody"></tbody>
+			</table>
+
+
+		</div>
+	</div>
+
 
 	<!-- 도로 사진 갤러리 -->
 
@@ -745,8 +841,8 @@ p {
 		   .toLocaleString();
 		}
 	</script>
-	
-	
+
+
 	<script>
 	document.addEventListener('DOMContentLoaded', function() {
 	    const toggleButton = document.getElementById('toggle-radio-dark');
@@ -794,8 +890,120 @@ p {
 	        localStorage.setItem('color-mode', 'light');
 	    }
 	});
+	
+	
+	
+	// 이미지 모달
+	var modal = document.getElementById("myModal");
+	var modalImg = document.getElementById("modalImg");
+
+	document.querySelectorAll(".image img").forEach(function(img) {
+	    img.onclick = function() {
+	        modal.style.display = "block";
+	        modalImg.src = this.src;
+	        fetchEventData();
+	        
+	    }
+	});
+
+	var span = document.getElementsByClassName("close")[0];
+
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	}
+
 
 	</script>
+	<script>
+        // AJAX 요청을 보내고 데이터를 가져와서 테이블에 표시하는 함수
+        function fetchEventData() {
+            // API 엔드포인트 URL
+            const endpoint = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival';
+
+            // 발급받은 API 키
+            const apiKey = 'KXfyHJMcJkFoPCwNcSpfgUv3X6dRdSv38a5QURobGIUWRL9h07dYGCehJciNINCBFGTxk8VxXAwh6d/GNAQvyg==';
+
+            // API 요청을 보낼 때 필요한 매개변수 설정
+            const queryParams = new URLSearchParams({
+                'ServiceKey': apiKey,
+                'numOfRows': '10', // 가져올 데이터의 개수
+                'pageNo': '1', // 페이지 번호
+                'MobileOS': 'ETC', // 모바일 OS 구분
+                'MobileApp': 'AppTest', // 모바일 앱명
+                'eventStartDate': '20240101', // 행사 시작일
+                'eventEndDate': '20241231', // 행사 종료일
+                '_type': 'json' // 응답 형식(JSON)
+            });
+
+            // 완전한 요청 URL 생성
+            const requestUrl = `${endpoint}?${queryParams}`;
+
+            // AJAX 요청 보내기
+            fetch(requestUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // 결과를 테이블에 채우기
+                    populateEventTable(data.response.body.items.item);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // 행사 정보를 테이블에 채우는 함수
+        function populateEventTable(events) {
+            const tableBody = document.getElementById('eventTableBody');
+
+            // 테이블 초기화
+            tableBody.innerHTML = '';
+
+            // 데이터 행 추가
+            events.forEach(event => {
+                const row = tableBody.insertRow();
+
+                const nameCell = row.insertCell();
+                nameCell.textContent = event.title;
+
+                const locationCell = row.insertCell();
+                locationCell.textContent = event.addr1;
+
+                const startDateCell = row.insertCell();
+                startDateCell.textContent = event.eventstartdate;
+
+                const endDateCell = row.insertCell();
+                endDateCell.textContent = event.eventenddate;
+
+                const descriptionCell = row.insertCell();
+                descriptionCell.textContent = event.overview;
+
+                const imageCell = row.insertCell();
+                const image = document.createElement('img');
+                image.src = event.firstimage;
+                image.alt = '이미지';
+                image.classList.add('event-img'); // 클래스 추가
+                imageCell.appendChild(image);
+
+                const image2Cell = row.insertCell();
+                const image2 = document.createElement('img');
+                image2.src = event.firstimage2;
+                image2.alt = '이미지2';
+                image2.classList.add('event-img'); // 클래스 추가
+                image2Cell.appendChild(image2);
+            });
+        }
+
+        // 페이지 로드 시 행사 정보 가져오기
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchEventData();
+        });
+    </script>
+
 
 
 	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
@@ -810,7 +1018,7 @@ p {
 	<script src="resources/assets/js/nouislider.min.js"></script>
 	<script src="resources/assets/js/jquery.magnific-popup.min.js"></script>
 	<script src="resources/assets/js/owl.carousel.min.js"></script>
-	
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
