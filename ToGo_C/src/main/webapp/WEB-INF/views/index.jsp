@@ -754,7 +754,7 @@ p {
 				<div class="container">
 					<div class="image-box">
 						<div class="image">
-							<img src="resources/images/festival-pic/축제1.jpg" alt="Image 1">
+							<img src="resources/images/festival-pic/축제1.jpg" alt="Image 1" onclick = fetchEventData()>
 						</div>
 						<div class="image">
 							<img src="resources/images/festival-pic/축제2.jpeg" alt="Image 2">
@@ -921,88 +921,48 @@ p {
 
 	</script>
 	<script>
-        // AJAX 요청을 보내고 데이터를 가져와서 테이블에 표시하는 함수
-        function fetchEventData() {
-            // API 엔드포인트 URL
-            const endpoint = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival';
+	// AJAX 요청을 보내고 데이터를 가져와서 테이블에 표시하는 함수
+  function fetchEventData() {
+    // API 엔드포인트 URL
+    var endpoint = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival';
 
-            // 발급받은 API 키
-            const apiKey = 'KXfyHJMcJkFoPCwNcSpfgUv3X6dRdSv38a5QURobGIUWRL9h07dYGCehJciNINCBFGTxk8VxXAwh6d/GNAQvyg==';
+    // 발급받은 API 키
+    var apiKey = 'KXfyHJMcJkFoPCwNcSpfgUv3X6dRdSv38a5QURobGIUWRL9h07dYGCehJciNINCBFGTxk8VxXAwh6d/GNAQvyg==';
 
-            // API 요청을 보낼 때 필요한 매개변수 설정
-            const queryParams = new URLSearchParams({
-                'ServiceKey': apiKey,
-                'numOfRows': '10', // 가져올 데이터의 개수
-                'pageNo': '1', // 페이지 번호
-                'MobileOS': 'ETC', // 모바일 OS 구분
-                'MobileApp': 'AppTest', // 모바일 앱명
-                'eventStartDate': '20240101', // 행사 시작일
-                'eventEndDate': '20241231', // 행사 종료일
-                '_type': 'json' // 응답 형식(JSON)
-            });
+    // API 요청을 보낼 때 필요한 매개변수 설정
+    var queryParams = new URLSearchParams({
+        'ServiceKey': apiKey,
+        'numOfRows': '10', // 가져올 데이터의 개수
+        'pageNo': '1', // 페이지 번호
+        'MobileOS': 'ETC', // 모바일 OS 구분
+        'MobileApp': 'AppTest', // 모바일 앱명
+        'eventStartDate': '20240101', // 행사 시작일
+        'eventEndDate': '20241231', // 행사 종료일
+        '_type': 'json' // 응답 형식(JSON)
+    });
 
-            // 완전한 요청 URL 생성
-            const requestUrl = `${endpoint}?${queryParams}`;
+    // 완전한 요청 URL 생성
+    var requestUrl = endpoint + '?' + queryParams;
 
-            // AJAX 요청 보내기
-            fetch(requestUrl)
-                .then(response => response.json())
-                .then(data => {
-                    // 결과를 테이블에 채우기
-                    populateEventTable(data.response.body.items.item);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+    // AJAX 요청 보내기
+    $.ajax({
+        url: requestUrl,
+        method: 'GET',
+        //dataType: 'json',
+        success: function(data) {
+            // 결과를 테이블에 채우기
+            //populateEventTable(data.response.body.items.item);
+            console.log("----------------------");
+            console.log(data.response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
         }
+    });
+}
 
-        // 행사 정보를 테이블에 채우는 함수
-        function populateEventTable(events) {
-            const tableBody = document.getElementById('eventTableBody');
-
-            // 테이블 초기화
-            tableBody.innerHTML = '';
-
-            // 데이터 행 추가
-            events.forEach(event => {
-                const row = tableBody.insertRow();
-
-                const nameCell = row.insertCell();
-                nameCell.textContent = event.title;
-
-                const locationCell = row.insertCell();
-                locationCell.textContent = event.addr1;
-
-                const startDateCell = row.insertCell();
-                startDateCell.textContent = event.eventstartdate;
-
-                const endDateCell = row.insertCell();
-                endDateCell.textContent = event.eventenddate;
-
-                const descriptionCell = row.insertCell();
-                descriptionCell.textContent = event.overview;
-
-                const imageCell = row.insertCell();
-                const image = document.createElement('img');
-                image.src = event.firstimage;
-                image.alt = '이미지';
-                image.classList.add('event-img'); // 클래스 추가
-                imageCell.appendChild(image);
-
-                const image2Cell = row.insertCell();
-                const image2 = document.createElement('img');
-                image2.src = event.firstimage2;
-                image2.alt = '이미지2';
-                image2.classList.add('event-img'); // 클래스 추가
-                image2Cell.appendChild(image2);
-            });
-        }
-
-        // 페이지 로드 시 행사 정보 가져오기
-        document.addEventListener('DOMContentLoaded', function () {
-            fetchEventData();
-        });
     </script>
+    
 
 
 
