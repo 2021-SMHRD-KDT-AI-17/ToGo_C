@@ -952,7 +952,6 @@ p {
         success: function(data) {
             // 결과를 테이블에 채우기
             //populateEventTable(data.response.body.items.item);
-            console.log("----------------------");
             console.log(data.response);
         },
         error: function(xhr, status, error) {
