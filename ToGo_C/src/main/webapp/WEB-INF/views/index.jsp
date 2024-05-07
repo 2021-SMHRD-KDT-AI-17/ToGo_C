@@ -27,7 +27,7 @@
 		CSS
 		============================================= -->
 <link rel="stylesheet" href="resources/assets/css/linearicons.css">
-<link rel="stylesheet" href="resources/assets/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="resources/assets/css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="resources/assets/css/themify-icons.css">
 <link rel="stylesheet" href="resources/assets/css/bootstrap.css">
 <link rel="stylesheet" href="resources/assets/css/owl.carousel.css">
@@ -48,6 +48,19 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100..900&display=swap"
 	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+	integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+	integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style type="text/css">
 .best-food-area {
@@ -389,7 +402,7 @@ p {
 	cursor: pointer;
 }
 
-.festival-info{
+.festival-info {
 	font-family: 'BMJUA_ttf';
 	background-color: black;
 	color: white;
@@ -399,16 +412,34 @@ p {
 	height: 160px;
 }
 
-#modal_title{
+#modal_title {
 	margin-bottom: 20px !important;
 }
 
-.festival_h2{
+.festival_h2 {
 	margin-bottom: 20px !important;
 	text-align: center;
-	
+}
+
+.slick-prev:before, .slick-next:before {
+	color: #000;
+}
+
+.slider-for img {
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.slider-nav img {
+	height: 100px;
+	width: auto;
+	object-fit: cover;
+	padding: 20px;
 }
 </style>
+<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 
@@ -722,44 +753,6 @@ p {
 		</div>
 	</section>
 
-	<!-- 원래 코드 -->
-	<!-- <section class="festival-area">
-		<div class="festival-area-nav"
-			style="display: flex; flex-direction: column;">
-
-			<div class="festival-area-title">
-				<p class="font-white">축제 / 관광 정보</p>
-				<span class="festival-area-link"><a
-					href="https://korean.visitkorea.or.kr/kfes/list/wntyFstvlList.do"
-					target="_blank">전체 보기 ></a> </span>
-			</div>
-			<div></div>
-			<figure>
-				<div class="container">
-					<div class="image-box">
-						<div class="image">
-							<img src="resources/images/festival-pic/축제1.jpg" alt="Image 1">
-						</div>
-						<div class="image">
-							<img src="resources/images/festival-pic/축제2.jpeg" alt="Image 2">
-						</div>
-						<div class="image">
-							<img src="resources/images/festival-pic/축제3.png" alt="Image 3">
-						</div>
-						<div class="image">
-							<img src="resources/images/festival-pic/축제4.jpg" alt="Image 4">
-						</div>
-					</div>
-				</div>
-
-			</figure>
-
-		</div>
-
-		<div></div>
-
-	</section> -->
-
 	<section class="festival-area">
 		<div class="festival-area-nav"
 			style="display: flex; flex-direction: column;">
@@ -779,17 +772,30 @@ p {
 		<div></div>
 	</section>
 
+	<section id="photo">
+		<div class="slider-for"></div>
+
+		<div class="slider-nav"></div>
+	</section>
+
 	<!-- 모달 창 -->
 	<div id="myModal" class="modal">
 		<span class="close">&times;</span> <img class="modal-content"
 			id="modalImg">
 		<div class="festival-info">
-		
-		<h2 class="festival_h2"> <span id='modal_title'></h2>
-        <p><strong>장소:</strong> <span id='modal_addr1'></span></p>
-        <p><strong>행사 기간:</strong> <span id='modal_eventstartdate'></span>-<span id='modal_eventenddate'></span></p>
-        
-        
+
+			<h2 class="festival_h2">
+				<span id='modal_title'>
+			</h2>
+			<p>
+				<strong>장소:</strong> <span id='modal_addr1'></span>
+			</p>
+			<p>
+				<strong>행사 기간:</strong> <span id='modal_eventstartdate'></span>-<span
+					id='modal_eventenddate'></span>
+			</p>
+
+
 		</div>
 	</div>
 
@@ -1015,8 +1021,6 @@ p {
 
     // 클릭한 이미지와 관련된 행사 정보를 가져와서 모달 내에 표시
     var eventData = getEventDataByImageSrc(event.target.src);
-    console.log("---------------");
-    console.log(eventData.addr1);
     if (eventData) {
         // 행사 정보를 표시할 HTML 문자열 생성
         var modalTitle = document.getElementById('modal_title');
@@ -1050,9 +1054,121 @@ function getEventDataByImageSrc(imageSrc) {
 
     </script>
 
+	<script>
+        
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
 
 
-	<script src="resources/assets/js/vender/jquery-2.2.4.min.js"></script>
+            $('.slider-nav').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: true,
+                centerMode: true,
+                focusOnSelect: true
+            });
+            fetchTourismPhotos();
+        });
+
+        function fetchTourismPhotos() {
+            // API 엔드포인트 URL
+            var endpoint = 'https://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList';
+
+            // 발급받은 API 키
+            var apiKey = 'KXfyHJMcJkFoPCwNcSpfgUv3X6dRdSv38a5QURobGIUWRL9h07dYGCehJciNINCBFGTxk8VxXAwh6d/GNAQvyg==';
+
+            // API 요청을 보낼 때 필요한 매개변수 설정
+            var queryParams = new URLSearchParams({
+                'ServiceKey': apiKey,
+                'numOfRows': '20', // 가져올 데이터의 개수
+                'pageNo': '1', // 페이지 번호
+                'MobileOS': 'WIN', // 모바일 OS 구분
+                'MobileApp': 'AppTest', // 모바일 앱명
+                '_type': 'json', // 응답 형식(JSON)
+                'arrange': 'C'
+            });
+
+            // 완전한 요청 URL 생성
+            var requestUrl_image = endpoint + '?' + queryParams;
+
+            $.ajax({
+                url: requestUrl_image,
+                method: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    // 데이터에서 이미지 URL 추출
+                    var images = data.response.body.items.item.map(function (item) {
+                        console.log(item.galWebImageUrl);
+                        return item.galWebImageUrl;
+                    });
+
+                    console.log(images);
+                    // 랜덤하게 9개의 이미지 선택
+                    var randomImages = getRandomImages(images, 9);
+                    // slick slider에 이미지 추가
+                    addImagesToSlider(randomImages);
+
+                },
+                error: function () {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        // 랜덤하게 이미지를 선택하는 함수
+        function getRandomImages(images, count) {
+            var shuffled = images.slice(0), i = images.length, min = i - count, temp, index;
+            while (i-- > min) {
+                index = Math.floor((i + 1) * Math.random());
+                temp = shuffled[index];
+                shuffled[index] = shuffled[i];
+                shuffled[i] = temp;
+            }
+            return shuffled.slice(min);
+        }
+
+        function addImagesToSlider(images) {
+            // slick slider에 이미지를 추가할 요소 선택
+            var sliderFor = $('.slider-for');
+            var sliderNav = $('.slider-nav');
+
+            // 이미지를 순회하며 slick slider에 추가
+            images.forEach(function (imageUrl) {
+                // 이미지를 담을 새로운 div 요소 생성
+                var slideForItem = $('<div>').append($('<img>').attr('src', imageUrl).attr('alt', 'Slide'));
+
+                // slick slider에 이미지 추가
+                sliderFor.slick('slickAdd', slideForItem);
+
+                // 네비게이션용 슬라이더에도 이미지 추가
+                var slideNavItem = $('<div>').append($('<img>').attr('src', imageUrl).attr('alt', 'Slide'));
+                sliderNav.slick('slickAdd', slideNavItem);
+            });
+        }
+
+    </script>
+
+
+
+
+	
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"
+		integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
 		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
