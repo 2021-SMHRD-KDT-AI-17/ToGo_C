@@ -388,6 +388,26 @@ p {
 	text-decoration: none;
 	cursor: pointer;
 }
+
+.festival-info{
+	font-family: 'BMJUA_ttf';
+	background-color: black;
+	color: white;
+	padding: 20px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	height: 160px;
+}
+
+#modal_title{
+	margin-bottom: 20px !important;
+}
+
+.festival_h2{
+	margin-bottom: 20px !important;
+	text-align: center;
+	
+}
 </style>
 </head>
 
@@ -765,11 +785,11 @@ p {
 			id="modalImg">
 		<div class="festival-info">
 		
-		<h2> <span id='modal_title'></h2>
+		<h2 class="festival_h2"> <span id='modal_title'></h2>
         <p><strong>장소:</strong> <span id='modal_addr1'></span></p>
-        <p><strong>시작 일시:</strong> <span id='modal_eventstartdate'></p>
-        <p><strong>종료 일시:</strong>  <span id='eventenddate'></p>
-        <p><strong>내용:</strong>  <span id='modal_overview'></p>
+        <p><strong>행사 기간:</strong> <span id='modal_eventstartdate'></span>-<span id='modal_eventenddate'></span></p>
+        
+        
 		</div>
 	</div>
 
