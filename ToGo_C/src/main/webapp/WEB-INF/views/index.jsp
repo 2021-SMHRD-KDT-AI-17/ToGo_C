@@ -752,20 +752,7 @@ p {
 			<div></div>
 			<figure>
 				<div class="container">
-					<div class="image-box">
-						<div class="image">
-							<img src="resources/images/festival-pic/축제1.jpg" alt="Image 1" onclick = fetchEventData()>
-						</div>
-						<div class="image">
-							<img src="resources/images/festival-pic/축제2.jpeg" alt="Image 2">
-						</div>
-						<div class="image">
-							<img src="resources/images/festival-pic/축제3.png" alt="Image 3">
-						</div>
-						<div class="image">
-							<img src="resources/images/festival-pic/축제4.jpg" alt="Image 4">
-						</div>
-					</div>
+					<div class="image-box"></div>
 				</div>
 			</figure>
 		</div>
@@ -777,22 +764,12 @@ p {
 		<span class="close">&times;</span> <img class="modal-content"
 			id="modalImg">
 		<div class="festival-info">
-			<table id="eventTable">
-				<thead>
-					<tr>
-						<th>행사명</th>
-						<th>장소</th>
-						<th>시작 일시</th>
-						<th>종료 일시</th>
-						<th>내용</th>
-						<th>이미지</th>
-						<th>이미지2</th>
-					</tr>
-				</thead>
-				<tbody id="eventTableBody"></tbody>
-			</table>
-
-
+		
+		<h2> <span id='modal_title'></h2>
+        <p><strong>장소:</strong> <span id='modal_addr1'></span></p>
+        <p><strong>시작 일시:</strong> <span id='modal_eventstartdate'></p>
+        <p><strong>종료 일시:</strong>  <span id='eventenddate'></p>
+        <p><strong>내용:</strong>  <span id='modal_overview'></p>
 		</div>
 	</div>
 
@@ -921,47 +898,137 @@ p {
 
 	</script>
 	<script>
-	// AJAX 요청을 보내고 데이터를 가져와서 테이블에 표시하는 함수
-  function fetchEventData() {
-    // API 엔드포인트 URL
-    var endpoint = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival';
+        // 이미지의 세로 길이가 가로 길이보다 긴 것을 저장할 리스트
+        var verticalImages = [];
 
-    // 발급받은 API 키
-    var apiKey = 'KXfyHJMcJkFoPCwNcSpfgUv3X6dRdSv38a5QURobGIUWRL9h07dYGCehJciNINCBFGTxk8VxXAwh6d/GNAQvyg==';
+        // AJAX 요청을 보내고 데이터를 가져와서 테이블에 표시하는 함수
+        function fetchEventData() {
+            // API 엔드포인트 URL
+            var endpoint = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival';
 
-    // API 요청을 보낼 때 필요한 매개변수 설정
-    var queryParams = new URLSearchParams({
-        'ServiceKey': apiKey,
-        'numOfRows': '10', // 가져올 데이터의 개수
-        'pageNo': '1', // 페이지 번호
-        'MobileOS': 'ETC', // 모바일 OS 구분
-        'MobileApp': 'AppTest', // 모바일 앱명
-        'eventStartDate': '20240101', // 행사 시작일
-        'eventEndDate': '20241231', // 행사 종료일
-        '_type': 'json' // 응답 형식(JSON)
-    });
+            // 발급받은 API 키
+            var apiKey = 'KXfyHJMcJkFoPCwNcSpfgUv3X6dRdSv38a5QURobGIUWRL9h07dYGCehJciNINCBFGTxk8VxXAwh6d/GNAQvyg==';
 
-    // 완전한 요청 URL 생성
-    var requestUrl = endpoint + '?' + queryParams;
+            // API 요청을 보낼 때 필요한 매개변수 설정
+            var queryParams = new URLSearchParams({
+                'ServiceKey': apiKey,
+                'numOfRows': '30', // 가져올 데이터의 개수
+                'pageNo': '1', // 페이지 번호
+                'MobileOS': 'ETC', // 모바일 OS 구분
+                'MobileApp': 'AppTest', // 모바일 앱명
+                'eventStartDate': '20240101', // 행사 시작일
+                'eventEndDate': '20241231', // 행사 종료일
+                '_type': 'json' // 응답 형식(JSON)
+            });
 
-    // AJAX 요청 보내기
-    $.ajax({
-        url: requestUrl,
-        method: 'GET',
-        //dataType: 'json',
-        success: function(data) {
-            // 결과를 테이블에 채우기
-            //populateEventTable(data.response.body.items.item);
-            console.log(data.response);
-        },
-        error: function(xhr, status, error) {
-            console.error('Error:', error);
+            // 완전한 요청 URL 생성
+            var requestUrl = endpoint + '?' + queryParams;
+
+            // AJAX 요청 보내기
+            $.ajax({
+                url: requestUrl,
+                method: 'GET',
+                success: function (data) {
+                    // 결과를 테이블에 채우기
+                    data.response.body.items.item.forEach(event => {
+                        loadImageAndAddToTable(event);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
         }
-    });
+
+        // 이미지 로드 후 크기 확인하여 조건에 맞는 이미지만 테이블에 추가
+        function loadImageAndAddToTable(event) {
+            var img = new Image();
+            img.onload = function () {
+                if (img.height > img.width && verticalImages.length < 4) {
+                    verticalImages.push(event); // 세로로 긴 이미지를 리스트에 추가
+                    addEventToTable(event);
+                }
+            };
+            img.src = event.firstimage;
+        }
+
+        // 행사 정보를 테이블에 추가하는 함수
+        function addEventToTable(event) {
+    // 이미지를 표시할 부모 요소(.image-box)를 찾습니다.
+    const imageBox = document.querySelector('.image-box');
+
+    // imageBox 아래에 새로운 div를 생성하고 image 클래스를 추가합니다.
+    const innerDiv = document.createElement('div');
+    innerDiv.classList.add('image');
+
+    // 이미지 엘리먼트를 생성하고 설정합니다.
+    const image = document.createElement('img');
+    image.src = event.firstimage;
+    image.alt = '이미지';
+    image.onclick = ViewModel; // 이미지 클릭 시 ViewModel 함수 실행
+
+    // innerDiv에 이미지를 추가합니다.
+    innerDiv.appendChild(image);
+
+    // imageBox에 innerDiv를 추가합니다.
+    imageBox.appendChild(innerDiv);
 }
 
+
+
+        // 페이지 로드 시 행사 정보 가져오기
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchEventData();
+        });
+
+     // 이미지를 클릭하면 모달 표시
+        function ViewModel(event) {
+    var modal = document.getElementById('myModal');
+    var modalImg = document.getElementById('modalImg');
+    var modalContent = document.querySelector('.festival-info');
+
+    // 모달을 보임
+    modal.style.display = 'block';
+
+    // 클릭한 이미지의 src를 모달 이미지의 src로 설정
+    modalImg.src = event.target.src;
+
+    // 클릭한 이미지와 관련된 행사 정보를 가져와서 모달 내에 표시
+    var eventData = getEventDataByImageSrc(event.target.src);
+    console.log("---------------");
+    console.log(eventData.addr1);
+    if (eventData) {
+        // 행사 정보를 표시할 HTML 문자열 생성
+        var modalTitle = document.getElementById('modal_title');
+        var modalAddr1 = document.getElementById('modal_addr1');
+        var modalEventStartDate = document.getElementById('modal_eventstartdate');
+        var modalEventEndDate = document.getElementById('modal_eventenddate');
+        var modalOverview = document.getElementById('modal_overview');
+
+        modalTitle.innerText = eventData.title;
+        modalAddr1.innerText = eventData.addr1;
+        modalEventStartDate.innerText = eventData.eventstartdate;
+        modalEventEndDate.innerText = eventData.eventenddate;
+        modalOverview.innerText = eventData.overview;
+    } else {
+        modalContent.innerHTML = "<p>해당 행사 정보를 가져올 수 없습니다.</p>";
+    }
+
+}
+
+// 이미지 클릭 시 해당 이미지와 관련된 행사 정보를 가져오는 함수
+function getEventDataByImageSrc(imageSrc) {
+    // 이미지의 src를 이용하여 행사 정보를 식별하고 반환하는 로직을 구현
+    // 여기에 적절한 로직을 추가하여 해당 이미지와 관련된 행사 정보를 가져옴
+    // 이 예시에서는 간단하게 verticalImages 배열을 사용하여 이미지를 식별함
+    var imageData = verticalImages.find(function(event) {
+        return event.firstimage === imageSrc;
+    });
+    return imageData;
+}
+
+
     </script>
-    
 
 
 
